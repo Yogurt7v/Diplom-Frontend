@@ -14,6 +14,9 @@ export const MainContent = () => {
         <div className={style.Content}>
             <SortBar />
             <Card />
+            <Card />
+            <Card />
+            <Card />
         </div>
       </div>
     </>
