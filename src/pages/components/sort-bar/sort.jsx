@@ -10,4 +10,3 @@ export const SortBar = () => {
 };
 
 export default SortBar;
-Ы
