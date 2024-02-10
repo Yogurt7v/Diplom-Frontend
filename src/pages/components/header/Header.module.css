@@ -1,0 +1,29 @@
+.HeaderWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 50px;
+
+}
+
+
+.HeaderLogo{
+    width: 200px;
+    height: 100px;
+    background-color: red;
+
+}
+
+.HeaderMenu{
+    width: 600px;
+    height: 100px;
+    background-color: blue;
+}
+
+
+.HeaderAuth{
+    width: 200px;
+    height: 100px;
+    background-color: green;
+}
