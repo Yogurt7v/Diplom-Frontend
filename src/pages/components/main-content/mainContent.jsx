@@ -2,6 +2,7 @@ import React from "react";
 import style from "./mainContent.module.css";
 import Slider from "../slider/Slider";
 import Card from "../card/Card";
+import SortBar from "../sort-bar/sort";
 
 export const MainContent = () => {
   return (
@@ -11,11 +12,7 @@ export const MainContent = () => {
           <Slider />
         </div>
         <div className={style.Content}>
-            <div className={style.Content__sort}>
-                <span>by price</span>
-                <span>by quantity</span>
-                <span>by rating</span>
-            </div>
+            <SortBar />
             <Card />
         </div>
       </div>
