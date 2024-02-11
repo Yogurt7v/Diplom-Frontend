@@ -4,17 +4,17 @@ export const ProductItem = () => {
   return (
     <div className={style.ProductItemWrapper}>
       <div className={style.ProductImage}>
-        <img src="" alt="Product" />
+        {/* <img src="" alt="" className={style.ProductImageItem}/> */}
       </div>
       <div className={style.ProductDescription}>
         <div className={style.ProductDescriptionWrapper}>
-            <h3 className={style.ProductTitle}>Title</h3>
-            <div className={style.ProductQuantity}>Quantity</div>
-            <div className={style.ProductPrice}>Price</div>
+          <h3 className={style.ProductTitle}>Title</h3>
+          <div className={style.ProductQuantity}>Quantity</div>
+          <div className={style.ProductPrice}>Price</div>
         </div>
         <div className={style.ProductButton}>
           <button className={style.ProductButtonBuy}>Buy</button>
-            <div className={style.ProductId}> product id</div>
+          <div className={style.ProductId}> product id</div>
         </div>
       </div>
     </div>

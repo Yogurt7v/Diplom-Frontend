@@ -8,7 +8,6 @@
     width: 30%;
     height: 70dvh ;
     justify-content: space-between;
-    background-color: blue;
 }
 
 .Content{
@@ -16,6 +15,5 @@
     flex-direction: column;
     width: 70%;
     height: 70dvh;
-    background-color: red;
 }
 

@@ -1,13 +1,20 @@
 
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px solid red;
+  font-family: 'EB Garamond', serif;
+  /* border: 1px solid pink; */
+  --main-color: #2F2519;
+  --secondary-color: #4A3F35;
+  --acent-color: #FA7D09;
+  --button-color: #FF4301;
 }
 
 
 body{
   background-color: black;
-  color: white;
+  color: var(--acent-color);
 }

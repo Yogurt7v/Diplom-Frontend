@@ -1,29 +1,75 @@
-.HeaderWrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px 50px;
-
+.HeaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 128px;
+  /* background-color: var(--secondary-color); */
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-
-.HeaderLogo{
-    width: 200px;
-    height: 100px;
-    background-color: red;
-
+.LogoAndName {
+  display: flex;
+  height: 100%;
 }
 
-.HeaderMenu{
-    width: 600px;
-    height: 100px;
-    background-color: blue;
+.HeaderLogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 40px;
 }
 
+.HeaderLogo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
 
-.HeaderAuth{
-    width: 200px;
-    height: 100px;
-    background-color: green;
+.HeaderTitleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 40px;
+}
+
+.HeaderTitle {
+  font-size: 44px;
+  color: var(--acent-color);
+  line-height: 50px;
+}
+
+.HeaderMenuWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 100%;
+}
+
+.HeaderAuth {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding-right: 40px;
+  gap: 20px;
+
+  width: 200px;
+  height: 100px;
+}
+
+.HeaderLogin {
+  width: 50px;
+  height: 50px;
+}
+
+.HeaderRegistration {
+  width: 50px;
+  height: 50px;
 }
