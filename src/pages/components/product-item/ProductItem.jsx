@@ -4,7 +4,7 @@ export const ProductItem = () => {
   return (
     <div className={style.ProductItemWrapper}>
       <div className={style.ProductImage}>
-        <img src="" alt="photo" />
+        <img src="" alt="Product" />
       </div>
       <div className={style.ProductDescription}>
         <div className={style.ProductDescriptionWrapper}>

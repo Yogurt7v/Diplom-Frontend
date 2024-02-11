@@ -1,7 +1,7 @@
 import style from "./Busket.module.css";
 import Header from "../components/header/Header";
 import SearchBar from "../components/search-bar/SearchBar";
-import BusketCard from "../components/busket-card/BusketCard";
+import BusketCard from "../components/busket-card/busketCard";
 
 export const Busket = () => {
   return (
