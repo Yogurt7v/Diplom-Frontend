@@ -1,6 +1,8 @@
 .MainContentWrapper{
     padding: 20px 50px ;
     display: flex;
+    gap: 20px
+    ;
 
 }
 

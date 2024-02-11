@@ -1,7 +1,7 @@
 import style from "./Header.module.css";
 import React from "react";
 import NavMenu from "./nav-menu/NavMenu";
-import Logo from "./image/logo-fotor-2024021112181.jpg";
+import Logo from "./image/Logo2.png";
 import login from "./image/login.svg";
 import registration from "./image/registration.svg";
 
@@ -14,17 +14,16 @@ export const Header = () => {
         </div>
         <div className={style.HeaderTitleWrapper}>
           <h1 className={style.HeaderTitle}>
-            Вкусно <br></br> и быстро
+            FastBurger <br></br> Fast & Delicious
           </h1>
         </div>
       </div>
       <div className={style.HeaderMenuWrapper}>
         <NavMenu />
       </div>
-
       <div className={style.HeaderAuth}>
-        <img src={login} alt="" className={style.HeaderLogin} />
-        <img src={registration} alt=""  className={style.HeaderRegistration}/>
+        <img src={login} alt="Вход" className={style.HeaderLogin} />
+        <img src={registration} alt="Регистрация"  className={style.HeaderRegistration}/>
       </div>
     </div>
   );

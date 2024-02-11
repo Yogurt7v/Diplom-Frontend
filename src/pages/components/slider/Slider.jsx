@@ -1,5 +1,10 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import img1 from "./Image/1.jpg";
+import img2 from "./Image/2.jpg"
+import img3 from "./Image/3.jpg"
+import img4 from "./Image/4.jpg"
+import img5 from "./Image/5.jpg"
 
 // Import Swiper styles
 import "swiper/css";
@@ -21,11 +26,11 @@ export default function Slider() {
         modules={[Pagination, Autoplay, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
+        <SwiperSlide><img src={img1} alt=""/></SwiperSlide>
+        <SwiperSlide><img src={img2} alt=""/></SwiperSlide>
+        <SwiperSlide><img src={img3} alt=""/></SwiperSlide>
+        <SwiperSlide><img src={img4} alt=""/></SwiperSlide>
+        <SwiperSlide><img src={img5} alt=""/></SwiperSlide>
       </Swiper>
     </>
   );
