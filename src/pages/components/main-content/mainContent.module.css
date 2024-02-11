@@ -8,9 +8,49 @@
 
 .SliderWrapper{
     width: 30%;
-    height: 80dvh ;
+    height: 540px ;
     justify-content: space-between;
 }
+
+.PhoneButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    border: 2px solid #ff4301;
+    background-color: transparent;
+    color: #ff4301;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    animation: blink 1s infinite;
+
+}
+.Phone{
+    width: 30px;
+    height: 30px;
+
+}
+
+@keyframes blink {
+    0%{
+        background-color: transparent;
+        color: #ff4301;
+    }
+    100%{
+        background-color: #ff4301;
+        color: black;
+        box-shadow: 0 0 2px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4301, 0 0 70px #ff4301, 0 0 80px #ff4301, 0 0 100px #ff4301, 0 0 150px #ff4301;
+        /* transform: scale(1.2);   */
+    }
+}
+
+
+
 
 .Content{
     display: flex;
