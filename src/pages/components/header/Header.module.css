@@ -32,14 +32,15 @@
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  /* border-radius: 30% 70% 76% 24% / 69% 51% 49% 31% ; */
 }
+
 
 .HeaderTitleWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 30px 40px;
+  cursor: pointer;
 }
 
 .HeaderTitle {
@@ -86,24 +87,34 @@
 }
 
 .HeaderLogin {
+  border: 3px solid transparent;
+  border-radius: 14px;
   width: 50px;
   height: 50px;
 }
 
 .HeaderLogin:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  border: 2px solid #FA7D09;
+  border-radius: 14px;
+  padding: 3px;
+  transform: scale(1.4);
   transition: 1.0s;
 
 }
 
 .HeaderRegistration {
+  border: 3px solid transparent;
+  border-radius: 14px;
   width: 50px;
   height: 50px;
 }
 
 .HeaderRegistration:hover {
   cursor: pointer;
-  transform: scale(1.2);
+  border: 2px solid #FA7D09;
+  border-radius: 14px;
+  padding: 3px;
+  transform: scale(1.4);
   transition: 1.0s;
 }

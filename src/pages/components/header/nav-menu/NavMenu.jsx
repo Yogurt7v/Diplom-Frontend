@@ -4,10 +4,10 @@ export const NavMenu = () => {
   return (
     <>
      <nav className={style.NavMenuWrapper}>
-        <div className={style.NavMenuItem}>Бургеры</div>
-        <div className={style.NavMenuItem}>Салаты</div>
-        <div className={style.NavMenuItem}>Закуски</div>
-        <div className={style.NavMenuItem}>Напитки</div>
+        <div className={style.NavMenuItem}>Burgers</div>
+        <div className={style.NavMenuItem}>Salats</div>
+        <div className={style.NavMenuItem}>Snacks</div>
+        <div className={style.NavMenuItem}>Drinks</div>
      </nav>
     </>
   );

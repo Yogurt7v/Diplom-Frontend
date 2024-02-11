@@ -5,7 +5,7 @@ import React from "react";
 export const SearchBar = () => {
     return (
         <div className={style.SearchBarWrapper}>
-            <input type="text" className={style.SearchBarInput}></input>
+            <input type="text" className={style.SearchBarInput} placeholder="Search"></input>
         </div>
     );
 }
