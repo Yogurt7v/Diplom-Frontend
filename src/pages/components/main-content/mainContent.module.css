@@ -8,7 +8,7 @@
 
 .SliderWrapper{
     width: 30%;
-    height: 540px ;
+    height: 590px ;
     justify-content: space-between;
 }
 
@@ -27,7 +27,7 @@
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
-    animation: blink 1s infinite;
+    animation: blink 5s infinite;
 
 }
 .Phone{
@@ -41,11 +41,15 @@
         background-color: transparent;
         color: #ff4301;
     }
-    100%{
+    50%{
         background-color: #ff4301;
         color: black;
-        box-shadow: 0 0 2px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4301, 0 0 70px #ff4301, 0 0 80px #ff4301, 0 0 100px #ff4301, 0 0 150px #ff4301;
+        box-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff4301, 0 0 35px #ff4301, 0 0 40px #ff4301, 0 0 50px #ff4301, 0 0 100px #ff4301;
         /* transform: scale(1.2);   */
+    }
+    100%{
+        background-color: transparent;
+        color: #ff4301;
     }
 }
 

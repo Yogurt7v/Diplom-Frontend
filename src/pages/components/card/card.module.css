@@ -59,12 +59,14 @@
 
 .CardButtonWrapper {
   display: flex;
+  align-items: center ;
   justify-content: flex-end;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 
 .CardButton {
   margin-right: 30px;
-  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
