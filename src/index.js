@@ -4,6 +4,7 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/Login-Page/LoginPage";
 import MainPage from "./pages/Main-Page/MainPage";
+import Header from "./pages/components/header/Header";
 // import ProductPage  from './pages/Product-Page/ProductPage';
 // import Busket from './pages/Busket/Busket';
 
@@ -14,6 +15,7 @@ root.render(
   // <ProductPage />
 
   <BrowserRouter>
+    <Header />
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<LoginPage />} />

@@ -1,5 +1,4 @@
 import style from "./LoginPage.module.css";
-import Header from "../components/header/Header";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -52,7 +51,6 @@ export const LoginPage = () => {
 
   return (
     <>
-      <Header />
       <div className={style.LoginPageWrapper}>
         <div className={style.LoginPageContent}>Login Page</div>
         <input className={style.LoginInput} type="text" placeholder="Login" {...register("login")}/>
