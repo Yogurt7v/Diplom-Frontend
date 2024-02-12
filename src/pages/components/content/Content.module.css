@@ -1,4 +1,4 @@
-.MainContentWrapper{
+.ContentWrapper{
     padding: 20px 50px ;
     display: flex;
     gap: 20px
@@ -56,10 +56,21 @@
 
 
 
-.Content{
+.ContentCard{
+
     display: flex;
     flex-direction: column;
     width: 70%;
-    height: 70dvh;
+
+    /* height: 70dvh; */
 }
+
+.ContentCardWrapper{
+    display: flex;
+    flex-direction: column;
+    max-height: 480px;
+    overflow-x: hidden;    
+    overflow-y: auto;
+}
+
 

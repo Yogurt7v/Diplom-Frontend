@@ -1,6 +1,6 @@
 .SearchBarWrapper{
     width: 100%;
-    padding: 20px 50px;
+    padding: 20px 50px 0 50px;
     margin: 10px;
 }
 
@@ -25,7 +25,7 @@
 .SearchBarInput:focus{
     letter-spacing: normal;
     outline: none;
-    border: 2px solid ##FA7D09;
+    border: 2px solid #FA7D09;
     transition: 0.3s ease-in-out all;
     -webkit-box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
     -moz-box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);

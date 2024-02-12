@@ -1,6 +1,6 @@
 import style from "./MainPage.module.css";
 import React from "react";
-import MainContent from "../components/main-content/mainContent.jsx";
+import Content from "../components/content/Content.jsx";
 import SearchBar from "../components/search-bar/SearchBar.jsx";
 
 function MainPage() {
@@ -8,7 +8,7 @@ function MainPage() {
     <>
       <div className={style.AppWrapper}>
         <SearchBar />
-        <MainContent />
+        <Content />
       </div>
     </>
   );
