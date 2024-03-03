@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./content.module.css";
+import style from "./сontent.module.css";
 import Slider from "../slider/Slider";
 import Card from "../card/card";
 import SortBar from "../sort-bar/sort";
