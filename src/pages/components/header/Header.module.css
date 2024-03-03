@@ -70,7 +70,7 @@
 
 .HeaderMenuWrapper {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   width:600px;
   height: 100%;
