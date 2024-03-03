@@ -1,4 +1,4 @@
-import style from "./BusketCard.module.css";
+import style from "./busket-card.module.css";
 
 export const BusketCard = () => {
   return (

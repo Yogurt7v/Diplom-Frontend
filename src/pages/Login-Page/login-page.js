@@ -5,7 +5,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 // import { server } from "../../Bff/";
 import { useState } from "react";
 
-
 const authFormSchema = yup.object().shape({
   login: yup
     .string()
@@ -21,9 +20,7 @@ const authFormSchema = yup.object().shape({
     .max(30, "Неверный пароль. Пароль слишком большой. Не больше 30 символов"),
 });
 
-
 export const LoginPage = () => {
-
   const {
     register,
     handleSubmit,
@@ -53,12 +50,30 @@ export const LoginPage = () => {
     <>
       <div className={style.LoginPageWrapper}>
         <div className={style.LoginPageContent}>Login Page</div>
-        <input className={style.LoginInput} type="text" placeholder="Login" {...register("login")}/>
-        <input className={style.PasswordInput} type="password" placeholder="Password" {...register("password")} />
-        <button className={style.LoginButton} type="submit" disabled={!!formError}>Enter</button>
+        <input
+          className={style.LoginInput}
+          type="text"
+          placeholder="Login"
+          {...register("login")}
+        />
+        <input
+          className={style.PasswordInput}
+          type="password"
+          placeholder="Password"
+          {...register("password")}
+        />
+        <button
+          className={style.LoginButton}
+          type="submit"
+          disabled={!!formError}
+        >
+          Enter
+        </button>
         <div className={style.RegistrationLink}>Registraion</div>
 
-        {errorMessage && <div className={style.ErrorMessage}>{errorMessage}</div>}
+        {errorMessage && (
+          <div className={style.ErrorMessage}>{errorMessage}</div>
+        )}
       </div>
     </>
   );

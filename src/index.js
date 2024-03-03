@@ -2,9 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from "./pages/Login-Page/LoginPage";
-import MainPage from "./pages/Main-Page/MainPage";
-import Header from "./pages/components/header/Header";
+import { LoginPage, MainPage}  from "./pages/index";
+import {Header} from "./pages/components/index";
+import { Provider } from "react-redux";
+import store from "./store";
 // import ProductPage  from './pages/Product-Page/ProductPage';
 // import Busket from './pages/Busket/Busket';
 
@@ -13,7 +14,8 @@ root.render(
   // <Busket />
   // <LoginPage />
   // <ProductPage />
-
+// 
+<Provider store={store}>
   <BrowserRouter>
     <Header />
     <Routes>
@@ -26,4 +28,5 @@ root.render(
         <Route path="/post/" element={<div>New Post</div>} /> */}
     </Routes>
   </BrowserRouter>
+  </Provider>
 );

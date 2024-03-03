@@ -1,0 +1,151 @@
+{
+  "users": [
+    {
+      "id": "001",
+      "login": "loginMaster",
+      "password": "passWord8",
+      "registed_at": "06.02.2024",
+      "role_id": 0
+    },
+    {
+      "id": "c463",
+      "login": "ivan",
+      "password": "qwerty123",
+      "registed_at": "2033-05-28 12:01",
+      "role_id": 1
+    }
+  ], 
+  "roles": [
+    {
+      "id": "0",
+      "name": "Admin"
+    },
+    {
+      "id": "1",
+      "name": "Moderator"
+    },
+    {
+      "id": "2",
+      "name": "User"
+    },
+    {
+      "id": "3",
+      "name": "Guest"
+    }
+  ],
+  "products": [
+    {
+      "id": "001",
+      "productName": "Cheeseburger",
+      "image_url": "https://1.downloader.disk.yandex.ru/preview/9bdbfcb99b15bcabdcc38517d16ba3ec9c3415d465185b0a0e44778ae3c824fb/inf/ku_u4IexMttnBzOJ19yoMfXNrgKXTNHOYRtVpaiVZ8skHdtcFZBjtTUxfyCUeX9AeyW5W025NiCNC-NRBxzL1Q%3D%3D?uid=87392891&filename=ChickenBurger.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Чизбургер — круглый сэндвич с жареной котлетой, сыром и салатом на сдобной булочке. Пожалуй, на этом виде гамбургера выросли те, кто ребенком застал открытие первого ресторана фастфуда в своем городе. Это ощущение, когда разворачиваешь хрустящую бумагу и достаешь из нее еще горячую карамелизованную булочку, заправленную кетчупом, сладкой горчицей, луком и колечками маринованного огурца. ",
+      "category": "burgers"
+    },
+    {
+      "id": "002",
+      "productName": "Mushroom Burger",
+      "image_url": "https://2.downloader.disk.yandex.ru/preview/ad8a7cf82d9d2bdca797c03ad61d206592d47069394a6db11768116c6b0da858/inf/8Q9CFxfhOYrJoVvgspuxyydxUTnNp4RoNqDYB3SO2jHOrwa8g34Qkm9l3SsuA0yYuHJOnyFYmS7PkdFbPdpR6g%3D%3D?uid=87392891&filename=MushroomBurger.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Бургеры с грибами - это вкусное и популярное блюдо, которое представляет собой комбинацию мясного котлета, свежих овощей, соусов и ароматных грибов, все это упаковано в мягкую булочку. Бургеры с грибами имеют довольно длинную историю, которая началась в конце 19 века. Вначале бургеры были простыми и скромными блюдами, состоящими из котлеты и булочки. Однако с течением времени они стали все более популярными и приобрели различные вариации и дополнения, включая разные виды мяса, соусы, овощи и теперь грибы. Бургеры с грибами обладают богатым и насыщенным вкусом. Грибы, как правило, обжариваются на сковороде с маслом и приправами, чтобы придать им более глубокий вкус. ",
+      "category": "burgers"
+    },    
+    {
+      "id": "003",
+      "productName": "Chicken Burger",
+      "image_url": "https://1.downloader.disk.yandex.ru/preview/9bdbfcb99b15bcabdcc38517d16ba3ec9c3415d465185b0a0e44778ae3c824fb/inf/ku_u4IexMttnBzOJ19yoMfXNrgKXTNHOYRtVpaiVZ8skHdtcFZBjtTUxfyCUeX9AeyW5W025NiCNC-NRBxzL1Q%3D%3D?uid=87392891&filename=ChickenBurger.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "В основе блюда всегда лежит куриное филе, которое может быть запечено, обжарено или приготовлено на гриле. Обычно мясо маринуется или обмакивается в соусах, чтобы придать ему вкус и сочность. В качестве добавок к чикенбургеру часто используются ломтики помидоров, листья салата, лук, маринованные огурцы и сыр. ... ",
+      "category": "burgers"
+    },
+    {
+      "id": "004",
+      "productName": "Burger Tower",
+      "image_url": "https://2.downloader.disk.yandex.ru/preview/88cbfa816ea9754a9459ac5f1ef6f65c9b3af3a2f502671349532809a0039fec/inf/2Do2Wf13BR-tg2rwXCb8YZ-F4u4ZiVHNN3qz_4oMr_dmhHtHzle-I_cNe70Mtk7t1ao7XVwO1he6nFsKf_7H0A%3D%3D?uid=87392891&filename=BurgerTower.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Величественная башня из четырех котлет мраморной говядины с сырами чеддер и моцарелла, лук гриль, обжаренный бекон, соус ранчо, соус барбекю, репчатый лук",
+      "category": "burger"
+    }, 
+    {
+      "id": "005",
+      "productName": "Cesar Salad",
+      "image_url": "https://2.downloader.disk.yandex.ru/preview/03c3809ed100ea431f6bc307982994de5503aa0ec89eff7d5c8e8217d52c1e23/inf/RG_iYfCpAhT2wgVYxHHJgnZbfe_mldzfYyvmZEH5fEOQHBPjb5xYC4ouHIjrM_qFtK-w2XSCq0IunSiqEqgVQg%3D%3D?uid=87392891&filename=SalateCesar.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Салат Цезарь - это зеленый салат из листьев салата ромэн и крутонов, заправленный лимонным соком (или соком лайма), оливковым маслом, яйцом, вустерширским соусом, анчоусами, чесноком, дижонской горчицей, сыром пармезан и черным перцем.",
+      "category": "salat"
+    },
+    {
+      "id": "006",
+      "productName": "Greek Salad",
+      "image_url": "https://2.downloader.disk.yandex.ru/preview/eaa29e54c139702f81a40a08136e45e73f9e21dfcb8ab34943e9ef90019411c4/inf/OffBJEEmbGijZLbTH00T_OiouDl5i8abfd1eByFoSzRbyPNocfWaDP6r9UZ4YczcIM-2FXVVayL3Ba9XfRbgSg%3D%3D?uid=87392891&filename=GreekSalat.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "«Деревенский салат» — это буквальный перевод греческого названия известного сегодня салата «Греческий». Это ежедневное блюдо на столе каждой семьи в Греции, потому что его ингредиенты несложно найти и вырастить. Сегодня это блюдо конкурирует с салатами из других кухонь мира и известно своим непревзойдённым вкусом и богатым ассортиментом продуктов. Его можно увидеть в меню всех ведущих ресторанов любой страны мира, поклонники салата есть везде, а возможность изменять рецепт классического салата обеспечивает разнообразие вкусов готовых блюд",
+      "category": "salat"
+    },
+    {
+      "id": "007",
+      "productName": "Nicoise salad",
+      "image_url": "https://2.downloader.disk.yandex.ru/preview/e4a986cf88b8d5c670bd8d64765c3f5bcabaa228c4202bf7bacb91226357541e/inf/-UepjS61W3EscchD6irkI8TbbL2i6-gKWtF1-qmlWQ5FdWPL-b0wfGi4qB97LrBBlnvzxMM_IQ-Z7r4wFtbifg%3D%3D?uid=87392891&filename=nicoiseSatad.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Изысканный, яркий, очень вкусный - настоящая пища богов! Классический салат Нисуаз с тунцом и анчоусами - это один из самых гармоничных по вкусу и аромату салат. Поэтому стоит убрать или добавить хоть один ингредиент, и будет уже совсем не то... Такой салат порадует даже самого утонченного гурмана!",
+      "category": "salat"
+    },
+    {
+      "id": "008",
+      "productName": "French Fries",
+      "image_url": "https://2.downloader.disk.yandex.ru/preview/f7dd1f34efc5b5b4536ae3fe1dfea03fa83a6aafe7c90504eb4c76fd12132fa2/inf/45Qf_UPbxz4FKf4PLF1QVO1TGu7ImUn5WND36Vfoqm7FI6DW4PpWcffccXfTo0_nngOA7jZPgAdG8AFhVf291Q%3D%3D?uid=87392891&filename=Free.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Картофель Фри - это крупные ломтики картофеля с аппетитно хрустящей корочкой и мягкой, рассыпчатой серединкой. Любимое удовольствие! ",
+      "category": "snack"
+    },
+    {
+      "id": "009",
+      "productName": "Onion Rings",
+      "image_url": "https://4.downloader.disk.yandex.ru/preview/472dd981a8b7e274f7135ab36e44b14cf9305db624c3fceb553615e934e6ee63/inf/IyKdfHwjc5xcFEG07nyy8O7Jblvl2hjzPcdT9gnXrj_EZhoPglj-sWddaDm-hXSzk3FM20zf00gt-44wiycxpg%3D%3D?uid=87392891&filename=OnionFries.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Гарнир в британской и американской кухне. Представляет собой лук, нарезанный поперечно в виде колец, которые обмакивают в кляр или обваливают в панировочных сухарях, а затем обжаривают во фритюре. ",
+      "category": "snack"
+    },
+    {
+      "id": "010",
+      "productName": "Cheese Ball",
+      "image_url": "https://2.downloader.disk.yandex.ru/preview/a80b3e734f69d7f6aa88fdb4b0f0262bddf41ac7556619a9e5978fb08252fac7/inf/b0vRvOxP3gbClvCyHHtD1TIeixV1sCrrnnL_y_S3I8P862bQBk8l6x2asOv87bR-XUymRNKGthC6EvZEUWz1xA%3D%3D?uid=87392891&filename=CheeseBall.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Хрустящие сырные жаренные во фритюре сырные шарики в панировке, вытекающий плавленный блестящий сыр, хрустящая корочка. ",
+      "category": "snack"
+    },
+    {
+      "id": "011",
+      "productName": "Lemonade",
+      "image_url": "https://3.downloader.disk.yandex.ru/preview/88a542562dc3d3b9894e82374d46f82f2e6b18c22269d3e11f01f04b37e17f13/inf/wlIE_yK_TIwx58sDMPgjUJgXcZzCf9kBUX7ks9Tn-suoC9B1OjSeHV-gFOgAEfR_rFDwjQySeCrMcH3za_OZZQ%3D%3D?uid=87392891&filename=Lemonad.webp&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Домашний лимонад выгодно отличается от сладкой газировки. В нем больше витаминов, меньше сахара, у него насыщенный вкус и натуральный состав. После сладкой газировки всегда хочется пить, то после освежающего лимонада – хочется только еще лимонада.",
+      "category": "drinks"
+    },
+    {
+      "id": "011",
+      "productName": "Cola",
+      "image_url": "https://1.downloader.disk.yandex.ru/preview/84e67e078e5fc5a5a8916bbb662a9e74ec1961f5c2259bb29b08431b829f3cb8/inf/KWFdUbVwLQv-0s84cRc34sL8RcEPznGTmhEN_eQCaaXpUJgXnSdjA1nHHESCwzBwfpYIuxyai7XTl4WAkZ-Zqw%3D%3D?uid=87392891&filename=Cola.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956https://1.downloader.disk.yandex.ru/preview/84e67e078e5fc5a5a8916bbb662a9e74ec1961f5c2259bb29b08431b829f3cb8/inf/KWFdUbVwLQv-0s84cRc34sL8RcEPznGTmhEN_eQCaaXpUJgXnSdjA1nHHESCwzBwfpYIuxyai7XTl4WAkZ-Zqw%3D%3D?uid=87392891&filename=Cola.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "description": "Уникальный напиток созданный из натуральных ингридиено.  В напитке ощущаются цитрусовые масла (из апельсиновой, лаймовой и лимонной цедры), корица, ваниль и кислый ароматизатор.",
+      "category": "drinks"
+    },
+    {
+      "id": "012",
+      "productName": "Juice",
+      "image_url": "https://3.downloader.disk.yandex.ru/preview/4041387e758f51a41768fd7e02cba13b1367b086c2b92ec6d2b0602cb8db4055/inf/YrnfvU-jHpk4ZLKES6vlELKUFu0q3an8-NxNhLCToW8QzCtkdUWzUML1PTF2BoKH_tRu_iYg-UwCMAxABKWTYg%3D%3D?uid=87392891&filename=Juice.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1903x956",
+      "description": "Свежевыжатые соки. Апельсин, яблоко, гранат, вишня, лайм. ",
+      "category": "drinks"
+    }
+  ],
+  "comments": [
+    {
+      "id": "3239",
+      "authorId": "c463",
+      "productsId": "001",
+      "publishedAt": "2033-05-26 02:45",
+      "content": "Потрясающий вкус"
+    }
+  ],
+  "sessions": [
+    {
+      "hash": "0.67798296024924709080039519903948530554771423339844",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024"
+      },
+      "id": 1
+    }
+  ]
+}

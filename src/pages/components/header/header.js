@@ -1,4 +1,4 @@
-import style from "./Header.module.css";
+import style from "./header.module.css";
 import React from "react";
 import NavMenu from "./nav-menu/NavMenu";
 import Logo from "./image/Logo2.png";

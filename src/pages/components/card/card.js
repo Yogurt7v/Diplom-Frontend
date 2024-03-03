@@ -15,7 +15,6 @@ export const Card = () => {
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas
               aspernatur expedita esse laboriosam est!
             </p>
-
             <div className={style.CardButtonWrapper}>
               <div className={style.CardPrice}>15$</div>
               <button className={style.CardButton}>Buy</button>

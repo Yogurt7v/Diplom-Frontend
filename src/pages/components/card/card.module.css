@@ -50,6 +50,11 @@
   font-weight: 700;
 }
 
+h3{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .CardDescription {
   display: flex;
   flex-direction: column;

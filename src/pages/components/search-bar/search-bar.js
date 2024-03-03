@@ -1,4 +1,4 @@
-import style from "./SearchBar.module.css";
+import style from "./search-bar.module.css";
 import React from "react";
 
 
