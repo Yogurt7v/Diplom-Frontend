@@ -1,21 +1,27 @@
-import style from "./LoginPage.module.css";
+import style from "./loginPage.module.css";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import { server } from "../../Bff/";
+import { server } from "../../Bff/";
 import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {selectUserRole} from "../../selectors"
+import { useResetForm } from "../../hooks";
+import { setUser } from "../../actions";
+import { ROLE } from "../../constants/role";
 
 const authFormSchema = yup.object().shape({
   login: yup
     .string()
     .required("Пустой логин")
-    .matches(/\w/, "Логин не подходит. Допускаются только буквы и цифры")
+    .matches(/\w+$/, "Логин не подходит. Допускаются только буквы и цифры")
     .min(3, "Неверный логин. Логин слишком мал")
     .max(15, "Неверный логин. Логин слишком большой"),
   password: yup
     .string()
     .required("Пустой пароль")
-    .matches(/^[\w#%&   ] +$/, "Допускаются только буквы, цифры и символы")
+    .matches(/^[\w#%]+$/, "Допускаются только буквы, цифры и символы")
     .min(8, "Неверный пароль. Слишком мал. Не меньше 8 символов")
     .max(30, "Неверный пароль. Пароль слишком большой. Не больше 30 символов"),
 });
@@ -23,6 +29,7 @@ const authFormSchema = yup.object().shape({
 export const LoginPage = () => {
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm({
@@ -34,46 +41,58 @@ export const LoginPage = () => {
   });
 
   const [serverError, setServerError] = useState("");
+  const roleId = useSelector(selectUserRole);
+  const dispatch = useDispatch();
 
-  // const onSubmit = ({ login, password }) => {
-  //   server.authorize(login, password).then((error, res) => {
-  //     if (error) {
-  //       setServerError(`Ошибка запроса ${error}`);
-  //     }
-  //   });
-  // };
+  useResetForm(reset);
+
+  const onSubmit = ({ login, password }) => {
+    server.authorize(login, password).then(({ error, res }) => {
+      if (error) {
+        setServerError(`Ошибка запроса ${error}`);
+        return;
+      }
+      dispatch(setUser(res));
+      sessionStorage.setItem("userData", JSON.stringify(res));
+      setServerError(null);
+    });
+  };
 
   const formError = errors?.login?.message || errors?.password?.message;
   const errorMessage = formError || serverError;
+
+  if (roleId !== ROLE.GUEST) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <>
       <div className={style.LoginPageWrapper}>
         <div className={style.LoginPageContent}>Login Page</div>
-        <input
-          className={style.LoginInput}
-          type="text"
-          placeholder="Login"
-          {...register("login")}
-        />
-        <input
-          className={style.PasswordInput}
-          type="password"
-          placeholder="Password"
-          {...register("password")}
-        />
-        <button
-          className={style.LoginButton}
-          type="submit"
-          disabled={!!formError}
-        >
-          Enter
-        </button>
-        <div className={style.RegistrationLink}>Registraion</div>
-
-        {errorMessage && (
-          <div className={style.ErrorMessage}>{errorMessage}</div>
-        )}
+        <form onSubmit={handleSubmit(onSubmit)} className={style.LoginPageForm}>
+          <input
+            type="text"
+            placeholder="Login"
+            {...register("login", {
+              onChange: () => setServerError(null),
+            })}
+          ></input>
+          <input
+            type="password"
+            placeholder="Password"
+            autoComplete="on"
+            {...register("password", {
+              onChange: () => setServerError(null),
+            })}
+          ></input>
+          <button
+            type="submit"
+            disabled={!!formError}
+            children={"Авторизоваться"}
+          ></button>
+          {errorMessage && <div className={style.errorMessage}>{errorMessage}</div>}
+          <Link to="/register" className={style.register}>Регистрация</Link>
+        </form>
       </div>
     </>
   );

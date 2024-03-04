@@ -14,7 +14,7 @@
       "registed_at": "2033-05-28 12:01",
       "role_id": 1
     }
-  ], 
+  ],
   "roles": [
     {
       "id": "0",
@@ -47,7 +47,7 @@
       "image_url": "https://2.downloader.disk.yandex.ru/preview/ad8a7cf82d9d2bdca797c03ad61d206592d47069394a6db11768116c6b0da858/inf/8Q9CFxfhOYrJoVvgspuxyydxUTnNp4RoNqDYB3SO2jHOrwa8g34Qkm9l3SsuA0yYuHJOnyFYmS7PkdFbPdpR6g%3D%3D?uid=87392891&filename=MushroomBurger.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
       "description": "Бургеры с грибами - это вкусное и популярное блюдо, которое представляет собой комбинацию мясного котлета, свежих овощей, соусов и ароматных грибов, все это упаковано в мягкую булочку. Бургеры с грибами имеют довольно длинную историю, которая началась в конце 19 века. Вначале бургеры были простыми и скромными блюдами, состоящими из котлеты и булочки. Однако с течением времени они стали все более популярными и приобрели различные вариации и дополнения, включая разные виды мяса, соусы, овощи и теперь грибы. Бургеры с грибами обладают богатым и насыщенным вкусом. Грибы, как правило, обжариваются на сковороде с маслом и приправами, чтобы придать им более глубокий вкус. ",
       "category": "burgers"
-    },    
+    },
     {
       "id": "003",
       "productName": "Chicken Burger",
@@ -61,7 +61,7 @@
       "image_url": "https://2.downloader.disk.yandex.ru/preview/88cbfa816ea9754a9459ac5f1ef6f65c9b3af3a2f502671349532809a0039fec/inf/2Do2Wf13BR-tg2rwXCb8YZ-F4u4ZiVHNN3qz_4oMr_dmhHtHzle-I_cNe70Mtk7t1ao7XVwO1he6nFsKf_7H0A%3D%3D?uid=87392891&filename=BurgerTower.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
       "description": "Величественная башня из четырех котлет мраморной говядины с сырами чеддер и моцарелла, лук гриль, обжаренный бекон, соус ранчо, соус барбекю, репчатый лук",
       "category": "burger"
-    }, 
+    },
     {
       "id": "005",
       "productName": "Cesar Salad",
@@ -146,6 +146,50 @@
         "registeredAt": "06.02.2024"
       },
       "id": 1
+    },
+    {
+      "hash": "0.55681213743536295268654612300451844930648803710938",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024"
+      },
+      "id": 2
+    },
+    {
+      "hash": "0.41182334082404237207697406120132654905319213867188",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024"
+      },
+      "id": 3
+    },
+    {
+      "hash": "0.50961649125460484199834354512859135866165161132813",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024"
+      },
+      "id": 4
+    },
+    {
+      "hash": "0.89601670097581420648680250451434403657913208007813",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024"
+      },
+      "id": 5
     }
   ]
 }
