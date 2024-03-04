@@ -148,48 +148,79 @@
       "id": 1
     },
     {
-      "hash": "0.55681213743536295268654612300451844930648803710938",
+      "hash": "0.76756687306119375513446811964968219399452209472656",
       "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024"
+        "login": "newUser",
+        "password": "newUser123",
+        "registed_at": "2033-05-27 20:14",
+        "role_id": 2,
+        "id": "WmUJTjl"
       },
       "id": 2
     },
     {
-      "hash": "0.41182334082404237207697406120132654905319213867188",
+      "hash": "0.32681247658221090901520256011281162500381469726563",
       "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024"
+        "login": "newUser2",
+        "password": "newUser123",
+        "address": "Дворцовая",
+        "homeNumber": "1",
+        "flatNumber": "101",
+        "phone": "123123123",
+        "registed_at": "2033-05-25 06:13",
+        "role_id": 2,
+        "id": "CGUo5ZU"
       },
       "id": 3
     },
     {
-      "hash": "0.50961649125460484199834354512859135866165161132813",
+      "hash": "0.94387940923203617060721626330632716417312622070313",
       "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024"
+        "login": "newUser",
+        "password": "newUser123",
+        "address": "Дворцовая",
+        "homeNumber": "1",
+        "flatNumber": "101",
+        "phone": "123123123",
+        "registed_at": "2033-05-28 16:42",
+        "role_id": 2,
+        "id": "UY1kQhP"
       },
       "id": 4
     },
     {
-      "hash": "0.89601670097581420648680250451434403657913208007813",
+      "hash": "0.63570860649912663831173631479032337665557861328125",
       "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024"
+        "login": "newUser",
+        "password": "newUser123",
+        "location": {
+          "address": "Дворцовая",
+          "homeNumber": "1",
+          "flatNumber": "101"
+        },
+        "phone": "12312312",
+        "registed_at": "2024-03-04 17:34",
+        "role_id": 2,
+        "id": "uYwdEws"
       },
       "id": 5
+    },
+    {
+      "hash": "0.40659523184370316428726255253423005342483520507813",
+      "user": {
+        "login": "newUser",
+        "password": "newUser123",
+        "location": {
+          "address": "Дворцовая",
+          "homeNumber": "1",
+          "flatNumber": "101"
+        },
+        "phone": "9111112233",
+        "registed_at": "2024-03-04 18:00",
+        "role_id": 2,
+        "id": "YGrcQxL"
+      },
+      "id": 6
     }
   ]
 }

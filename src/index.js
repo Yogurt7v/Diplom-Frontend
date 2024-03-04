@@ -6,6 +6,8 @@ import { LoginPage, MainPage}  from "./pages/index";
 import {Header} from "./pages/components/index";
 import { Provider } from "react-redux";
 import store from "./store";
+import { RegisterPage } from "./pages/index";
+
 // import ProductPage  from './pages/Product-Page/ProductPage';
 // import Busket from './pages/Busket/Busket';
 
@@ -21,11 +23,11 @@ root.render(
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/login" element={<LoginPage />} />
-      {/* <Route path="/register" element={<div>Registration Page</div>} />
-        <Route path="/users" element={<div>Users</div>} /> */}
-      {/* <Route path="/post/post:id" element={<div>Single Post</div>} /> */}
-      {/* <Route path="*" element={<MainPage />} />
-        <Route path="/post/" element={<div>New Post</div>} /> */}
+      <Route path="/register" element={<RegisterPage />} />
+      {/* <Route path="/users" element={<div>Users</div>} />
+      <Route path="/post/post:id" element={<div>Single Post</div>} />
+      <Route path="*" element={<MainPage />}
+      <Route path="/post/" element={<div>New Post</div>} /> */}
     </Routes>
   </BrowserRouter>
   </Provider>

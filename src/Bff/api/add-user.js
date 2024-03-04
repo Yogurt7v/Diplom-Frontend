@@ -1,5 +1,5 @@
-import { generatedDate } from "../utils";
-export const addUser = (login, password) =>
+import { generateDate } from "../utils";
+export const addUser = (login, password, address,homeNumber, flatNumber, phone) =>
   fetch("http://localhost:3004/users", {
     method: "POST",
     headers: {
@@ -8,7 +8,14 @@ export const addUser = (login, password) =>
     body: JSON.stringify({
       login,
       password,
-      registed_at: generatedDate(),
+      location: {
+        address,
+        homeNumber,
+        flatNumber,
+      },
+      phone,
+      registed_at: generateDate(),
       role_id: 2,
+
     }),
   }).then((createdUser) => createdUser.json());
