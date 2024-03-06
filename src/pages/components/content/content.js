@@ -3,19 +3,57 @@ import style from "./сontent.module.css";
 import Slider from "../slider/Slider";
 import Card from "../card/card";
 import SortBar from "../sort-bar/sort";
+import { useState, useEffect } from "react";
+import { useServerRequest } from "../../../hooks/use-server-request";
+import { PAGINATION_LIMIT } from "../../../constants/pagination-limit";
+import { getLastPageFromLinks } from "../../../utils/getLastPageFromLinks";
 // import Discount from "../content/Image/discount.svg";
 
 export const MainContent = () => {
+
+  const [products, setProducts] = useState([]);
+  const requestServer = useServerRequest();
+  const [page, setPage] = useState(1);
+  const [lasPage, setLastPage] = useState(1);
+  const [searchPhrase, setSearchPhrase] = useState("");
+  const [shouldSearch, setShouldSearch] = useState(false);
+
+
+  useEffect(() => {
+      requestServer(`fetchProducts`, searchPhrase, page, PAGINATION_LIMIT).then(
+      ({ res: { products, links } }) => {
+        setProducts(products);
+        setLastPage(getLastPageFromLinks(links));
+      }
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [requestServer, page, shouldSearch]);
+
   return (
     <>
       <div className={style.ContentWrapper}>
         <div className={style.ContentCard}>
           <SortBar />
           <div className={style.ContentCardWrapper}>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+          {products.length > 0 ? (
+          <div className="post-list">
+            {products.map(
+              ({ id, productName, image_url, description, category, price }) => (
+                <Card
+                  key={id}
+                  id={id}
+                  productName={productName}
+                  imageUrl={image_url}
+                  description={description}
+                  category={category}
+                  price={price}
+                />
+              )
+            )}
+          </div>
+        ) : (
+          <div className={style.ContentCardNotFound}>Товары не найдены</div>
+        )}
           </div>
         </div>
         <div className={style.SliderWrapper}>

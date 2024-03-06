@@ -30,6 +30,7 @@ export const register = async (regLogin, regPassword, address,homeNumber, flatNu
         phone: user.phone,
         roleId: user.role_id,
         session: sessions.create(user),
+        card: null,
       },
     };
   }

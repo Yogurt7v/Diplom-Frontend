@@ -1,7 +1,7 @@
 .CardWrapper {
   display: flex;
   width: 100%;
-  padding: 10px 20px;
+  padding: 20px 20px;
   margin-bottom: 20px;
   background-color: #fa7d09;
   border-radius: 10px;
@@ -11,18 +11,20 @@
   box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
 }
 
+
 .CardLogo {
   margin: auto;
-  width: 100px;
-  height: 100px;
+  width: 220px;
+  height: 220px;
   border-radius: 10px;
-  background-color: rgb(50, 7, 50);
+  background-color: #320732;
   margin-right: 10px;
+
 }
 
 .CardImage {
-  width: 100px;
-  height: 100px;
+  width: 220px;
+  height: 220px;
   border-radius: 10px;
   -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
@@ -44,6 +46,7 @@
 }
 
 .CardTitle {
+  margin: 0;
   padding: 15px 0 0 30px ;
   display: flex;
   font-size: 24px;
@@ -54,6 +57,10 @@ h3{
   margin-top: 10px;
   margin-bottom: 10px;
 }
+button{
+  padding: 0;
+}
+
 
 .CardDescription {
   display: flex;

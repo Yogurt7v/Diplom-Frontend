@@ -52,6 +52,7 @@ export const LoginPage = () => {
         setServerError(`Ошибка запроса ${error}`);
         return;
       }
+      console.log(res);
       dispatch(setUser(res));
       sessionStorage.setItem("userData", JSON.stringify(res));
       setServerError(null);
@@ -86,6 +87,7 @@ export const LoginPage = () => {
             })}
           ></input>
           <button
+            className={style.LoginPageButton}
             type="submit"
             disabled={!!formError}
             children={"Авторизоваться"}

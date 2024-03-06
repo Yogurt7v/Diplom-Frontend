@@ -77,13 +77,7 @@
 }
 
 .HeaderAuth {
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  margin-right: 90px;
-  gap: 20px;
-  width: 200px;
-  height: 100px;
+
 }
 
 .HeaderLogin {
@@ -128,24 +122,33 @@
 }
 
 .HeaderAuth{
-  margin: 0;
-  padding: 0;
   display: flex;
   align-items: center;
+  margin-right: 90px;
+  gap: 30px;
+  width: auto;
+  height: 100px;
+  margin: 0;
+  padding: 0;
   justify-content: flex-start;
   font-size: 20px;
   color: #ff0000;
 }
 
 .HeaderExit{
+  display: flex;
   width: 40px;
   height: 40px;
+
 }
 
 .exitButton{
+  margin: 0;
+  padding: 0;
   border: none;
   background-color: transparent;
   cursor: pointer;
   width: 40px;
   height: 40px;
+
 }
