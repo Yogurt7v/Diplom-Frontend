@@ -2,11 +2,12 @@
     padding: 20px 50px ;
     display: flex;
     gap: 20px;
+    height: auto;
 }
 
 .SliderWrapper{
     width: 30%;
-    height: 590px ;
+    height: 620px ;
     justify-content: space-between;
 }
 
@@ -66,7 +67,7 @@
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    height: 480px;
+    height: 600px;
     overflow-x: hidden;    
     overflow-y: auto;
 }
