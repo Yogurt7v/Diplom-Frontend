@@ -5,6 +5,7 @@ import SearchBar from "../components/search-bar/search-bar.js";
 import { useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../actions";
+import { VideoBackground } from "../components"
 
 
 
@@ -29,6 +30,7 @@ export const MainPage = () => {
       <div className={style.AppWrapper}>
         <SearchBar />
         <Content />
+        <VideoBackground/>
       </div>
     </>
   );

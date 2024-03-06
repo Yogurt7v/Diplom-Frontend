@@ -7,26 +7,25 @@ import { useState, useEffect } from "react";
 import { useServerRequest } from "../../../hooks/use-server-request";
 import { PAGINATION_LIMIT } from "../../../constants/pagination-limit";
 import { getLastPageFromLinks } from "../../../utils/getLastPageFromLinks";
-// import Discount from "../content/Image/discount.svg";
+import { Pagination } from "../pagination/pagination";
 
 export const MainContent = () => {
-
   const [products, setProducts] = useState([]);
   const requestServer = useServerRequest();
   const [page, setPage] = useState(1);
-  const [lasPage, setLastPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
   const [searchPhrase, setSearchPhrase] = useState("");
   const [shouldSearch, setShouldSearch] = useState(false);
 
 
+
   useEffect(() => {
-      requestServer(`fetchProducts`, searchPhrase, page, PAGINATION_LIMIT).then(
+    requestServer(`fetchProducts`, searchPhrase, page, PAGINATION_LIMIT).then(
       ({ res: { products, links } }) => {
         setProducts(products);
         setLastPage(getLastPageFromLinks(links));
       }
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [requestServer, page, shouldSearch]);
 
   return (
@@ -35,29 +34,42 @@ export const MainContent = () => {
         <div className={style.ContentCard}>
           <SortBar />
           <div className={style.ContentCardWrapper}>
-          {products.length > 0 ? (
-          <div className="post-list">
-            {products.map(
-              ({ id, productName, image_url, description, category, price }) => (
-                <Card
-                  key={id}
-                  id={id}
-                  productName={productName}
-                  imageUrl={image_url}
-                  description={description}
-                  category={category}
-                  price={price}
-                />
-              )
+            {products.length > 0 ? (
+              <div className={style.ContentCardList}>
+                {products.map(
+                  ({
+                    id,
+                    productName,
+                    image_url,
+                    description,
+                    category,
+                    price,
+                  }) => (
+                    <Card
+                      key={id}
+                      id={id}
+                      productName={productName}
+                      imageUrl={image_url}
+                      description={description}
+                      category={category}
+                      price={price}
+                    />
+                  )
+                )}
+              </div>
+            ) : (
+              <div className={style.ContentCardNotFound}>Товары не найдены</div>
             )}
-          </div>
-        ) : (
-          <div className={style.ContentCardNotFound}>Товары не найдены</div>
-        )}
+
+            {lastPage > 1 && products.length > 0 ? (
+              <Pagination setPage={setPage} page={page} lastPage={lastPage} />
+            ) : null}
           </div>
         </div>
         <div className={style.SliderWrapper}>
-          <button className={style.PhoneButton}>Здесь будет анимированная корзина</button>
+          <button className={style.PhoneButton}>
+            Здесь будет анимированная корзина
+          </button>
           <Slider />
         </div>
       </div>

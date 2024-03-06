@@ -21,7 +21,7 @@
     height: 60px;
     border-radius: 10px;
     border: 2px solid #ff4301;
-    background-color: transparent;
+    background-color: #2D2A24;
     color: #ff4301;
     font-size: 20px;
     font-weight: 700;
@@ -37,7 +37,7 @@
 
 @keyframes blink {
     0%{
-        background-color: transparent;
+        background-color: #2D2A24;
         color: #ff4301;
     }
     50%{
@@ -47,20 +47,26 @@
         /* transform: scale(1.2);   */
     }
     100%{
-        background-color: transparent;
+        background-color: #2D2A24;
         color: #ff4301;
     }
 }
 
+.ContentCardList{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(to right, #000000, #141110, #201b19, #2a2621, #33322a);
 
 
+}
 
 .ContentCard{
-
     display: flex;
     flex-direction: column;
     width: 70%;
-
 }
 
 .ContentCardWrapper{

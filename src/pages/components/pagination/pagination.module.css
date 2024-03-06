@@ -1,0 +1,44 @@
+.Pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.currentPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+
+
+.normal {
+    width: 150px;
+    height: 30px;
+    background-color: #FA7D09;
+    border: 1px solid #FA7D09;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 10px;
+
+
+}
+
+.disabled {
+    width: 150px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    pointer-events: none;
+    border-radius: 10px;
+    border: 1px solid #FA7D09;
+    opacity: 0.1;
+  }
