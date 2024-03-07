@@ -36,7 +36,7 @@
   "products": [
     {
       "id": "001",
-      "productName": "Cheeseburger",
+      "productName": "Cheeseburger ",
       "image_url": "https://1.downloader.disk.yandex.ru/preview/9bdbfcb99b15bcabdcc38517d16ba3ec9c3415d465185b0a0e44778ae3c824fb/inf/ku_u4IexMttnBzOJ19yoMfXNrgKXTNHOYRtVpaiVZ8skHdtcFZBjtTUxfyCUeX9AeyW5W025NiCNC-NRBxzL1Q%3D%3D?uid=87392891&filename=ChickenBurger.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
       "description": "Чизбургер — круглый сэндвич с жареной котлетой, сыром и салатом на сдобной булочке. Пожалуй, на этом виде гамбургера выросли те, кто ребенком застал открытие первого ресторана фастфуда в своем городе. Это ощущение, когда разворачиваешь хрустящую бумагу и достаешь из нее еще горячую карамелизованную булочку, заправленную кетчупом, сладкой горчицей, луком и колечками маринованного огурца. ",
       "category": "burgers",
@@ -159,6 +159,28 @@
         "registeredAt": "06.02.2024"
       },
       "id": 1
+    },
+    {
+      "hash": "0.03058745773186521965669726341729983687400817871094",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024"
+      },
+      "id": 2
+    },
+    {
+      "hash": "0.78522241379466262145569999120198190212249755859375",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024"
+      },
+      "id": 3
     }
   ]
 }

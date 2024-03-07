@@ -5,8 +5,9 @@ export const VideoBackground = () => {
     <>
       <iframe
         className={style.videoBackground}
-        src="https://www.youtube.com/embed/gKKLbQbXpw4?autoplay=1&mute=1&controls=0&loop=1&playlist=gKKLbQbXpw4"
+        src="https://www.youtube.com/embed/gKKLbQbXpw4?modestbranding=1&autoplay=1&mute=1&controls=0&loop=1&playlist=gKKLbQbXpw4"
         title="YouTube video player"
+        allowFullScreen
       ></iframe>
     </>
   );

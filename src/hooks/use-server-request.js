@@ -6,6 +6,7 @@ import { useCallback } from "react";
 
 
 export const useServerRequest = () => {
+
   const session = useSelector(selectUserSession);
 
   return useCallback(
@@ -13,7 +14,9 @@ export const useServerRequest = () => {
       const request = [
         "register",
         "authorize",
-        "fetchProducts"
+        "fetchProducts",
+        "fetchProduct",
+        "saveProduct",
       ].includes(operation)
         ? params
         : [session, ...params];
