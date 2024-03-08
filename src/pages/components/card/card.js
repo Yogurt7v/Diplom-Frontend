@@ -35,7 +35,6 @@ export const Card = ({
             <p className={style.CardText}>{description}</p>
           </div>
           <div className={style.CardQuantity}>
-            <div className={style.CardPrice}>{price}</div>
             <div className={style.Increment}>
               <div className={style.Cover}>
                 <img
@@ -55,9 +54,10 @@ export const Card = ({
                   className={style.normal}
                 />
               </div>
+            <div className={style.CardPrice}>{price}</div>
             </div>
-            <button className={style.CardButton}>Buy</button>
           </div>
+            <button className={style.CardButton}>Buy</button>
         </div>
       </div>
     </>
