@@ -20,8 +20,6 @@ export const Card = ({
     }
   };
 
-
-
   return (
     <>
       <div className={style.CardWrapper}>
@@ -32,29 +30,33 @@ export const Card = ({
         </div>
         <div className={style.CardInfo}>
           <h3 className={style.CardTitle}>{productName}</h3>
+
           <div className={style.CardDescription}>
-            <p>{description}</p>
-            <div className={style.CardButtonWrapper}>
-              <div className={style.CardQuantity}>
+            <p className={style.CardText}>{description}</p>
+          </div>
+          <div className={style.CardQuantity}>
+            <div className={style.CardPrice}>{price}</div>
+            <div className={style.Increment}>
+              <div className={style.Cover}>
                 <img
                   src={minus}
                   alt=""
                   onClick={() => decrimetnQuantity()}
                   className={quantity === 1 ? style.disabled : style.normal}
                 />
-                <div>
-                  <p>{quantity}</p>
-                </div>
+              </div>
+
+              <p className={style.quantityNumber}>{quantity}</p>
+              <div className={style.Cover}>
                 <img
                   src={plus}
                   alt=""
                   onClick={() => setQuantity(quantity + 1)}
                   className={style.normal}
                 />
-                <div className={style.CardPrice}>{price}</div>
-                <button className={style.CardButton}>Buy</button>
               </div>
             </div>
+            <button className={style.CardButton}>Buy</button>
           </div>
         </div>
       </div>

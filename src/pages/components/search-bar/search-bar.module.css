@@ -1,21 +1,28 @@
-.SearchBarWrapper{
+ .SearchBarWrapper{
     width: 100%;
     padding: 20px 50px 0 50px;
     margin: 10px;
+    display: flex;
+    justify-content: center;
+
+
 }
 
 
 .SearchBarInput{
-    width: 100%;
+    width: 50%;
     height: 30px;
     letter-spacing: 1.5rem;
- background-image: linear-gradient(to right, #000000, #141110, #201b19, #2a2621, #33322a);
+ /* background-image: linear-gradient(to right, #000000, #141110, #201b19, #2a2621, #33322a); */
+ background-color: transparent;
     border: none;
-    border-bottom: 2px solid #FA7D09;
+    /* border-bottom: 2px solid #FA7D09; */
+    border-radius: 20px;
     color: #FA7D09;
     text-align: center;
     font-size: 20px;
     font-weight: 200;
+    cursor: pointer;
 }
 
 .SearchBarInput::placeholder{

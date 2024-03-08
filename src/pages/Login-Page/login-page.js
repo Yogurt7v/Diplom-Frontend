@@ -70,14 +70,14 @@ export const LoginPage = () => {
       <div className={style.LoginPageWrapper}>
         <div className={style.LoginPageContent}>Login Page</div>
         <form onSubmit={handleSubmit(onSubmit)} className={style.LoginPageForm}>
-          <input
+          <input className={style.LoginPageInput}
             type="text"
             placeholder="Login"
             {...register("login", {
               onChange: () => setServerError(null),
             })}
           ></input>
-          <input
+          <input className={style.LoginPageInput}
             type="password"
             placeholder="Password"
             autoComplete="on"
