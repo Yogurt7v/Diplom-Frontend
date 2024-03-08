@@ -10,6 +10,7 @@ import {selectUserRole} from "../../selectors"
 import { useResetForm } from "../../hooks";
 import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
+import { VideoBackground } from "../components";
 
 const authFormSchema = yup.object().shape({
   login: yup
@@ -95,6 +96,7 @@ export const LoginPage = () => {
           <Link to="/register" className={style.register}>Регистрация</Link>
         </form>
       </div>
+      <VideoBackground/>
     </>
   );
 };

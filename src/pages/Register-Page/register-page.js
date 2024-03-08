@@ -10,6 +10,7 @@ import { selectUserRole } from "../../selectors";
 import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
 import { useResetForm } from "../../hooks";
+import { VideoBackground } from "../components";
 
 const phoneRegExp = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
 
@@ -158,6 +159,7 @@ export const RegisterPage = () => {
           )}
         </form>
       </div>
+      <VideoBackground/>
     </>
   );
 };
