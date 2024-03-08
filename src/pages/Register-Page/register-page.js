@@ -11,6 +11,7 @@ import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
 import { useResetForm } from "../../hooks";
 import { VideoBackground } from "../components";
+import Slider from "../components/slider/Slider";
 
 const phoneRegExp = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
 
@@ -91,8 +92,8 @@ export const RegisterPage = () => {
   return (
     <>
       <div className={style.registerPageWrapper}>
+        <form onSubmit={handleSubmit(onSubmit)} className={style.registerForm}>
         <h2>Регистрация</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
             placeholder="Логин"
@@ -143,6 +144,7 @@ export const RegisterPage = () => {
           <input
             type="tel"
             pattern="8-([0-9]{3})-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+            placeholder="Телефон"
             autoComplete="on"
             {...register("phone", {
               onChange: () => setServerError(null),
@@ -158,6 +160,7 @@ export const RegisterPage = () => {
             <div className={style.errorMessage}>{errorMessage}</div>
           )}
         </form>
+        <Slider />
       </div>
       <VideoBackground/>
     </>
