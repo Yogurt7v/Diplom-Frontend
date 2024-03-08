@@ -52,7 +52,7 @@ export const Header = () => {
             <img src={login} alt="Вход" className={style.HeaderLogin} />
           </NavLink>
           <NavLink to={"/register"}>
-            <img src={registration} alt="Регистрация" className={style.HeaderRegistration} />
+            <img src={registration} alt="Регистрация" className={style.HeaderRegistration}/>
           </NavLink>
         </div>
       )}

@@ -1,5 +1,4 @@
 import React from "react";
-// import style from "./сontent.module.css";
 import style from "./new-style-content.module.css";
 import Slider from "../slider/Slider";
 import Card from "../card/card";
@@ -29,50 +28,6 @@ export const MainContent = () => {
 
   return (
     <>
-      {/* <div className={style.ContentWrapper}>
-        <div className={style.ContentCard}>
-          <SortBar />
-          <div className={style.ContentCardWrapper}>
-            {products.length > 0 ? (
-              <div className={style.ContentCardList}>
-                {products.map(
-                  ({
-                    id,
-                    productName,
-                    image_url,
-                    description,
-                    category,
-                    price,
-                  }) => (
-                    <Card
-                      key={id}
-                      id={id}
-                      productName={productName}
-                      imageUrl={image_url}
-                      description={description}
-                      category={category}
-                      price={price}
-                    />
-                  )
-                )}
-              </div>
-            ) : (
-              <div className={style.ContentCardNotFound}>Товары не найдены</div>
-            )}
-
-            {lastPage > 1 && products.length > 0 ? (
-              <Pagination setPage={setPage} page={page} lastPage={lastPage} />
-            ) : null}
-          </div>
-        </div>
-        <div className={style.SliderWrapper}>
-          <button className={style.PhoneButton}>
-            Здесь будет анимированная корзина
-          </button>
-          <Slider />
-        </div>
-      </div>  / здесь была старая страница/  */}
-
       <div class={style.container}>
         {products.length > 0 ? (
           <div className={style.ContentCardList}>
