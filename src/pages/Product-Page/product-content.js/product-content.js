@@ -2,15 +2,17 @@ import style from "./product-content.module.css";
 import { useNavigate } from "react-router-dom";
 import  {SpecialPanel} from "../special-panel/special-panel"
 import editButton from "../../../icons/editButon.svg"
+import { VideoBackground } from "../../components/video-background.js/video-background"
 
 
 export const ProductContent =({
-    product: {  id, productName, image_url, description, category, price }
+    product: {  id, productName, image_url, description, category, weight, calories, ingredients, price }
 })=>{
 
     const navigate = useNavigate();
 
     return (
+      <>
         <div className={style.ProductWrapper}>
           <div className={style.ProductInfo}>
           <img src={image_url} alt={productName} className={style.ProductImage}></img>
@@ -24,10 +26,15 @@ export const ProductContent =({
             }
           />
           <div className={style.ProductDescription}>{description}</div>
+          <div className={style.ProductDescription}>{weight}</div>
+          <div className={style.ProductDescription}>{calories}</div>
+          <div className={style.ProductDescription}>{ingredients}</div>
+          <div className={style.ProductDescription}>{price} $</div>
+          <button onClick={() => navigate(-1)} className={style.BackButton}>Back</button>
           </div>
         </div>
+        <VideoBackground/>
+        </>
       );
-
-
 }
 

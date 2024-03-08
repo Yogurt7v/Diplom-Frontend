@@ -26,6 +26,7 @@ export const MainContent = () => {
     );
   }, [requestServer, page, shouldSearch]);
 
+
   return (
     <>
       <div class={style.container}>
@@ -38,6 +39,9 @@ export const MainContent = () => {
                 image_url,
                 description,
                 category,
+                weight,
+                calories,
+                ingredients,
                 price,
               }) => (
                 <Card
@@ -47,6 +51,9 @@ export const MainContent = () => {
                   imageUrl={image_url}
                   description={description}
                   category={category}
+                  weight={weight}
+                  calories={calories}
+                  ingredients={ingredients}
                   price={price}
                 />
               )

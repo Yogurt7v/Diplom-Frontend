@@ -16,58 +16,6 @@
 
 }
 
-.LogoAndName {
-  display: flex;
-  height: 100%;
-}
-
-.HeaderLogoWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 30px 10px 100px
-}
-
-.HeaderLogo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-}
-
-
-.HeaderTitleWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 40px;
-  cursor: pointer;
-}
-
-.HeaderTitle {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 35px;
-  color: var(--button-color);
-  text-shadow: 
-  -0   -1px 3px #000000,
-   0   -1px 3px #000000,
-  -0    1px 3px #000000,
-   0    1px 3px #000000,
-  -1px -0   3px #000000,
-   1px -0   3px #000000,
-  -1px  0   3px #000000,
-   1px  0   3px #000000,
-  -1px -1px 3px #000000,
-   1px -1px 3px #000000,
-  -1px  1px 3px #000000,
-   1px  1px 3px #000000,
-  -1px -1px 3px #000000,
-   1px -1px 3px #000000,
-  -1px  1px 3px #000000,
-   1px  1px 3px #000000;
-  /* line-height: 50px; */
-}
-
 .HeaderMenuWrapper {
   display: flex;
   align-items: flex-end;
@@ -77,77 +25,8 @@
 }
 
 
-.HeaderLogin {
-  border: 3px solid transparent;
-  border-radius: 14px;
-  width: 50px;
-  height: 50px;
-}
 
-.HeaderLogin:hover {
-  cursor: pointer;
-  border: 2px solid #FA7D09;
-  border-radius: 14px;
-  padding: 3px;
-  transform: scale(1.4);
-  transition: 1.0s;
 
-}
 
-.HeaderRegistration {
-  border: 3px solid transparent;
-  border-radius: 14px;
-  margin-right: 20px;
-  width: 50px;
-  height: 50px;
-}
 
-.HeaderRegistration:hover {
-  cursor: pointer;
-  border: 2px solid #FA7D09;
-  border-radius: 14px;
-  margin-right: 20px;
-  padding: 3px;
-  transform: scale(1.4);
-  transition: 1.0s;
-}
 
-.authWrapper{
-  display: flex;
-  align-items: center;
-
-  gap: 10px;
-  margin-right: 20px;
-}
-
-.HeaderAuth{
-  display: flex;
-  align-items: center;
-  padding-right: 90px;
-  gap: 30px;
-  width: auto;
-  height: 100px;
-  margin: 0;
-  padding: 0;
-  justify-content: space-around;
-  font-size: 20px;
-  color: #ff0000;
-}
-
-.HeaderExit{
-  display: flex;
-  width: 40px;
-  height: 40px;
-
-}
-
-.exitButton{
-  margin: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-
-}

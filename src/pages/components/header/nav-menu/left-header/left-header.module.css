@@ -1,0 +1,39 @@
+.LogoAndName {
+  display: flex;
+  height: 100%;
+}
+
+.HeaderLogoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 30px 10px 100px;
+}
+
+.HeaderLogo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+}
+
+.HeaderTitleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 40px;
+  cursor: pointer;
+}
+
+.HeaderTitle {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35px;
+  color: var(--button-color);
+  text-shadow: -0 -1px 3px #000000, 0 -1px 3px #000000, -0 1px 3px #000000,
+    0 1px 3px #000000, -1px -0 3px #000000, 1px -0 3px #000000,
+    -1px 0 3px #000000, 1px 0 3px #000000, -1px -1px 3px #000000,
+    1px -1px 3px #000000, -1px 1px 3px #000000, 1px 1px 3px #000000,
+    -1px -1px 3px #000000, 1px -1px 3px #000000, -1px 1px 3px #000000,
+    1px 1px 3px #000000;
+  /* line-height: 50px; */
+}

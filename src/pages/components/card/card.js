@@ -20,6 +20,7 @@ export const Card = ({
     }
   };
 
+
   return (
     <>
       <div className={style.CardWrapper}>
@@ -54,7 +55,7 @@ export const Card = ({
                   className={style.normal}
                 />
               </div>
-            <div className={style.CardPrice}>{price}</div>
+            <div className={style.CardPrice}>{price} $</div>
             </div>
           </div>
             <button className={style.CardButton}>Buy</button>

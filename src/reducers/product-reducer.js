@@ -6,9 +6,13 @@ const initialProductState = {
   image_url: "",
   description: "",
   category: "",
+  weight: "",
+  calories: "",
+  ingredients: "",
   price: "",
   comments: [],
 };
+
 
 export const productReducer = (state = initialProductState, action) => {
   switch (action.type) {
