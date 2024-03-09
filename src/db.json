@@ -13,6 +13,19 @@
       "password": "qwerty123",
       "registed_at": "2033-05-28 12:01",
       "role_id": 1
+    },
+    {
+      "login": "newLogin",
+      "password": "123456login",
+      "location": {
+        "address": "Дворцовая",
+        "homeNumber": "11",
+        "flatNumber": "101"
+      },
+      "phone": "89111111111",
+      "registed_at": "2024-03-09 13:57",
+      "role_id": 2,
+      "id": "PN5ojIY"
     }
   ],
   "roles": [
@@ -220,6 +233,23 @@
         "registeredAt": "06.02.2024"
       },
       "id": 3
+    },
+    {
+      "hash": "0.74973918811031947662115726416232064366340637207031",
+      "user": {
+        "login": "newLogin",
+        "password": "123456login",
+        "location": {
+          "address": "Дворцовая",
+          "homeNumber": "11",
+          "flatNumber": "101"
+        },
+        "phone": "89111111111",
+        "registed_at": "2024-03-09 13:57",
+        "role_id": 2,
+        "id": "PN5ojIY"
+      },
+      "id": 4
     }
   ]
 }

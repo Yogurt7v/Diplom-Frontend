@@ -13,6 +13,7 @@ export const register = async (regLogin, regPassword, address,homeNumber, flatNu
         error: "Такой пользователь уже существует",
         res: null,
       };
+      
     }
 
     const user = await addUser(regLogin, regPassword, address,homeNumber, flatNumber, phone);

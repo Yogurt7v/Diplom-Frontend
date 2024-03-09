@@ -13,7 +13,7 @@ import { useResetForm } from "../../hooks";
 import { VideoBackground } from "../components";
 import Slider from "../components/slider/Slider";
 
-const phoneRegExp = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
+const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
 
 const regFormSchema = yup.object().shape({
   login: yup
@@ -39,8 +39,6 @@ const regFormSchema = yup.object().shape({
   .string()
   .matches(phoneRegExp, 'Телефонный номер не подходит')
   .required('Заполните телефон')
-  .min(10, 'Неверный телефон. Не меньше 9 символов')
-  .max(10, 'Неверный телефон. Не больше 9 символов'),
 });
 
 export const RegisterPage = () => {
@@ -82,7 +80,11 @@ export const RegisterPage = () => {
   const formError =
     errors?.login?.message ||
     errors?.password?.message ||
-    errors?.passcheck?.message;
+    errors?.passcheck?.message ||
+    errors?.address?.message ||
+    errors?.homeNumber?.message ||
+    errors?.flatNumber?.message ||
+    errors?.phone?.message;
   const errorMessage = formError || serverError;
 
   if (roleId !== ROLE.GUEST) {
@@ -143,7 +145,7 @@ export const RegisterPage = () => {
           ></input>
           <input
             type="tel"
-            pattern="8-([0-9]{3})-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+            // pattern="[0-9]{1}([0-9]{3})-[0-9]{3}-[0-9]{2}-[0-9]{2}"
             placeholder="Телефон"
             autoComplete="on"
             {...register("phone", {
