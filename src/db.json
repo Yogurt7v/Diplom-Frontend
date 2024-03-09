@@ -25,19 +25,6 @@
       "phone": "",
       "registed_at": "2033-05-28 12:01",
       "role_id": 1
-    },
-    {
-      "login": "newLogin",
-      "password": "123456login",
-      "location": {
-        "address": "Дворцовая",
-        "homeNumber": "11",
-        "flatNumber": "101"
-      },
-      "phone": "89111111111",
-      "registed_at": "2024-03-09 13:57",
-      "role_id": 2,
-      "id": "PN5ojIY"
     }
   ],
   "roles": [
@@ -212,61 +199,5 @@
       "content": "Потрясающий вкус"
     }
   ],
-  "sessions": [
-    {
-      "hash": "0.67798296024924709080039519903948530554771423339844",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024"
-      },
-      "id": 1
-    },
-    {
-      "hash": "0.03058745773186521965669726341729983687400817871094",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024"
-      },
-      "id": 2
-    },
-    {
-      "hash": "0.78522241379466262145569999120198190212249755859375",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024"
-      },
-      "id": 3
-    },
-    {
-      "hash": "0.10876439304679585973190114600583910942077636718750",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024"
-      },
-      "id": 4
-    },
-    {
-      "hash": "0.82379007614012844662454426725162193179130554199219",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024"
-      },
-      "id": 5
-    }
-  ]
+  "sessions": []
 }
