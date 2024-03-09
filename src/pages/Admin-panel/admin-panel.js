@@ -51,7 +51,6 @@ export const AdminPanel = () => {
           });
         };
 
-
   return (
     <>
     <div className={style.AdminPanelWrapper}>

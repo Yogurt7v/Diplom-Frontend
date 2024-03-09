@@ -29,7 +29,7 @@ export const register = async (regLogin, regPassword, address,homeNumber, flatNu
           flatNumber: user.flatNumber,
         },
         phone: user.phone,
-        roleId: user.role_id,
+        role_id: user.role_id,
         session: sessions.create(user),
         card: null,
       },

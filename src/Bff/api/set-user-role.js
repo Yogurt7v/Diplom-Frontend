@@ -6,6 +6,6 @@ export const setUserRole = (userId, roleId) =>
       "Content-Type": "application/json;charset=utf-8",
     },
     body: JSON.stringify({
-      role_id: roleId,
+      roleId: roleId,
     }),
   }).then((createdUser) => createdUser.json());
