@@ -1,0 +1,10 @@
+.AdminPanelWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 50px;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50px;
+    
+}

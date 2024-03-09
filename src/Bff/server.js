@@ -1,4 +1,4 @@
-import { authorize, register, logout, fetchProducts, fetchProduct, saveProductAsync} from "./operations";
+import { authorize, register, logout, fetchProducts, fetchProduct, saveProductAsync, fetchUsers, fetchRoles} from "./operations";
 
 export const server = {
 
@@ -7,10 +7,8 @@ export const server = {
   logout,
   fetchProducts,
   fetchProduct,
+  fetchUsers,
+  fetchRoles,
   saveProductAsync,
   
-//   fetchUsers,
-//   fetchRoles,
-//   updateUserRole,
-//   removeUser,
   };

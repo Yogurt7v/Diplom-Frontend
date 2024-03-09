@@ -3,3 +3,4 @@ export * from "./Login-Page/login-page";
 export * from "./Product-Page/product-page";
 export * from "./Busket/busket";
 export * from "./Register-Page/register-page"
+export * from "./Admin-panel"

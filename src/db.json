@@ -4,6 +4,12 @@
       "id": "001",
       "login": "loginMaster",
       "password": "passWord8",
+      "location": {
+        "address": "",
+        "homeNumber": "",
+        "flatNumber": ""
+      },
+      "phone": "",
       "registed_at": "06.02.2024",
       "role_id": 0
     },
@@ -11,6 +17,12 @@
       "id": "c463",
       "login": "ivan",
       "password": "qwerty123",
+      "location": {
+        "address": "",
+        "homeNumber": "",
+        "flatNumber": ""
+      },
+      "phone": "",
       "registed_at": "2033-05-28 12:01",
       "role_id": 1
     },
@@ -50,7 +62,7 @@
     {
       "id": "001",
       "productName": "Cheeseburger ",
-      "image_url": "https://1.downloader.disk.yandex.ru/preview/9bdbfcb99b15bcabdcc38517d16ba3ec9c3415d465185b0a0e44778ae3c824fb/inf/ku_u4IexMttnBzOJ19yoMfXNrgKXTNHOYRtVpaiVZ8skHdtcFZBjtTUxfyCUeX9AeyW5W025NiCNC-NRBxzL1Q%3D%3D?uid=87392891&filename=ChickenBurger.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=1920x956",
+      "image_url": "https://4.downloader.disk.yandex.ru/preview/9a91a6d71776ca6fbe63bbf99eeb07936018c4df50efed0396477129caa65992/inf/a9Cp-gWJYLlL9AFZRgx7_GcfIGvoJTgEHhSVBzgI8V_atpL5qy7B9oRBE-VpDxjR49Dz8XMBYwk78Dm5TyJigw%3D%3D?uid=87392891&filename=CheeseBurger.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=3166x1752",
       "description": "Чизбургер — круглый сэндвич с жареной котлетой, сыром и салатом на сдобной булочке. Пожалуй, на этом виде гамбургера выросли те, кто ребенком застал открытие первого ресторана фастфуда в своем городе. Это ощущение, когда разворачиваешь хрустящую бумагу и достаешь из нее еще горячую карамелизованную булочку, заправленную кетчупом, сладкой горчицей, луком и колечками маринованного огурца. ",
       "category": "burgers",
       "weight": "313",
@@ -235,21 +247,26 @@
       "id": 3
     },
     {
-      "hash": "0.74973918811031947662115726416232064366340637207031",
+      "hash": "0.10876439304679585973190114600583910942077636718750",
       "user": {
-        "login": "newLogin",
-        "password": "123456login",
-        "location": {
-          "address": "Дворцовая",
-          "homeNumber": "11",
-          "flatNumber": "101"
-        },
-        "phone": "89111111111",
-        "registed_at": "2024-03-09 13:57",
-        "role_id": 2,
-        "id": "PN5ojIY"
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024"
       },
       "id": 4
+    },
+    {
+      "hash": "0.82379007614012844662454426725162193179130554199219",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024"
+      },
+      "id": 5
     }
   ]
 }

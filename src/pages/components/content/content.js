@@ -29,7 +29,7 @@ export const MainContent = () => {
 
   return (
     <>
-      <div class={style.container}>
+      <div className={style.container}>
         {products.length > 0 ? (
           <div className={style.ContentCardList}>
             {products.map(

@@ -1,0 +1,18 @@
+.usersWrapper{
+    display: flex;
+    gap: 30px
+    ;
+}
+
+.saveButton{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.deleteButton{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+
+}
