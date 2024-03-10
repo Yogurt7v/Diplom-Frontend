@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 export const RightHeader =( {loginName, onLogout}) => {
 
   const userRoleId = useSelector((state) => state.user.roleId);
-  console.log(userRoleId);
   const isAdmin = userRoleId === 0 ? true : false;
 
     return (

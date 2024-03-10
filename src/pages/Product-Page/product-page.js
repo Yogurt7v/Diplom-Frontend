@@ -11,6 +11,7 @@ import  {ProductContent} from "./product-content.js"
 import {PrivateProductContent} from "./private-product-content"
 import {PrivateEditForm} from "./private-edit-form.js"
 
+
 export const ProductPage = () => {
 
   const product = useSelector(selectProduct);
@@ -48,14 +49,13 @@ export const ProductPage = () => {
           <PrivateEditForm product={product} />
      </PrivateProductContent>
     ) : (
-      <div >
+      <div className={style.ProductAndCommentsWrapper}>
         <ProductContent product={product} />
-        {/* <Comments comments={post.comments} postId={post.id} /> */}
       </div>
     )
   )
 
-    return error ? <div error={error} /> : AdminProductPage;
+    return error ? <div className={style.error} > {error}</div> : AdminProductPage;
 
 };
 

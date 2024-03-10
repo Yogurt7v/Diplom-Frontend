@@ -197,7 +197,32 @@
       "productsId": "001",
       "publishedAt": "2033-05-26 02:45",
       "content": "Потрясающий вкус"
+    },
+    {
+      "authorId": "001",
+      "productId": "001",
+      "publishedAt": "2024-03-10 10:15",
+      "content": "asddsasda",
+      "id": "HB7ryPM"
     }
   ],
-  "sessions": []
+  "sessions": [
+    {
+      "hash": "0.78810817921979237077323432458797469735145568847656",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024",
+        "location": {
+          "homeNumber": "",
+          "flatNumber": ""
+        },
+        "phone": "",
+        "registed_at": "06.02.2024"
+      },
+      "id": 1
+    }
+  ]
 }
