@@ -29,6 +29,7 @@ export const Comments = ({ comments, productId }) => {
           <>
             <div className={style.inputWrapper}>
               <textarea
+                className={style.Textaria}
                 name="comment"
                 value={newComment}
                 placeholder="Your comment..."
@@ -37,17 +38,16 @@ export const Comments = ({ comments, productId }) => {
                 }}
               />
 
-              <img
-                src={edit}
-                alt="edit"
-                className={style.icon}
+              <div className={style.EditIconWrapper}
                 onClick={() => onNewCommentAdded(userId, productId, newComment)}
-              />
+              >
+                <img src={edit} alt="edit" className={style.EditIcon} />
+              </div>
             </div>
           </>
         )}
         <div className={style.comments}>
-        <div className={style.commentTitle}>Комментарий</div>
+          <div className={style.commentTitle}>Комментарий</div>
           {comments.map(({ id, author, content, publishedAt }) => (
             <SingleComment
               key={id}

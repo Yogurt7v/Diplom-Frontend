@@ -1,5 +1,5 @@
 
-export const addProduct = ({ productName, image_url, description, category, price }) =>
+export const addProduct = ({ productName, image_url, description, category, price, weight, calories, ingredients }) =>
   fetch("http://localhost:3004/posts", {
     method: "POST",
     headers: {
@@ -9,6 +9,9 @@ export const addProduct = ({ productName, image_url, description, category, pric
       productName,
       image_url,
       description,
+      weight,
+      calories,
+      ingredients,
       category,
       price,
     }),

@@ -1,21 +1,8 @@
-import { forwardRef } from "react";
-
-// export const CustomInput = ({
-//     value, placeholder, onChange
-// }, ref) => {
-//     return (
-//         <input
-//         value={value}
-//         placeholder={placeholder}
-//         onChange={onChange}
-//         ref={ref}
-//         />
-//     );
-// }
+import { forwardRef } from "react"; 
+import styled from "./custom-input.module.css"
 
 export const CustomInput = forwardRef(({ ...props }, ref) => {
-    return (
-        <input {...props} ref={ref}></input>
-    );
-  });
-  
+  return (
+      <input {...props} ref={ref} className={styled.CustomInput}></input>
+  );
+});

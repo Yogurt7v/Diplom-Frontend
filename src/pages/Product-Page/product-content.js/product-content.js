@@ -22,7 +22,6 @@ export const ProductContent = ({
 }) => {
   const navigate = useNavigate();
 
-  console.log(comments, id);
   return (
     <>
       <div className={style.ProductWrapper}>

@@ -3,7 +3,6 @@ import { getComments, getUsers } from "../api";
 export const getProductIdCommentsWithAuthor = async (productId) => {
   const comments = await getComments(productId);
 
-  console.log("comments",comments);
   const users = await getUsers();
 
   return comments.map((comment) => {

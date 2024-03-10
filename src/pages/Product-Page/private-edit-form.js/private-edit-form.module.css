@@ -1,4 +1,34 @@
 .EditFormWrapper{
     display: flex;
     flex-direction: column;
+    margin: 100px auto;
+    width: 70%;
+    margin-bottom: 30px;
+    padding: 20px 20px;
+    border-radius: 10px;
+    background-color: #2D2A24;
+}
+
+.ButtonsWrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.EditButtons{
+    width: 47%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #FF4301;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+
+
 }
