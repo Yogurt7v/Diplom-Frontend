@@ -43,6 +43,8 @@ export const ProductPage = () => {
     return null;
   }
 
+  console.log("ProductPage", product);
+
   const AdminProductPage = (
     isCreating || isEditing ? (
       <PrivateProductContent access={[ROLE.ADMIN]} serverError={error}>
@@ -55,7 +57,7 @@ export const ProductPage = () => {
     )
   )
 
-    return error ? <div className={style.error} > {error}</div> : AdminProductPage;
+    return error ? <div className={style.error}>{error}</div> : AdminProductPage;
 
 };
 

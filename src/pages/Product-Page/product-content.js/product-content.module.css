@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px 50px 400px 50px;
+    padding: 50px 150px 400px 150px;
     width: 100%;
 
 }
@@ -14,26 +14,66 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 10px;
     background-color: #ED780A;
-    opacity: 0.8;
+}
 
+.ProductImageSection{
+    display: flex;
+    width: 100%;
+}
+
+.ProductTitleWrapper{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 50px 30px 20px;
 }
 
 .ProductImage{
-    padding: 20px 20px;
-    width: 200px;
-    height: 200px;
+    margin: 30px 30px;
+    border-radius: 10px;
+    width:350px;
+    height: 350px;
+    border: 1px solid black;
+    box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.75);
 }
 
 .ProductTitle{
     padding: 0;
     margin: 0;
-    font-size: 30px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    letter-spacing: 4px;
     font-weight: bold;
     text-align: center;
     color: black;
+    text-shadow: 2px 2px 4px black;
+}
+
+.ProductNutrition{
+    margin-top: 30px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+
+}
+
+.ProductDescriptionNumbers{
+    font-size: 24px;
+    font-weight: 500;
+    color: black;
+}
+
+.ProductDescription{
+    font-size: 20px;
+    color: black;
+
 }
 
 .EditButton{
@@ -42,9 +82,52 @@
     height: 30px;
 }
 
-.ProductDescription{
+.ProductIngredients{
+    margin: 0 30px;
     font-size: 20px;
-    text-align: center;
     color: black;
+}
 
+.ProductPrice{
+    display: flex;
+    align-items: end;
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(213, 1, 1);
+    text-shadow: 2px 2px 4px black;
+    min-width: 65px;
+}
+
+.BuyButton{
+    margin: 15px 0 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e43306;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 1;
+    -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
+}
+
+.BuyButton:hover{
+    border: 4px solid white;
+    color: white;
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4301,
+      0 0 70px #ff4301, 0 0 80px #ff4301, 0 0 100px #ff4301, 0 0 150px #ff4301;
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+
+.CloseButton{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 220px;
+    right: 200px;
 }

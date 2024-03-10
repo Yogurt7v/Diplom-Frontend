@@ -47,6 +47,7 @@ export const Comments = ({ comments, productId }) => {
           </>
         )}
         <div className={style.comments}>
+        <div className={style.commentTitle}>Комментарий</div>
           {comments.map(({ id, author, content, publishedAt }) => (
             <SingleComment
               key={id}

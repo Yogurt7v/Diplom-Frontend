@@ -1,5 +1,5 @@
 import { getProduct } from "../api";
-// import { getPostIdCommentsWithAuthor } from "../utils";
+import { getProductIdCommentsWithAuthor } from "../utils";
 
 export const fetchProduct = async (productId) => {
   let product;
@@ -18,13 +18,13 @@ export const fetchProduct = async (productId) => {
     }
   }
 
-//   const commentsWithAuthor = await getPostIdCommentsWithAuthor(postId);
+  const commentsWithAuthor = await getProductIdCommentsWithAuthor(productId);
 
   return {
     error: null,
     res: {
       ...product,
-    //   comments: commentsWithAuthor,
+      comments: commentsWithAuthor,
     },
   };
 };

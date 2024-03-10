@@ -28,7 +28,7 @@ export const Pagination = ({ setPage, lastPage, page }) => {
         Next page
       </button>
       <button
-        onClick={() => setPage(2)}
+        onClick={() => setPage(lastPage)}
         className={page === lastPage ? style.disabled : style.normal}
 
       >
