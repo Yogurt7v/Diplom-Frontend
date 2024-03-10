@@ -14,3 +14,16 @@
     font-weight: 500;
 
 }
+
+.author{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.userLogo{
+    
+    width: 20px;
+    height: 20px;
+}

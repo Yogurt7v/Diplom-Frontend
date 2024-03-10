@@ -5,6 +5,8 @@ import { selectUserRole } from "../../../selectors";
 import {removeProduct, openModal, CLOSE_MODAL} from "../../../actions";
 import {ROLE} from "../../../constants/role";
 import { checkAccess } from "../../../utils";
+import style from "./special-panel.module.css";
+import trash from "../../../icons/trash.svg";
 
 export const SpecialPanel = ({  id , editButton }) => {
 
@@ -13,7 +15,7 @@ export const SpecialPanel = ({  id , editButton }) => {
     const navigate = useNavigate();
     const userRole = useSelector(selectUserRole);
   
-    const onPostRemove = (id) => {
+    const onProductRemove = (id) => {
       dispatch(
         openModal({
           text: "Удалить продукт?",
@@ -31,8 +33,8 @@ export const SpecialPanel = ({  id , editButton }) => {
     const isAdmin = checkAccess([ROLE.ADMIN], userRole);
   
     return (
-      <div>
-        <div className="special-panel">
+
+        <div className={style.SpecialPanel}>
           {/* {publishedAt && (
             <div className="published-at">
               <img alt="datepublish"
@@ -40,13 +42,12 @@ export const SpecialPanel = ({  id , editButton }) => {
             </div>
           )}
           {publishedAt} */}
-        </div>
-        {isAdmin && (<div className="buttons">
+        {isAdmin && (<div className={style.SpecialPanelButtons}>
           {editButton}
-             <div onClick={() => onPostRemove(id)}>
-            <img alt="delete"/>
+             <div >
+            <img src = {trash} alt="delete" onClick={() => onProductRemove(id)} className={style.TrashIcon}/>
           </div>
         </div>)}
-      </div>
+        </div>
     );
   };
