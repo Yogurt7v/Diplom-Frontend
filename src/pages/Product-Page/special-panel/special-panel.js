@@ -35,13 +35,6 @@ export const SpecialPanel = ({  id , editButton }) => {
     return (
 
         <div className={style.SpecialPanel}>
-          {/* {publishedAt && (
-            <div className="published-at">
-              <img alt="datepublish"
-              />
-            </div>
-          )}
-          {publishedAt} */}
         {isAdmin && (<div className={style.SpecialPanelButtons}>
           {editButton}
              <div >

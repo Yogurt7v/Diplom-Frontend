@@ -6,81 +6,162 @@ import { useDispatch } from "react-redux";
 import { saveProductAsync } from "../../../actions";
 import { useNavigate } from "react-router-dom";
 import { useServerRequest } from "../../../hooks";
+import { CustomInput } from "../../components/input";
 
 export const PrivateEditForm = ({
-  className,
-  product: { id, productName, image_url, description, category, price },
+  product: {
+    id,
+    productName,
+    image_url,
+    description,
+    category,
+    price,
+    weight,
+    calories,
+    ingredients,
+  },
 }) => {
-  const [imageUrlValue, setImageUrlValue] = useState(image_url);
   const [productNameValue, setProductNameValue] = useState(productName);
-  const [descriptionValue, setDescriptionValue] = useState(description);
-  const [categoryValue, setCategoryValue] = useState(category);
-  const [priceValue, setPriceValue] = useState(price);
+  // const [imageUrlValue, setImageUrlValue] = useState(image_url);
+  // const [descriptionValue, setDescriptionValue] = useState(description);
+  // const [categoryValue, setCategoryValue] = useState(category);
+  // const [weightValue, setWeightValue] = useState(weight);
+  // const [caloriesValue, setCaloriesValue] = useState(calories);
+  // const [ingredientsValue, setIngredientsValue] = useState(ingredients);
+  // const [priceValue, setPriceValue] = useState(price);
   const contentRef = useRef(null);
 
   useLayoutEffect(() => {
-    setImageUrlValue(image_url);
     setProductNameValue(productName);
-  }, [image_url, productName]);
+    // setImageUrlValue(image_url);
+    // setDescriptionValue(description);
+    // setCategoryValue(category);
+    // setWeightValue(weight);
+    // setCaloriesValue(calories);
+    // setIngredientsValue(ingredients);
+    // setPriceValue(price);
+  }, [
+    image_url,
+    productName,
+    description,
+    category,
+    weight,
+    calories,
+    ingredients,
+    price,
+  ]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const requestServer = useServerRequest();
 
   const onSave = () => {
-
     const newContent = sanitazeContent(contentRef.current.innerHTML);
- 
+
     dispatch(
       saveProductAsync(requestServer, {
         id,
         productName: productNameValue,
-        image_url: imageUrlValue,
-        description: descriptionValue,
-        category: categoryValue,
-        price: priceValue,
+        // image_url: imageUrlValue,
+        // description: descriptionValue,
+        // category: categoryValue,
+        // weight: weightValue,
+        // calories: caloriesValue,
+        // ingredients: ingredientsValue,
+        // price: priceValue,
+        content: newContent,
       })
     ).then(({ id }) => navigate(`/products/${id}`));
   };
 
-  const onImageChange = ({ target }) => {
-    setImageUrlValue(target.value);
-  };
-
-  const onTitleChange = ({ target }) => {
+  const onProductNameChange = ({ target }) => {
     setProductNameValue(target.value);
   };
+  // const onImageUrlValueChange = ({ target }) => {
+  //   setImageUrlValue(target.value);
+  // };
+  // const onDescriptionValueChange = ({ target }) => {
+  //   setDescriptionValue(target.value);
+  // };
+  // const onCategoryValueChange = ({ target }) => {
+  //   setCategoryValue(target.value);
+  // };
+  // const onWeightValueChange = ({ target }) => {
+  //   setWeightValue(target.value);
+  // };
+  // const onCaloriesValueChange = ({ target }) => {
+  //   setCaloriesValue(target.value);
+  // };
+  // const onIngredientsValueChange = ({ target }) => {
+  //   setIngredientsValue(target.value);
+  // };
+  // const onPriceValueChange = ({ target }) => {
+  //   setPriceValue(target.value);
+  // };
 
   return (
-    <div className={className}>
-      <input
-        value={imageUrlValue}
-        placeholder="Путь к картинке"
-        className="input"
-        onChange={onImageChange}
-      />
-      <input
-        value={productNameValue}
-        placeholder="Заголовок"
-        className="input"
-        onChange={onTitleChange}
-      />
-      <SpecialPanel
+    <>
+      <div className={style.EditFormWrapper}>
+        <CustomInput
+          value={productName}
+          placeholder="Название"
+          onChange={onProductNameChange}
+        />
+        {/* <CustomInput
+          value={imageUrlValue}
+          placeholder="Путь к картинке"
+          onChange={onImageUrlValueChange}
+        />
+        <CustomInput
+          value={description}
+          placeholder="Описание"
+          onChange={onDescriptionValueChange}
+        />
+        <CustomInput
+          value={category}
+          placeholder="Категория"
+          onChange={onCategoryValueChange}
+        />
+        <CustomInput
+          value={weight}
+          placeholder="Вес"
+          onChange={onWeightValueChange}
+        />
+        <CustomInput
+          value={calories}
+          placeholder="Калорийность"
+          onChange={onCaloriesValueChange}
+        />
+        <CustomInput
+          value={ingredients}
+          placeholder="Ингредиенты"
+          onChange={onIngredientsValueChange}
+        />
+        <CustomInput
+          value={price}
+          placeholder="Цена $"
+          onChange={onPriceValueChange}
+        /> */}
+        <SpecialPanel
         id={id}
         editButton={
           <div onClick={onSave}>
-            <img src="" alt="save" />
+          <img src="" alt="save" />
           </div>
         }
       />
-      <div
-        className="post-text"
-        ref={contentRef}
-        contentEditable={true}
-        suppressContentEditableWarning={true}
-      >
-        {/* {content} */}
+        <button className={style.saveButton} onClick={onSave}>
+          Сохранить
+        </button>
+        <div
+          className="post-text"
+          ref={contentRef}
+          contentEditable={true}
+          suppressContentEditableWarning={true}
+        >
+          {/* {content} */}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
