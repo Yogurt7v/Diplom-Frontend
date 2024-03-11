@@ -3,7 +3,6 @@
     flex-direction: column;
     overflow-x: hidden;
     margin: 0 auto;
-    /* background-image: linear-gradient(to right, #000000, #141110, #201b19, #2a2621, #33322a); */
     overflow: hidden;
 }
 
@@ -12,4 +11,13 @@
     padding: 10px 50px;
     width: 100%;
     flex-grow: 1;
+}
+.SortBarWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    margin-top: 10px;
+    padding: 0 40px;
 }

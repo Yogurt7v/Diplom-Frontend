@@ -13,7 +13,7 @@
   cursor: pointer;
   font-size: 20px;
   line-height: 26px;
-  color: var(--acent-color);
+  color: #FA7D09;
 }
 
 .NavMenuItem:hover {

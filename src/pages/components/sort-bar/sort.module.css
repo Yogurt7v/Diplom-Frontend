@@ -1,37 +1,45 @@
 .SortBarContent {
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 5px 0;
-  -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
-  box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
-  border: 2px solid #ff4301;
+  width: 20%;
+  margin-top: 20px;
+  /* border: 4px solid black; */
   border-radius: 10px;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     #000000,
     #141110,
     #201b19,
     #2a2621,
     #33322a
-  );
+  ); */
 }
 
-span {
-}
 
 .SortBarSpan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
   font-size: 20px;
   font-weight: 700;
   color: #ff4301;
   cursor: pointer;
-  padding: 0px 95px;
   border-radius: 5px;
 }
 
 .SortBarSpan:hover {
-  background-color: #ff4301;
-  color: black;
+  cursor: pointer;
+  background-color: #fa7d09;  
+  transition: 0.3s ease-in-out all;
+  -webkit-box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
+  -moz-box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
+  box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
+
+}
+
+.SortBarIcon {
+  width: 50px;
+  height: 50px;
 }
