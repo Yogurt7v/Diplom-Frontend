@@ -62,7 +62,14 @@ export const PrivateEditForm = ({
   }, [requestServer]);
 
   const onSave = () => {
-    console.log("save");
+    console.log({id,
+      image_url: imageUrlValue,
+      description: descriptionValue,
+      category: categoryValue,
+      weight: weightValue,
+      calories: caloriesValue,
+      ingredients: ingredientsValue,
+      price: priceValue,});
     dispatch(
       saveProductAsync(requestServer, {
         id,

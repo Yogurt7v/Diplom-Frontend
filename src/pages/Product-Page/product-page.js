@@ -20,7 +20,7 @@ export const ProductPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const [isLoading, setIsLoading] = useState(null);
-  const isCreating = !!useMatch(`/product`);
+  // const isCreating = !!useMatch(`/product`);
   const isEditing = !!useMatch(`/products/:id/edit`);
   const requestServer = useServerRequest()
   
@@ -38,25 +38,25 @@ export const ProductPage = () => {
     );
 
     dispatch(RESET_PRODUCT_DATA);
-  }, [dispatch, isCreating]);
+  }, [dispatch]);
 
   useEffect(() => {
-    if (isCreating) {
-      setIsLoading(false);
-      return;
-    }
+    // if (isCreating) {
+    //   setIsLoading(false);
+    //   return;
+    // }
     dispatch(loadProduct(requestServer, params.id)).then((productsData) => {
       setError(productsData.error);
       setIsLoading(false);
     });
-  }, [dispatch, requestServer, params.id, isCreating]);
+  }, [dispatch, requestServer, params.id]);
 
   if (isLoading) {
     return null;
   }
 
   const AdminProductPage = (
-    isCreating || isEditing ? (
+   isEditing ? (
       <PrivateProductContent access={[ROLE.ADMIN]} serverError={error}>
           <PrivateEditForm product={product} />
      </PrivateProductContent>
