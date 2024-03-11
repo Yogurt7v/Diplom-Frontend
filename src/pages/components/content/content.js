@@ -21,6 +21,7 @@ export const MainContent = () => {
     requestServer(`fetchProducts`, searchPhrase, page, PAGINATION_LIMIT).then(
       ({ res: { products, links } }) => {
         setProducts(products);
+        console.log(products);
         setLastPage(getLastPageFromLinks(links));
       }
     );

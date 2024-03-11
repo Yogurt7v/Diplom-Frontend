@@ -7,16 +7,43 @@ import {checkAccess} from '../../utils';
 import {ROLE} from '../../constants/role';
 import {PrivateContent} from '../components/private-content/';
 import {UserRow} from '../components/users-row/users-row';
+import { PrivateEditForm } from "../Product-Page/private-edit-form.js";
+import {setUser} from '../../actions';
+import { useLayoutEffect } from "react";
+import { useDispatch } from "react-redux";
 
 export const AdminPanel = () => {
 
+    const dispatch = useDispatch();
     const [users, setUsers] = useState([]);
     const [role, setRole] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
     const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
     const userRole = useSelector(selectUserRole);
+    const newProduct = {  id: "",
+    productName: "",
+    image_url: "",
+    description: "",
+    category: "",
+    weight: "",
+    calories: "",
+    ingredients: "",
+    price: "",
+    comments: [],}
 
     const requestServer = useServerRequest();
+
+    useLayoutEffect(() => {
+      const currentUserDataJSON = sessionStorage.getItem("userData");
+      if (!currentUserDataJSON) {
+        return;
+      }
+  
+      const currentUserData = JSON.parse(currentUserDataJSON);
+      dispatch(
+        setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
+      );
+    }, [dispatch]);  
 
     useEffect(() => {
         if (!checkAccess([ROLE.ADMIN], userRole)) {
@@ -56,7 +83,7 @@ export const AdminPanel = () => {
     <div className={style.AdminPanelWrapper}>
     <details>
         <summary className={style.AdminPanelSummary}>Добавить новый продукт</summary>
-        <div>здесь будет форма добавления продукта</div>
+        <div><PrivateEditForm product={newProduct}/></div>
     </details>
     <details>
         <summary className={style.AdminPanelSummary}>Пользователи</summary>

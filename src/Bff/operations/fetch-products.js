@@ -7,6 +7,7 @@ export const fetchProducts = async (searchPhrase, page, limit) => {
     getProducts(searchPhrase, page, limit),
     getComments(),
   ]);
+
   return {
     error: null,
     res: {

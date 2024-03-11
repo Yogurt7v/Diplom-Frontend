@@ -20,7 +20,7 @@ export const ProductPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const [isLoading, setIsLoading] = useState(null);
-  const isCreating = !!useMatch(`/products`);
+  const isCreating = !!useMatch(`/product`);
   const isEditing = !!useMatch(`/products/:id/edit`);
   const requestServer = useServerRequest()
   

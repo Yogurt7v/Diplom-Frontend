@@ -1,9 +1,8 @@
 import styled from "./private-edit-form.module.css";
 import { CustomInput } from "../../components";
-// import { SpecialPanel } from "../special-panel";
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { saveProductAsync } from "../../../actions";
+import { RESET_PRODUCT_DATA, saveProductAsync } from "../../../actions";
 import { useNavigate } from "react-router-dom";
 import { useServerRequest } from "../../../hooks";
 
@@ -28,7 +27,11 @@ export const PrivateEditForm = ({
   const [caloriesValue, setCaloriesValue] = useState(calories);
   const [ingredientsValue, setIngredientsValue] = useState(ingredients);
   const [priceValue, setPriceValue] = useState(price);
+  const [categoriesValue, setCategoriesValueValue] = useState([]);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const requestServer = useServerRequest();
 
   useLayoutEffect(() => {
     setImageUrlValue(image_url);
@@ -38,13 +41,28 @@ export const PrivateEditForm = ({
     setCaloriesValue(calories);
     setIngredientsValue(ingredients);
     setPriceValue(price);
-  }, [image_url, description, category, weight, calories, ingredients, price]);
+    dispatch(RESET_PRODUCT_DATA);
+  }, [image_url, description, category, weight, calories, ingredients, price, dispatch]);
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const requestServer = useServerRequest();
+  useEffect(() => {
+    requestServer(`fetchProducts`, "", 1, 1000).then(
+      ({ res: { products } }) => {
+        let categories = [];
+        for (let i = 0; i < products.length; i++) {
+          categories.push(products[i].category);
+        }
+
+        const uniqueСategories = categories.filter((value, index, self) => {
+          return self.indexOf(value) === index;
+        });
+
+        setCategoriesValueValue(uniqueСategories);
+      }
+    );
+  }, [requestServer]);
 
   const onSave = () => {
+    console.log("save");
     dispatch(
       saveProductAsync(requestServer, {
         id,
@@ -56,7 +74,7 @@ export const PrivateEditForm = ({
         ingredients: ingredientsValue,
         price: priceValue,
       })
-    ).then(({ id }) => navigate(`/products/${id}`));
+    ).then(({ id }) => navigate(`/`));
   };
 
   const onProductNameChange = ({ target }) => {
@@ -110,6 +128,17 @@ export const PrivateEditForm = ({
         className="input"
         onChange={onCategoryChange}
       />
+      <select
+        value={categoryValue}
+        onChange={onCategoryChange}
+        className={styled.select}
+      >
+        {categoriesValue.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
       <CustomInput
         value={weightValue}
         placeholder="Вес продукта"
@@ -135,7 +164,10 @@ export const PrivateEditForm = ({
         onChange={onPriceChange}
       />
       <div className={styled.ButtonsWrapper}>
-        <button onClick={() => navigate(-1)} className={styled.EditButtons}>
+        <button
+          onClick={() => navigate(`/`)}
+          className={styled.EditButtons}
+        >
           Назад
         </button>
         <button onClick={onSave} className={styled.EditButtons}>
