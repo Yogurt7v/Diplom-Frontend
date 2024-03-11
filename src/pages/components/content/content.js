@@ -1,30 +1,9 @@
 import React from "react";
 import style from "./new-style-content.module.css";
-import Slider from "../slider/Slider";
 import Card from "../card/card";
-import SortBar from "../sort-bar/sort";
-import { useState, useEffect } from "react";
-import { useServerRequest } from "../../../hooks/use-server-request";
-import { PAGINATION_LIMIT } from "../../../constants/pagination-limit";
-import { getLastPageFromLinks } from "../../../utils/getLastPageFromLinks";
 import { Pagination } from "../pagination/pagination";
 
-export const MainContent = () => {
-  const [products, setProducts] = useState([]);
-  const requestServer = useServerRequest();
-  const [page, setPage] = useState(1);
-  const [lastPage, setLastPage] = useState(1);
-  const [searchPhrase, setSearchPhrase] = useState("");
-  const [shouldSearch, setShouldSearch] = useState(false);
-
-  useEffect(() => {
-    requestServer(`fetchProducts`, searchPhrase, page, PAGINATION_LIMIT).then(
-      ({ res: { products, links } }) => {
-        setProducts(products);
-        setLastPage(getLastPageFromLinks(links));
-      }
-    );
-  }, [requestServer, page, shouldSearch]);
+export const MainContent = ({products,page, setPage, lastPage}) => {
 
 
   return (

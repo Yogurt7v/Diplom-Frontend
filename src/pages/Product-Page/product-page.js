@@ -20,7 +20,6 @@ export const ProductPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const [isLoading, setIsLoading] = useState(null);
-  // const isCreating = !!useMatch(`/product`);
   const isEditing = !!useMatch(`/products/:id/edit`);
   const requestServer = useServerRequest()
   
@@ -41,10 +40,6 @@ export const ProductPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    // if (isCreating) {
-    //   setIsLoading(false);
-    //   return;
-    // }
     dispatch(loadProduct(requestServer, params.id)).then((productsData) => {
       setError(productsData.error);
       setIsLoading(false);

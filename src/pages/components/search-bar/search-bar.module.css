@@ -4,10 +4,8 @@
     margin: 10px;
     display: flex;
     justify-content: center;
-
-
+    align-items: center;
 }
-
 
 .SearchBarInput{
     width: 50%;
@@ -21,8 +19,12 @@
     color: #FA7D09;
     text-align: center;
     font-size: 20px;
-    font-weight: 200;
+    font-weight: 400;
     cursor: pointer;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
 .SearchBarInput::placeholder{
@@ -37,4 +39,18 @@
     -webkit-box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
     -moz-box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
     box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
+}
+
+.SearchBarIcon{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.SearchBarEraseIcon{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+
 }
