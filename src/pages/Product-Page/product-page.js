@@ -10,6 +10,7 @@ import { ROLE } from "../../constants/role.js";
 import  {ProductContent} from "./product-content.js"
 import {PrivateProductContent} from "./private-product-content"
 import {PrivateEditForm} from "./private-edit-form.js"
+import {setUser} from "../../actions";
 
 
 export const ProductPage = () => {
@@ -25,6 +26,17 @@ export const ProductPage = () => {
   
 
   useLayoutEffect(() => {
+
+    const currentUserDataJSON = sessionStorage.getItem("userData");
+    if (!currentUserDataJSON) {
+      return;
+    }
+
+    const currentUserData = JSON.parse(currentUserDataJSON);
+    dispatch(
+      setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
+    );
+
     dispatch(RESET_PRODUCT_DATA);
   }, [dispatch, isCreating]);
 

@@ -48,14 +48,13 @@ export const Comments = ({ comments, productId }) => {
         )}
         <div className={style.comments}>
           <div className={style.commentTitle}>Комментарий</div>
-          {comments.map(({ id, author, content, publishedAt }) => (
+          {comments.map(({ id, author, content }) => (
             <SingleComment
               key={id}
-              postId={productId}
+              productId={productId}
               id={id}
               author={author}
               content={content}
-              publishedAt={publishedAt}
             />
           ))}
         </div>

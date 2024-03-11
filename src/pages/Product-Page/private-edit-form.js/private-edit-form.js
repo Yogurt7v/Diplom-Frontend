@@ -1,12 +1,11 @@
 import styled from "./private-edit-form.module.css";
 import { CustomInput } from "../../components";
 // import { SpecialPanel } from "../special-panel";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { saveProductAsync } from "../../../actions";
 import { useNavigate } from "react-router-dom";
 import { useServerRequest } from "../../../hooks";
-import save from "../../../icons/save.svg";
 
 export const PrivateEditForm = ({
   product: {
@@ -30,7 +29,6 @@ export const PrivateEditForm = ({
   const [ingredientsValue, setIngredientsValue] = useState(ingredients);
   const [priceValue, setPriceValue] = useState(price);
 
-  const contentRef = useRef(null);
 
   useLayoutEffect(() => {
     setImageUrlValue(image_url);
@@ -143,14 +141,6 @@ export const PrivateEditForm = ({
         <button onClick={onSave} className={styled.EditButtons}>
           Сохранить
         </button>
-      </div>
-      <div
-        className="post-text"
-        ref={contentRef}
-        contentEditable={true}
-        suppressContentEditableWarning={true}
-      >
-        {/* {content} */}
       </div>
     </div>
   );

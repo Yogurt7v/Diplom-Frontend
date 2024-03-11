@@ -1,4 +1,12 @@
+.commentWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    width: 100%;
+    gap: 10px;
+
+}
 .comment{
     display: flex;
     min-width: 500px;
@@ -6,7 +14,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    border-radius: 10px;
+    border-bottom: 1px solid black;
     color: black;
 }
 .content{
@@ -26,4 +34,10 @@
     
     width: 20px;
     height: 20px;
+}
+
+.deleteComment{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }

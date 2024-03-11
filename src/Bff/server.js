@@ -10,6 +10,7 @@ import {
   updateUserRole,
   removeUser,
   addProductComment,
+  removeProductComment
 } from "./operations";
 
 export const server = {
@@ -24,4 +25,5 @@ export const server = {
   removeUser,
   saveProductAsync,
   addProductComment,
+  removeProductComment
 };

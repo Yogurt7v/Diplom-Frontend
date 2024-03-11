@@ -10,6 +10,7 @@ import store from "./store";
 import { RegisterPage } from "./pages/index";
 import { ErrorPage } from "./pages/Error-page";
 import { AdminPanel } from "./pages/Admin-panel";
+import { Modal } from "./pages/components/modal";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -27,6 +28,7 @@ root.render(
         <Route path="/products/:id/edit" element={<ProductPage />} />
         <Route path="*" element={<ErrorPage error={ERROR.PAGE_NOT_EXIST} />} />
       </Routes>
+      <Modal/>
     </BrowserRouter>
   </Provider>
 );
