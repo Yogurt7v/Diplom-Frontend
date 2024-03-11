@@ -1,21 +1,18 @@
 import style from "./sort.module.css";
-import price from "../../../icons/price.svg"
-import weight from "../../../icons/weight.svg"
-import Kcal from "../../../icons/calories.svg"
 
-
-export const SortBar = () => {
+export const SortBar = ({ value, onSort, options }) => {
   return (
-    <div className={style.SortBarContent}>
-      <div className={style.SortBarSpan}>
-        <img src={price} alt="price" className={style.SortBarIcon}></img>
-      </div>
-      <div className={style.SortBarSpan}>
-        <img src={weight} alt="weight" className={style.SortBarIcon}></img>
-      </div>
-      <div className={style.SortBarSpan}>
-        <img src={Kcal} alt="Kcal" className={style.SortBarIcon}></img>
-      </div>
+    <div className={style.SortBarWrapper}>
+      <span>Сортировка</span>
+      <select onChange={onSort} className={style.SortBarSelect}>
+        <option value="" disabled selected hidden className={style.SortBarOption}>
+        </option>
+        {options.map((option) => (
+          <option value={option.value} key={option.value} className={style.SortBarOption}>
+            {option.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };

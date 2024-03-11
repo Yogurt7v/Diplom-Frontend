@@ -10,7 +10,7 @@ import { selectUserRole } from "../../selectors";
 import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
 import { useResetForm } from "../../hooks";
-import { VideoBackground } from "../components";
+import { Header, VideoBackground } from "../components";
 import Slider from "../components/slider/Slider";
 
 const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
@@ -93,6 +93,7 @@ export const RegisterPage = () => {
 
   return (
     <>
+    <Header />
       <div className={style.registerPageWrapper}>
         <form onSubmit={handleSubmit(onSubmit)} className={style.registerForm}>
         <h2>Регистрация</h2>

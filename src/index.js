@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoginPage, MainPage, ProductPage } from "./pages/index";
-import { Header } from "./pages/components/index";
 import { Provider } from "react-redux";
 import { ERROR } from "./constants";
 import store from "./store";
@@ -17,7 +16,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />

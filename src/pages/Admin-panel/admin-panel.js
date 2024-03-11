@@ -11,6 +11,7 @@ import { PrivateEditForm } from "../Product-Page/private-edit-form.js";
 import {setUser} from '../../actions';
 import { useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Header } from "../components";
 
 export const AdminPanel = () => {
 
@@ -80,6 +81,7 @@ export const AdminPanel = () => {
 
   return (
     <>
+    <Header/>
     <div className={style.AdminPanelWrapper}>
     <details>
         <summary className={style.AdminPanelSummary}>Добавить новый продукт</summary>

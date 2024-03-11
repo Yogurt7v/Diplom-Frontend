@@ -11,6 +11,7 @@ import { useResetForm } from "../../hooks";
 import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
 import { VideoBackground } from "../components";
+import {Header} from "../components/header/header.js";
 
 const authFormSchema = yup.object().shape({
   login: yup
@@ -68,6 +69,7 @@ export const LoginPage = () => {
 
   return (
     <>
+    <Header/>
       <div className={style.LoginPageWrapper}>
         <div className={style.LoginPageContent}>Login Page</div>
         <form onSubmit={handleSubmit(onSubmit)} className={style.LoginPageForm}>
