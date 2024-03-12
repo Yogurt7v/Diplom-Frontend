@@ -11,7 +11,8 @@ import {
   removeUser,
   addProductComment,
   removeProductComment,
-  removeProduct
+  removeProduct,
+  saveProductInBusket
 } from "./operations";
 
 export const server = {
@@ -27,5 +28,6 @@ export const server = {
   saveProductAsync,
   addProductComment,
   removeProductComment,
-  removeProduct
+  removeProduct,
+  saveProductInBusket
 };

@@ -3,6 +3,9 @@ import plus from "../../../icons/plus.svg";
 import minus from "../../../icons/minus.svg";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useServerRequest } from "../../../hooks";
+import { saveProductInBusket } from "../../../actions";
+import { useDispatch } from "react-redux";
 
 export const Card = ({
   id,
@@ -13,12 +16,21 @@ export const Card = ({
   price,
 }) => {
   const [quantity, setQuantity] = useState(1);
+  const requestServer = useServerRequest();
+  const dispatch = useDispatch();
+  
 
   const decrimetnQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
+
+  const addProductToBusket = (id, productName, quantity, price) => {
+    dispatch(
+      saveProductInBusket(requestServer, ({ id, productName, quantity, price }))
+    )
+  }
 
 
   return (
@@ -58,7 +70,7 @@ export const Card = ({
             <div className={style.CardPrice}>{price} $</div>
             </div>
           </div>
-            <button className={style.CardButton}>Buy</button>
+            <button className={style.CardButton} onClick={() => addProductToBusket(id, productName, quantity, price)}>Buy</button>
         </div>
       </div>
     </>

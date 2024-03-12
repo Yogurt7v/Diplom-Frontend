@@ -2,7 +2,7 @@ import styled from "./private-edit-form.module.css";
 import { CustomInput } from "../../components";
 import { useLayoutEffect, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { RESET_PRODUCT_DATA, saveProductAsync } from "../../../actions";
+import { RESET_PRODUCT_DATA, saveProductInBusket } from "../../../actions";
 import { useNavigate } from "react-router-dom";
 import { useServerRequest } from "../../../hooks";
 
@@ -45,7 +45,7 @@ export const PrivateEditForm = ({
   }, [image_url, description, category, weight, calories, ingredients, price, dispatch]);
 
   useEffect(() => {
-    requestServer(`fetchProducts`, "", 1, 1000).then(
+    requestServer(`fetchProducts`, "", "").then(
       ({ res: { products } }) => {
         let categories = [];
         for (let i = 0; i < products.length; i++) {
@@ -63,7 +63,7 @@ export const PrivateEditForm = ({
 
   const onSave = () => {
     dispatch(
-      saveProductAsync(requestServer, {
+      saveProductInBusket(requestServer, {
         id,
         image_url: imageUrlValue,
         description: descriptionValue,

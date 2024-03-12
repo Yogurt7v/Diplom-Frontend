@@ -1,7 +1,6 @@
 import {createStore, combineReducers, applyMiddleware, compose} from "redux";
 import {thunk} from "redux-thunk";
-import {appReducer,userReducer} from "./reducers"
-import { productReducer, productsReducer } from "./reducers";
+import {appReducer,userReducer,  productReducer, productsReducer, busketReducer} from "./reducers"
 
 
 const reducer = combineReducers({
@@ -9,6 +8,7 @@ const reducer = combineReducers({
     user: userReducer,
     product: productReducer,
     products: productsReducer,
+    busket: busketReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
