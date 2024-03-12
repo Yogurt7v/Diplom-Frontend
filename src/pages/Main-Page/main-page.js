@@ -9,8 +9,6 @@ import { VideoBackground } from "../components";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useServerRequest } from "../../hooks/use-server-request";
-import { PAGINATION_LIMIT } from "../../constants/pagination-limit";
-import { getLastPageFromLinks } from "../../utils/getLastPageFromLinks";
 import { SortBar } from "../components/sort-bar";
 import { Header } from "../components";
 import _ from "lodash";
@@ -19,14 +17,11 @@ export const MainPage = () => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const requestServer = useServerRequest();
-  const [page, setPage] = useState(1);
-  const [lastPage, setLastPage] = useState(1);
   const [searchPhrase, setSearchPhrase] = useState("");
   const [searchPhraseFromSearchBar, setSearchPhraseFromSearchBar] =
     useState("");
   const [sorting, setSorting] = useState("");
-  const [categories, setCategories] = useState("");
-  const [sortingInProgress, setSortingInProgress] = useState(false);
+  const [searchCategory, setSearchCategory] = useState("");
 
   const sortOption = [
     {
@@ -81,25 +76,31 @@ export const MainPage = () => {
       setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
     );
   }, [dispatch]);
+
+
   useEffect(() => {
-    requestServer(`fetchProducts`, searchPhrase, page, PAGINATION_LIMIT).then(
+    requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
       ({ res: { products, links } }) => {
+
         const sortObJ = sortOption.find((option) => option.value === sorting);
         const filteredProducts = products.filter((product) =>
-          categories ? product.category === categories : product
+        searchCategory ? product.category === searchCategory : product
         );
         setProducts(sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts);
-        setLastPage(getLastPageFromLinks(links));
       }
     );
-  }, [requestServer, page, searchPhrase, sorting, categories]);
+  }, [requestServer, searchPhrase, sorting, searchCategory]);
   
 
 const onCategoryChange = (event) => {
   const category = event.target.textContent.toLowerCase().slice(0, -1);
-  setSortingInProgress(!sortingInProgress);
-  setCategories(sortingInProgress ? category : "");
-};
+  if (!searchCategory){
+    setSearchCategory(category)
+  } else {
+    setSearchCategory('')
+  }
+
+}
 
   const handleSort = (e) => {
     setSorting(e.target.value);
@@ -118,11 +119,8 @@ const onCategoryChange = (event) => {
             onDelete={onDelete}
           />
         </div>
-        <Content
+        <Content 
           products={products}
-          page={page}
-          setPage={setPage}
-          lastPage={lastPage}
         />
         <VideoBackground />
       </div>

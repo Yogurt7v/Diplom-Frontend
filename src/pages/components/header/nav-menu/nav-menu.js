@@ -14,9 +14,9 @@ export const NavMenu = ({ onCategoryChange }) => {
         <div className={style.NavMenuItem} onClick={onCategoryChange}>
           Snacks
         </div>
-        <span className={style.NavMenuItem} onClick={onCategoryChange}>
+        <div className={style.NavMenuItem} onClick={onCategoryChange}>
           Drinks
-        </span>
+        </div>
       </nav>
     </>
   );

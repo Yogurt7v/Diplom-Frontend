@@ -5,6 +5,7 @@
   justify-content: center;
   width: 23%;
   padding: 20px 20px;
+  margin-bottom: 20px;
   background-color: #fa7d09f0;
   border: 2px solid black;
   border-radius: 10px;
@@ -25,6 +26,7 @@
   width: 250px;
   height: 250px;
   border-radius: 10px;
+  border:2px solid black;
   -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);

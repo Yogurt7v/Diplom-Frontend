@@ -55,6 +55,7 @@ export const UserRow = ({
               alt="save"
               className={style.saveButton}
               onClick={() => onRoleSave(id, selectedRoleId)}
+              disabled={isSaveButtonDisabled}
             />
           </div>
           <img

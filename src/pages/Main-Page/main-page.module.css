@@ -1,9 +1,11 @@
 .AppWrapper{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     overflow-x: hidden;
     margin: 0 auto;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .MainSection{

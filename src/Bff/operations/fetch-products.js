@@ -1,10 +1,10 @@
 import { getProducts, getComments } from "../api";
 import { getCommentsCount } from "../utils";
 
-export const fetchProducts = async (searchPhrase, page, limit) => {
+export const fetchProducts = async (searchPhrase, searchCategory) => {
 
-  const [{ products, links }, comments] = await Promise.all([
-    getProducts(searchPhrase, page, limit),
+  const [{ products }, comments] = await Promise.all([
+    getProducts(searchPhrase, searchCategory),
     getComments(),
   ]);
 
@@ -15,7 +15,6 @@ export const fetchProducts = async (searchPhrase, page, limit) => {
         ...prod,
         commentsCount: getCommentsCount(prod.id, comments),
       })),
-      links,
     },
   };
 };
