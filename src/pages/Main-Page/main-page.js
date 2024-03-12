@@ -52,12 +52,12 @@ export const MainPage = () => {
     {
       value: "caloriesASC",
       label: "по калорийности по возрастанию",
-      sort: (data) => _.orderBy(data, ["calories"], ["desc"]),
+      sort: (data) => _.orderBy(data, ["calories"], ["asc"]),
     },
     {
       value: "caloriesDESC",
       label: "по калорийности по убыванию",
-      sort: (data) => _.orderBy(data, ["calories"], ["asc"]),
+      sort: (data) => _.orderBy(data, ["calories"], ["desc"]),
     },
   ];
 

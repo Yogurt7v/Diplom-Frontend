@@ -1,10 +1,9 @@
 import style from "./new-style-content.module.css";
 import Card from "../card/card";
 import { Pagination } from "../pagination/pagination";
+import { ColorRing } from "react-loader-spinner";
 
-export const MainContent = ({products,page, setPage, lastPage}) => {
-
-
+export const MainContent = ({ products, page, setPage, lastPage }) => {
   return (
     <>
       <div className={style.container}>
@@ -38,13 +37,24 @@ export const MainContent = ({products,page, setPage, lastPage}) => {
             )}
           </div>
         ) : (
-          <div className={style.ContentCardNotFound}>Товары не найдены</div>
+          <>
+            <div className={style.ContentCardNotFound}>
+              <ColorRing
+                visible={true}
+                height="180"
+                width="180"
+                ariaLabel="color-ring-loading"
+                wrapperStyle={{}}
+                wrapperClass="color-ring-wrapper"
+                colors={["#000000", "#ED780B", "#E43306", "#8e1c00", "#d6c400"]}
+              />
+            </div>
+          </>
         )}
-
       </div>
-        {lastPage > 1 && products.length > 0 ? (
-          <Pagination setPage={setPage} page={page} lastPage={lastPage} />
-        ) : null}
+      {lastPage > 1 && products.length > 0 ? (
+        <Pagination setPage={setPage} page={page} lastPage={lastPage} />
+      ) : null}
     </>
   );
 };

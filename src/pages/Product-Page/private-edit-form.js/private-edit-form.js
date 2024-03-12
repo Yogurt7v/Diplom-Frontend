@@ -62,14 +62,6 @@ export const PrivateEditForm = ({
   }, [requestServer]);
 
   const onSave = () => {
-    console.log({id,
-      image_url: imageUrlValue,
-      description: descriptionValue,
-      category: categoryValue,
-      weight: weightValue,
-      calories: caloriesValue,
-      ingredients: ingredientsValue,
-      price: priceValue,});
     dispatch(
       saveProductAsync(requestServer, {
         id,
@@ -129,12 +121,6 @@ export const PrivateEditForm = ({
         className="input"
         onChange={onDescriptionChange}
       />
-      <CustomInput
-        value={categoryValue}
-        placeholder="Категория"
-        className="input"
-        onChange={onCategoryChange}
-      />
       <select
         value={categoryValue}
         onChange={onCategoryChange}
@@ -150,12 +136,14 @@ export const PrivateEditForm = ({
         value={weightValue}
         placeholder="Вес продукта"
         className="input"
+        type="number"
         onChange={onWeightChange}
       />
       <CustomInput
         value={caloriesValue}
         placeholder="Калории"
         className="input"
+        type="number"
         onChange={onCaloriesChange}
       />
       <CustomInput
@@ -167,6 +155,7 @@ export const PrivateEditForm = ({
       <CustomInput
         value={priceValue}
         placeholder="Цена"
+        type="number"
         className="input"
         onChange={onPriceChange}
       />

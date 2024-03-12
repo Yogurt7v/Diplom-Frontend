@@ -12,8 +12,10 @@ import { ROLE } from "../../constants/role";
 import { useResetForm } from "../../hooks";
 import { Header, VideoBackground } from "../components";
 import Slider from "../components/slider/Slider";
+import { InputMask } from "@react-input/mask";
+import { useNavigate } from "react-router-dom";
 
-const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
+// const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
 const regFormSchema = yup.object().shape({
   login: yup
@@ -25,7 +27,10 @@ const regFormSchema = yup.object().shape({
   password: yup
     .string()
     .required("Пустой пароль")
-    .matches(/^[\w#%]+$/, "Неподходящий пароль. Допускаются только буквы, цифры и символы")
+    .matches(
+      /^[\w#%]+$/,
+      "Неподходящий пароль. Допускаются только буквы, цифры и символы"
+    )
     .min(8, "Неверный пароль. Слишком мал. Не меньше 8 символов")
     .max(30, "Неверный пароль. Пароль слишком большой. Не больше 30 символов"),
   passcheck: yup
@@ -36,9 +41,9 @@ const regFormSchema = yup.object().shape({
   homeNumber: yup.string().required("Заполните домашний номер"),
   flatNumber: yup.string().required("Заполните квартиру"),
   phone: yup
-  .string()
-  .matches(phoneRegExp, 'Телефонный номер не подходит')
-  .required('Заполните телефон')
+    .string()
+    // .matches(phoneRegExp, "Телефонный номер не подходит")
+    .required("Заполните телефон"),
 });
 
 export const RegisterPage = () => {
@@ -63,18 +68,29 @@ export const RegisterPage = () => {
   const [serverError, setServerError] = useState();
   const roleId = useSelector(selectUserRole);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useResetForm(reset);
 
-  const onSubmit = ({ login, password, address,homeNumber, flatNumber, phone  }) => {
-    server.register(login, password, address,homeNumber, flatNumber, phone).then(({ error, res }) => {
-      if (error) {
-        setServerError(`Ошибка запроса ${error}`);
-        return;
-      }
-      dispatch(setUser(res));
-      sessionStorage.setItem("userData", JSON.stringify(res));
-    });
+  const onSubmit = ({
+    login,
+    password,
+    address,
+    homeNumber,
+    flatNumber,
+    phone,
+  }) => {
+    server
+      .register(login, password, address, homeNumber, flatNumber, phone)
+      .then(({ error, res }) => {
+        if (error) {
+          setServerError(`Ошибка запроса ${error}`);
+          return;
+        }
+        dispatch(setUser(res));
+        sessionStorage.setItem("userData", JSON.stringify(res));
+        navigate("/");
+      });
   };
 
   const formError =
@@ -93,13 +109,14 @@ export const RegisterPage = () => {
 
   return (
     <>
-    <Header />
+      <Header />
       <div className={style.registerPageWrapper}>
         <form onSubmit={handleSubmit(onSubmit)} className={style.registerForm}>
-        <h2>Регистрация</h2>
+          <h2 className={style.registerFormTitle}>Регистрация</h2>
           <input
             type="text"
             placeholder="Логин"
+            className={style.registerInput}
             {...register("login", {
               onChange: () => setServerError(null),
             })}
@@ -107,6 +124,7 @@ export const RegisterPage = () => {
           <input
             type="password"
             placeholder="Пароль"
+            className={style.registerInput}
             autoComplete="on"
             {...register("password", {
               onChange: () => setServerError(null),
@@ -115,6 +133,7 @@ export const RegisterPage = () => {
           <input
             type="password"
             placeholder="Повтор пароля"
+            className={style.registerInput}
             autoComplete="on"
             {...register("passcheck", {
               onChange: () => setServerError(null),
@@ -123,6 +142,7 @@ export const RegisterPage = () => {
           <input
             type="text"
             placeholder="Адрес"
+            className={style.registerInput}
             autoComplete="on"
             {...register("address", {
               onChange: () => setServerError(null),
@@ -131,6 +151,7 @@ export const RegisterPage = () => {
           <input
             type="text"
             placeholder="Номер дома"
+            className={style.registerInput}
             autoComplete="on"
             {...register("homeNumber", {
               onChange: () => setServerError(null),
@@ -139,33 +160,47 @@ export const RegisterPage = () => {
           <input
             type="text"
             placeholder="Номер квартиры"
+            className={style.registerInput}
             autoComplete="on"
             {...register("flatNumber", {
               onChange: () => setServerError(null),
             })}
           ></input>
-          <input
-            type="tel"
-            // pattern="[0-9]{1}([0-9]{3})-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+          <InputMask
+            mask="+7 (___) ___-__-__"
+            replacement={{ _: /\d/ }}
             placeholder="Телефон"
+            className={style.registerInput}
             autoComplete="on"
             {...register("phone", {
               onChange: () => setServerError(null),
             })}
-          ></input>
-
+          />
+          {/* <input
+            type="tel"
+            // pattern="[0-9]{1}([0-9]{3})-[0-9]{3}-[0-9]{2}-[0-9]{2}"
+            placeholder="Телефон"
+            className={style.registerInput}
+            autoComplete="on"
+            {...register("phone", {
+              onChange: () => setServerError(null),
+            })}
+          ></input> */}
           <button
             type="submit"
             disabled={!!formError}
             children={"Зарегистрироваться"}
+            className={style.registerButton}
           ></button>
           {errorMessage && (
             <div className={style.errorMessage}>{errorMessage}</div>
           )}
         </form>
-        <Slider />
+        <div className={style.sliderWrapper}>
+          <Slider />
+        </div>
       </div>
-      <VideoBackground/>
+      <VideoBackground />
     </>
   );
 };

@@ -25,6 +25,32 @@
       "phone": "",
       "registed_at": "2033-05-28 12:01",
       "role_id": 1
+    },
+    {
+      "login": "letsTry",
+      "password": "qazxsw123",
+      "location": {
+        "address": "axcas",
+        "homeNumber": "1122",
+        "flatNumber": "2323"
+      },
+      "phone": "+7 (911) 992-99-92",
+      "registed_at": "2024-03-12 08:02",
+      "role_id": 2,
+      "id": "Pl6fAmP"
+    },
+    {
+      "login": "llets try2",
+      "password": "bvcxz54321",
+      "location": {
+        "address": "sjkhvgs",
+        "homeNumber": "23",
+        "flatNumber": "76"
+      },
+      "phone": "+7 (348) 732-34-32",
+      "registed_at": "2024-03-12 08:04",
+      "role_id": 2,
+      "id": "IgWOOgP"
     }
   ],
   "roles": [
@@ -189,6 +215,7 @@
       "ingredients": "Очищенная газированная вода, сахар, краситель сахарный колер IV, регулятор кислотности ортофосфорная кислота, натуральные ароматизаторы, кофеин (менее 150 мг/л).",
       "price": 5
     }
+   
   ],
   "comments": [
     {
@@ -250,6 +277,40 @@
         "registed_at": "06.02.2024"
       },
       "id": 3
+    },
+    {
+      "hash": "0.98393364904179914098847348213894292712211608886719",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024",
+        "location": {
+          "homeNumber": "",
+          "flatNumber": ""
+        },
+        "phone": "",
+        "registed_at": "06.02.2024"
+      },
+      "id": 4
+    },
+    {
+      "hash": "0.23178817633790305130503384134499356150627136230469",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024",
+        "location": {
+          "homeNumber": "",
+          "flatNumber": ""
+        },
+        "phone": "",
+        "registed_at": "06.02.2024"
+      },
+      "id": 5
     }
   ]
 }

@@ -83,7 +83,7 @@ export const AdminPanel = () => {
     <>
     <Header/>
     <div className={style.AdminPanelWrapper}>
-    <details>
+    <details className={style.AdminPanelDetails}>
         <summary className={style.AdminPanelSummary}>Добавить новый продукт</summary>
         <div><PrivateEditForm product={newProduct}/></div>
     </details>
