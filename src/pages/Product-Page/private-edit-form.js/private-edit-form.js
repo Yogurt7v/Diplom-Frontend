@@ -2,7 +2,7 @@ import styled from "./private-edit-form.module.css";
 import { CustomInput } from "../../components";
 import { useLayoutEffect, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { RESET_PRODUCT_DATA, saveProductInBusket } from "../../../actions";
+import { RESET_PRODUCT_DATA, saveProductAsync } from "../../../actions";
 import { useNavigate } from "react-router-dom";
 import { useServerRequest } from "../../../hooks";
 
@@ -63,7 +63,7 @@ export const PrivateEditForm = ({
 
   const onSave = () => {
     dispatch(
-      saveProductInBusket(requestServer, {
+      saveProductAsync(requestServer, {
         id,
         image_url: imageUrlValue,
         description: descriptionValue,

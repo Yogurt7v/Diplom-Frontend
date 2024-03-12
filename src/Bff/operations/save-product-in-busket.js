@@ -6,8 +6,6 @@ export const saveProductInBusket = async (hash, newProductData) => {
 
     console.log("saveProductInBusket", newProductData);
 
-//   const accessRoles = [ROLE.ADMIN];
-
 //   const access = await sessions.access(hash, accessRoles);
 
 //   if (!access) {

@@ -27,10 +27,8 @@ export const Card = ({
   };
 
   const addProductToBusket = (id, productName, quantity, price) => {
-    dispatch(
-      saveProductInBusket(requestServer, ({ id, productName, quantity, price }))
-    )
-  }
+    dispatch(saveProductInBusket(requestServer, ({ id, productName, quantity, price })))
+}
 
 
   return (
