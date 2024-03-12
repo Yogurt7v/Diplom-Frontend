@@ -10,7 +10,7 @@ export const SearchBar = ({searchPhraseFromSearchBar , setSearchPhraseFromSearch
       <input
         type="text"
         className={style.SearchBarInput}
-        placeholder="Search"
+        placeholder="Search for ingredients..."
         value={searchPhraseFromSearchBar}
         onChange={(e) => setSearchPhraseFromSearchBar(e.target.value)}
       ></input>

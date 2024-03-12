@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./new-style-content.module.css";
 import Card from "../card/card";
 import { Pagination } from "../pagination/pagination";

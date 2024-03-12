@@ -81,45 +81,25 @@ export const MainPage = () => {
       setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
     );
   }, [dispatch]);
-
   useEffect(() => {
     requestServer(`fetchProducts`, searchPhrase, page, PAGINATION_LIMIT).then(
       ({ res: { products, links } }) => {
-        setProducts(products);
+        const sortObJ = sortOption.find((option) => option.value === sorting);
+        const filteredProducts = products.filter((product) =>
+          categories ? product.category === categories : product
+        );
+        setProducts(sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts);
         setLastPage(getLastPageFromLinks(links));
       }
     );
-  }, [requestServer, page, searchPhrase]);
+  }, [requestServer, page, searchPhrase, sorting, categories]);
+  
 
-  useEffect(() => {
-    requestServer(`fetchProducts`, searchPhrase, page, PAGINATION_LIMIT).then(
-      ({ res: { products } }) => {
-        const sortObJ = sortOption.find((option) => option.value === sorting);
-        if (sortObJ) {
-          setProducts(sortObJ.sort(products));
-        }
-        if (categories) {
-          setProducts(products.filter((product) => product.category === categories));
-        }
-        if (categories === "") {
-          setProducts(products);
-        }
-      }
-    );
-  }, [sorting, categories]);
-
-
-  const onCategoryChange = (e) => {
-    let target = e.target.textContent.toLowerCase().slice (0, -1);
-    setSortingInProgress(!sortingInProgress);
-    if (sortingInProgress) {
-      setCategories(target);
-    }
-    if (!sortingInProgress) {
-      setCategories("");
-    }
-    
-  };
+const onCategoryChange = (event) => {
+  const category = event.target.textContent.toLowerCase().slice(0, -1);
+  setSortingInProgress(!sortingInProgress);
+  setCategories(sortingInProgress ? category : "");
+};
 
   const handleSort = (e) => {
     setSorting(e.target.value);

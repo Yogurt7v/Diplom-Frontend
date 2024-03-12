@@ -3,7 +3,7 @@ import style from "./sort.module.css";
 export const SortBar = ({ value, onSort, options }) => {
   return (
     <div className={style.SortBarWrapper}>
-      <span>Сортировка</span>
+      <span className={style.SortBarTitle}>Сортировка</span>
       <select onChange={onSort} className={style.SortBarSelect}>
         <option value="" disabled selected hidden className={style.SortBarOption}>
         </option>
