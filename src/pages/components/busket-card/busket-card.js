@@ -22,8 +22,6 @@ export const BusketCard = () => {
 
   }, [requestServer]);
 
-  console.log(userBusket);
-
   return (
     <>
       <div className={style.BusketCardWrapper}>

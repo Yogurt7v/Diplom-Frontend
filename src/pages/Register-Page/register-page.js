@@ -158,7 +158,7 @@ export const RegisterPage = () => {
             })}
           ></input>
           <input
-            type="text"
+            type="number"
             placeholder="Номер квартиры"
             className={style.registerInput}
             autoComplete="on"

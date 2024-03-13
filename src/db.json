@@ -38,19 +38,6 @@
       "registed_at": "2024-03-12 08:02",
       "role_id": 2,
       "id": "Pl6fAmP"
-    },
-    {
-      "login": "llets try2",
-      "password": "bvcxz54321",
-      "location": {
-        "address": "sjkhvgs",
-        "homeNumber": "23",
-        "flatNumber": "76"
-      },
-      "phone": "+7 (348) 732-34-32",
-      "registed_at": "2024-03-12 08:04",
-      "role_id": 2,
-      "id": "IgWOOgP"
     }
   ],
   "roles": [
@@ -244,44 +231,7 @@
       "id": 2
     }
   ],
-  "busket": [
-    {
-      "userId": -1,
-      "productId": "004",
-      "productName": "Burger Tower",
-      "quantity": 1,
-      "priceForOne": 20,
-      "publishedAt": "2024-03-13 14:07",
-      "id": 1
-    },
-    {
-      "userId": -1,
-      "productId": "003",
-      "productName": "Chicken Burger",
-      "quantity": 1,
-      "priceForOne": 5,
-      "publishedAt": "2024-03-13 14:07",
-      "id": 2
-    },
-    {
-      "userId": -1,
-      "productId": "003",
-      "productName": "Chicken Burger",
-      "quantity": 1,
-      "priceForOne": 5,
-      "publishedAt": "2024-03-13 14:07",
-      "id": 3
-    },
-    {
-      "userId": -1,
-      "productId": "003",
-      "productName": "Chicken Burger",
-      "quantity": 1,
-      "priceForOne": 5,
-      "publishedAt": "2024-03-13 14:09",
-      "id": 4
-    }
-  ],
+  "busket": [],
   "orders": [],
   "prevOrders": []
 }
