@@ -10,7 +10,7 @@ export const addProductToBusket = (userId, productId, productName, quantity, pri
       productId:productId,
       productName: productName,
       quantity: quantity,
-      price: price,
+      priceForOne: price,
       publishedAt: generateDate(),
     }),
   });

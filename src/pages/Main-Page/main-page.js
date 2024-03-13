@@ -1,17 +1,10 @@
 import style from "./main-page.module.css";
-import React from "react";
-import Content from "../components/content/content.js";
-import SearchBar from "../components/search-bar/search-bar.js";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../actions";
-import { VideoBackground } from "../components";
-import { useState } from "react";
-import { useEffect } from "react";
 import { useServerRequest } from "../../hooks/use-server-request";
-import { SortBar } from "../components/sort-bar";
-import { Header } from "../components";
-import _ from "lodash";
+import { SortBar, Header, VideoBackground, MainContent, SearchBar } from "../components";
+import { SORT_OPTIONS } from "../../constants";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -23,38 +16,39 @@ export const MainPage = () => {
   const [sorting, setSorting] = useState("");
   const [searchCategory, setSearchCategory] = useState("");
 
-  const sortOption = [
-    {
-      value: "priceDESC",
-      label: "по цене по убыванию",
-      sort: (data) => _.orderBy(data, ["price"], ["desc"]),
-    },
-    {
-      value: "priceASC",
-      label: "по цене по возрастанию",
-      sort: (data) => _.orderBy(data, ["price"], ["asc"]),
-    },
-    {
-      value: "weightASC",
-      label: "по весу по возрастанию",
-      sort: (data) => _.orderBy(data, ["weight"], ["asc"]),
-    },
-    {
-      value: "weightDESC",
-      label: "по весу по убыванию",
-      sort: (data) => _.orderBy(data, ["weight"], ["desc"]),
-    },
-    {
-      value: "caloriesASC",
-      label: "по калорийности по возрастанию",
-      sort: (data) => _.orderBy(data, ["calories"], ["asc"]),
-    },
-    {
-      value: "caloriesDESC",
-      label: "по калорийности по убыванию",
-      sort: (data) => _.orderBy(data, ["calories"], ["desc"]),
-    },
-  ];
+  //   {
+  //     value: "priceDESC",
+  //     label: "по цене по убыванию",
+  //     sort: (data) => _.orderBy(data, ["price"], ["desc"]),
+  //   },
+  //   {
+  //     value: "priceASC",
+  //     label: "по цене по возрастанию",
+  //     sort: (data) => _.orderBy(data, ["price"], ["asc"]),
+  //   },
+  //   {
+  //     value: "weightASC",
+  //     label: "по весу по возрастанию",
+  //     sort: (data) => _.orderBy(data, ["weight"], ["asc"]),
+  //   },
+  //   {
+  //     value: "weightDESC",
+  //     label: "по весу по убыванию",
+  //     sort: (data) => _.orderBy(data, ["weight"], ["desc"]),
+  //   },
+  //   {
+  //     value: "caloriesASC",
+  //     label: "по калорийности по возрастанию",
+  //     sort: (data) => _.orderBy(data, ["calories"], ["asc"]),
+  //   },
+  //   {
+  //     value: "caloriesDESC",
+  //     label: "по калорийности по убыванию",
+  //     sort: (data) => _.orderBy(data, ["calories"], ["desc"]),
+  //   },
+  // ];
+
+  const sortOption = SORT_OPTIONS;
 
   const onSearch = () => {
     setSearchPhrase(searchPhraseFromSearchBar);
@@ -63,7 +57,6 @@ export const MainPage = () => {
   const onDelete = () => {
     setSearchPhrase("");
   };
-
 
   useLayoutEffect(() => {
     const currentUserDataJSON = sessionStorage.getItem("userData");
@@ -76,7 +69,6 @@ export const MainPage = () => {
       setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
     );
   }, [dispatch]);
-
 
   useEffect(() => {
     requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
@@ -100,12 +92,12 @@ const onCategoryChange = (event) => {
   } else {
     setSearchCategory('')
   }
-
 }
 
   const handleSort = (e) => {
     setSorting(e.target.value);
   };
+
   return (
     <>
       <Header  onCategoryChange={onCategoryChange}/>
@@ -120,7 +112,7 @@ const onCategoryChange = (event) => {
             onDelete={onDelete}
           />
         </div>
-        <Content 
+        <MainContent 
           products={products}
         />
         <VideoBackground />
