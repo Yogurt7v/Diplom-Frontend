@@ -3,8 +3,10 @@ import { useLayoutEffect, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../actions";
 import { useServerRequest } from "../../hooks/use-server-request";
-import { SortBar, Header, VideoBackground, MainContent, SearchBar } from "../components";
+import { SortBar, Header, VideoBackground, MainContent, SearchBar,BusketCard  } from "../components";
 import { SORT_OPTIONS } from "../../constants";
+import { ROLE } from "../../constants";
+import { logout } from "../../Bff/operations";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -60,14 +62,32 @@ export const MainPage = () => {
 
   useLayoutEffect(() => {
     const currentUserDataJSON = sessionStorage.getItem("userData");
+    const random = Math.random().toFixed(50);
     if (!currentUserDataJSON) {
-      return;
+      dispatch(
+        setUser({
+          id: -1,
+          login: "guest",
+          roleId: ROLE.GUEST,
+          session: random,
+        })
+      );
+      window.addEventListener("beforeunload", () => {
+        dispatch( logout(random) );
+      })
+      window.removeEventListener("beforeunload", () => {
+        dispatch( logout(random) );
+      })
+    }
+    if(currentUserDataJSON){
+
+      const currentUserData = JSON.parse(currentUserDataJSON);
+      dispatch(
+        setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
+      );
+
     }
 
-    const currentUserData = JSON.parse(currentUserDataJSON);
-    dispatch(
-      setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
-    );
   }, [dispatch]);
 
   useEffect(() => {
@@ -103,7 +123,7 @@ const onCategoryChange = (event) => {
       <Header  onCategoryChange={onCategoryChange}/>
       <div className={style.AppWrapper}>
         <div className={style.SortBarWrapper}>
-          <SortBar options={sortOption} onSort={handleSort} value={sorting} />
+          <SortBar options={sortOption} onSort={handleSort} />
           <SearchBar
             searchPhraseFromSearchBar={searchPhraseFromSearchBar}
             setSearchPhraseFromSearchBar={setSearchPhraseFromSearchBar}
@@ -111,6 +131,7 @@ const onCategoryChange = (event) => {
             onSearch={onSearch}
             onDelete={onDelete}
           />
+          <BusketCard/>
         </div>
         <MainContent 
           products={products}

@@ -1,6 +1,6 @@
 import style from "./sort.module.css";
 
-export const SortBar = ({ value, onSort, options }) => {
+export const SortBar = ({ onSort, options }) => {
   return (
     <div className={style.SortBarWrapper}>
       <span className={style.SortBarTitle}>Сортировка</span>

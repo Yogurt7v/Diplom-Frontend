@@ -1,20 +1,23 @@
-import { addProductToBusket } from "../api";
+
+import { addProductToBusket, getUser } from "../api";
 // import { ROLE } from "../../constants/role";
 // import { sessions } from "../sessions";
 // import { getProductIdCommentsWithAuthor } from "../utils";
 
 export const addProductToBusketOperation = async (hash, userId, productId, productName, quantity, price) => {
 
-//воспользуйся хэшем!!
-
-  addProductToBusket(userId, productId, productName, quantity, price);
-  let obj = {
+  let dataBusket = {
     userId,
     productId,
     productName,
     quantity,
     price,
   }
+
+    addProductToBusket(userId, productId, productName, quantity, price);
+
+
+
 
   // console.log("newAddedbusket", newAddedbusket);
 
@@ -36,6 +39,6 @@ export const addProductToBusketOperation = async (hash, userId, productId, produ
 
   return {
     error: null,
-    res: { ...obj },
+    res: { ...dataBusket },
   };
 };

@@ -13,7 +13,7 @@ export const RightHeader =( {loginName, onLogout}) => {
 
     return (
         <>
-        {loginName ? (
+        {loginName && loginName!=="guest"? (
             <div className={style.authWrapper}>
               <div className={style.HeaderAuth}> {loginName} </div>
               {isAdmin && <NavLink to={"/admin-panel"} className={style.newProduct}>

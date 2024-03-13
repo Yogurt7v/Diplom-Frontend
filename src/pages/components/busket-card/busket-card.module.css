@@ -1,56 +1,28 @@
 .BusketCardWrapper{
     display: flex;
-    /* width: 70%; */
+    width: 30%; 
+    gap: 20px;
     justify-content: space-between;
-    padding: 10px 20px;
-    margin-bottom: 25px;
+    align-items: center;
+    color: #ef7908;
+    padding-right: 20px;
 }
+
+.BusketCardTitle{
+    font-size: 16px;
+    font-weight: 500;
+    color: #ef7908;
+    margin-bottom: 10px;
+}
+
+.BusketCardSum{
+    display: flex;
+    gap: 10px;
+}
+
 
 .BusketCardImage{
-    width: 200px;
-    height: 200px;
-    margin-right: 20px;
-}
+    width: 40px;
+    height: 40px;
 
-.BusketCardInfo{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.BusketCardInfoWrapper{
-    display: flex;
-    justify-content: space-evenly; 
-    margin-top: 20px;
-}
-
-.BusketCardInfoItem{
-    display: flex;
-    flex-direction: column;
-}
-
-.BusketCardName{
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.BusketCardNamber{
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.BusketCardButtonWrapper{
-    display: flex;
-    justify-content: space-evenly;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.BusketCardButton{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%; 
-    cursor: pointer;
 }

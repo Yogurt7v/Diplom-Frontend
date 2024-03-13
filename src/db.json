@@ -234,118 +234,54 @@
   ],
   "sessions": [
     {
-      "hash": "0.02443857741805710581672883563442155718803405761719",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024",
-        "location": {
-          "homeNumber": "",
-          "flatNumber": ""
-        },
-        "phone": "",
-        "registed_at": "06.02.2024"
-      },
+      "hash": "0.05499477720821488446745206601917743682861328125000",
+      "user": "guest",
       "id": 1
     },
     {
-      "hash": "0.93517704372191245987266938755055889487266540527344",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024",
-        "location": {
-          "homeNumber": "",
-          "flatNumber": ""
-        },
-        "phone": "",
-        "registed_at": "06.02.2024"
-      },
+      "hash": "0.05648712585097537264289258018834516406059265136719",
+      "user": "guest",
       "id": 2
-    },
-    {
-      "hash": "0.90685638321471562228737184341298416256904602050781",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024",
-        "location": {
-          "homeNumber": "",
-          "flatNumber": ""
-        },
-        "phone": "",
-        "registed_at": "06.02.2024"
-      },
-      "id": 3
-    },
-    {
-      "hash": "0.98393364904179914098847348213894292712211608886719",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024",
-        "location": {
-          "homeNumber": "",
-          "flatNumber": ""
-        },
-        "phone": "",
-        "registed_at": "06.02.2024"
-      },
-      "id": 4
-    },
-    {
-      "hash": "0.23178817633790305130503384134499356150627136230469",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024",
-        "location": {
-          "homeNumber": "",
-          "flatNumber": ""
-        },
-        "phone": "",
-        "registed_at": "06.02.2024"
-      },
-      "id": 5
-    },
-    {
-      "hash": "0.71907316996802106423558598180534318089485168457031",
-      "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024",
-        "location": {
-          "homeNumber": "",
-          "flatNumber": ""
-        },
-        "phone": "",
-        "registed_at": "06.02.2024"
-      },
-      "id": 6
     }
   ],
   "busket": [
     {
-      "userId": "001",
-      "productId": "001",
-      "productName": "Cheeseburger ",
-      "quantity": 3,
-      "priceForOne": 3,
-      "publishedAt": "2024-03-13 09:41",
+      "userId": -1,
+      "productId": "004",
+      "productName": "Burger Tower",
+      "quantity": 1,
+      "priceForOne": 20,
+      "publishedAt": "2024-03-13 14:07",
       "id": 1
+    },
+    {
+      "userId": -1,
+      "productId": "003",
+      "productName": "Chicken Burger",
+      "quantity": 1,
+      "priceForOne": 5,
+      "publishedAt": "2024-03-13 14:07",
+      "id": 2
+    },
+    {
+      "userId": -1,
+      "productId": "003",
+      "productName": "Chicken Burger",
+      "quantity": 1,
+      "priceForOne": 5,
+      "publishedAt": "2024-03-13 14:07",
+      "id": 3
+    },
+    {
+      "userId": -1,
+      "productId": "003",
+      "productName": "Chicken Burger",
+      "quantity": 1,
+      "priceForOne": 5,
+      "publishedAt": "2024-03-13 14:09",
+      "id": 4
     }
   ],
-  "orders": []
+  "orders": [],
+  "prevOrders": []
 }

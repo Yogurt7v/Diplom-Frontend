@@ -20,6 +20,7 @@ export const Card = ({
   const requestServer = useServerRequest();
   const dispatch = useDispatch();
   const userOnPage = useSelector(selectUserId);
+  
 
   const decrimetnQuantity = () => {
     if (quantity > 1) {
