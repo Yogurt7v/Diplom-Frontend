@@ -12,7 +12,8 @@ import {
   addProductComment,
   removeProductComment,
   removeProduct,
-  addProductToBusketOperation
+  addProductToBusketOperation,
+  fecthBusket
 } from "./operations";
 
 export const server = {
@@ -29,5 +30,6 @@ export const server = {
   addProductComment,
   removeProductComment,
   removeProduct,
-  addProductToBusketOperation
+  addProductToBusketOperation,
+  fecthBusket
 };
