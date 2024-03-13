@@ -3,7 +3,8 @@ import Card from "../card/card";
 // import { Pagination } from "../pagination/pagination";
 // import { ColorRing } from "react-loader-spinner";
 
-export const MainContent = ({ products }) => {
+export const MainContent = ({ products, currentUser }) => {
+
   return (
     <>
       <div className={style.container}>
@@ -23,6 +24,7 @@ export const MainContent = ({ products }) => {
               }) => (
                 <Card
                   key={id}
+                  currentUser={currentUser}
                   id={id}
                   productName={productName}
                   imageUrl={image_url}

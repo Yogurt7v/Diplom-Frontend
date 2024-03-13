@@ -16,6 +16,7 @@ export const useServerRequest = () => {
         "authorize",
         "fetchProducts",
         "fetchProduct",
+        "addProductComment",
       ].includes(operation)
         ? params
         : [session, ...params];

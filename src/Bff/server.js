@@ -12,7 +12,7 @@ import {
   addProductComment,
   removeProductComment,
   removeProduct,
-  saveProductInBusket
+  addProductToBusketOperation
 } from "./operations";
 
 export const server = {
@@ -29,5 +29,5 @@ export const server = {
   addProductComment,
   removeProductComment,
   removeProduct,
-  saveProductInBusket
+  addProductToBusketOperation
 };

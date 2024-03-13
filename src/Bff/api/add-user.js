@@ -1,5 +1,5 @@
 import { generateDate } from "../utils";
-export const addUser = (login, password, address,homeNumber, flatNumber, phone, card) =>
+export const addUser = (login, password, address,homeNumber, flatNumber, phone) =>
   fetch("http://localhost:3004/users", {
     method: "POST",
     headers: {
@@ -14,7 +14,6 @@ export const addUser = (login, password, address,homeNumber, flatNumber, phone, 
         flatNumber,
       },
       phone,
-      card,
       registed_at: generateDate(),
       role_id: 2,
 

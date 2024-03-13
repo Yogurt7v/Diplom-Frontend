@@ -2,6 +2,12 @@ import { ACTION_TYPE } from "../actions";
 
 const initialBusketState = {
     productId: "",
+    currentUser: {
+        id: "",
+        login: "",
+        password: "",
+        roleId: "",
+    },
     productName: "",
     quntity: "",
     price:"", 

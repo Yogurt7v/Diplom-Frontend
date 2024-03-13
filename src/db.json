@@ -336,5 +336,16 @@
       "id": 6
     }
   ],
+  "busket": [
+    {
+      "userId": "001",
+      "productId": "002",
+      "productName": "Mushroom Burger",
+      "quantity": 3,
+      "price": 6,
+      "publishedAt": "2024-03-13 09:23",
+      "id": 1
+    }
+  ],
   "orders": []
 }
