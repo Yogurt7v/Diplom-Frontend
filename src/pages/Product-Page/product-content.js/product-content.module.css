@@ -55,7 +55,7 @@
 .ProductNutrition{
     margin-top: 30px;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
     gap: 30px;
     width: 100%;
@@ -90,7 +90,7 @@
 
 .ProductPrice{
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     font-size: 40px;
     font-weight: 700;
     color: rgb(213, 1, 1);

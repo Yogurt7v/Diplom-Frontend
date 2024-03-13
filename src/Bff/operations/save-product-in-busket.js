@@ -1,6 +1,6 @@
-import { updatedProduct, addProduct } from "../api";
-import { sessions } from "../sessions";
-import { ROLE } from "../../constants/role";
+// import { updatedProduct, addProduct } from "../api";
+// import { sessions } from "../sessions";
+// import { ROLE } from "../../constants/role";
 
 export const saveProductInBusket = async (hash, newProductData) => {
 
