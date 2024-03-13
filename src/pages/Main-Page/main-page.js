@@ -89,6 +89,7 @@ export const MainPage = () => {
         setProducts(sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts);
       }
     );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [requestServer, searchPhrase, sorting, searchCategory]);
   
 

@@ -5,7 +5,7 @@ import { addProductToBusket } from "../api";
 
 export const addProductToBusketOperation = async (hash, userId, productId, productName, quantity, price) => {
 
-  console.log("addProductToBusketOperation", userId, productId, productName, quantity, price);
+//воспользуйся хэшем!!
 
   addProductToBusket(userId, productId, productName, quantity, price);
   let obj = {
