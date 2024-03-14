@@ -85,14 +85,12 @@ export const MainPage = () => {
       dispatch(
         setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
       );
-
     }
-
   }, [dispatch]);
 
   useEffect(() => {
     requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
-      ({ res: { products, links } }) => {
+      ({ res: { products } }) => {
 
         const sortObJ = sortOption.find((option) => option.value === sorting);
         const filteredProducts = products.filter((product) =>

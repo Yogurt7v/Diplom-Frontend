@@ -229,9 +229,173 @@
       "hash": "0.05648712585097537264289258018834516406059265136719",
       "user": "guest",
       "id": 2
+    },
+    {
+      "hash": "0.07361028705217154133322310372022911906242370605469",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024",
+        "location": {
+          "homeNumber": "",
+          "flatNumber": ""
+        },
+        "phone": "",
+        "registed_at": "06.02.2024"
+      },
+      "id": 3
     }
   ],
   "busket": [
+    {
+      "items": [
+        {
+          "userId": "001",
+          "productId": "006",
+          "productName": "Greek Salad",
+          "quantity": 3,
+          "priceForOne": 7,
+          "publishedAt": "2024-03-14 10:42",
+          "randomId": "143556"
+        },
+        {
+          "userId": "001",
+          "productId": "001",
+          "productName": "Cheeseburger ",
+          "quantity": 2,
+          "priceForOne": 3,
+          "publishedAt": "2024-03-14 10:42",
+          "randomId": "377175"
+        },
+        {
+          "userId": "001",
+          "productId": "002",
+          "productName": "Mushroom Burger",
+          "quantity": 2,
+          "priceForOne": 6,
+          "publishedAt": "2024-03-14 10:42",
+          "randomId": "47743"
+        },
+        {
+          "userId": "001",
+          "productId": "003",
+          "productName": "Chicken Burger",
+          "quantity": 2,
+          "priceForOne": 5,
+          "publishedAt": "2024-03-14 10:42",
+          "randomId": "285085"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "userId": "001",
+          "productId": "006",
+          "productName": "Greek Salad",
+          "quantity": 3,
+          "priceForOne": 7,
+          "publishedAt": "2024-03-14 10:43",
+          "randomId": "219959"
+        },
+        {
+          "userId": "001",
+          "productId": "001",
+          "productName": "Cheeseburger ",
+          "quantity": 2,
+          "priceForOne": 3,
+          "publishedAt": "2024-03-14 10:43",
+          "randomId": "589159"
+        },
+        {
+          "userId": "001",
+          "productId": "002",
+          "productName": "Mushroom Burger",
+          "quantity": 2,
+          "priceForOne": 6,
+          "publishedAt": "2024-03-14 10:43",
+          "randomId": "532953"
+        },
+        {
+          "userId": "001",
+          "productId": "003",
+          "productName": "Chicken Burger",
+          "quantity": 2,
+          "priceForOne": 5,
+          "publishedAt": "2024-03-14 10:43",
+          "randomId": "580660"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "userId": {
+        "userId": "001",
+        "productId": "002",
+        "productName": "Mushroom Burger",
+        "quantity": 4,
+        "price": 6
+      },
+      "publishedAt": "2024-03-14 10:47",
+      "id": 3
+    },
+    {
+      "userId": "001",
+      "productId": "002",
+      "productName": "Mushroom Burger",
+      "quantity": 4,
+      "priceForOne": 6,
+      "publishedAt": "2024-03-14 10:50",
+      "id": 4
+    },
+    {
+      "userId": "001",
+      "productId": "002",
+      "productName": "Mushroom Burger",
+      "quantity": 4,
+      "priceForOne": 6,
+      "publishedAt": "2024-03-14 10:51",
+      "id": 5
+    },
+    {
+      "userId": "001",
+      "productId": "002",
+      "productName": "Mushroom Burger",
+      "quantity": 4,
+      "priceForOne": 6,
+      "publishedAt": "2024-03-14 10:52",
+      "id": 6
+    },
+    {
+      "userId": "001",
+      "productId": "002",
+      "productName": "Mushroom Burger",
+      "quantity": 4,
+      "priceForOne": 6,
+      "publishedAt": "2024-03-14 10:53",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "productName": 1,
+      "quantity": 1,
+      "priceForOne": 1,
+      "publishedAt": "2024-03-14 10:55",
+      "id": 8
+    },
+    {
+      "userId": "001",
+      "productId": "002",
+      "productName": "Mushroom Burger",
+      "quantity": 4,
+      "priceForOne": 6,
+      "publishedAt": "2024-03-14 10:57",
+      "id": 9
+    }
   ],
   "orders": [],
   "prevOrders": []
