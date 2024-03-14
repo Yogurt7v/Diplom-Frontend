@@ -1,3 +1,9 @@
+.SortBarWrapper{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
 .SortBarContent {
   display: flex;
   justify-content: space-around;

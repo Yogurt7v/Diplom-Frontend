@@ -1,11 +1,10 @@
 .AppWrapper{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     overflow-x: hidden;
     margin: 0 auto;
-    /* overflow: hidden; */
+    height: calc(100vh - 130px);
 }
 
 .MainSection{
@@ -16,6 +15,7 @@
 }
 .SortBarWrapper{
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     width: 100%;

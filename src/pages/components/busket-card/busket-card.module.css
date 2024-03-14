@@ -2,14 +2,20 @@
     display: flex;
     width: 30%; 
     gap: 20px;
-    justify-content: space-between;
     align-items: center;
+    justify-content: right;
     color: #ef7908;
-    padding-right: 20px;
+    padding-right: 40px;
+}
+
+.BusketCardTitleHeader{
+    font-size: 20px;
+    font-weight: 500;
+    color: #ef7908;
 }
 
 .BusketCardTitle{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: #ef7908;
 }
@@ -17,12 +23,23 @@
 .BusketCardSum{
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
+.BusketCardImageWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .BusketCardImage{
     width: 40px;
     height: 40px;
+}
+
+.BusketCardImage:hover{
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: 0.3s;
+    filter: drop-shadow(0 0 0.5rem #ef7908);
 
 }

@@ -16,13 +16,15 @@ export const BusketCard = () => {
   return (
     <>
       <div className={style.BusketCardWrapper}>
-        <div>
-          <div className={style.BusketCardTitle}>Заказ</div>
+        {totalItemsQuantity> 0 ? <div>
+          <div className={style.BusketCardTitleHeader}>Заказ</div>
           <div className={style.BusketCardSum}>
-            <div className={style.BusketCardTitle}>{totalItemsQuantity} наименований</div>
-            <div className={style.BusketCardTitle}> на сумму {totalBusketPrice} $</div>
+            <div className={style.BusketCardTitle}> кол-во {totalItemsQuantity}</div>
+            <div className={style.BusketCardTitle}> сумма {totalBusketPrice} $</div>
           </div>
-        </div>
+        </div> : <div className={style.BusketCardTitle}>Ваша корзина пуста</div>}
+        <div className={style.BusketCardImageWrapper}>
+          
         <Link to="/busket">
           <img
             src={busketIcon}
@@ -30,6 +32,7 @@ export const BusketCard = () => {
             className={style.BusketCardImage}
           />
         </Link>
+          </div> 
       </div>
     </>
   );
