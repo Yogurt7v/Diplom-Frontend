@@ -1,6 +1,5 @@
 .BusketCardWrapper{
     display: flex;
-    width: 30%; 
     gap: 20px;
     align-items: center;
     justify-content: right;

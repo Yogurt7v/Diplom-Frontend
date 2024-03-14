@@ -1,7 +1,10 @@
 .SortBarWrapper{
   display: flex;
-  flex-direction: column;
-  width: 30%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 40px;
+  /* flex-direction: column;
+  width: 30%; */
 }
 
 .SortBarContent {
@@ -58,6 +61,8 @@
 }
 
 .SortBarSelect{
+  width: 100px;
+  height: 40px;
   font-size: 20px;
   font-weight: 500;
   color: #ff4301;
