@@ -6,33 +6,24 @@ import { selectBusket, selectUserId } from "../../selectors";
 import { removeBusketData } from "../../actions";
 import { VideoBackground } from "../components";
 import { Link } from "react-router-dom";
-import { addProductToBusket } from "../../Bff/api/add-product-to-busket";
 import { useServerRequest } from "../../hooks";
+import { useNavigate } from "react-router-dom";
+import { addProductToBusketAction } from "../../actions/add-product-to-busket";
 
 export const Busket = () => {
   const dispatch = useDispatch();
   const userOnPage = useSelector(selectUserId);
   const busket = useSelector(selectBusket);
   const requestServer = useServerRequest();
+  const navigate = useNavigate();
 
   const deleteItem = (randomId) => {
     dispatch(removeBusketData(randomId));
   };
 
   const createOrder = ({ items }) => {
-    items.forEach(({ userId, productId, productName, quantity, price }) => {
-      console.log(userId, productId, productName, quantity, price);
-      dispatch(
-        addProductToBusket(
-          requestServer,
-          userId,
-          productId,
-          productName,
-          quantity,
-          price
-        )
-      );
-    });
+    dispatch(addProductToBusketAction( requestServer, items ));
+
   };
 
   return (
@@ -82,7 +73,7 @@ export const Busket = () => {
             <Link to="/register">Зарегестрироваться</Link>
           ) : (
             <button
-              className={busket.length > 0 ? style.OrderButton : style.Innactive}
+              className={busket ? style.OrderButton : style.Innactive}
               onClick={() => createOrder(busket)}
             >
               Оформить
