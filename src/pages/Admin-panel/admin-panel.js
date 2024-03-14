@@ -47,7 +47,7 @@ export const AdminPanel = () => {
     }, [dispatch]);  
 
     useEffect(() => {
-        if (!checkAccess([ROLE.ADMIN], userRole)) {
+        if (!checkAccess([ROLE.ADMIN, ROLE.MODERATOR], userRole)) {
           setErrorMessage("Доступ запрещен ");
           return;
         }
@@ -79,15 +79,17 @@ export const AdminPanel = () => {
           });
         };
 
+console.log(userRole);
+
   return (
     <>
     <Header/>
     <div className={style.AdminPanelWrapper}>
-    <details className={style.AdminPanelDetails}>
+    {userRole === ROLE.ADMIN || userRole === ROLE.MODERATOR ?<details className={style.AdminPanelDetails}>
         <summary className={style.AdminPanelSummary}>Добавить новый продукт</summary>
         <div><PrivateEditForm product={newProduct}/></div>
-    </details>
-    <details>
+    </details> : null}
+    {userRole === ROLE.ADMIN ?<details className={style.AdminPanelDetails}>
         <summary className={style.AdminPanelSummary}>Пользователи</summary>
         <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
         <div>
@@ -109,7 +111,12 @@ export const AdminPanel = () => {
             ))}
         </div>
       </PrivateContent>
-    </details>
+    </details> : null}
+
+    {userRole === ROLE.ADMIN || userRole === ROLE.MODERATOR ?<details>
+      <summary className={style.AdminPanelSummary}>Заказы</summary>
+      <div>сюда запихнуть сформированные заказы</div>
+    </details>: null}
     </div>
     </>
   )

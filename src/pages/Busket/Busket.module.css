@@ -28,7 +28,7 @@
 
 .BusketTitle{
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 30px;
 }
 
@@ -46,8 +46,8 @@
 }
 
 .BusketSum{
-    font-size: 20px;
-    margin-bottom: 40px;
+    font-size: 30px;
+    margin: 40px;
 }
 
 .BusketButton{
