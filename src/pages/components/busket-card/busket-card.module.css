@@ -12,11 +12,11 @@
     font-size: 16px;
     font-weight: 500;
     color: #ef7908;
-    margin-bottom: 10px;
 }
 
 .BusketCardSum{
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 

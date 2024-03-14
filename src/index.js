@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LoginPage, MainPage, ProductPage } from "./pages/index";
+import { Busket, LoginPage, MainPage, ProductPage } from "./pages/index";
 import { Provider } from "react-redux";
 import { ERROR } from "./constants";
 import store from "./store";
@@ -24,6 +24,7 @@ root.render(
         <Route path="/product" element={<ProductPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/products/:id/edit" element={<ProductPage />} />
+        <Route path="/busket" element={<Busket />} />
         <Route path="*" element={<ErrorPage error={ERROR.PAGE_NOT_EXIST} />} />
       </Routes>
       <Modal/>

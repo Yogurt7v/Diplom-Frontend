@@ -3,10 +3,11 @@ import plus from "../../../icons/plus.svg";
 import minus from "../../../icons/minus.svg";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useServerRequest } from "../../../hooks";
+// import { useServerRequest } from "../../../hooks";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserId } from "../../../selectors";
-import { addProductToBusketAction } from "../../../actions/add-product-to-busket";
+// import { addProductToBusketAction } from "../../../actions/add-product-to-busket";
+import { addBusketData } from "../../../actions/add-busket-data";
 
 export const Card = ({
   id,
@@ -17,7 +18,7 @@ export const Card = ({
   price,
 }) => {
   const [quantity, setQuantity] = useState(1);
-  const requestServer = useServerRequest();
+  // const requestServer = useServerRequest();
   const dispatch = useDispatch();
   const userOnPage = useSelector(selectUserId);
   
@@ -34,11 +35,13 @@ export const Card = ({
 
   const addProductToBusket = (productId=id, productName, quantity, price) => {
     const userId = userOnPage;
-    dispatch(
-      addProductToBusketAction(
-        requestServer,userId, productId, productName, quantity, price
-      )
-    );
+    const randomId = (Math.random()* 1000000).toFixed(0);
+    // dispatch(
+    //   addProductToBusketAction(
+    //     requestServer,userId, productId, productName, quantity, price
+    //   )
+    // );
+    dispatch(addBusketData({randomId, userId,  productId, productName, quantity, price }));
   };
 
   return (

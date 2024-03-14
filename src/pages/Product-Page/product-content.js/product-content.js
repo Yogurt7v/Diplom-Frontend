@@ -55,7 +55,7 @@ export const ProductContent = ({
                   Калории: {calories} ккал.
                 </div>
                 <div className={style.ProductPrice}> {price} $</div>{" "}
-                <button className={style.BuyButton}>Купить</button>
+                {/* <button className={style.BuyButton}>Купить</button> */}
               </div>
             </div>
           </div>
