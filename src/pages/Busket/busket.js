@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useServerRequest } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import { addProductToBusketAction } from "../../actions/add-product-to-busket";
+import { openModal, CLOSE_MODAL } from "../../actions";
 
 export const Busket = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,20 @@ export const Busket = () => {
 
   const createOrder = ({ items }) => {
     dispatch(addProductToBusketAction( requestServer, items ));
-
+    dispatch(
+      openModal({
+        text: "Заказ создан!",
+        onConform: () => {
+          dispatch(CLOSE_MODAL);
+          navigate("/");
+        },
+        onCancel: () => {
+          dispatch(CLOSE_MODAL);
+        },
+        setTimeout() {
+          navigate("/");
+        }
+      }, 2000))
   };
 
   return (

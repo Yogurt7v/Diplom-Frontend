@@ -14,7 +14,6 @@ export const SingleComment = ({ id, author, productId, content }) => {
   const userRole = useSelector(selectUserRole);
 
   const onCommentRemove = (id) => {
-    console.log("remove comment");
     dispatch(
       openModal({
         text: "Удалить комментрарий?",
