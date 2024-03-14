@@ -8,13 +8,15 @@ export const addProductToBusketOperation = async (hash, items) => {
 
   let dataBusket = {
     userId: item.userId,
+    delivered: false,
+    paid: false,
     items: items.map((item) => ({
       productId: item.productId,
       productName: item.productName,
       quantity: item.quantity,
       price: item.price,
-      delivered: false
-    })),
+    }),
+    ),
   };
   
   addProductToBusket(dataBusket);

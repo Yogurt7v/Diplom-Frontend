@@ -29,15 +29,11 @@ export const Busket = () => {
         text: "Заказ создан!",
         onConform: () => {
           dispatch(CLOSE_MODAL);
-          navigate("/");
+          navigate("/payment");
         },
-        onCancel: () => {
-          dispatch(CLOSE_MODAL);
-        },
-        setTimeout() {
-          navigate("/");
-        }
-      }, 2000))
+        onCancel: () => {dispatch(CLOSE_MODAL);
+        navigate("/");}
+      }))
   };
 
   return (
