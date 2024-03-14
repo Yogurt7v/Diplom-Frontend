@@ -1,5 +1,5 @@
 
-import { addProductToBusket, getUser } from "../api";
+import { addProductToBusket } from "../api";
 // import { ROLE } from "../../constants/role";
 // import { sessions } from "../sessions";
 // import { getProductIdCommentsWithAuthor } from "../utils";
