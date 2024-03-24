@@ -17,6 +17,7 @@ export const MainPage = () => {
     useState("");
   const [sorting, setSorting] = useState("");
   const [searchCategory, setSearchCategory] = useState("");
+  const[loading, setLoading] = useState(false);
 
 
   const sortOption = SORT_OPTIONS;
@@ -58,6 +59,7 @@ export const MainPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
+    setLoading(true);
     requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
       ({ res: { products } }) => {
 
@@ -66,6 +68,7 @@ export const MainPage = () => {
         searchCategory ? product.category === searchCategory : product
         );
         setProducts(sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts);
+        setLoading(false);
       }
     );
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -101,6 +104,7 @@ const onCategoryChange = (event) => {
           <BusketCard/>
         </div>
         <MainContent 
+        loading={loading}
           products={products}
         />
         <VideoBackground />
