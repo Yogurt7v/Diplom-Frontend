@@ -26,7 +26,7 @@ export const Busket = () => {
     dispatch(addProductToBusketAction(requestServer, items, userOnPage));
     dispatch(
       openModal({
-        text: "Заказ создан!",
+        text: "Заказ создан! Перейти к оплате?",
         onConform: () => {
           dispatch(CLOSE_MODAL);
           navigate("/payment");

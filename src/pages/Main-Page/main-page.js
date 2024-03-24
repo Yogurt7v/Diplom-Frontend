@@ -75,6 +75,7 @@ export const MainPage = () => {
         setProducts(
           sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts
         );
+        setCurrentPage(1);
         setLoading(false);
 
       }
