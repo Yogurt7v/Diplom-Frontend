@@ -1,26 +1,37 @@
 import style from "./new-style-content.module.css";
 import Card from "../card/card";
-import { useEffect, useState } from "react";
-// import { Pagination } from "../pagination/pagination";
+import {  useState } from "react";
+import { Pagination } from "../pagination/pagination";
 import { ColorRing } from "react-loader-spinner";
 
-export const MainContent = ({ products, currentUser, loading }) => {
+export const MainContent = ({ products, loading }) => {
 
- // нужен при запросе данных и спиннер с ним
   const[currentPage, setCurrentPage] = useState(1);
   const [perPage] = useState(4);
 
+  const lastIndex = currentPage * perPage;
+  const firstIndex = lastIndex - perPage;
+  const currentProducts = products.slice(firstIndex, lastIndex);
 
-  // useEffect(() => {
-  //   const 
-  // }, []);
+  const paginate =(pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
+
+  const nextPage = () => {
+    setCurrentPage((prev)=> prev + 1);
+  }
+
+  const previousPage = () => {
+    setCurrentPage((prev)=> prev - 1);
+  }
+
 
   return (
     <>
       <div className={style.container}>
         {!loading ? (
           <div className={style.ContentCardList}>
-            {products.map(
+            {currentProducts.map(
               ({
                 id,
                 productName,
@@ -34,7 +45,6 @@ export const MainContent = ({ products, currentUser, loading }) => {
               }) => (
                 <Card
                   key={id}
-                  currentUser={currentUser}
                   id={id}
                   productName={productName}
                   imageUrl={image_url}
@@ -64,9 +74,7 @@ export const MainContent = ({ products, currentUser, loading }) => {
           </>
         )}
       </div>
-      {/* {lastPage > 1 && products.length > 0 ? (
-        <Pagination setPage={setPage} page={page} lastPage={lastPage} />
-      ) : null} */}
+        <Pagination perPage={perPage} products={products} paginate={paginate} nextPage={nextPage} previousPage={previousPage}/>
     </>
   );
 };
