@@ -252,8 +252,8 @@
   "busket": [
     {
       "userId": "001",
-      "delivered": false,
-      "paid": false,
+      "delivered": true,
+      "paid": true,
       "items": [
         {
           "productId": "004",
@@ -267,7 +267,7 @@
     },
     {
       "userId": "001",
-      "delivered": false,
+      "delivered": true,
       "paid": false,
       "items": [
         {

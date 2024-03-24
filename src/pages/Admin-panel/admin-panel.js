@@ -1,5 +1,5 @@
 import style from "./admin-panel.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useServerRequest } from "../../hooks";
 import { selectUserRole } from "../../selectors";
@@ -33,6 +33,8 @@ export const AdminPanel = () => {
     comments: [],
   };
   const [orders, setOrders] = useState([]);
+  const [paidStatus, setPaidStatus] = useState(false);
+  const [deliveryStatus, setDeliveryStatus] = useState(false);
 
   const requestServer = useServerRequest();
 
@@ -48,7 +50,7 @@ export const AdminPanel = () => {
     );
   }, [dispatch]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!checkAccess([ROLE.ADMIN, ROLE.MODERATOR], userRole)) {
       setErrorMessage("Доступ запрещен ");
       return;
@@ -65,10 +67,11 @@ export const AdminPanel = () => {
       }
 
       setUsers(usersRes.res);
+      console.log(usersRes.res);
       setRole(rolesRes.res);
       setOrders(ordersRes.res);
     });
-  }, [requestServer, shouldUpdateUserList, userRole, orders]);
+  }, [requestServer, shouldUpdateUserList, userRole]);
 
   const onUserRemove = (userId) => {
     if (!checkAccess([ROLE.ADMIN], userRole)) {
@@ -79,6 +82,10 @@ export const AdminPanel = () => {
     requestServer(`removeUser`, userId).then(() => {
       setShouldUpdateUserList(!shouldUpdateUserList);
     });
+  };
+
+  const onBusketOrderUpdate = (objParams) => {
+    requestServer(`updateBusketOrders`, objParams);
   };
 
   return (
@@ -102,7 +109,7 @@ export const AdminPanel = () => {
               <div>
                 <h2>Пользователи</h2>
                 {users.map(
-                  ({ id, login, location, phone, registed_at, role_id }) => (
+                  ({ id, login, location, phone, registed_at, roleId }) => (
                     <UserRow
                       key={id}
                       id={id}
@@ -112,7 +119,7 @@ export const AdminPanel = () => {
                       flatNumber={location.flatNumber}
                       phone={phone}
                       registed_at={registed_at}
-                      role_id={role_id}
+                      roleId={roleId}
                       roles={role.filter(
                         ({ id: role_id }) => role_id !== ROLE.GUEST
                       )}
@@ -159,13 +166,42 @@ export const AdminPanel = () => {
                       Телефон :{" "}
                       {users.find((user) => user.id === order.userId)?.phone}
                     </p>
-                    <p>
-                      Статус оплаты : {order.paid ? "Оплачено" : "Не оплачено"}
-                    </p>
-                    <p>
-                      Статус доставки :{" "}
-                      {order.delivered ? "Доставлено" : "Не доставлено"}
-                    </p>
+
+                    <div>
+                      Cтатус оплаты :{" "}
+                      <select
+                      className={style.OrderSelect}
+                        defaultValue={order.paid}
+                        onChange={(e) => setPaidStatus(e.target.value)}
+                      >
+                        <option value={true}>Оплачено</option>
+                        <option value={false}>Не оплачено</option>
+                      </select>
+                    </div>
+                    <div>
+                      Cтатус доставки :{" "}
+                      <select 
+                        className={style.OrderSelect}
+                        defaultValue={order.delivered}
+                        onChange={(e) => setDeliveryStatus(e.target.value)}
+                      >
+                        <option value={true}>Доставлено</option>
+                        <option value={false}>Не доставлено</option>
+                      </select>
+                    </div>
+
+                    <button
+                      className={style.SaveButton}
+                      onClick={() =>
+                        onBusketOrderUpdate({
+                          id: order.id,
+                          paid: paidStatus,
+                          delivery: deliveryStatus,
+                        })
+                      }
+                    >
+                      Save
+                    </button>
                   </div>
                 ))}
             </div>

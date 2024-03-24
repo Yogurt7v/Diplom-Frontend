@@ -13,11 +13,11 @@ export const UserRow = ({
   phone,
   registed_at,
   roles,
-  role_id,
+  roleId,
   onUserRemove,
 }) => {
-  const [initialRoleId, setInitialRoleId] = useState(role_id);
-  const [selectedRoleId, setSelectedRoleId] = useState(role_id);
+  const [initialRoleId, setInitialRoleId] = useState(roleId);
+  const [selectedRoleId, setSelectedRoleId] = useState(roleId);
   const requestServer = useServerRequest();
 
   const onRoleChange = ({ target }) => {

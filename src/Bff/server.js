@@ -15,6 +15,7 @@ import {
   addProductToBusketOperation,
   fecthBusket,
   fetchOrders,
+  updateBusketOrders,
 } from "./operations";
 
 export const server = {
@@ -33,5 +34,6 @@ export const server = {
   removeProduct,
   addProductToBusketOperation,
   fecthBusket,
-  fetchOrders
+  fetchOrders,
+  updateBusketOrders
 };
