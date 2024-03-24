@@ -5,11 +5,11 @@
       "login": "loginMaster",
       "password": "passWord8",
       "location": {
-        "address": "",
-        "homeNumber": "",
-        "flatNumber": ""
+        "address": "aaaa",
+        "homeNumber": "b",
+        "flatNumber": "c"
       },
-      "phone": "",
+      "phone": "911",
       "registed_at": "06.02.2024",
       "role_id": 0
     },
@@ -229,9 +229,127 @@
       "hash": "0.05648712585097537264289258018834516406059265136719",
       "user": "guest",
       "id": 2
+    },
+    {
+      "hash": "0.08757630784838665860547735064756125211715698242188",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024",
+        "location": {
+          "address": "aaaa",
+          "homeNumber": "b",
+          "flatNumber": "c"
+        },
+        "phone": "911",
+        "registed_at": "06.02.2024"
+      },
+      "id": 3
     }
   ],
-  "busket": [],
+  "busket": [
+    {
+      "userId": "001",
+      "delivered": false,
+      "paid": false,
+      "items": [
+        {
+          "productId": "004",
+          "productName": "Burger Tower",
+          "quantity": 3,
+          "price": 20
+        }
+      ],
+      "publishedAt": "2024-03-24 07:01",
+      "id": 3
+    },
+    {
+      "userId": "001",
+      "delivered": false,
+      "paid": false,
+      "items": [
+        {
+          "productId": "001",
+          "productName": "Cheeseburger ",
+          "quantity": 4,
+          "price": 3
+        },
+        {
+          "productId": "002",
+          "productName": "Mushroom Burger",
+          "quantity": 2,
+          "price": 6
+        }
+      ],
+      "publishedAt": "2024-03-24 07:12",
+      "id": 4
+    },
+    {
+      "userId": "001",
+      "delivered": false,
+      "paid": false,
+      "items": [
+        {
+          "productId": "001",
+          "productName": "Cheeseburger ",
+          "quantity": 4,
+          "price": 3
+        },
+        {
+          "productId": "002",
+          "productName": "Mushroom Burger",
+          "quantity": 2,
+          "price": 6
+        }
+      ],
+      "publishedAt": "2024-03-24 07:17",
+      "id": 5
+    },
+    {
+      "userId": "001",
+      "delivered": false,
+      "paid": false,
+      "items": [
+        {
+          "productId": "001",
+          "productName": "Cheeseburger ",
+          "quantity": 4,
+          "price": 3
+        },
+        {
+          "productId": "002",
+          "productName": "Mushroom Burger",
+          "quantity": 2,
+          "price": 6
+        }
+      ],
+      "publishedAt": "2024-03-24 07:18",
+      "id": 6
+    },
+    {
+      "userId": -1,
+      "delivered": false,
+      "paid": false,
+      "items": [
+        {
+          "productId": "004",
+          "productName": "Burger Tower",
+          "quantity": 4,
+          "price": 20
+        },
+        {
+          "productId": "002",
+          "productName": "Mushroom Burger",
+          "quantity": 4,
+          "price": 6
+        }
+      ],
+      "publishedAt": "2024-03-24 08:29",
+      "id": 7
+    }
+  ],
   "orders": [],
   "prevOrders": []
 }

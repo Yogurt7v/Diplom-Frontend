@@ -7,7 +7,7 @@ import { useServerRequest } from "../../../hooks";
 export const UserRow = ({
   id,
   login,
-  adress,
+  address,
   homeNumber,
   flatNumber,
   phone,
@@ -37,13 +37,15 @@ export const UserRow = ({
       <div>
         <div className={style.usersWrapper}>
           <div className={style.userLogin}>Login: {login}</div>
-          <div className={style.userLogin}>Adress: {adress}</div>
+          <div className={style.userLogin}>Address: {address}</div>
           <div className={style.userLogin}>№: {homeNumber}</div>
           <div className={style.userLogin}>Flat: {flatNumber}</div>
           <div className={style.userLogin}>Telephone: {phone}</div>
-          <div className={style.userRegisterDate}>Date registration: {registed_at}</div>
+          <div className={style.userRegisterDate}>
+            Date registration: {registed_at}
+          </div>
           <div className={style.userRole}>
-            <select value={selectedRoleId} onChange={onRoleChange}>
+            <select defaultValue={selectedRoleId} onChange={onRoleChange}>
               {roles.map(({ id: roleId, name: roleName }) => (
                 <option key={roleId} value={roleId}>
                   {roleName}
@@ -58,12 +60,14 @@ export const UserRow = ({
               disabled={isSaveButtonDisabled}
             />
           </div>
-          <img
-            src={trash}
-            alt="trash"
-            className={style.deleteButton}
-            onClick={onUserRemove}
-          />
+          <div className={style.deleteButtonWrapper}>
+            <img
+              src={trash}
+              alt="trash"
+              className={style.deleteButton}
+              onClick={onUserRemove}
+            />
+          </div>
         </div>
       </div>
     </>

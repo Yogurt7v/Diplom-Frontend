@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useServerRequest } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import { addProductToBusketAction } from "../../actions/add-product-to-busket";
-import { openModal, CLOSE_MODAL } from "../../actions";
+import { openModal, CLOSE_MODAL, clearBusketData } from "../../actions";
 
 export const Busket = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export const Busket = () => {
   };
 
   const createOrder = ({ items }) => {
-    dispatch(addProductToBusketAction( requestServer, items ));
+    dispatch(addProductToBusketAction(requestServer, items, userOnPage));
     dispatch(
       openModal({
         text: "Заказ создан!",
@@ -31,10 +31,15 @@ export const Busket = () => {
           dispatch(CLOSE_MODAL);
           navigate("/payment");
         },
-        onCancel: () => {dispatch(CLOSE_MODAL);
-        navigate("/");}
-      }))
+        onCancel: () => {
+          dispatch(CLOSE_MODAL);
+          navigate("/");
+        },
+      })
+    );
+    dispatch(clearBusketData())
   };
+
 
   return (
     <>
@@ -80,15 +85,24 @@ export const Busket = () => {
             $
           </div>
           {userOnPage === -1 ? (
-            <Link to="/register">Зарегестрироваться</Link>
+            <div className={style.Login}>
+            <Link to="/register" className={style.links}>Зарегестрироваться</Link>
+            <Link to="/login"className={style.links}>Войти</Link>
+            </div>
           ) : (
             <button
-              className={busket ? style.OrderButton : style.Innactive}
+              className={busket.items.length>0 ? style.OrderButton : style.Innactive}
               onClick={() => createOrder(busket)}
             >
               Оформить
             </button>
           )}
+        </div>
+
+        <div className={style.BackButton}>
+          <button className={style.OrderButton} onClick={() => navigate("/")}>
+            Назад
+          </button>
         </div>
       </div>
       <VideoBackground />

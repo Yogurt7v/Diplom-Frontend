@@ -13,4 +13,5 @@ export * from "./add-product-comment"
 export * from "./remove-product-comment"
 export * from "./remove-product"
 export * from "./add-product-to-Busket-operation"
+export * from "./fetch-orders"
 

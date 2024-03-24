@@ -1,7 +1,6 @@
 .usersWrapper{
     display: flex;
-    gap: 30px
-    ;
+    gap: 30px;
 }
 
 .saveButton{
@@ -10,9 +9,33 @@
     cursor: pointer;
 }
 
+.deleteButtonWrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .deleteButton{
     width: 20px;
     height: 20px;
     cursor: pointer;
+}
 
+.userLogin{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.userRegisterDate{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.userRole{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
 }

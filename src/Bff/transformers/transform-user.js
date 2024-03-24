@@ -5,7 +5,7 @@ export const transformUser = (dbUser) => ({
     password: dbUser.password,
     registeredAt: dbUser.registed_at,
     location:{
-        adress: dbUser.location.adress,
+        address: dbUser.location.address,
         homeNumber: dbUser.location.homeNumber,
         flatNumber: dbUser.location.flatNumber,
     },

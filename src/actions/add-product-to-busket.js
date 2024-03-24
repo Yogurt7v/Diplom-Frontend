@@ -1,11 +1,12 @@
 import { addBusketData } from "./add-busket-data";
 
 export const addProductToBusketAction =
-  (requestServer, items) =>
+  (requestServer, items, userOnPage) =>
   (dispatch) => {
     requestServer(
       "addProductToBusketOperation",
-      items
+      items,
+      userOnPage
     ).then((busketData) => {
       // dispatch(addBusketData(busketData.res));
     });

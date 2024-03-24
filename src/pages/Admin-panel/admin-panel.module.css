@@ -25,3 +25,20 @@
     align-items: center;
     gap: 30px;
 }
+
+.OrdersWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.Order{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
