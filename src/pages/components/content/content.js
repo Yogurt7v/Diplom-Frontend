@@ -18,11 +18,15 @@ export const MainContent = ({ products, loading, currentPage, setCurrentPage }) 
   }
 
   const nextPage = () => {
-    setCurrentPage((prev)=> prev + 1);
+    if (currentPage < products.length / perPage) {
+      setCurrentPage((prev)=> prev + 1);
+    }
   }
 
   const previousPage = () => {
-    setCurrentPage((prev)=> prev - 1);
+    if (currentPage > 1){
+      setCurrentPage((prev)=> prev - 1);
+    }
   }
 
 
