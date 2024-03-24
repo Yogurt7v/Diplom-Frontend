@@ -3,8 +3,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    margin:40vh auto;
     gap: 20px;
 }
 
@@ -12,10 +13,23 @@
     font-size: 40px;
     font-weight: 700;
     color: #FA7D09;
+    text-shadow: 0 0 10px #FA7D09;
 }
 
 .ErrorPageText{
     font-size: 30px;
     font-weight: 500;
     color: #FA7D09;
+}
+
+.ErrorPageButton{
+
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #FA7D09;
+    color: black;
+    cursor: pointer;
 }

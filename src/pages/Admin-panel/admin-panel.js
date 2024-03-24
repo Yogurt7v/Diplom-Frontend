@@ -67,7 +67,6 @@ export const AdminPanel = () => {
       }
 
       setUsers(usersRes.res);
-      console.log(usersRes.res);
       setRole(rolesRes.res);
       setOrders(ordersRes.res);
     });
@@ -97,9 +96,7 @@ export const AdminPanel = () => {
             <summary className={style.AdminPanelSummary}>
               Добавить новый продукт
             </summary>
-            <div>
               <PrivateEditForm product={newProduct} />
-            </div>
           </details>
         ) : null}
         {userRole === ROLE.ADMIN ? (
@@ -107,7 +104,6 @@ export const AdminPanel = () => {
             <summary className={style.AdminPanelSummary}>Пользователи</summary>
             <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
               <div>
-                <h2>Пользователи</h2>
                 {users.map(
                   ({ id, login, location, phone, registed_at, roleId }) => (
                     <UserRow

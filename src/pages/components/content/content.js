@@ -64,7 +64,7 @@ export const MainContent = ({ products, loading, currentPage, setCurrentPage }) 
           </div>
         ) : (
           <>
-            <div className={style.ContentCardNotFound}> Товары не найдены
+            <div className={style.ContentCardNotFound}>
               <ColorRing
                 visible={true}
                 height="180"

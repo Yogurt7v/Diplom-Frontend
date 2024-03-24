@@ -34,7 +34,7 @@ export const UserRow = ({
 
   return (
     <>
-      <div>
+      <div className={style.userRow}>
         <div className={style.usersWrapper}>
           <div className={style.userLogin}>Login: {login}</div>
           <div className={style.userLogin}>Address: {address}</div>
@@ -45,7 +45,7 @@ export const UserRow = ({
             Date registration: {registed_at}
           </div>
           <div className={style.userRole}>
-            <select defaultValue={selectedRoleId} onChange={onRoleChange}>
+            <select defaultValue={selectedRoleId} onChange={onRoleChange} className={style.RoleSelect}>
               {roles.map(({ id: roleId, name: roleName }) => (
                 <option key={roleId} value={roleId}>
                   {roleName}

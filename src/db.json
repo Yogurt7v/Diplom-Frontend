@@ -247,6 +247,24 @@
         "registed_at": "06.02.2024"
       },
       "id": 3
+    },
+    {
+      "hash": "0.28935602378966152059547312092036008834838867187500",
+      "user": {
+        "id": "001",
+        "login": "loginMaster",
+        "roleId": 0,
+        "password": "passWord8",
+        "registeredAt": "06.02.2024",
+        "location": {
+          "address": "aaaa",
+          "homeNumber": "b",
+          "flatNumber": "c"
+        },
+        "phone": "911",
+        "registed_at": "06.02.2024"
+      },
+      "id": 4
     }
   ],
   "busket": [
