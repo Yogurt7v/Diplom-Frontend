@@ -3,7 +3,14 @@ import { useLayoutEffect, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../actions";
 import { useServerRequest } from "../../hooks/use-server-request";
-import { SortBar, Header, VideoBackground, MainContent, SearchBar,BusketCard  } from "../components";
+import {
+  SortBar,
+  Header,
+  VideoBackground,
+  MainContent,
+  SearchBar,
+  BusketCard,
+} from "../components";
 import { SORT_OPTIONS } from "../../constants";
 import { ROLE } from "../../constants";
 import { logout } from "../../Bff/operations";
@@ -17,8 +24,8 @@ export const MainPage = () => {
     useState("");
   const [sorting, setSorting] = useState("");
   const [searchCategory, setSearchCategory] = useState("");
-  const[loading, setLoading] = useState(false);
-
+  const [loading, setLoading] = useState(false);
+  const[currentPage, setCurrentPage] = useState(1);
 
   const sortOption = SORT_OPTIONS;
 
@@ -43,14 +50,13 @@ export const MainPage = () => {
         })
       );
       window.addEventListener("beforeunload", () => {
-        dispatch( logout(random) );
-      })
+        dispatch(logout(random));
+      });
       window.removeEventListener("beforeunload", () => {
-        dispatch( logout(random) );
-      })
+        dispatch(logout(random));
+      });
     }
-    if(currentUserDataJSON){
-
+    if (currentUserDataJSON) {
       const currentUserData = JSON.parse(currentUserDataJSON);
       dispatch(
         setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
@@ -62,27 +68,29 @@ export const MainPage = () => {
     setLoading(true);
     requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
       ({ res: { products } }) => {
-
         const sortObJ = sortOption.find((option) => option.value === sorting);
         const filteredProducts = products.filter((product) =>
-        searchCategory ? product.category === searchCategory : product
+          searchCategory ? product.category === searchCategory : product
         );
-        setProducts(sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts);
+        setProducts(
+          sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts
+        );
         setLoading(false);
+
       }
     );
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [requestServer, searchPhrase, sorting, searchCategory]);
-  
 
-const onCategoryChange = (event) => {
-  const category = event.target.textContent.toLowerCase().slice(0, -1);
-  if (!searchCategory){
-    setSearchCategory(category)
-  } else {
-    setSearchCategory('')
-  }
-}
+  const onCategoryChange = (event) => {
+    const category = event.target.id;
+    if (!searchCategory) {
+      setSearchCategory(category);
+      setCurrentPage(1);
+    } else {
+      setSearchCategory("");
+    }
+  };
 
   const handleSort = (e) => {
     setSorting(e.target.value);
@@ -90,7 +98,7 @@ const onCategoryChange = (event) => {
 
   return (
     <>
-      <Header  onCategoryChange={onCategoryChange}/>
+      <Header onCategoryChange={onCategoryChange} />
       <div className={style.AppWrapper}>
         <div className={style.SortBarWrapper}>
           <SortBar options={sortOption} onSort={handleSort} />
@@ -101,12 +109,9 @@ const onCategoryChange = (event) => {
             onSearch={onSearch}
             onDelete={onDelete}
           />
-          <BusketCard/>
+          <BusketCard />
         </div>
-        <MainContent 
-        loading={loading}
-          products={products}
-        />
+        <MainContent loading={loading} products={products} currentPage={currentPage} setCurrentPage={setCurrentPage} />
         <VideoBackground />
       </div>
     </>

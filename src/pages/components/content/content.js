@@ -4,9 +4,9 @@ import {  useState } from "react";
 import { Pagination } from "../pagination/pagination";
 import { ColorRing } from "react-loader-spinner";
 
-export const MainContent = ({ products, loading }) => {
+export const MainContent = ({ products, loading, currentPage, setCurrentPage }) => {
 
-  const[currentPage, setCurrentPage] = useState(1);
+
   const [perPage] = useState(4);
 
   const lastIndex = currentPage * perPage;
