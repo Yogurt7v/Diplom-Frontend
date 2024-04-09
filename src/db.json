@@ -38,6 +38,19 @@
       "registed_at": "2024-03-12 08:02",
       "role_id": 2,
       "id": "Pl6fAmP"
+    },
+    {
+      "login": "test2",
+      "password": "12345678",
+      "location": {
+        "address": "sert",
+        "homeNumber": "22",
+        "flatNumber": "44"
+      },
+      "phone": "+7 (123) 123-12-31",
+      "registed_at": "2024-04-09 16:02",
+      "role_id": 2,
+      "id": "vUaSxfY"
     }
   ],
   "roles": [

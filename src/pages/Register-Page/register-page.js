@@ -15,7 +15,6 @@ import Slider from "../components/slider/Slider";
 import { InputMask } from "@react-input/mask";
 import { useNavigate } from "react-router-dom";
 
-// const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
 
 const regFormSchema = yup.object().shape({
   login: yup
@@ -42,7 +41,6 @@ const regFormSchema = yup.object().shape({
   flatNumber: yup.string().required("Заполните квартиру"),
   phone: yup
     .string()
-    // .matches(phoneRegExp, "Телефонный номер не подходит")
     .required("Заполните телефон"),
 });
 
@@ -176,16 +174,6 @@ export const RegisterPage = () => {
               onChange: () => setServerError(null),
             })}
           />
-          {/* <input
-            type="tel"
-            // pattern="[0-9]{1}([0-9]{3})-[0-9]{3}-[0-9]{2}-[0-9]{2}"
-            placeholder="Телефон"
-            className={style.registerInput}
-            autoComplete="on"
-            {...register("phone", {
-              onChange: () => setServerError(null),
-            })}
-          ></input> */}
           <button
             type="submit"
             disabled={!!formError}
