@@ -1,12 +1,22 @@
 import { sessions } from "../sessions";
-import { addUser } from "../api/add-user";
-
-
-
-
 export const register = async (regLogin, regPassword, address,homeNumber, flatNumber, phone) => {
 
-    const user = await addUser(regLogin, regPassword, address,homeNumber, flatNumber, phone);
+  const user = await fetch("http://localhost:3005/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({
+      login: regLogin,
+      password: regPassword,
+      address: address,
+      homeNumber: homeNumber,
+      flatNumber: flatNumber,
+      phone: phone,
+    }),
+  }).then((createdUser) => createdUser.json());
+
+    console.log("lets fetch");
   
     return {
       error: null,
