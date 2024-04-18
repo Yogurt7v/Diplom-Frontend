@@ -1,16 +1,12 @@
 json-server --watch src/db.json --port 3004
+npm run dev
+npm start
 
-Admin:
-      "login": "loginMaster",
-      "password": "passWord8",
-
-Moderator: 
-      "login": "ivan",
-      "password": "qwerty123",
-
-
+test1
+test1111
 
 задания:
+разобраться почему крашится при логине сервак.
 
 
 <!-- добавить корзину в локал сторэдж -->

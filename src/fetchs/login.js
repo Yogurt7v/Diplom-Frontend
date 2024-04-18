@@ -1,5 +1,4 @@
 import { sessions } from "../Bff/sessions";
-// import { getUser } from "../api/get-user";
 
 export const loginUser = async (authLogin, authPassword) => {
   const user = await fetch("http://localhost:3005/login", {
@@ -8,7 +7,6 @@ export const loginUser = async (authLogin, authPassword) => {
     body: JSON.stringify({ login:authLogin, password:authPassword }),
   }).then((res) => res.json());
 
-  const { _id, login, role_id } = await user.user;
   return {
     error: null,
     res: {
