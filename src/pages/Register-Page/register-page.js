@@ -14,6 +14,7 @@ import { Header, VideoBackground } from "../components";
 import Slider from "../components/slider/Slider";
 import { InputMask } from "@react-input/mask";
 import { useNavigate } from "react-router-dom";
+import { registerFetch } from "../../fetchs/register";
 
 
 const regFormSchema = yup.object().shape({
@@ -78,9 +79,7 @@ export const RegisterPage = () => {
     flatNumber,
     phone,
   }) => {
-    server
-      .register(login, password, address, homeNumber, flatNumber, phone)
-      .then(({ error, res }) => {
+    registerFetch(login, password, address, homeNumber, flatNumber, phone).then(({ error, res }) => {
         if (error) {
           setServerError(`Ошибка запроса ${error}`);
           return;

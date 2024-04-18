@@ -234,50 +234,324 @@
   ],
   "sessions": [
     {
-      "hash": "0.05499477720821488446745206601917743682861328125000",
-      "user": "guest",
+      "hash": "0.31857462029576577577927309903316199779510498046875",
+      "user": {
+        "error": "Пользователь не найден"
+      },
       "id": 1
     },
     {
-      "hash": "0.05648712585097537264289258018834516406059265136719",
-      "user": "guest",
+      "hash": "0.27184142988673998253545960324117913842201232910156",
+      "user": {
+        "error": "Пользователь не найден"
+      },
       "id": 2
     },
     {
-      "hash": "0.08757630784838665860547735064756125211715698242188",
+      "hash": "0.03365100248304897512241495860507711768150329589844",
       "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024",
-        "location": {
-          "address": "aaaa",
-          "homeNumber": "b",
-          "flatNumber": "c"
-        },
-        "phone": "911",
-        "registed_at": "06.02.2024"
+        "error": "Пользователь не найден"
       },
       "id": 3
     },
     {
-      "hash": "0.28935602378966152059547312092036008834838867187500",
+      "hash": "0.85602630694237924480205492727691307663917541503906",
       "user": {
-        "id": "001",
-        "login": "loginMaster",
-        "roleId": 0,
-        "password": "passWord8",
-        "registeredAt": "06.02.2024",
-        "location": {
-          "address": "aaaa",
-          "homeNumber": "b",
-          "flatNumber": "c"
-        },
-        "phone": "911",
-        "registed_at": "06.02.2024"
+        "error": "Пользователь не найден"
       },
       "id": 4
+    },
+    {
+      "hash": "0.19091968429068573165352518117288127541542053222656",
+      "user": {
+        "error": "Пользователь не найден"
+      },
+      "id": 5
+    },
+    {
+      "hash": "0.94539307495013158444407963543199002742767333984375",
+      "user": {
+        "error": "Пользователь не найден"
+      },
+      "id": 6
+    },
+    {
+      "hash": "0.94135701486963951900577285414328798651695251464844",
+      "user": {
+        "error": "Пользователь не найден"
+      },
+      "id": 7
+    },
+    {
+      "hash": "0.38536702468814176825162576278671622276306152343750",
+      "user": {
+        "error": "Пользователь не найден"
+      },
+      "id": 8
+    },
+    {
+      "hash": "0.41374664408409000948552147747250273823738098144531",
+      "user": {
+        "error": "Пользователь не найден"
+      },
+      "id": 9
+    },
+    {
+      "hash": "0.40968173467040225332880254427436739206314086914063",
+      "user": {
+        "error": "Пользователь не найден"
+      },
+      "id": 10
+    },
+    {
+      "hash": "0.86050792979814305638797122810501605272293090820313",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 11
+    },
+    {
+      "hash": "0.55820424092452358699745218473253771662712097167969",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 12
+    },
+    {
+      "hash": "0.13893511602876418287166870868531987071037292480469",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 13
+    },
+    {
+      "hash": "0.83166569334628870358017138642026111483573913574219",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 14
+    },
+    {
+      "hash": "0.57675508174861667143318300077226012945175170898438",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 15
+    },
+    {
+      "hash": "0.69574285540324698473568787449039518833160400390625",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 16
+    },
+    {
+      "hash": "0.23856678917536044970404418563703075051307678222656",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 17
+    },
+    {
+      "hash": "0.33753708860844700012648900155909359455108642578125",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 18
+    },
+    {
+      "hash": "0.77638519380291381999370514677138999104499816894531",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 19
+    },
+    {
+      "hash": "0.93933084281790613090379338245838880538940429687500",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 20
+    },
+    {
+      "hash": "0.63880626332217138596547556517180055379867553710938",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "6621527c5bfe7f790dc81797",
+          "login": "test1",
+          "password": "$2b$10$1UhK6pcbUry6n1u7PXarmeqkraG8zsRiJbZJufs4m5JfWLks3yxEK",
+          "address": "123123",
+          "homeNumber": "12312",
+          "flatNumber": "1212",
+          "phone": "+7 (213) 131-23-12",
+          "role_id": 2,
+          "createdAt": "2024-04-18T17:03:56.874Z",
+          "updatedAt": "2024-04-18T17:03:56.874Z",
+          "__v": 0
+        }
+      },
+      "id": 21
+    },
+    {
+      "hash": "0.41705884208680243929734388075303286314010620117188",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 22
+    },
+    {
+      "hash": "0.92742299502819292023048092232784256339073181152344",
+      "user": {
+        "error": "secretOrPrivateKey must have a value"
+      },
+      "id": 23
+    },
+    {
+      "hash": "0.82582535221295172433997322514187544584274291992188",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "6621527c5bfe7f790dc81797",
+          "login": "test1",
+          "password": "$2b$10$1UhK6pcbUry6n1u7PXarmeqkraG8zsRiJbZJufs4m5JfWLks3yxEK",
+          "address": "123123",
+          "homeNumber": "12312",
+          "flatNumber": "1212",
+          "phone": "+7 (213) 131-23-12",
+          "role_id": 2,
+          "createdAt": "2024-04-18T17:03:56.874Z",
+          "updatedAt": "2024-04-18T17:03:56.874Z",
+          "__v": 0
+        }
+      },
+      "id": 24
+    },
+    {
+      "hash": "0.18835604658248206177972861041780561208724975585938",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "6621527c5bfe7f790dc81797",
+          "login": "test1",
+          "password": "$2b$10$1UhK6pcbUry6n1u7PXarmeqkraG8zsRiJbZJufs4m5JfWLks3yxEK",
+          "address": "123123",
+          "homeNumber": "12312",
+          "flatNumber": "1212",
+          "phone": "+7 (213) 131-23-12",
+          "role_id": 2,
+          "createdAt": "2024-04-18T17:03:56.874Z",
+          "updatedAt": "2024-04-18T17:03:56.874Z",
+          "__v": 0
+        }
+      },
+      "id": 25
+    },
+    {
+      "hash": "0.31794769057911120846426911157323047518730163574219",
+      "user": {
+        "error": "Неверный пароль"
+      },
+      "id": 26
+    },
+    {
+      "hash": "0.10969319509303865345373196760192513465881347656250",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "6621527c5bfe7f790dc81797",
+          "login": "test1",
+          "password": "$2b$10$1UhK6pcbUry6n1u7PXarmeqkraG8zsRiJbZJufs4m5JfWLks3yxEK",
+          "address": "123123",
+          "homeNumber": "12312",
+          "flatNumber": "1212",
+          "phone": "+7 (213) 131-23-12",
+          "role_id": 2,
+          "createdAt": "2024-04-18T17:03:56.874Z",
+          "updatedAt": "2024-04-18T17:03:56.874Z",
+          "__v": 0
+        }
+      },
+      "id": 27
+    },
+    {
+      "hash": "0.24282274897972522254008254094514995813369750976563",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "6621527c5bfe7f790dc81797",
+          "login": "test1",
+          "password": "$2b$10$1UhK6pcbUry6n1u7PXarmeqkraG8zsRiJbZJufs4m5JfWLks3yxEK",
+          "address": "123123",
+          "homeNumber": "12312",
+          "flatNumber": "1212",
+          "phone": "+7 (213) 131-23-12",
+          "role_id": 2,
+          "createdAt": "2024-04-18T17:03:56.874Z",
+          "updatedAt": "2024-04-18T17:03:56.874Z",
+          "__v": 0
+        }
+      },
+      "id": 28
+    },
+    {
+      "hash": "0.66987312210339755580434939474798738956451416015625",
+      "user": {
+        "error": "Пользователь не найден"
+      },
+      "id": 29
+    },
+    {
+      "hash": "0.33687448040448808583846584951970726251602172851563",
+      "user": {
+        "error": "Пользователь не найден"
+      },
+      "id": 30
+    },
+    {
+      "hash": "0.08119290760824471320233897131402045488357543945313",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "6621527c5bfe7f790dc81797",
+          "login": "test1",
+          "password": "$2b$10$1UhK6pcbUry6n1u7PXarmeqkraG8zsRiJbZJufs4m5JfWLks3yxEK",
+          "address": "123123",
+          "homeNumber": "12312",
+          "flatNumber": "1212",
+          "phone": "+7 (213) 131-23-12",
+          "role_id": 2,
+          "createdAt": "2024-04-18T17:03:56.874Z",
+          "updatedAt": "2024-04-18T17:03:56.874Z",
+          "__v": 0
+        }
+      },
+      "id": 31
+    },
+    {
+      "hash": "0.45105496718572513081824126857100054621696472167969",
+      "user": {},
+      "id": 32
+    },
+    {
+      "hash": "0.02965230316807665467138122039614245295524597167969",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "6621527c5bfe7f790dc81797",
+          "login": "test1",
+          "password": "$2b$10$1UhK6pcbUry6n1u7PXarmeqkraG8zsRiJbZJufs4m5JfWLks3yxEK",
+          "address": "123123",
+          "homeNumber": "12312",
+          "flatNumber": "1212",
+          "phone": "+7 (213) 131-23-12",
+          "role_id": 2,
+          "createdAt": "2024-04-18T17:03:56.874Z",
+          "updatedAt": "2024-04-18T17:03:56.874Z",
+          "__v": 0
+        }
+      },
+      "id": 33
     }
   ],
   "busket": [
@@ -358,27 +632,6 @@
       ],
       "publishedAt": "2024-03-24 07:18",
       "id": 6
-    },
-    {
-      "userId": -1,
-      "delivered": false,
-      "paid": false,
-      "items": [
-        {
-          "productId": "004",
-          "productName": "Burger Tower",
-          "quantity": 4,
-          "price": 20
-        },
-        {
-          "productId": "002",
-          "productName": "Mushroom Burger",
-          "quantity": 4,
-          "price": 6
-        }
-      ],
-      "publishedAt": "2024-03-24 08:29",
-      "id": 7
     },
     {
       "userId": "001",

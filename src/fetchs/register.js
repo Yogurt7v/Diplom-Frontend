@@ -1,0 +1,34 @@
+import { sessions } from "../Bff/sessions";
+export const registerFetch = async (regLogin, regPassword, address,homeNumber, flatNumber, phone) => {
+
+  const user = await fetch("http://localhost:3005/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify({
+      login: regLogin,
+      password: regPassword,
+      address: address,
+      homeNumber: homeNumber,
+      flatNumber: flatNumber,
+      phone: phone,
+    }),
+  }).then((createdUser) => createdUser.json());
+
+    return {
+      error: null,
+      res: {
+        login: regLogin,
+        location:{
+          address: address,
+          homeNumber: homeNumber,
+          flatNumber: flatNumber,
+        },
+        phone: phone,
+        role_id: 2,
+        session: sessions.create(user),
+        card: null,
+      },
+    };
+  }

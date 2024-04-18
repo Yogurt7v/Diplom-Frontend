@@ -6,12 +6,13 @@ import { server } from "../../Bff/";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {selectUserRole} from "../../selectors"
+import { selectUserRole } from "../../selectors";
 import { useResetForm } from "../../hooks";
 import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
 import { VideoBackground } from "../components";
-import {Header} from "../components/header/header.js";
+import { Header } from "../components/header/header.js";
+import { loginUser } from "../../fetchs/login.js";
 
 const authFormSchema = yup.object().shape({
   login: yup
@@ -49,7 +50,7 @@ export const LoginPage = () => {
   useResetForm(reset);
 
   const onSubmit = ({ login, password }) => {
-    server.authorize(login, password).then(({ error, res }) => {
+    loginUser(login, password).then(({ error, res }) => {
       if (error) {
         setServerError(`Ошибка запроса ${error}`);
         return;
@@ -69,18 +70,20 @@ export const LoginPage = () => {
 
   return (
     <>
-    <Header/>
+      <Header />
       <div className={style.LoginPageWrapper}>
         <div className={style.LoginPageContent}>Login Page</div>
         <form onSubmit={handleSubmit(onSubmit)} className={style.LoginPageForm}>
-          <input className={style.LoginPageInput}
+          <input
+            className={style.LoginPageInput}
             type="text"
             placeholder="Login"
             {...register("login", {
               onChange: () => setServerError(null),
             })}
           ></input>
-          <input className={style.LoginPageInput}
+          <input
+            className={style.LoginPageInput}
             type="password"
             placeholder="Password"
             autoComplete="on"
@@ -94,11 +97,15 @@ export const LoginPage = () => {
             disabled={!!formError}
             children={"Авторизоваться"}
           ></button>
-          {errorMessage && <div className={style.errorMessage}>{errorMessage}</div>}
-          <Link to="/register" className={style.register}>Регистрация</Link>
+          {errorMessage && (
+            <div className={style.errorMessage}>{errorMessage}</div>
+          )}
+          <Link to="/register" className={style.register}>
+            Регистрация
+          </Link>
         </form>
       </div>
-      <VideoBackground/>
+      <VideoBackground />
     </>
   );
 };
