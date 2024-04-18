@@ -55,6 +55,7 @@ export const LoginPage = () => {
         setServerError(`Ошибка запроса ${error}`);
         return;
       }
+      console.log("onSubmit", res);
       dispatch(setUser(res));
       sessionStorage.setItem("userData", JSON.stringify(res));
       setServerError(null);

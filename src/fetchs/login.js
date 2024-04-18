@@ -8,18 +8,13 @@ export const loginUser = async (authLogin, authPassword) => {
     body: JSON.stringify({ login:authLogin, password:authPassword }),
   }).then((res) => res.json());
 
-  console.log("loginUser", user);
-
-  const { _id, login, role_id } = await user
-
-  console.log(_id, login, role_id);
-
+  const { _id, login, role_id } = await user.user;
   return {
     error: null,
     res: {
-      id: user._id,
-      login: user.login,
-      roleId: user.role_id,
+      id: user.user._id,
+      login: user.user.login,
+      roleId: user.user.role_id,
       session: sessions.create(user),
     },
   };
