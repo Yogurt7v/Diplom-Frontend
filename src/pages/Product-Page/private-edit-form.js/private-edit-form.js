@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { RESET_PRODUCT_DATA, saveProductAsync } from "../../../actions";
 import { useNavigate } from "react-router-dom";
 import { useServerRequest } from "../../../hooks";
+import { addProductFetch } from "../../../fetchs/addProduct";
 
 export const PrivateEditForm = ({
   product: {
@@ -42,29 +43,35 @@ export const PrivateEditForm = ({
     setIngredientsValue(ingredients);
     setPriceValue(price);
     dispatch(RESET_PRODUCT_DATA);
-  }, [image_url, description, category, weight, calories, ingredients, price, dispatch]);
+  }, [
+    image_url,
+    description,
+    category,
+    weight,
+    calories,
+    ingredients,
+    price,
+    dispatch,
+  ]);
 
   useEffect(() => {
-    requestServer(`fetchProducts`, "", "").then(
-      ({ res: { products } }) => {
-        let categories = [];
-        for (let i = 0; i < products.length; i++) {
-          categories.push(products[i].category);
-        }
-
-        const uniqueСategories = categories.filter((value, index, self) => {
-          return self.indexOf(value) === index;
-        });
-
-        setCategoriesValueValue(uniqueСategories);
+    requestServer(`fetchProducts`, "", "").then(({ res: { products } }) => {
+      let categories = [];
+      for (let i = 0; i < products.length; i++) {
+        categories.push(products[i].category);
       }
-    );
+
+      const uniqueСategories = categories.filter((value, index, self) => {
+        return self.indexOf(value) === index;
+      });
+
+      setCategoriesValueValue(uniqueСategories);
+    });
   }, [requestServer]);
 
   const onSave = () => {
-    dispatch(
-      saveProductAsync(requestServer, {
-        id,
+      addProductFetch({
+        productName: productNameValue,
         image_url: imageUrlValue,
         description: descriptionValue,
         category: categoryValue,
@@ -73,7 +80,7 @@ export const PrivateEditForm = ({
         ingredients: ingredientsValue,
         price: priceValue,
       })
-    ).then(({ id }) => navigate(`/`));
+    .then(() => navigate(`/`));
   };
 
   const onProductNameChange = ({ target }) => {
@@ -160,10 +167,7 @@ export const PrivateEditForm = ({
         onChange={onPriceChange}
       />
       <div className={styled.ButtonsWrapper}>
-        <button
-          onClick={() => navigate(`/`)}
-          className={styled.EditButtons}
-        >
+        <button onClick={() => navigate(`/`)} className={styled.EditButtons}>
           Назад
         </button>
         <button onClick={onSave} className={styled.EditButtons}>
