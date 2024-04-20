@@ -672,26 +672,6 @@
         }
       },
       "id": 39
-    },
-    {
-      "hash": "0.02969476890345101871560018480522558093070983886719",
-      "user": {
-        "error": null,
-        "user": {
-          "_id": "66237c1dd57bc0bb8bb168b0",
-          "login": "admin",
-          "password": "$2b$10$zGnDPfmNrkkQjbRZYUMYleYCwhITLZOYD1xdXIFZHfG/EJ0nefJAq",
-          "address": "Красная площадь",
-          "homeNumber": "1",
-          "flatNumber": "1",
-          "phone": "+7 (901) 111-1",
-          "role_id": 0,
-          "createdAt": "2024-04-20T08:26:05.554Z",
-          "updatedAt": "2024-04-20T08:26:05.554Z",
-          "__v": 0
-        }
-      },
-      "id": 40
     }
   ],
   "busket": [

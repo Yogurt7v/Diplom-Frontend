@@ -14,6 +14,7 @@ import {
 import { SORT_OPTIONS } from "../../constants";
 import { ROLE } from "../../constants";
 import { logout } from "../../Bff/operations";
+import {getAllProducts} from "../../fetchs/getAllProducts";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -66,20 +67,25 @@ export const MainPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
-      ({ res: { products } }) => {
-        const sortObJ = sortOption.find((option) => option.value === sorting);
-        const filteredProducts = products.filter((product) =>
-          searchCategory ? product.category === searchCategory : product
-        );
-        setProducts(
-          sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts
-        );
-        setCurrentPage(1);
-        setLoading(false);
+    getAllProducts(searchPhrase, searchCategory).then((res) => {
+      setProducts(res);
+    })
+    setLoading(false);
+    console.log("getAllProducts")
+    // requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
+    //   ({ res: { products } }) => {
+    //     const sortObJ = sortOption.find((option) => option.value === sorting);
+    //     const filteredProducts = products.filter((product) =>
+    //       searchCategory ? product.category === searchCategory : product
+    //     );
+    //     setProducts(
+    //       sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts
+    //     );
+    //     setCurrentPage(1);
+    //     setLoading(false);
 
-      }
-    );
+    //   }
+    // );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [requestServer, searchPhrase, sorting, searchCategory]);
 
