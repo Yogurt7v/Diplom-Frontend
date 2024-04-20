@@ -74,7 +74,7 @@
   "products": [
     {
       "id": "001",
-      "productName": "Cheeseburger ",
+      "productName": "Cheeseburger",
       "image_url": "https://4.downloader.disk.yandex.ru/preview/9a91a6d71776ca6fbe63bbf99eeb07936018c4df50efed0396477129caa65992/inf/a9Cp-gWJYLlL9AFZRgx7_GcfIGvoJTgEHhSVBzgI8V_atpL5qy7B9oRBE-VpDxjR49Dz8XMBYwk78Dm5TyJigw%3D%3D?uid=87392891&filename=CheeseBurger.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=87392891&tknv=v2&size=3166x1752",
       "description": "Чизбургер — это круглый сэндвич с жареной котлетой, сыром и салатом на сдобной булочке. Пожалуй, на этом виде гамбургера выросли те, кто ребенком застал открытие первого ресторана фастфуда в своем городе. Это ощущение, когда разворачиваешь хрустящую бумагу и достаешь из нее еще горячую карамелизованную булочку, заправленную кетчупом, сладкой горчицей, луком и колечками маринованного огурца. ",
       "category": "burger",
@@ -672,6 +672,26 @@
         }
       },
       "id": 39
+    },
+    {
+      "hash": "0.31618787479810528395773872034624218940734863281250",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "66237c1dd57bc0bb8bb168b0",
+          "login": "admin",
+          "password": "$2b$10$zGnDPfmNrkkQjbRZYUMYleYCwhITLZOYD1xdXIFZHfG/EJ0nefJAq",
+          "address": "Красная площадь",
+          "homeNumber": "1",
+          "flatNumber": "1",
+          "phone": "+7 (901) 111-1",
+          "role_id": 0,
+          "createdAt": "2024-04-20T08:26:05.554Z",
+          "updatedAt": "2024-04-20T08:26:05.554Z",
+          "__v": 0
+        }
+      },
+      "id": 40
     }
   ],
   "busket": [

@@ -12,6 +12,7 @@ import { PrivateProductContent } from "./private-product-content";
 import { PrivateEditForm } from "./private-edit-form.js";
 import { setUser } from "../../actions";
 import { Header } from "../components/index.js";
+import { getProduct} from "../../Bff/api/get-product.js";
 
 export const ProductPage = () => {
   const product = useSelector(selectProduct);
@@ -37,6 +38,7 @@ export const ProductPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
+
     dispatch(loadProduct(requestServer, params.id)).then((productsData) => {
       setError(productsData.error);
       setIsLoading(false);

@@ -29,7 +29,6 @@ export const MainContent = ({ products, loading, currentPage, setCurrentPage }) 
     }
   }
 
-
   return (
     <>
       <div className={style.container}>
@@ -37,7 +36,7 @@ export const MainContent = ({ products, loading, currentPage, setCurrentPage }) 
           <div className={style.ContentCardList}>
             {currentProducts.map(
               ({
-                id,
+                _id,
                 productName,
                 image_url,
                 description,
@@ -48,8 +47,8 @@ export const MainContent = ({ products, loading, currentPage, setCurrentPage }) 
                 price,
               }) => (
                 <Card
-                  key={id}
-                  id={id}
+                  key={_id}
+                  id={_id}
                   productName={productName}
                   imageUrl={image_url}
                   description={description}

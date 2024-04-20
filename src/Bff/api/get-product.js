@@ -1,7 +1,7 @@
 import { transformProducts } from "../transformers";
 
 export const getProduct = async (productId) =>
-  await fetch(`http://localhost:3004/products/${productId}`)
+  await fetch(`http://localhost:3005/products/${productId}`)
   .then((res)=> {
     if (res.ok) {
        return res

@@ -71,7 +71,6 @@ export const MainPage = () => {
       setProducts(res);
     })
     setLoading(false);
-    console.log("getAllProducts")
     // requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
     //   ({ res: { products } }) => {
     //     const sortObJ = sortOption.find((option) => option.value === sorting);
