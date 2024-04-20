@@ -12,10 +12,11 @@ import { PrivateProductContent } from "./private-product-content";
 import { PrivateEditForm } from "./private-edit-form.js";
 import { setUser } from "../../actions";
 import { Header } from "../components/index.js";
-import { getProduct} from "../../Bff/api/get-product.js";
+import { getSingleProduct} from "../../fetchs/getSinlgeProduct.js";
 
 export const ProductPage = () => {
   const product = useSelector(selectProduct);
+  const [sinlgeProduct, setSinlgeProduct] = useState({});
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const params = useParams();
@@ -38,11 +39,16 @@ export const ProductPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-
-    dispatch(loadProduct(requestServer, params.id)).then((productsData) => {
+    getSingleProduct(params.id).then((productsData) => {
+      console.log(productsData);
+      setSinlgeProduct(productsData);
       setError(productsData.error);
       setIsLoading(false);
-    });
+    })
+    // dispatch(loadProduct(requestServer, params.id)).then((productsData) => {
+    //   setError(productsData.error);
+    //   setIsLoading(false);
+    // });
   }, [dispatch, requestServer, params.id]);
 
   if (isLoading) {
@@ -60,7 +66,7 @@ export const ProductPage = () => {
     <>
     <Header />
     <div className={style.ProductAndCommentsWrapper}>
-      <ProductContent product={product} />
+      <ProductContent product={sinlgeProduct} />
     </div>
     </>
   );
