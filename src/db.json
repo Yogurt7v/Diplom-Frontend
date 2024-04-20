@@ -672,6 +672,26 @@
         }
       },
       "id": 39
+    },
+    {
+      "hash": "0.27371626454782105319907259399769827723503112792969",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "6621527c5bfe7f790dc81797",
+          "login": "test1",
+          "password": "$2b$10$1UhK6pcbUry6n1u7PXarmeqkraG8zsRiJbZJufs4m5JfWLks3yxEK",
+          "address": "123123",
+          "homeNumber": "12312",
+          "flatNumber": "1212",
+          "phone": "+7 (213) 131-23-12",
+          "role_id": 2,
+          "createdAt": "2024-04-18T17:03:56.874Z",
+          "updatedAt": "2024-04-18T17:03:56.874Z",
+          "__v": 0
+        }
+      },
+      "id": 40
     }
   ],
   "busket": [

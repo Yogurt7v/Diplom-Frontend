@@ -81,7 +81,7 @@ export const RegisterPage = () => {
   }) => {
     registerFetch(login, password, address, homeNumber, flatNumber, phone).then(({ error, res }) => {
         if (error) {
-          setServerError(`Ошибка запроса ${error}`);
+          setServerError(`${error}`);
           return;
         }
         dispatch(setUser(res));

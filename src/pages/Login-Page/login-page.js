@@ -52,10 +52,9 @@ export const LoginPage = () => {
   const onSubmit = ({ login, password }) => {
     loginUser(login, password).then(({ error, res }) => {
       if (error) {
-        setServerError(`Ошибка запроса ${error}`);
+        setServerError(`${error}`);
         return;
       }
-      console.log("onSubmit", res);
       dispatch(setUser(res));
       sessionStorage.setItem("userData", JSON.stringify(res));
       setServerError(null);
