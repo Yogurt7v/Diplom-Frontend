@@ -14,7 +14,7 @@ function transformProducts (dbProducts) {
 
 
 export const getSingleProduct = async (productId) =>
-  await fetch(`http://localhost:3005/products/${productId}`)
+  await fetch(`http://localhost:3005/getProduct/${productId}`)
   .then((res)=> {
     if (res.ok) {
        return res
