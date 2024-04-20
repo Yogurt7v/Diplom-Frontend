@@ -5,6 +5,9 @@ npm start
 test1
 test1111
 
+admin
+adminadmin
+
 задания:
 разобраться почему крашится при логине сервак.
 

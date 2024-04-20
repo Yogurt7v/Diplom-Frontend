@@ -42,7 +42,9 @@ const regFormSchema = yup.object().shape({
   flatNumber: yup.string().required("Заполните квартиру"),
   phone: yup
     .string()
-    .required("Заполните телефон"),
+    .required("Заполните телефон")
+    .min(10, "Неверный телефон. Телефон слишком мал")
+    .max(10, "Неверный телефон. Телефон слишком большой. Не больше 30 символов"),
 });
 
 export const RegisterPage = () => {
