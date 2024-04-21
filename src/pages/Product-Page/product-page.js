@@ -13,6 +13,7 @@ import { PrivateEditForm } from "./private-edit-form.js";
 import { setUser } from "../../actions";
 import { Header } from "../components/index.js";
 import { getSingleProduct} from "../../fetchs/getSinlgeProduct.js";
+import { getComments } from "../../fetchs/getComments.js";
 
 export const ProductPage = () => {
   const product = useSelector(selectProduct);
@@ -23,6 +24,7 @@ export const ProductPage = () => {
   const [isLoading, setIsLoading] = useState(null);
   const isEditing = !!useMatch(`/products/:id/edit`);
   const requestServer = useServerRequest();
+  const [comments, setComments] = useState([]);
 
   useLayoutEffect(() => {
     const currentUserDataJSON = sessionStorage.getItem("userData");
@@ -40,10 +42,12 @@ export const ProductPage = () => {
 
   useEffect(() => {
     getSingleProduct(params.id).then((productsData) => {
-      console.log(productsData);
       setSinlgeProduct(productsData);
       setError(productsData.error);
-      setIsLoading(false);
+    })
+    setIsLoading(false);
+    getComments(params.id).then((com) => {
+      setComments(com);
     })
     // dispatch(loadProduct(requestServer, params.id)).then((productsData) => {
     //   setError(productsData.error);
@@ -54,6 +58,7 @@ export const ProductPage = () => {
   if (isLoading) {
     return null;
   }
+
 
   const AdminProductPage = isEditing ? (
     <>
@@ -66,7 +71,7 @@ export const ProductPage = () => {
     <>
     <Header />
     <div className={style.ProductAndCommentsWrapper}>
-      <ProductContent product={sinlgeProduct} />
+      <ProductContent product={sinlgeProduct} allComments={comments}/>
     </div>
     </>
   );

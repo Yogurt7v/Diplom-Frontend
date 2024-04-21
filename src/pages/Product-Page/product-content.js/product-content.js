@@ -19,6 +19,7 @@ export const ProductContent = ({
     price,
     comments,
   },
+  allComments,
 }) => {
   const navigate = useNavigate();
 
@@ -64,7 +65,7 @@ export const ProductContent = ({
             Ингриденты: {ingredients}
           </div>
           <img src={close} alt="close" className={style.CloseButton} onClick={() => navigate(-1)}/>
-          <Comments comments={comments} productId={_id} />
+          <Comments comments={allComments} productId={_id} />
         </div>
       </div>
       <VideoBackground />
