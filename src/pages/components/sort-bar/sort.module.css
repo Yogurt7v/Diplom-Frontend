@@ -25,6 +25,8 @@
 }
 
 
+
+
 .SortBarSpan {
   display: flex;
   justify-content: center;
@@ -79,3 +81,4 @@
   color: black;
   background-color: #E97608;
 }
+

@@ -6,6 +6,7 @@ import { RESET_PRODUCT_DATA, saveProductAsync } from "../../../actions";
 import { useNavigate } from "react-router-dom";
 import { useServerRequest } from "../../../hooks";
 import { addProductFetch } from "../../../fetchs/addProduct";
+import { getAllProducts } from "../../../fetchs/getAllProducts";
 
 export const PrivateEditForm = ({
   product: {
@@ -32,7 +33,6 @@ export const PrivateEditForm = ({
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const requestServer = useServerRequest();
 
   useLayoutEffect(() => {
     setImageUrlValue(image_url);
@@ -55,7 +55,7 @@ export const PrivateEditForm = ({
   ]);
 
   useEffect(() => {
-    requestServer(`fetchProducts`, "", "").then(({ res: { products } }) => {
+    getAllProducts().then((products)=> {
       let categories = [];
       for (let i = 0; i < products.length; i++) {
         categories.push(products[i].category);
@@ -66,8 +66,8 @@ export const PrivateEditForm = ({
       });
 
       setCategoriesValueValue(uniqueСategories);
-    });
-  }, [requestServer]);
+    })
+  }, []);
 
   const onSave = () => {
       addProductFetch({
