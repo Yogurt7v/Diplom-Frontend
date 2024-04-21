@@ -46,11 +46,14 @@ export const ProductPage = () => {
       setError(productsData.error);
     })
     setIsLoading(false);
+    
     // dispatch(loadProduct(requestServer, params.id)).then((productsData) => {
     //   setError(productsData.error);
     //   setIsLoading(false);
     // });
-  }, [dispatch, requestServer, params.id]);
+  }, [dispatch, requestServer, params.id ]);
+
+  
 
   if (isLoading) {
     return null;

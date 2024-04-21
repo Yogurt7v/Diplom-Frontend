@@ -19,10 +19,12 @@ export const SingleComment = ({ id, author, productId, content }) => {
         onConform: () => {
           deleteCommentFetch(id);
           dispatch(CLOSE_MODAL);
+          window.location.reload();
         },
         onCancel: () => dispatch(CLOSE_MODAL),
       })
     );
+
   };
 
   const isAdminOrModerator = [ROLE.ADMIN, ROLE.MODERATOR].includes(userRole);

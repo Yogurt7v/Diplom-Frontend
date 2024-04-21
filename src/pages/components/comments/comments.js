@@ -12,7 +12,6 @@ import { getComments } from "../../../fetchs/getComments";
 import { useParams } from "react-router-dom";
 import {addCommentFetch} from "../../../fetchs/addComment";
 import {setProductData} from "../../../actions";
-import { getUser } from "../../../Bff/api";
 
 
 
@@ -24,8 +23,6 @@ export const Comments = () => {
   const userRole = useSelector(selectUserRole);
   const productId = useParams();
   const [comments, setComments] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [updatedComment, setUpdatedComment] = useState([]);
 
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -33,10 +30,11 @@ export const Comments = () => {
     // dispatch(addCommentAsync(requestServer, userId, productId, content));
     addCommentFetch (userId, productId.id, content).then(
       (productData) => {
-        console.log("addCommentFetch", productData);
         dispatch(setProductData(productData.res));
       })
     setNewComment("");
+    window.location.reload();
+    
   };
 
   const isGuest = userRole === ROLE.GUEST;
@@ -46,8 +44,6 @@ export const Comments = () => {
     getComments(productId.id).then((com) => {
       setComments(com);
     })
-
-
     }, [productId.id])
 
 
