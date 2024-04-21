@@ -2,15 +2,14 @@ import style from "./single-comment.module.css";
 import userLogo from "../../../../icons/user.svg";
 import trash from "../../../../icons/trash.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { removeCommentAsync, openModal, CLOSE_MODAL } from "../../../../actions";
-import { useServerRequest } from "../../../../hooks";
+import { openModal, CLOSE_MODAL } from "../../../../actions";
 import { selectUserRole } from "../../../../selectors";
 import { ROLE } from "../../../../constants";
+import { deleteCommentFetch } from "../../../../fetchs/deleteComment";
 
 export const SingleComment = ({ id, author, productId, content }) => {
 
   const dispatch = useDispatch();
-  const requestServer = useServerRequest();
   const userRole = useSelector(selectUserRole);
 
   const onCommentRemove = (id) => {
@@ -18,7 +17,7 @@ export const SingleComment = ({ id, author, productId, content }) => {
       openModal({
         text: "Удалить комментрарий?",
         onConform: () => {
-          dispatch(removeCommentAsync(requestServer, productId, id))
+          deleteCommentFetch(id);
           dispatch(CLOSE_MODAL);
         },
         onCancel: () => dispatch(CLOSE_MODAL),

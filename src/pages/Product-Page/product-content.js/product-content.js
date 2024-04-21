@@ -65,7 +65,7 @@ export const ProductContent = ({
             Ингриденты: {ingredients}
           </div>
           <img src={close} alt="close" className={style.CloseButton} onClick={() => navigate(-1)}/>
-          <Comments comments={allComments} productId={_id} />
+          <Comments/>
         </div>
       </div>
       <VideoBackground />

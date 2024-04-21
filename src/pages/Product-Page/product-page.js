@@ -46,9 +46,6 @@ export const ProductPage = () => {
       setError(productsData.error);
     })
     setIsLoading(false);
-    getComments(params.id).then((com) => {
-      setComments(com);
-    })
     // dispatch(loadProduct(requestServer, params.id)).then((productsData) => {
     //   setError(productsData.error);
     //   setIsLoading(false);
@@ -71,7 +68,7 @@ export const ProductPage = () => {
     <>
     <Header />
     <div className={style.ProductAndCommentsWrapper}>
-      <ProductContent product={sinlgeProduct} allComments={comments}/>
+      <ProductContent product={sinlgeProduct} />
     </div>
     </>
   );

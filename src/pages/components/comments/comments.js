@@ -12,16 +12,23 @@ import { getComments } from "../../../fetchs/getComments";
 import { useParams } from "react-router-dom";
 import {addCommentFetch} from "../../../fetchs/addComment";
 import {setProductData} from "../../../actions";
+import { getUser } from "../../../Bff/api";
 
 
-export const Comments = ({comments}) => {
+
+export const Comments = () => {
   const [newComment, setNewComment] = useState("");
   const userId = useSelector(selectUserId);
   const dispatch = useDispatch();
   const requestServer = useServerRequest();
   const userRole = useSelector(selectUserRole);
   const productId = useParams();
+  const [comments, setComments] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [updatedComment, setUpdatedComment] = useState([]);
 
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onNewCommentAdded = (userId, productId, content) => {
     // dispatch(addCommentAsync(requestServer, userId, productId, content));
     addCommentFetch (userId, productId.id, content).then(
@@ -33,6 +40,16 @@ export const Comments = ({comments}) => {
   };
 
   const isGuest = userRole === ROLE.GUEST;
+
+
+  useEffect(() => {
+    getComments(productId.id).then((com) => {
+      setComments(com);
+    })
+
+
+    }, [productId.id])
+
 
 
   return (
@@ -61,11 +78,11 @@ export const Comments = ({comments}) => {
         )}
         <div className={style.comments}>
           <div className={style.commentTitle}>Комментарий</div>
-          {comments?.map(({ id, author, content }) => (
+          {comments?.map(({ _id, author, content },) => (
             <SingleComment
-              key={id}
+              key={_id}
               productId={productId}
-              id={id}
+              id={_id}
               author={author}
               content={content}
             />
