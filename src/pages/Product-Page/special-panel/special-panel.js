@@ -1,17 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useServerRequest } from "../../../hooks";
 import { useNavigate } from "react-router-dom";
 import { selectUserRole } from "../../../selectors";
-import {removeProduct, openModal, CLOSE_MODAL} from "../../../actions";
+import {openModal, CLOSE_MODAL} from "../../../actions";
 import {ROLE} from "../../../constants/role";
 import { checkAccess } from "../../../utils";
 import style from "./special-panel.module.css";
 import trash from "../../../icons/trash.svg";
+import { deleteProductFetch } from "../../../fetchs/deleteProduct";
 
 export const SpecialPanel = ({  id , editButton }) => {
 
     const dispatch = useDispatch();
-    const requestServer = useServerRequest();
     const navigate = useNavigate();
     const userRole = useSelector(selectUserRole);
   
@@ -20,7 +19,8 @@ export const SpecialPanel = ({  id , editButton }) => {
         openModal({
           text: "Удалить продукт?",
           onConform: () => {
-            dispatch(removeProduct(requestServer, id)).then(() => {
+            deleteProductFetch(id)
+            .then(() => {
               navigate(`/`);
             });
             dispatch(CLOSE_MODAL);

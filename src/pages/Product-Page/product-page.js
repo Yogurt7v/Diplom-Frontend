@@ -14,6 +14,7 @@ import { setUser } from "../../actions";
 import { Header } from "../components/index.js";
 import { getSingleProduct} from "../../fetchs/getSinlgeProduct.js";
 import { getComments } from "../../fetchs/getComments.js";
+import { getAllProducts } from "../../fetchs/getAllProducts.js";
 
 export const ProductPage = () => {
   const product = useSelector(selectProduct);
@@ -40,7 +41,8 @@ export const ProductPage = () => {
     dispatch(RESET_PRODUCT_DATA);
   }, [dispatch]);
 
-  useEffect(() => {
+
+  useLayoutEffect(() => {
     getSingleProduct(params.id).then((productsData) => {
       setSinlgeProduct(productsData);
       setError(productsData.error);
@@ -51,20 +53,17 @@ export const ProductPage = () => {
     //   setError(productsData.error);
     //   setIsLoading(false);
     // });
-  }, [dispatch, requestServer, params.id ]);
-
-  
+  }, [params.id]);
 
   if (isLoading) {
     return null;
   }
 
-
   const AdminProductPage = isEditing ? (
     <>
     <Header />
     <PrivateProductContent access={[ROLE.ADMIN]} serverError={error}>
-      <PrivateEditForm product={product} />
+      <PrivateEditForm product={sinlgeProduct}/>
     </PrivateProductContent>
     </>
   ) : (

@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { useServerRequest } from "../../../hooks";
 import { addProductFetch } from "../../../fetchs/addProduct";
 import { getAllProducts } from "../../../fetchs/getAllProducts";
+import {updatedProductFetch} from "../../../fetchs/updateProduct";
+import { getSingleProduct } from "../../../fetchs/getSinlgeProduct";
 
 export const PrivateEditForm = ({
   product: {
@@ -29,7 +31,7 @@ export const PrivateEditForm = ({
   const [caloriesValue, setCaloriesValue] = useState(calories);
   const [ingredientsValue, setIngredientsValue] = useState(ingredients);
   const [priceValue, setPriceValue] = useState(price);
-  const [categoriesValue, setCategoriesValueValue] = useState([]);
+  const [categoriesValue, setCategoriesValue] = useState([]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -65,22 +67,40 @@ export const PrivateEditForm = ({
         return self.indexOf(value) === index;
       });
 
-      setCategoriesValueValue(uniqueСategories);
+      setCategoriesValue(uniqueСategories);
     })
   }, []);
 
+
+
   const onSave = () => {
+    if (id){
+      console.log("updatedProductFetch");
+      updatedProductFetch({ 
+        id,
+        productName: productNameValue,
+        image_url: imageUrlValue,
+        description: descriptionValue,
+        category: categoryValue || "burger",
+        weight: Number(weightValue),
+        calories: Number(caloriesValue),
+        ingredients: ingredientsValue,
+        price: Number(priceValue),
+      }).then(() => navigate(`/products/${id}`));
+
+    } else {
+      console.log("addProductFetch");
       addProductFetch({
         productName: productNameValue,
         image_url: imageUrlValue,
         description: descriptionValue,
-        category: categoryValue,
-        weight: weightValue,
-        calories: caloriesValue,
+        category: categoryValue || "burger",
+        weight: Number(weightValue),
+        calories: Number(caloriesValue),
         ingredients: ingredientsValue,
-        price: priceValue,
-      })
-    .then(() => navigate(`/`));
+        price: Number(priceValue),
+      }).then(() => navigate(`/`));
+    }
   };
 
   const onProductNameChange = ({ target }) => {
@@ -113,27 +133,30 @@ export const PrivateEditForm = ({
       <CustomInput
         value={productNameValue}
         placeholder="Название продукта"
+        type="text"
         className="input"
         onChange={onProductNameChange}
       />
       <CustomInput
         value={imageUrlValue}
         placeholder="Путь к картинке"
+        type="text"
         className="input"
         onChange={onImageChange}
       />
       <CustomInput
         value={descriptionValue}
         placeholder="Описание продукта"
+        type="text"
         className="input"
         onChange={onDescriptionChange}
       />
       <select
-        value={categoryValue}
+        value={categoriesValue[0] || "burger"}
         onChange={onCategoryChange}
         className={styled.select}
       >
-        {categoriesValue.map((category) => (
+        {categoriesValue?.map((category) => (
           <option key={category} value={category}>
             {category}
           </option>
@@ -156,6 +179,7 @@ export const PrivateEditForm = ({
       <CustomInput
         value={ingredientsValue}
         placeholder="Ингредиенты"
+        type="text"
         className="input"
         onChange={onIngredientsChange}
       />

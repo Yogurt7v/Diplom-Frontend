@@ -13,17 +13,14 @@ function transformProducts (dbProducts) {
 }
 
 
-export const getSingleProduct = async (productId) =>
-  await fetch(`http://localhost:3005/getProduct/${productId}`)
-  .then((res)=> {
-    if (res.ok) {
-       return res
-    }
+export const getSingleProduct = async (productId) => {
+  const res = await fetch(`http://localhost:3005/products/${productId}`);
 
+  if (!res.ok) {
     const error = res.status === 404 ? "Такого не существует" : "Ошибка";
+    throw error;
+  }
 
-    return Promise.reject(error);
-
-  })
-    .then((loadedProduct) => loadedProduct.json())
-    .then((loadedPr) => loadedPr && transformProducts(loadedPr));
+  const loadedProduct = await res.json();
+  return loadedProduct ? transformProducts(loadedProduct) : null;
+};

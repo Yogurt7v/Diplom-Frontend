@@ -8,7 +8,7 @@ import { Comments } from "../../components/comments";
 
 export const ProductContent = ({
   product: {
-    _id,
+    id,
     productName,
     image_url,
     description,
@@ -36,9 +36,9 @@ export const ProductContent = ({
             <div className={style.ProductTitleWrapper}>
               <h2 className={style.ProductTitle}>{productName}</h2>
               <SpecialPanel
-                id={_id}
+                id={id}
                 editButton={
-                  <div onClick={() => navigate(`/products/${_id}/edit`)}>
+                  <div onClick={() => navigate(`/products/${id}/edit`)}>
                     <img
                       src={editButton}
                       alt="edit"
@@ -64,7 +64,7 @@ export const ProductContent = ({
           <div className={style.ProductIngredients}>
             Ингриденты: {ingredients}
           </div>
-          <img src={close} alt="close" className={style.CloseButton} onClick={() => navigate(-1)}/>
+          <img src={close} alt="close" className={style.CloseButton} onClick={() => navigate("/")}/>
           <Comments/>
         </div>
       </div>

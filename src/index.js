@@ -10,6 +10,7 @@ import { RegisterPage } from "./pages/index";
 import { ErrorPage } from "./pages/Error-page";
 import { AdminPanel } from "./pages/Admin-panel";
 import { Modal } from "./pages/components/modal";
+import { PrivateEditForm } from "./pages/Product-Page/private-edit-form.js";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
