@@ -23,6 +23,10 @@ export const PrivateEditForm = ({
     price,
   },
 }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  
   const [productNameValue, setProductNameValue] = useState(productName);
   const [imageUrlValue, setImageUrlValue] = useState(image_url);
   const [descriptionValue, setDescriptionValue] = useState(description);
@@ -33,8 +37,6 @@ export const PrivateEditForm = ({
   const [priceValue, setPriceValue] = useState(price);
   const [categoriesValue, setCategoriesValue] = useState([]);
 
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useLayoutEffect(() => {
     setImageUrlValue(image_url);
@@ -53,25 +55,8 @@ export const PrivateEditForm = ({
     calories,
     ingredients,
     price,
-    dispatch,
+    dispatch
   ]);
-
-  useEffect(() => {
-    getAllProducts().then((products)=> {
-      let categories = [];
-      for (let i = 0; i < products.length; i++) {
-        categories.push(products[i].category);
-      }
-
-      const uniqueСategories = categories.filter((value, index, self) => {
-        return self.indexOf(value) === index;
-      });
-
-      setCategoriesValue(uniqueСategories);
-    })
-  }, []);
-
-
 
   const onSave = () => {
     if (id){
@@ -88,6 +73,7 @@ export const PrivateEditForm = ({
         price: Number(priceValue),
       }).then(() => navigate(`/products/${id}`));
 
+
     } else {
       console.log("addProductFetch");
       addProductFetch({
@@ -102,6 +88,19 @@ export const PrivateEditForm = ({
       }).then(() => navigate(`/`));
     }
   };
+  
+  useEffect(() => {
+    getAllProducts().then((products)=> {
+      let categories = [];
+      for (let i = 0; i < products.length; i++) {
+        categories.push(products[i].category);
+      }
+      const uniqueСategories = categories.filter((value, index, self) => {
+        return self.indexOf(value) === index;
+      });
+      setCategoriesValue(uniqueСategories);
+    })
+  }, []);
 
   const onProductNameChange = ({ target }) => {
     setProductNameValue(target.value);
@@ -127,6 +126,37 @@ export const PrivateEditForm = ({
   const onPriceChange = ({ target }) => {
     setPriceValue(target.value);
   };
+
+
+  useEffect(() => {
+    const errorArray = []
+    if(!productNameValue) {
+      errorArray.push("Название продукта не может быть пустым");
+    }
+    if(!imageUrlValue) {
+      errorArray.push("Путь к картинке не может быть пустым");
+    }
+    if(!descriptionValue) {
+      errorArray.push("Описание продукта не может быть пустым");
+    }
+    if(weightValue < 0) {
+      errorArray.push("Вес не может меньше нуля");
+    }
+    if(caloriesValue <= 0 || caloriesValue > 10000) {
+      errorArray.push("Калории не могут быть меньше нуля и больше 10000");
+    }
+    if(!ingredientsValue) {
+      errorArray.push("Ингредиенты не может быть пустым");
+    }
+    if (priceValue <= 0) {
+      errorArray.push("Цена не может быть меньше или равна нулю");
+    }
+    const errorMessage = errorArray.length > 1 ? errorArray.join(", ") : errorArray[0];
+    
+    setError(errorMessage);  
+  }, [priceValue, productNameValue,imageUrlValue, descriptionValue, weightValue, caloriesValue, ingredientsValue]);
+
+
 
   return (
     <div className={styled.EditFormWrapper}>
@@ -190,11 +220,17 @@ export const PrivateEditForm = ({
         className="input"
         onChange={onPriceChange}
       />
+      {error && <div className={styled.PrivateEditFormError}>{error}</div>}
       <div className={styled.ButtonsWrapper}>
         <button onClick={() => navigate(`/`)} className={styled.EditButtons}>
           Назад
         </button>
-        <button onClick={onSave} className={styled.EditButtons}>
+
+        <button 
+          onClick={onSave} 
+          className={styled.EditButtons} 
+          disabled={error}
+        >
           Сохранить
         </button>
       </div>

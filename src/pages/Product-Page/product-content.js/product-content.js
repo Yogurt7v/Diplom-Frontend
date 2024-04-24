@@ -5,6 +5,7 @@ import editButton from "../../../icons/editButon.svg";
 import close from "../../../icons/close.svg";
 import { VideoBackground } from "../../components/video-background.js/video-background";
 import { Comments } from "../../components/comments";
+import { useSelector } from "react-redux";
 
 export const ProductContent = ({
   product: {
@@ -12,14 +13,11 @@ export const ProductContent = ({
     productName,
     image_url,
     description,
-    category,
     weight,
     calories,
     ingredients,
     price,
-    comments,
   },
-  allComments,
 }) => {
   const navigate = useNavigate();
 

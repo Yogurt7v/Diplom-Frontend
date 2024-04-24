@@ -28,8 +28,11 @@
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
+}
 
-
+.EditButtons:disabled{
+    opacity: 0.3;
+    cursor: not-allowed;
 }
 
 .select{
@@ -43,6 +46,17 @@
     border-radius: 10px;
     padding: 20px 20px;
     background-color: black;
+    margin-bottom: 10px;
+
+}
+
+.PrivateEditFormError{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 20px;
+    font-weight: 500;
     margin-bottom: 10px;
 
 }
