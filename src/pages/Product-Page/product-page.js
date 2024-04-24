@@ -32,13 +32,13 @@ export const ProductPage = () => {
       setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
     );
     dispatch(RESET_PRODUCT_DATA);
-  }, [dispatch]);
+  }, []);
 
 
   useEffect(() => {
     getSingleProduct(params.id).then((productsData) => {
       setSinlgeProduct(productsData);
-      setError(productsData.error);
+      setError(productsData?.error);
     })
 
     setIsLoading(false);

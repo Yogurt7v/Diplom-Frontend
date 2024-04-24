@@ -86,7 +86,7 @@ export const MainPage = () => {
     //   }
     // );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [requestServer, searchPhrase, sorting, searchCategory]);
+  }, [ searchPhrase, sorting, searchCategory,products]);
 
   const onCategoryChange = (event) => {
     const category = event.target.id;

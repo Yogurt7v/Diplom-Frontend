@@ -12,6 +12,9 @@ import { setUser } from "../../actions";
 import { useLayoutEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Header, Orders } from "../components";
+import {getUsersFetch} from "../../fetchs/getUsers";
+import {getRolesFetch} from "../../fetchs/getRoles";
+import  {getOrdersFetch} from "../../fetchs/getOrders";
 
 export const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -55,20 +58,29 @@ export const AdminPanel = () => {
       setErrorMessage("Доступ запрещен ");
       return;
     }
-
     Promise.all([
-      requestServer(`fetchUsers`),
-      requestServer(`fetchRoles`),
-      requestServer(`fetchOrders`),
-    ]).then(([usersRes, rolesRes, ordersRes]) => {
-      if (usersRes.error || rolesRes.error) {
-        setErrorMessage(usersRes.error || rolesRes.error);
-        return;
-      }
+    getUsersFetch(),
+    getRolesFetch(),
+    // getOrdersFetch()
+  ]).then(([usersRes, rolesRes, ordersRes]) => {
+    if (usersRes.error || rolesRes.error) {
+      setErrorMessage(usersRes.error || rolesRes.error);
+      return;
+    }
 
-      setUsers(usersRes.res);
+    // Promise.all([
+    //   requestServer(`fetchUsers`),
+    //   requestServer(`fetchRoles`),
+    //   requestServer(`fetchOrders`),
+    // ]).then(([usersRes, rolesRes, ordersRes]) => {
+    //   if (usersRes.error || rolesRes.error) {
+    //     setErrorMessage(usersRes.error || rolesRes.error);
+    //     return;
+    //   }
+
+      setUsers(usersRes);
       setRole(rolesRes.res);
-      setOrders(ordersRes.res);
+      // setOrders(ordersRes.res);
     });
   }, [requestServer, shouldUpdateUserList, userRole]);
 
@@ -105,14 +117,14 @@ export const AdminPanel = () => {
             <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
               <div>
                 {users.map(
-                  ({ id, login, location, phone, registed_at, roleId }) => (
+                  ({ id, login, address,homeNumber,flatNumber, phone, registed_at, roleId }) => (
                     <UserRow
                       key={id}
                       id={id}
                       login={login}
-                      address={location.address}
-                      homeNumber={location.homeNumber}
-                      flatNumber={location.flatNumber}
+                      address={address}
+                      homeNumber={homeNumber}
+                      flatNumber={flatNumber}
                       phone={phone}
                       registed_at={registed_at}
                       roleId={roleId}
