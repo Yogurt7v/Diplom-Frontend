@@ -47,7 +47,7 @@ export const ProductPage = () => {
     //   setError(productsData.error);
     //   setIsLoading(false);
     // });
-  }, [params.id, sinlgeProduct]);
+  }, [params.id]);
 
   if (isLoading) {
     return null;

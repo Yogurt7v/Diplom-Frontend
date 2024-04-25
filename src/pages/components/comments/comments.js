@@ -27,7 +27,8 @@ export const Comments = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const onNewCommentAdded = (userId, productId, content) => {
-    // dispatch(addCommentAsync(requestServer, userId, productId, content));
+
+    dispatch(addCommentAsync(requestServer, userId, productId, content));
     addCommentFetch (userId, productId.id, content).then(
       (productData) => {
         dispatch(setProductData(productData.res));

@@ -15,6 +15,8 @@ import { Header, Orders } from "../components";
 import {getUsersFetch} from "../../fetchs/getUsers";
 import {getRolesFetch} from "../../fetchs/getRoles";
 import  {getOrdersFetch} from "../../fetchs/getOrders";
+import {removeUserFetch} from "../../fetchs/removeUser";
+import { useCallback } from "react";
 
 export const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -40,6 +42,23 @@ export const AdminPanel = () => {
   const [deliveryStatus, setDeliveryStatus] = useState(false);
 
   const requestServer = useServerRequest();
+
+  const onUserRemove = useCallback((userId) => {
+    if (!checkAccess([ROLE.ADMIN], userRole)) {
+      setErrorMessage("Доступ запрещен");
+      return;
+    }
+    const user = users.find((user) => user.id === userId);
+
+    if (user.roleId === 0){
+      setErrorMessage("Нельзя удалить администратора");
+      return;
+    }
+      setErrorMessage(null);
+      removeUserFetch(userId).then(() => {
+        setShouldUpdateUserList(!shouldUpdateUserList);
+      });
+    })
 
   useLayoutEffect(() => {
     const currentUserDataJSON = sessionStorage.getItem("userData");
@@ -82,18 +101,11 @@ export const AdminPanel = () => {
       setRole(rolesRes.res);
       // setOrders(ordersRes.res);
     });
-  }, [requestServer, shouldUpdateUserList, userRole]);
+  }, [requestServer, shouldUpdateUserList, userRole, onUserRemove, setErrorMessage, errorMessage]);
 
-  const onUserRemove = (userId) => {
-    if (!checkAccess([ROLE.ADMIN], userRole)) {
-      setErrorMessage("Доступ запрещен");
-      return;
-    }
 
-    requestServer(`removeUser`, userId).then(() => {
-      setShouldUpdateUserList(!shouldUpdateUserList);
-    });
-  };
+
+
 
   const onBusketOrderUpdate = (objParams) => {
     requestServer(`updateBusketOrders`, objParams);
@@ -114,7 +126,8 @@ export const AdminPanel = () => {
         {userRole === ROLE.ADMIN ? (
           <details className={style.AdminPanelDetails}>
             <summary className={style.AdminPanelSummary}>Пользователи</summary>
-            <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
+            {errorMessage ? <div >{errorMessage}</div> : null}
+            {/* <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}> */}
               <div>
                 {users.map(
                   ({ id, login, address,homeNumber,flatNumber, phone, registed_at, roleId }) => (
@@ -136,7 +149,7 @@ export const AdminPanel = () => {
                   )
                 )}
               </div>
-            </PrivateContent>
+            {/* </PrivateContent> */}
           </details>
         ) : null}
 

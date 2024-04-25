@@ -44,7 +44,6 @@ const regFormSchema = yup.object().shape({
     .string()
     .required("Заполните телефон")
     .min(10, "Неверный телефон. Телефон слишком мал")
-    .max(10, "Неверный телефон. Телефон слишком большой. Не больше 30 символов"),
 });
 
 export const RegisterPage = () => {
@@ -116,6 +115,7 @@ export const RegisterPage = () => {
             type="text"
             placeholder="Логин"
             className={style.registerInput}
+            autoComplete="off"
             {...register("login", {
               onChange: () => setServerError(null),
             })}

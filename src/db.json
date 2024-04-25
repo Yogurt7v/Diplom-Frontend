@@ -230,22 +230,6 @@
       "publishedAt": "2024-03-12 16:46",
       "content": "Огромнейший бургер",
       "id": "OGvdybV"
-    },
-    {
-      "authorId": "66237c1dd57bc0bb8bb168b0",
-      "productsId": {
-        "id": "66239106d8e2430d036d4b9e"
-      },
-      "content": "test",
-      "id": "dWxqcKP"
-    },
-    {
-      "authorId": "66237c1dd57bc0bb8bb168b0",
-      "productsId": {
-        "id": "66239106d8e2430d036d4b9e"
-      },
-      "content": "test",
-      "id": "RiCo4zP"
     }
   ],
   "sessions": [
@@ -328,6 +312,46 @@
         }
       },
       "id": 4
+    },
+    {
+      "hash": "0.72852273992130522906052192411152645945549011230469",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "662a80cc953b3d85350c0ef7",
+          "login": "userForTests",
+          "password": "$2b$10$aPHLVIPQCe5MzgleFkeoduwJW3NZLKsBsqPtZF.4KzAkOmwujcXta",
+          "address": "sdfksbdkfjb",
+          "homeNumber": "22",
+          "flatNumber": "2321",
+          "phone": "+7 (911) 233-44-89",
+          "role_id": 2,
+          "createdAt": "2024-04-25T16:11:56.007Z",
+          "updatedAt": "2024-04-25T16:11:56.007Z",
+          "__v": 0
+        }
+      },
+      "id": 5
+    },
+    {
+      "hash": "0.57220988798080085757646884303539991378784179687500",
+      "user": {
+        "error": null,
+        "user": {
+          "_id": "662a9127c660786ff32c9a4e",
+          "login": "admin",
+          "password": "$2b$10$/PVce4/KD0blWkflS4AZ/eH0l36ROdC2.OXrVANpuySd5Pf93yUCq",
+          "address": "admin",
+          "homeNumber": "1",
+          "flatNumber": "1",
+          "phone": "+7 (911) 911-91-19",
+          "role_id": 0,
+          "createdAt": "2024-04-25T17:21:43.441Z",
+          "updatedAt": "2024-04-25T17:21:43.441Z",
+          "__v": 0
+        }
+      },
+      "id": 6
     }
   ],
   "busket": [

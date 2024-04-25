@@ -3,6 +3,7 @@ import save from "../../../icons/save.svg";
 import trash from "../../../icons//trash.svg";
 import { useState } from "react";
 import { useServerRequest } from "../../../hooks";
+import { updateUserRoleFetch } from "../../../fetchs/updateUserRole";
 
 export const UserRow = ({
   id,
@@ -25,13 +26,12 @@ export const UserRow = ({
   };
 
   const onRoleSave = (userId, newUserRoleId) => {
-    requestServer(`updateUserRole`, userId, newUserRoleId).then(() => {
+    updateUserRoleFetch(userId, newUserRoleId).then(() => {
       setInitialRoleId(newUserRoleId);
     });
   };
 
   const isSaveButtonDisabled = selectedRoleId === initialRoleId;
-
   return (
     <>
       <div className={style.userRow}>
