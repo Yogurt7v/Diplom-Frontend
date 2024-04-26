@@ -49,6 +49,7 @@ export const MainPage = () => {
   };
 
   const handleSort = (e) => {
+    console.log(e.target.value);
     setSorting(e.target.value);
   };
 
@@ -81,10 +82,20 @@ export const MainPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    getAllProducts(searchPhrase, searchCategory).then((res) => {
-      console.log("getAllProducts", res);
-      setProducts(res);
-    })
+    getAllProducts(searchPhrase, searchCategory).then(
+      (products) => {
+        const sortObJ = sortOption.find((option) => option.value === sorting);
+        const filteredProducts = products.filter((product) =>
+          searchCategory ? product.category === searchCategory : product
+        );
+        setProducts(
+          sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts
+        );
+        setCurrentPage(1);
+        setLoading(false);
+
+      }
+    );
     setLoading(false);
     // requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
     //   ({ res: { products } }) => {
