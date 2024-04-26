@@ -1,0 +1,30 @@
+
+.NavMenuItem {
+    padding: 20px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 26px;
+    color: #FA7D09;
+  }
+  
+  .NavMenuItem:hover {
+    transition: 1s ease-in-out;
+    background-color: #fa7d09e0;
+    color: black;
+  }
+  
+  .NavMenuItemSelected{
+    padding: 20px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 26px;
+    background-color: #fa7d09e0;
+    color: black;
+  }
+  

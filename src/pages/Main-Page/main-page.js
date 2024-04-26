@@ -118,7 +118,7 @@ export const MainPage = () => {
 
   return (
     <>
-      <Header onCategoryChange={onCategoryChange} />
+      <Header onCategoryChange={onCategoryChange}/>
       <div className={style.AppWrapper}>
         <div className={style.SortBarWrapper}>
           <SortBar options={sortOption} onSort={handleSort} />
