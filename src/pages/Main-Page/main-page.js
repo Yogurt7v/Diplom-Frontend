@@ -38,6 +38,20 @@ export const MainPage = () => {
     setSearchPhrase("");
   };
 
+  const onCategoryChange = (event) => {
+    const category = event.target.id;
+    if (!searchCategory) {
+      setSearchCategory(category);
+      setCurrentPage(1);
+    } else {
+      setSearchCategory("");
+    }
+  };
+
+  const handleSort = (e) => {
+    setSorting(e.target.value);
+  };
+
   useLayoutEffect(() => {
     const currentUserDataJSON = sessionStorage.getItem("userData");
     const random = Math.random().toFixed(50);
@@ -68,6 +82,7 @@ export const MainPage = () => {
   useEffect(() => {
     setLoading(true);
     getAllProducts(searchPhrase, searchCategory).then((res) => {
+      console.log("getAllProducts", res);
       setProducts(res);
     })
     setLoading(false);
@@ -88,19 +103,7 @@ export const MainPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ searchPhrase, sorting, searchCategory]);
 
-  const onCategoryChange = (event) => {
-    const category = event.target.id;
-    if (!searchCategory) {
-      setSearchCategory(category);
-      setCurrentPage(1);
-    } else {
-      setSearchCategory("");
-    }
-  };
 
-  const handleSort = (e) => {
-    setSorting(e.target.value);
-  };
 
   return (
     <>
