@@ -78,9 +78,6 @@ export const MainPage = () => {
         setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
       );
     }
-
-
-    });
     
   }, [dispatch]);
 

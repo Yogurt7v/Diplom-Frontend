@@ -67,7 +67,8 @@ export const RegisterPage = () => {
   const [serverError, setServerError] = useState();
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
-  const [ad, setAd] = useState("");
+  const [street, setStreet] = useState("");
+  const [home, setHome] = useState("");
   const roleId = useSelector(selectUserRole);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -105,19 +106,25 @@ export const RegisterPage = () => {
     const geoAdress = async () => {
       console.log("latitude", latitude, "longitude", longitude);
       const response = await fetch(
-        `https://catalog.api.2gis.com/3.0/items/geocode?lon=${longitude}&lat=${latitude}&fields=items.adm_div,items.address&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`
+        `https://catalog.api.2gis.com/3.0/items/geocode?lat=${latitude}&lon=${longitude}&fields=items.point&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`
       );
       const data = await response.json();
-      setAd(data);
+      const a = data?.result?.items[0]?.address_name;
+      if (a){
+        const b = a?.split(", ");
+        console.log("adress", b);
+        setStreet(b[0]);
+        setHome(b[1]);
+      }
+      else{
+        setStreet("");
+        setHome("");
+      }
     };
     geoAdress();
-  }, []);
-  console.log("adress",ad);
+  }, [latitude, longitude]);
 
-
-      // const url = `https://catalog.api.2gis.com/3.0/items/geocode?lon=${longitude}&lat=${latitude}&type=building&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`;
-
-
+  console.log("street", street, "home", home);
 
   const formError =
     errors?.login?.message ||
