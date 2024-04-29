@@ -59,7 +59,7 @@ export const Comments = () => {
                 className={style.Textaria}
                 name="comment"
                 value={newComment}
-                placeholder="Your comment..."
+                placeholder="Ваш комментарий..."
                 onChange={(e) => {
                   setNewComment(e.target.value);
                 }}
@@ -74,7 +74,7 @@ export const Comments = () => {
           </>
         )}
         <div className={style.comments}>
-          <div className={style.commentTitle}>Комментарий</div>
+          <div className={style.commentTitle}>Комментарии</div>
           {comments?.map(({ _id, author, content },) => (
             <SingleComment
               key={_id}

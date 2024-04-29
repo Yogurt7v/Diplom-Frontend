@@ -45,7 +45,6 @@ export const sessions = {
 
   async remove(hash) {
     const session = await getSessionFetch(hash);
-    console.log("remove", session);
     if (!session) {
       return
     }
