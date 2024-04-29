@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { server } from "../../Bff/";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserRole } from "../../selectors";
@@ -15,7 +15,6 @@ import Slider from "../components/slider/Slider";
 import { InputMask } from "@react-input/mask";
 import { useNavigate } from "react-router-dom";
 import { registerFetch } from "../../fetchs/register";
-
 
 const regFormSchema = yup.object().shape({
   login: yup
@@ -43,7 +42,7 @@ const regFormSchema = yup.object().shape({
   phone: yup
     .string()
     .required("Заполните телефон")
-    .min(10, "Неверный телефон. Телефон слишком мал")
+    .min(10, "Неверный телефон. Телефон слишком мал"),
 });
 
 export const RegisterPage = () => {
@@ -66,6 +65,9 @@ export const RegisterPage = () => {
   });
 
   const [serverError, setServerError] = useState();
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  const [ad, setAd] = useState("");
   const roleId = useSelector(selectUserRole);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -80,7 +82,8 @@ export const RegisterPage = () => {
     flatNumber,
     phone,
   }) => {
-    registerFetch(login, password, address, homeNumber, flatNumber, phone).then(({ error, res }) => {
+    registerFetch(login, password, address, homeNumber, flatNumber, phone).then(
+      ({ error, res }) => {
         if (error) {
           setServerError(`${error}`);
           return;
@@ -88,8 +91,33 @@ export const RegisterPage = () => {
         dispatch(setUser(res));
         sessionStorage.setItem("userData", JSON.stringify(res));
         navigate("/");
-      });
+      }
+    );
   };
+
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+      setLatitude(latitude);
+      setLongitude(longitude);
+    });
+    const geoAdress = async () => {
+      console.log("latitude", latitude, "longitude", longitude);
+      const response = await fetch(
+        `https://catalog.api.2gis.com/3.0/items/geocode?lon=${longitude}&lat=${latitude}&fields=items.adm_div,items.address&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`
+      );
+      const data = await response.json();
+      setAd(data);
+    };
+    geoAdress();
+  }, []);
+  console.log("adress",ad);
+
+
+      // const url = `https://catalog.api.2gis.com/3.0/items/geocode?lon=${longitude}&lat=${latitude}&type=building&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`;
+
+
 
   const formError =
     errors?.login?.message ||
