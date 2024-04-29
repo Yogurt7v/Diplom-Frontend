@@ -106,25 +106,17 @@ export const RegisterPage = () => {
     const geoAdress = async () => {
       console.log("latitude", latitude, "longitude", longitude);
       const response = await fetch(
-        `https://catalog.api.2gis.com/3.0/items/geocode?lat=${latitude}&lon=${longitude}&fields=items.point&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`
+        // `https://catalog.api.2gis.com/3.0/items/geocode?lat=${latitude}&lon=${longitude}&fields=items.point&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`
+        `https://geocode-maps.yandex.ru/1.x/?apikey=fb8c538a-231d-4f2e-9ab6-d1c83764d6b2&geocode=${longitude},${latitude}&format=json
+        `
       );
       const data = await response.json();
-      const a = data?.result?.items[0]?.address_name;
-      if (a){
-        const b = a?.split(", ");
-        console.log("adress", b);
-        setStreet(b[0]);
-        setHome(b[1]);
-      }
-      else{
-        setStreet("");
-        setHome("");
-      }
+      console.log("geoAdress", data);
+
     };
     geoAdress();
   }, [latitude, longitude]);
 
-  console.log("street", street, "home", home);
 
   const formError =
     errors?.login?.message ||
