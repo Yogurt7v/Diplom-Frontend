@@ -43,13 +43,13 @@ export const MainPage = () => {
     if (!searchCategory) {
       setSearchCategory(category);
       setCurrentPage(1);
+  
     } else {
       setSearchCategory("");
     }
   };
 
   const handleSort = (e) => {
-    console.log(e.target.value);
     setSorting(e.target.value);
   };
 
@@ -97,22 +97,7 @@ export const MainPage = () => {
       }
     );
     setLoading(false);
-    // requestServer(`fetchProducts`, searchPhrase, searchCategory).then(
-    //   ({ res: { products } }) => {
-    //     const sortObJ = sortOption.find((option) => option.value === sorting);
-    //     const filteredProducts = products.filter((product) =>
-    //       searchCategory ? product.category === searchCategory : product
-    //     );
-    //     setProducts(
-    //       sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts
-    //     );
-    //     setCurrentPage(1);
-    //     setLoading(false);
-
-    //   }
-    // );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ searchPhrase, sorting, searchCategory]);
+  }, [ searchPhrase, sorting, searchCategory,sortOption]);
 
 
 

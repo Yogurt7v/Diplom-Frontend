@@ -1,8 +1,9 @@
-import { sessions } from "../sessions";
-import { getUser } from "../api/get-user";
+import { sessions } from "../../fetchs/sessions";
+import { getUserFetch } from "../../fetchs/getUser";
 
 export const authorize = async (authLogin, authPassword) => {
-  const user = await getUser(authLogin);
+  const user = await getUserFetch(authLogin);
+
 
   if (!user) {
     return {
@@ -26,7 +27,7 @@ export const authorize = async (authLogin, authPassword) => {
       id: id,
       login: login,
       roleId: roleId,
-      session: sessions.create(user),
+      session: sessions.create(user.res),
     },
   };
 };

@@ -1,8 +1,8 @@
 import { ACTION_TYPE } from "./action-type";
-import { server } from "../Bff";
+import { sessions } from "../fetchs/sessions"
 
 export const logout = (session) => {
-    server.logout(session);
+    sessions.remove(session);
 
 
     return {

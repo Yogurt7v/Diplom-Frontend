@@ -1,4 +1,4 @@
-import { sessions } from "../Bff/sessions";
+import { sessions } from "../fetchs/sessions";
 
 export const loginUser = async (authLogin, authPassword) => {
   const user = await fetch("http://localhost:3005/login", {

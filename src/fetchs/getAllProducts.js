@@ -5,7 +5,6 @@ export const getAllProducts = async (searchPhrase, searchCategory) => {
     return res;
   }
   if (searchPhrase || searchCategory) {
-    console.log("searchPhrase", searchPhrase);
     const response = await fetch(`http://localhost:3005/productsWithFilter`, {
       method: "POST",
       headers: {
@@ -17,7 +16,6 @@ export const getAllProducts = async (searchPhrase, searchCategory) => {
       }),
     });
     const res = await response.json();
-    console.log("getAllProducts", res);
     return res;
   }
 };
