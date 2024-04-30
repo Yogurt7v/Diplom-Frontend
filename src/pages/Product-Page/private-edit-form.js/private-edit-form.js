@@ -182,7 +182,7 @@ export const PrivateEditForm = ({
         onChange={onDescriptionChange}
       />
       <select
-        defaultValuevalue={categoriesValue[0] || "burger"}
+        defaultvaluevalue={categoriesValue[0] || "burger"}
         onChange={onCategoryChange}
         className={styled.select}
       >

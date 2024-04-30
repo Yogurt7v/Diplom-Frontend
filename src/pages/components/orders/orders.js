@@ -1,33 +1,39 @@
+import { useEffect } from "react";
 import style from "./orders.module.css";
 
-export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusketOrderUpdate, paidStatus, deliveryStatus }) => {
+export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusketOrderUpdate, paidStatus, deliveryStatus,onBusketOrderDelete }) => {
   return (
     <>
       {users &&
         orders.map((order) => (
-          <div className={style.Order} key={order.id}>
-            <p>Заказ № : {order.id}</p>
+          <div className={style.Order} key={order._id}>
+            <p>Заказ № : {order._id}</p>
             <p>
               Заказчик : {users.find((user) => user.id === order.userId)?.login}
             </p>
             <p>
               Адрес доставки :{" "}
-              {users.find((user) => user.id === order.userId)?.location.address}
+              {users.find((user) => user.id === order.userId)?.address}
               ,
               {
-                users.find((user) => user.id === order.userId)?.location
-                  .homeNumber
+                users.find((user) => user.id === order.userId)?.homeNumber
               }
               ,
               {
-                users.find((user) => user.id === order.userId)?.location
-                  .flatNumber
+                users.find((user) => user.id === order.userId)?.flatNumber
               }
             </p>
 
             <p>
               Телефон : {users.find((user) => user.id === order.userId)?.phone}
             </p>
+
+            {order.items?.map((item) => (
+              <p>
+                {item.productName} : {item.quantity} шт.
+              </p>
+            ))}
+
 
             <div>
               Cтатус оплаты :{" "}
@@ -56,13 +62,21 @@ export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusk
               className={style.SaveButton}
               onClick={() =>
                 onBusketOrderUpdate({
-                  id: order.id,
+                  id: order._id,
                   paid: paidStatus,
                   delivery: deliveryStatus,
                 })
               }
             >
-              Save
+              Сохранить
+            </button>
+                        <button
+              className={style.SaveButton}
+              onClick={() =>
+                onBusketOrderDelete(order._id)
+              }
+            >
+              удалить
             </button>
           </div>
         ))}

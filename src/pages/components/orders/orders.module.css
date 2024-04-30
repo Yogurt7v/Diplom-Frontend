@@ -3,16 +3,19 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+
 }
 
 .Order{
     padding: 10px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     align-items: self-start;
     gap: 20px;
     border: 3px solid black;
     border-radius: 10px;
+    margin: 20px;
 }
 
 .OrderSelect{

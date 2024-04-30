@@ -3,6 +3,7 @@ import style from "./nav-menu-item.module.css";
 
 export const NavMenuItem = ({ item, onCategoryChange }) => {
 
+
   const name = item
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

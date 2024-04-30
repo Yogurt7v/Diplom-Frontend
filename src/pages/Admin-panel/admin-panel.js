@@ -9,13 +9,15 @@ import { PrivateContent } from "../components/private-content/";
 import { UserRow } from "../components/users-row/users-row";
 import { PrivateEditForm } from "../Product-Page/private-edit-form.js";
 import { setUser } from "../../actions";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect,useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Header, Orders } from "../components";
 import {getUsersFetch} from "../../fetchs/getUsers";
 import {getRolesFetch} from "../../fetchs/getRoles";
 import  {getOrdersFetch} from "../../fetchs/getOrders";
 import {removeUserFetch} from "../../fetchs/removeUser";
+import { updateBusketOrdersFetch} from "../../fetchs//updateOrders";
+import {deleteBusketOrderFetch} from "../../fetchs/deleteOrderFromBusket";
 import { useCallback } from "react";
 
 export const AdminPanel = () => {
@@ -43,6 +45,17 @@ export const AdminPanel = () => {
 
   const requestServer = useServerRequest();
 
+  
+  const onBusketOrderUpdate = (objParams) => {
+
+    updateBusketOrdersFetch(objParams);
+  };
+
+
+  const onBusketOrderDelete = (id) => {  
+    deleteBusketOrderFetch(id);
+  };
+
   const onUserRemove = useCallback((userId) => {
     if (!checkAccess([ROLE.ADMIN], userRole)) {
       setErrorMessage("Доступ запрещен");
@@ -58,7 +71,7 @@ export const AdminPanel = () => {
       removeUserFetch(userId).then(() => {
         setShouldUpdateUserList(!shouldUpdateUserList);
       });
-    })
+    }, [users, shouldUpdateUserList, userRole]);
 
   useLayoutEffect(() => {
     const currentUserDataJSON = sessionStorage.getItem("userData");
@@ -70,9 +83,11 @@ export const AdminPanel = () => {
     dispatch(
       setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
     );
-  }, [dispatch]);
 
-  useLayoutEffect(() => {
+
+  }, [ dispatch ]);
+
+  useEffect(() => {
     if (!checkAccess([ROLE.ADMIN, ROLE.MODERATOR], userRole)) {
       setErrorMessage("Доступ запрещен ");
       return;
@@ -80,36 +95,19 @@ export const AdminPanel = () => {
     Promise.all([
     getUsersFetch(),
     getRolesFetch(),
-    // getOrdersFetch()
+    getOrdersFetch()
   ]).then(([usersRes, rolesRes, ordersRes]) => {
-    if (usersRes.error || rolesRes.error) {
-      setErrorMessage(usersRes.error || rolesRes.error);
+    if (usersRes.error || rolesRes.error|| ordersRes.error) {
+      setErrorMessage(usersRes.error || rolesRes.error || ordersRes.error);
       return;
     }
-
-    // Promise.all([
-    //   requestServer(`fetchUsers`),
-    //   requestServer(`fetchRoles`),
-    //   requestServer(`fetchOrders`),
-    // ]).then(([usersRes, rolesRes, ordersRes]) => {
-    //   if (usersRes.error || rolesRes.error) {
-    //     setErrorMessage(usersRes.error || rolesRes.error);
-    //     return;
-    //   }
-
       setUsers(usersRes);
       setRole(rolesRes.res);
-      // setOrders(ordersRes.res);
+      setOrders(ordersRes.res);
     });
-  }, [requestServer, shouldUpdateUserList, userRole, onUserRemove, setErrorMessage, errorMessage]);
+  }, [dispatch, userRole, shouldUpdateUserList, paidStatus, deliveryStatus,onBusketOrderUpdate, onBusketOrderDelete]);
 
 
-
-
-
-  const onBusketOrderUpdate = (objParams) => {
-    requestServer(`updateBusketOrders`, objParams);
-  };
 
   return (
     <>
@@ -123,14 +121,14 @@ export const AdminPanel = () => {
               <PrivateEditForm product={newProduct} />
           </details>
         ) : null}
-        {userRole === ROLE.ADMIN ? (
+        {userRole === ROLE.ADMIN || userRole === ROLE.MODERATOR ? (
           <details className={style.AdminPanelDetails}>
             <summary className={style.AdminPanelSummary}>Пользователи</summary>
             {errorMessage ? <div >{errorMessage}</div> : null}
-            {/* <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}> */}
+            <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
               <div>
-                {users.map(
-                  ({ id, login, address,homeNumber,flatNumber, phone, registed_at, roleId }) => (
+                {users?.map(
+                  ({ id, login, address ,homeNumber,flatNumber, phone, registed_at, roleId }) => (
                     <UserRow
                       key={id}
                       id={id}
@@ -149,7 +147,7 @@ export const AdminPanel = () => {
                   )
                 )}
               </div>
-            {/* </PrivateContent> */}
+            </PrivateContent>
           </details>
         ) : null}
 
@@ -157,7 +155,7 @@ export const AdminPanel = () => {
           <details>
             <summary className={style.AdminPanelSummary}>Заказы</summary>
             <div className={style.OrdersWrapper}>
-              <Orders users={users} orders={orders} setPaidStatus={setPaidStatus} setDeliveryStatus={setDeliveryStatus} onBusketOrderUpdate={onBusketOrderUpdate} paidStatus={paidStatus} deliveryStatus={deliveryStatus}/>
+              <Orders users={users} orders={orders} setPaidStatus={setPaidStatus} setDeliveryStatus={setDeliveryStatus} onBusketOrderUpdate={onBusketOrderUpdate} paidStatus={paidStatus} deliveryStatus={deliveryStatus} onBusketOrderDelete={onBusketOrderDelete}/>
             </div>
           </details>
         ) : null}

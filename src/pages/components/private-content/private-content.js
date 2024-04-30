@@ -5,7 +5,7 @@ import { ERROR} from "../../../../src/constants/error";
 
 export const PrivateContent = ({ children, access, serverError = null }) => {
   const userRole = useSelector(selectUserRole);
- 
+
   let accessError = checkAccess(access, userRole) ? null : ERROR.ACCESS_DENIED;
   const error = serverError || accessError;
 
