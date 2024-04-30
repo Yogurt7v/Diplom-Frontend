@@ -3,7 +3,7 @@ import { addProductToBusket } from "../api";
 // import { sessions } from "../sessions";
 // import { getProductIdCommentsWithAuthor } from "../utils";
 
-export const addProductToBusketOperation = async (hash, items) => {
+export const addProductToBusketOperationFetch = async (hash, items) => {
   const [item] = items;
 
   let dataBusket = {
@@ -20,6 +20,7 @@ export const addProductToBusketOperation = async (hash, items) => {
   };
   
   addProductToBusket(dataBusket);
+
 
   return {
     error: null,

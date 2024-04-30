@@ -22,7 +22,7 @@ export const Header = ({onCategoryChange}) => {
     <div className={style.HeaderWrapper}>
       <LeftHeader />
       <div className={style.HeaderMenuWrapper}>
-        <NavMenu onCategoryChange={onCategoryChange} />
+        <NavMenu onCategoryChange={onCategoryChange}/>
       </div>
       <RightHeader loginName={loginName} onLogout={onLogout} />
     </div>

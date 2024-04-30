@@ -15,6 +15,8 @@ export const NavMenu = ({ onCategoryChange}) => {
       setAllCategorys(uniqueCategorys);
       })
   },[])
+  
+
 
   return (
     <>

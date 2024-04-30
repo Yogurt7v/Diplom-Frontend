@@ -12,7 +12,6 @@ import {
   addProductComment,
   removeProductComment,
   removeProduct,
-  addProductToBusketOperation,
   fecthBusket,
   fetchOrders,
   updateBusketOrders,
@@ -32,7 +31,6 @@ export const server = {
   addProductComment,
   removeProductComment,
   removeProduct,
-  addProductToBusketOperation,
   fecthBusket,
   fetchOrders,
   updateBusketOrders

@@ -10,6 +10,7 @@ import { useServerRequest } from "../../hooks";
 import { useNavigate } from "react-router-dom";
 import { addProductToBusketAction } from "../../actions/add-product-to-busket";
 import { openModal, CLOSE_MODAL, clearBusketData } from "../../actions";
+import { addProductToBusketOperationFetch } from "../../fetchs/addToBusket";
 
 export const Busket = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export const Busket = () => {
   };
 
   const createOrder = ({ items }) => {
-    dispatch(addProductToBusketAction(requestServer, items, userOnPage));
+    addProductToBusketOperationFetch(userOnPage, items);
     dispatch(
       openModal({
         text: "Заказ создан! Перейти к оплате?",
@@ -37,9 +38,8 @@ export const Busket = () => {
         },
       })
     );
-    dispatch(clearBusketData())
+    dispatch(clearBusketData());
   };
-
 
   return (
     <>
@@ -86,12 +86,18 @@ export const Busket = () => {
           </div>
           {userOnPage === -1 ? (
             <div className={style.Login}>
-            <Link to="/register" className={style.links}>Зарегестрироваться</Link>
-            <Link to="/login"className={style.links}>Войти</Link>
+              <Link to="/register" className={style.links}>
+                Зарегестрироваться
+              </Link>
+              <Link to="/login" className={style.links}>
+                Войти
+              </Link>
             </div>
           ) : (
             <button
-              className={busket.items.length>0 ? style.OrderButton : style.Innactive}
+              className={
+                busket.items.length > 0 ? style.OrderButton : style.Innactive
+              }
               onClick={() => createOrder(busket)}
             >
               Оформить

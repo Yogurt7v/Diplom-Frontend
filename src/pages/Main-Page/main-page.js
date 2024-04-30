@@ -44,7 +44,8 @@ export const MainPage = () => {
       setSearchCategory(category);
       setCurrentPage(1);
   
-    } else {
+    }
+     else {
       setSearchCategory("");
     }
   };

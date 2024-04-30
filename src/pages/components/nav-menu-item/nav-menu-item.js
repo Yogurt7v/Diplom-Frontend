@@ -10,17 +10,13 @@ export const NavMenuItem = ({ item, onCategoryChange }) => {
     
   const [isActive, setActive] = useState(false);
 
-    const changeActive = () => {  
-      setActive(!isActive)
-      }
-
   return (
     <>
       <div
         className={isActive ? style.NavMenuItemSelected : style.NavMenuItem}
         onClick={(item) => {
           onCategoryChange(item);
-          changeActive();
+          setActive(!isActive)
         }}
         id={item}
       >
