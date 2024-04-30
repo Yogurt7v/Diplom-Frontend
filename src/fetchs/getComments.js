@@ -5,8 +5,6 @@ export const getComments = async (productId) => {
     const commentsJson = await comments.json();
     
     const users = await getUsersFetch();
-    console.log("commentsJson", commentsJson);
-    console.log("users", users);
 
     commentsJson.forEach((comment) => {
         const foundedUser = users.find(({ id }) => id === comment.authorId);

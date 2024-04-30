@@ -40,6 +40,10 @@ export const MainPage = () => {
 
   const onCategoryChange = (event) => {
     const category = event.target.id;
+    if (category === "All") {
+      return
+    }
+
     if (!searchCategory) {
       setSearchCategory(category);
       setCurrentPage(1);

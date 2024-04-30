@@ -12,6 +12,7 @@ export const NavMenu = ({ onCategoryChange}) => {
   useEffect(() => {
     getAllProducts().then(res =>{
       const uniqueCategorys = [...new Set(res.map(({ category }) => category))];
+      uniqueCategorys.unshift("All");
       setAllCategorys(uniqueCategorys);
       })
   },[])
