@@ -8,7 +8,7 @@ import { RightHeader } from "./nav-menu/right-header/right-header";
 import { clearBusketData } from "../../../actions";
 import { useState } from "react";
 
-export const Header = ({onCategoryChange}) => {
+export const Header = ({onCategoryChange, isActiveItem}) => {
   const loginName = useSelector((state) => state.user.login);
   const session = useSelector((state) => state.user.session);
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export const Header = ({onCategoryChange}) => {
     <div className={style.HeaderWrapper}>
       <LeftHeader />
       <div className={style.HeaderMenuWrapper}>
-        {visible? <NavMenu onCategoryChange={onCategoryChange}/> : null}
+        {visible? <NavMenu onCategoryChange={onCategoryChange} isActiveItem={isActiveItem}/> : null}
       </div>
       <RightHeader loginName={loginName} onLogout={onLogout} />
     </div>

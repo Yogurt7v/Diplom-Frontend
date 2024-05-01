@@ -14,7 +14,7 @@ import {
 import { SORT_OPTIONS } from "../../constants";
 import { ROLE } from "../../constants";
 import { logout } from "../../Bff/operations";
-import {getAllProducts} from "../../fetchs/getAllProducts";
+import { getAllProducts } from "../../fetchs/getAllProducts";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export const MainPage = () => {
   const [sorting, setSorting] = useState("");
   const [searchCategory, setSearchCategory] = useState("");
   const [loading, setLoading] = useState(false);
-  const[currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const sortOption = SORT_OPTIONS;
 
@@ -38,19 +38,19 @@ export const MainPage = () => {
     setSearchPhrase("");
   };
 
+  const [isActiveItem, setActiveItem] = useState("");
+
   const onCategoryChange = (event) => {
     const category = event.target.id;
-    if (category === "All") {
-      return
-    }
+    console.log(category);
+        if (category === "All") {
+          setSearchCategory(null);
+          setActiveItem("");
 
-    if (!searchCategory) {
+    }else {
+      setActiveItem(category);
       setSearchCategory(category);
       setCurrentPage(1);
-  
-    }
-     else {
-      setSearchCategory("");
     }
   };
 
@@ -83,33 +83,25 @@ export const MainPage = () => {
         setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
       );
     }
-    
   }, [dispatch]);
 
   useEffect(() => {
     setLoading(true);
-    getAllProducts(searchPhrase, searchCategory).then(
-      (products) => {
-        const sortObJ = sortOption.find((option) => option.value === sorting);
-        const filteredProducts = products.filter((product) =>
-          searchCategory ? product.category === searchCategory : product
-        );
-        setProducts(
-          sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts
-        );
-        setCurrentPage(1);
-        setLoading(false);
-
-      }
-    );
+    getAllProducts(searchPhrase, searchCategory).then((products) => {
+      const sortObJ = sortOption.find((option) => option.value === sorting);
+      const filteredProducts = products.filter((product) =>
+        searchCategory ? product.category === searchCategory : product
+      );
+      setProducts(sortObJ ? sortObJ.sort(filteredProducts) : filteredProducts);
+      setCurrentPage(1);
+      setLoading(false);
+    });
     setLoading(false);
-  }, [ searchPhrase, sorting, searchCategory,sortOption]);
-
-
+  }, [searchPhrase, sorting, searchCategory, sortOption]);
 
   return (
     <>
-      <Header onCategoryChange={onCategoryChange}/>
+      <Header onCategoryChange={onCategoryChange} isActiveItem={isActiveItem} />
       <div className={style.AppWrapper}>
         <div className={style.SortBarWrapper}>
           <SortBar options={sortOption} onSort={handleSort} />
@@ -122,7 +114,12 @@ export const MainPage = () => {
           />
           <BusketCard />
         </div>
-        <MainContent loading={loading} products={products} currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <MainContent
+          loading={loading}
+          products={products}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
         <VideoBackground />
       </div>
     </>

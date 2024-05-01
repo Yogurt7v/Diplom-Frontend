@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { getAllProducts } from "../../../../fetchs/getAllProducts";
 
-export const NavMenu = ({ onCategoryChange}) => {
+export const NavMenu = ({ onCategoryChange, isActiveItem}) => {
 
   const [allCategorys, setAllCategorys] = useState([])
   
@@ -25,6 +25,7 @@ export const NavMenu = ({ onCategoryChange}) => {
 
         {allCategorys.map((category) => (
           <NavMenuItem
+            isActiveItem={isActiveItem}
             key={category}
             item={category}
             onCategoryChange={onCategoryChange}
