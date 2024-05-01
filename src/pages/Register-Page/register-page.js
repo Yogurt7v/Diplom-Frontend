@@ -1,4 +1,5 @@
 import style from "./register-page.module.css";
+import eye from "../../icons/eye.svg";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -70,7 +71,8 @@ export const RegisterPage = () => {
   const roleId = useSelector(selectUserRole);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const[geoAddress, setGeoAddress] = useState({});
+  const [geoAddress, setGeoAddress] = useState({});
+  const [checkPassword, setCheckPassword] = useState(false);
 
   useResetForm(reset);
 
@@ -95,7 +97,6 @@ export const RegisterPage = () => {
     );
   };
 
-
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
@@ -108,10 +109,10 @@ export const RegisterPage = () => {
         `https://catalog.api.2gis.com/3.0/items/geocode?lat=${latitude}&lon=${longitude}&fields=items.point&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`
       );
       const data = await response.json();
-      const {result} = data
+      const { result } = data;
       setGeoAddress(result);
     };
-    geoAdress();  
+    geoAdress();
   }, [latitude, longitude]);
 
   const formError =
@@ -143,29 +144,48 @@ export const RegisterPage = () => {
               onChange: () => setServerError(null),
             })}
           ></input>
+          <div className={style.passwordContainer}>
+            <input
+              type={checkPassword ? "text" : "password"}
+              placeholder="Пароль"
+              className={style.registerInput}
+              autoComplete="on"
+              {...register("password", {
+                onChange: () => setServerError(null),
+              })}
+            ></input>
+            <img
+              src={eye}
+              className={style.eye}
+              alt="eye"
+              onMouseDown={() => setCheckPassword(!checkPassword)}
+              onMouseUp={() => setCheckPassword(!checkPassword)}
+            ></img>
+          </div>
+          <div className={style.passwordContainer}>
+            <input
+              type={checkPassword ? "text" : "password"}
+              placeholder="Повтор пароля"
+              className={style.registerInput}
+              autoComplete="on"
+              {...register("passcheck", {
+                onChange: () => setServerError(null),
+              })}
+            ></input>
+            <img
+              src={eye}
+              className={style.eye}
+              alt="eye"
+              onMouseDown={() => setCheckPassword(!checkPassword)}
+              onMouseUp={() => setCheckPassword(!checkPassword)}sa
+            ></img>
+          </div>
           <input
-            type="password"
-            placeholder="Пароль"
-            className={style.registerInput}
-            autoComplete="on"
-            {...register("password", {
-              onChange: () => setServerError(null),
-            })}
-          ></input>
-          <input
-            type="password"
-            placeholder="Повтор пароля"
-            className={style.registerInput}
-            autoComplete="on"
-            {...register("passcheck", {
-              onChange: () => setServerError(null),
-            })}
-          ></input>
-          <input
-          name="address"
-          list="address"
+            name="address"
+            list="address"
             type="text"
             placeholder="Адрес"
+            autoComplete="off"
             className={style.registerInput}
             {...register("address", {
               onChange: () => setServerError(null),
@@ -173,8 +193,7 @@ export const RegisterPage = () => {
           ></input>
           <datalist id="address">
             {geoAddress?.items?.map((item) => (
-              <option key={item?.id} value={item?.full_name
-              } />
+              <option key={item?.id} value={item?.full_name} />
             ))}
           </datalist>
           <input
