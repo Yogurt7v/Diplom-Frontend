@@ -67,11 +67,10 @@ export const RegisterPage = () => {
   const [serverError, setServerError] = useState();
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
-  const [street, setStreet] = useState("");
-  const [home, setHome] = useState("");
   const roleId = useSelector(selectUserRole);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const[geoAddress, setGeoAddress] = useState({});
 
   useResetForm(reset);
 
@@ -103,20 +102,17 @@ export const RegisterPage = () => {
       setLatitude(latitude);
       setLongitude(longitude);
     });
+
     const geoAdress = async () => {
-      console.log("latitude", latitude, "longitude", longitude);
       const response = await fetch(
-        // `https://catalog.api.2gis.com/3.0/items/geocode?lat=${latitude}&lon=${longitude}&fields=items.point&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`
-        `https://geocode-maps.yandex.ru/1.x/?apikey=fb8c538a-231d-4f2e-9ab6-d1c83764d6b2&geocode=${longitude},${latitude}&format=json
-        `
+        `https://catalog.api.2gis.com/3.0/items/geocode?lat=${latitude}&lon=${longitude}&fields=items.point&key=3827dd82-e134-4dbb-8cbe-4642b95009b4`
       );
       const data = await response.json();
-      console.log("geoAdress", data);
-
+      const {result} = data
+      setGeoAddress(result);
     };
-    geoAdress();
+    geoAdress();  
   }, [latitude, longitude]);
-
 
   const formError =
     errors?.login?.message ||
@@ -166,14 +162,21 @@ export const RegisterPage = () => {
             })}
           ></input>
           <input
+          name="address"
+          list="address"
             type="text"
             placeholder="Адрес"
             className={style.registerInput}
-            autoComplete="on"
             {...register("address", {
               onChange: () => setServerError(null),
             })}
           ></input>
+          <datalist id="address">
+            {geoAddress?.items?.map((item) => (
+              <option key={item?.id} value={item?.full_name
+              } />
+            ))}
+          </datalist>
           <input
             type="text"
             placeholder="Номер дома"

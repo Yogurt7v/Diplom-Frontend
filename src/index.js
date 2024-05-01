@@ -10,7 +10,8 @@ import { RegisterPage } from "./pages/index";
 import { ErrorPage } from "./pages/Error-page";
 import { AdminPanel } from "./pages/Admin-panel";
 import { Modal } from "./pages/components/modal";
-import { PrivateEditForm } from "./pages/Product-Page/private-edit-form.js";
+import { PaymentPage } from "./pages/Payment-page/Payment-Page";
+// import { PrivateEditForm } from "./pages/Product-Page/private-edit-form.js";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -22,7 +23,7 @@ root.render(
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
-        {/* <Route path="/payment" element={<Payment />} /> */}
+        <Route path="/payment" element={<PaymentPage />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/products/:id/edit" element={<ProductPage />} />

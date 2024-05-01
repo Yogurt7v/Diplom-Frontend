@@ -40,13 +40,7 @@ export const ProductPage = () => {
       setSinlgeProduct(productsData);
       setError(productsData?.error);
     })
-
     setIsLoading(false);
-    
-    // dispatch(loadProduct(requestServer, params.id)).then((productsData) => {
-    //   setError(productsData.error);
-    //   setIsLoading(false);
-    // });
   }, [params.id]);
 
   if (isLoading) {

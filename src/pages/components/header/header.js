@@ -7,24 +7,30 @@ import { LeftHeader } from "./nav-menu/left-header/left-header";
 import { RightHeader } from "./nav-menu/right-header/right-header";
 import { clearBusketData } from "../../../actions";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Header = ({onCategoryChange, isActiveItem}) => {
   const loginName = useSelector((state) => state.user.login);
   const session = useSelector((state) => state.user.session);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [visible, setVisible] = useState(true);
 
   const onLogout = () => {
     dispatch(logout(session));
     sessionStorage.removeItem("userData");
     dispatch(clearBusketData())
+    let currentURL = window.location.pathname;
+    if (currentURL === "/admin-panel") {
+      navigate("/");
+    }
   };
 
   useEffect(() => {
-    let currentURL = window.location.href;
-    if (currentURL !== "http://localhost:3000/") {
-    setVisible(false);
-  }
+    let currentURL = window.location.pathname;
+    if (currentURL !== "/") {
+      setVisible(false);
+    }
   }, []);
 
   return (
