@@ -39,7 +39,6 @@ export const MainPage = () => {
 
   const onCategoryChange = (event) => {
     const category = event.target.id;
-    console.log(category);
         if (category === "All") {
           setSearchCategory(null);
           setActiveItem("");
@@ -115,7 +114,6 @@ export const MainPage = () => {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-        <VideoBackground />
       </div>
     </>
   );

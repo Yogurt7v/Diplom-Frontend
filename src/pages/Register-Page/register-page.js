@@ -236,7 +236,6 @@ export const RegisterPage = () => {
           <Slider />
         </div>
       </div>
-      <VideoBackground />
     </>
   );
 };

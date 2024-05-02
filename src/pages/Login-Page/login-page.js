@@ -103,7 +103,6 @@ export const LoginPage = () => {
           </Link>
         </form>
       </div>
-      <VideoBackground />
     </>
   );
 };

@@ -11,6 +11,9 @@ import { ErrorPage } from "./pages/Error-page";
 import { AdminPanel } from "./pages/Admin-panel";
 import { Modal } from "./pages/components/modal";
 import { PaymentPage } from "./pages/Payment-page/Payment-Page";
+import { VideoBackground } from "./pages/components";
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -29,6 +32,7 @@ root.render(
         <Route path="/busket" element={<Busket />} />
         <Route path="*" element={<ErrorPage error={ERROR.PAGE_NOT_EXIST} />} />
       </Routes>
+      <VideoBackground />
       <Modal/>
     </BrowserRouter>
   </Provider>
