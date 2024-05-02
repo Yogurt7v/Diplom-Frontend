@@ -2,7 +2,6 @@ import style from "./main-page.module.css";
 import { useLayoutEffect, useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../actions";
-import { useServerRequest } from "../../hooks/use-server-request";
 import {
   SortBar,
   Header,
@@ -11,15 +10,13 @@ import {
   SearchBar,
   BusketCard,
 } from "../components";
-import { SORT_OPTIONS } from "../../constants";
-import { ROLE } from "../../constants";
+import { SORT_OPTIONS, ROLE } from "../../constants";
 import { logout } from "../../Bff/operations";
-import { getAllProducts } from "../../fetchs/getAllProducts";
+import { getAllProducts } from "../../fetchs";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
-  const requestServer = useServerRequest();
   const [searchPhrase, setSearchPhrase] = useState("");
   const [searchPhraseFromSearchBar, setSearchPhraseFromSearchBar] =
     useState("");

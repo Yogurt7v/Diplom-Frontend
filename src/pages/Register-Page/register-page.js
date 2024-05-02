@@ -1,12 +1,11 @@
 import style from "./register-page.module.css";
 import eye from "../../icons/eye.svg";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { server } from "../../Bff/";
-import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { selectUserRole } from "../../selectors";
 import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
@@ -14,8 +13,7 @@ import { useResetForm } from "../../hooks";
 import { Header, VideoBackground } from "../components";
 import Slider from "../components/slider/Slider";
 import { InputMask } from "@react-input/mask";
-import { useNavigate } from "react-router-dom";
-import { registerFetch } from "../../fetchs/register";
+import { registerFetch } from "../../fetchs";
 
 const regFormSchema = yup.object().shape({
   login: yup
@@ -126,7 +124,7 @@ export const RegisterPage = () => {
   const errorMessage = formError || serverError;
 
   if (roleId !== ROLE.GUEST) {
-    return <Navigate to="/" />;
+    return <navigate to="/" />;
   }
 
   return (

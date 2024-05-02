@@ -1,21 +1,18 @@
 import style from "./busket.module.css";
 import Header from "../components/header/header";
 import trash from "../../icons/trash.svg";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { selectBusket, selectUserId } from "../../selectors";
 import { VideoBackground } from "../components";
-import { Link, useNavigate } from "react-router-dom";
 import {
   openModal,
   CLOSE_MODAL,
   clearBusketData,
   removeBusketData,
 } from "../../actions";
-import { addProductToBusketOperationFetch } from "../../fetchs/addToBusket";
-import { useState, useEffect, useRef } from "react";
-import { getOrderByUserIdFetch } from "../../fetchs/getOrderByUserId";
-import { getPromocodeFetch } from "../../fetchs/getPromocode";
-import { checkPromocodeFetch } from "../../fetchs/checkPromocode";
+import { addProductToBusketOperationFetch,getOrderByUserIdFetch, getPromocodeFetch, checkPromocodeFetch } from "../../fetchs";
 
 export const Busket = () => {
   const dispatch = useDispatch();

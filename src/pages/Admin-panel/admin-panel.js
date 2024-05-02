@@ -1,24 +1,16 @@
 import style from "./admin-panel.module.css";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useServerRequest } from "../../hooks";
 import { selectUserRole } from "../../selectors";
 import { checkAccess } from "../../utils";
 import { ROLE } from "../../constants/role";
-import { PrivateContent } from "../components/private-content/";
-import { UserRow } from "../components/users-row/users-row";
+import { PrivateContent, UserRow } from "../components";
 import { PrivateEditForm } from "../Product-Page/private-edit-form.js";
 import { setUser } from "../../actions";
-import { useLayoutEffect,useEffect } from "react";
+import { useLayoutEffect,useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Header, Orders } from "../components";
-import {getUsersFetch} from "../../fetchs/getUsers";
-import {getRolesFetch} from "../../fetchs/getRoles";
-import  {getOrdersFetch} from "../../fetchs/getOrders";
-import {removeUserFetch} from "../../fetchs/removeUser";
-import { updateBusketOrdersFetch} from "../../fetchs//updateOrders";
-import {deleteBusketOrderFetch} from "../../fetchs/deleteOrderFromBusket";
-import { useCallback } from "react";
+import {getUsersFetch, getRolesFetch, getOrdersFetch, removeUserFetch, updateBusketOrdersFetch, deleteBusketOrderFetch} from "../../fetchs";
 
 export const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -43,11 +35,8 @@ export const AdminPanel = () => {
   const [paidStatus, setPaidStatus] = useState(false);
   const [deliveryStatus, setDeliveryStatus] = useState(false);
 
-  const requestServer = useServerRequest();
-
   
   const onBusketOrderUpdate = (objParams) => {
-
     updateBusketOrdersFetch(objParams);
   };
 

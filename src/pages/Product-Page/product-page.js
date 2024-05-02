@@ -1,18 +1,14 @@
 import style from "./product-page.module.css";
-import { useSelector, useDispatch } from "react-redux";
-import { selectProduct } from "../../selectors";
-import { useServerRequest } from "../../hooks";
+import { useDispatch } from "react-redux";
 import { useParams, useMatch } from "react-router-dom";
-import { useState } from "react";
-import { useLayoutEffect, useEffect } from "react";
-import { loadProduct, RESET_PRODUCT_DATA } from "../../actions";
+import { useLayoutEffect, useEffect, useState } from "react";
+import { RESET_PRODUCT_DATA, setUser } from "../../actions";
 import { ROLE } from "../../constants/role.js";
 import { ProductContent } from "./product-content.js";
 import { PrivateProductContent } from "./private-product-content";
 import { PrivateEditForm } from "./private-edit-form.js";
-import { setUser } from "../../actions";
-import { Header } from "../components/index.js";
-import { getSingleProduct} from "../../fetchs/getSinlgeProduct.js";
+import { Header } from "../components";
+import { getSingleProduct} from "../../fetchs";
 
 export const ProductPage = () => {
   const [sinlgeProduct, setSinlgeProduct] = useState({});

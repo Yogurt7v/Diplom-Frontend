@@ -1,10 +1,7 @@
 import style from "./busket-card.module.css";
 import busketIcon from "../../../icons/Busket.svg";
 import { Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import { useServerRequest } from "../../../hooks";
 import { useSelector } from "react-redux";
-// import { useState } from "react";
 
 export const BusketCard = () => {
   const {items} = useSelector((state) => state.busket);

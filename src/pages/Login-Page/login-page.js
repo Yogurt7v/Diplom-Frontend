@@ -1,18 +1,16 @@
 import style from "./loginPage.module.css";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { server } from "../../Bff/";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { selectUserRole } from "../../selectors";
 import { useResetForm } from "../../hooks";
 import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
-import { VideoBackground } from "../components";
-import { Header } from "../components/header/header.js";
-import { loginUser } from "../../fetchs/login.js";
+import { VideoBackground, Header } from "../components";
+import { loginUser } from "../../fetchs";
 
 const authFormSchema = yup.object().shape({
   login: yup

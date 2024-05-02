@@ -96,6 +96,7 @@ button {
 }
 
 .CardDescription{
+  min-height: 72px;
   max-height: 90px;
   overflow:hidden;
   text-overflow: ellipsis;

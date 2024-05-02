@@ -1,6 +1,6 @@
 import style from "./new-style-content.module.css";
 import Card from "../card/card";
-import {  useState } from "react";
+import { useState } from "react";
 import { Pagination } from "../pagination/pagination";
 import { ColorRing } from "react-loader-spinner";
 

@@ -1,13 +1,11 @@
 import style from "./header.module.css";
-import React, { useEffect } from "react";
-import NavMenu from "./nav-menu/nav-menu";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../../actions";
+import { useNavigate } from "react-router-dom";
+import { logout, clearBusketData } from "../../../actions";
+import NavMenu from "./nav-menu/nav-menu";
 import { LeftHeader } from "./nav-menu/left-header/left-header";
 import { RightHeader } from "./nav-menu/right-header/right-header";
-import { clearBusketData } from "../../../actions";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const Header = ({onCategoryChange, isActiveItem}) => {
   const loginName = useSelector((state) => state.user.login);
