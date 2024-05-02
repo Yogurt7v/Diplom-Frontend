@@ -3,15 +3,17 @@ import Header from "../components/header/header";
 import trash from "../../icons/trash.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { selectBusket, selectUserId } from "../../selectors";
-import { removeBusketData } from "../../actions";
 import { VideoBackground } from "../components";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { openModal, CLOSE_MODAL, clearBusketData } from "../../actions";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  openModal,
+  CLOSE_MODAL,
+  clearBusketData,
+  removeBusketData,
+} from "../../actions";
 import { addProductToBusketOperationFetch } from "../../fetchs/addToBusket";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getOrderByUserIdFetch } from "../../fetchs/getOrderByUserId";
-import { useState } from "react";
 import { getPromocodeFetch } from "../../fetchs/getPromocode";
 import { checkPromocodeFetch } from "../../fetchs/checkPromocode";
 
@@ -21,64 +23,50 @@ export const Busket = () => {
   const user = useSelector(selectUserId);
   const busket = useSelector(selectBusket);
   const navigate = useNavigate();
-  const [userOrders, setUserOrders] = useState([]);
   const [promocode, setPromocode] = useState("");
   const [discount, setDiscount] = useState(0);
+  const [userOrders, setUserOrders] = useState(null);
   const ref = useRef();
+
+  const fetchUserOrders = async () => {
+    const orders = await getOrderByUserIdFetch(user);
+    setUserOrders(orders);
+  };
 
   const checkPromocode = (code) => {
     checkPromocodeFetch(code).then((data) => setDiscount(data));
     ref.current.value = "";
-  }
-  
+  };
+
+  const createNotification = () => {
+    setTimeout(() => {
+      const discount = async () => {
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+          const { code } = await getPromocodeFetch();
+          new Notification("Рады Вас видеть!", {
+            body: `Промокод на скидку: ${code}`,
+            icon: "https://grizly.club/uploads/posts/2023-01/1674322054_grizly-club-p-aktsiya-klipart-48.jpg",
+            tag: "Сообщение",
+            renotify: true,
+          });
+        }
+      };
+      discount();
+    }, 1000);
+  };
 
   useEffect(() => {
-    if (!user) {
-      return;
-    }else {
-      getOrderByUserIdFetch(user).then((data) => setUserOrders(data));
-      setDiscount(0)
-    }
-  }, [user]);
-
-  console.log(userOrders);
+    fetchUserOrders();
+    setDiscount(0);
+  }, []);
 
   useEffect(() => {
-    if (userOrders?.length === 0) {
-      setTimeout(() => {
-        const discount = async() =>{
-          const permission = await Notification.requestPermission();
-          const {code} = await getPromocodeFetch()
-          if (permission === "granted" ) {
-            new Notification("Делаете свой первый заказ?", {
-              body: `Промокод: ${code}`,
-              icon: "https://grizly.club/uploads/posts/2023-01/1674322054_grizly-club-p-aktsiya-klipart-48.jpg",
-              tag: "Сообщение",
-              renotify: true,
-            })
-        }
-        }
-        discount()
-        },1000)
+    console.log("userOrders", userOrders);
+      if (userOrders?.length === 0) {
+        createNotification();
       }
-      else {
-        return
-      }
-
-      // const discount = async() =>{
-      //   const permission = await Notification.requestPermission();
-      //   const {code} = await getPromocodeFetch()
-      //   if (permission === "granted") {
-      //     new Notification("Делаете свой первый заказ?", {
-      //       body: `Промокод: ${code}`,
-      //       icon: "https://grizly.club/uploads/posts/2023-01/1674322054_grizly-club-p-aktsiya-klipart-48.jpg",
-      //       tag: "Сообщение",
-      //       renotify: true,
-      //     })
-      // }
-      // }
-  }, [setUserOrders]);
-
+  }, [fetchUserOrders]);
 
   const deleteItem = (randomId) => {
     dispatch(removeBusketData(randomId));
@@ -91,7 +79,7 @@ export const Busket = () => {
         text: "Заказ создан! Перейти к оплате?",
         onConform: () => {
           dispatch(CLOSE_MODAL);
-          setDiscount(0)
+          setDiscount(0);
           navigate("/payment");
         },
         onCancel: () => {
@@ -108,12 +96,28 @@ export const Busket = () => {
       <Header />
       <div className={style.BusketWrapper}>
         <h2 className={style.BusketTitle}>Заказ</h2>
-        <div className={style.PromoWrapper}>
-        <input className={style.BusketPromoInput} type="text" autoComplete="off" onChange={(e) => setPromocode(e.target.value)} ref={ref} placeholder="Промокод" />
-        <button  onClick={() => checkPromocode(promocode)}               className={
+        {busket.items.length > 0 && (
+          <div className={style.PromoWrapper}>
+            <input
+              className={style.BusketPromoInput}
+              type="text"
+              autoComplete="off"
+              onChange={(e) => setPromocode(e.target.value)}
+              ref={ref}
+              placeholder="Промокод"
+            />
+            <button
+              onClick={() => checkPromocode(promocode)}
+              className={
                 promocode.length > 0 ? style.OrderButton : style.Innactive
-              }> Применить </button>
-        </div>
+              }
+            >
+              {" "}
+              Применить{" "}
+            </button>
+          </div>
+        )}
+
         <div className={style.BusketCardSWrapper}>
           {busket.items.length > 0 ? (
             busket.items.map((item) => (
@@ -123,10 +127,15 @@ export const Busket = () => {
                     <div className={style.BusketItem}>
                       Название: {item.productName}
                     </div>
-                    <div>Цена: {item.price - item.price * discount / 100 } $</div>
+                    <div>
+                      Цена: {item.price - (item.price * discount) / 100} $
+                    </div>
                     <div>Количество: {item.quantity}</div>
                     <div className={style.BusketItem}>
-                      Итого: {(item.price - item.price * discount / 100 ) * item.quantity } $
+                      Итого:{" "}
+                      {(item.price - (item.price * discount) / 100) *
+                        item.quantity}{" "}
+                      $
                     </div>
                   </div>
                   <div onClick={() => deleteItem(item.randomId)}>
@@ -147,7 +156,9 @@ export const Busket = () => {
           <div className={style.BusketSum}>
             Итого:{" "}
             {busket.items.reduce(
-              (acc, item) => acc + (item.price - item.price * discount / 100 ) * item.quantity,
+              (acc, item) =>
+                acc +
+                (item.price - (item.price * discount) / 100) * item.quantity,
               0
             )}{" "}
             $
