@@ -36,11 +36,6 @@ export const Card = ({
   const addProductToBusket = (productId=id, productName, quantity, price) => {
     const userId = userOnPage;
     const randomId = (Math.random()* 1000000).toFixed(0);
-    // dispatch(
-    //   addProductToBusketAction(
-    //     requestServer,userId, productId, productName, quantity, price
-    //   )
-    // );
     dispatch(addBusketData({randomId, userId,  productId, productName, quantity, price }));
   };
 

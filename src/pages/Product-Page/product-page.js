@@ -8,14 +8,15 @@ import { ProductContent } from "./product-content.js";
 import { PrivateProductContent } from "./private-product-content";
 import { PrivateEditForm } from "./private-edit-form.js";
 import { Header } from "../components";
-import { getSingleProduct} from "../../fetchs";
+import { getSingleProduct } from "../../fetchs";
+import SkeletonProductCard  from "../components/skeleton/SkeletonProductCard";
 
 export const ProductPage = () => {
   const [sinlgeProduct, setSinlgeProduct] = useState({});
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const params = useParams();
-  const [isLoading, setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const isEditing = !!useMatch(`/products/:id/edit`);
 
   useLayoutEffect(() => {
@@ -30,32 +31,37 @@ export const ProductPage = () => {
     dispatch(RESET_PRODUCT_DATA);
   }, []);
 
-
   useEffect(() => {
     getSingleProduct(params.id).then((productsData) => {
       setSinlgeProduct(productsData);
       setError(productsData?.error);
-    })
+    });
     setIsLoading(false);
   }, [params.id]);
 
-  if (isLoading) {
-    return null;
-  }
+  console.log(isLoading);
 
   const AdminProductPage = isEditing ? (
     <>
-    <Header />
-    <PrivateProductContent access={[ROLE.ADMIN]} serverError={error}>
-      <PrivateEditForm product={sinlgeProduct}/>
-    </PrivateProductContent>
+      <Header />
+      {isLoading ? (
+        <SkeletonProductCard />
+      ) : (
+        <PrivateProductContent access={[ROLE.ADMIN]} serverError={error}>
+          <PrivateEditForm product={sinlgeProduct} />
+        </PrivateProductContent>
+      )}
     </>
   ) : (
     <>
-    <Header />
-    <div className={style.ProductAndCommentsWrapper}>
-      <ProductContent product={sinlgeProduct} />
-    </div>
+      <Header />
+      {isLoading ? (
+        <SkeletonProductCard />
+      ) : (
+        <div className={style.ProductAndCommentsWrapper}>
+          <ProductContent product={sinlgeProduct} />
+        </div>
+      )}
     </>
   );
 

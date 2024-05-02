@@ -6,6 +6,8 @@ import close from "../../../icons/close.svg";
 import { VideoBackground } from "../../components/video-background.js/video-background";
 import { Comments } from "../../components/comments";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { addBusketData } from "../../../actions/add-busket-data";
 
 export const ProductContent = ({
   product: {
@@ -20,6 +22,13 @@ export const ProductContent = ({
   },
 }) => {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const addProductToBusket = (userId,  productId, productName, quantity = 1, price) => {
+    const randomId = (Math.random()* 1000000).toFixed(0);
+    dispatch(addBusketData({randomId, userId,  productId, productName, quantity, price }));
+  };
 
   return (
     <>
@@ -54,7 +63,7 @@ export const ProductContent = ({
                   Калории: {calories} ккал.
                 </div>
                 <div className={style.ProductPrice}> {price} $</div>{" "}
-                {/* <button className={style.BuyButton}>Купить</button> */}
+                <button className={style.BuyButton} onClick={()=> addProductToBusket(user.id, id, productName, 1, price)}>Купить</button>
               </div>
             </div>
           </div>
