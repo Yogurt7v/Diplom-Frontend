@@ -3,6 +3,7 @@ import Card from "../card/card";
 import { useState } from "react";
 import { Pagination } from "../pagination/pagination";
 import { ColorRing } from "react-loader-spinner";
+import SkeletonCard  from "..//skeleton/SkeletonCard";
 
 export const MainContent = ({ products, loading, currentPage, setCurrentPage }) => {
 
@@ -28,6 +29,7 @@ export const MainContent = ({ products, loading, currentPage, setCurrentPage }) 
       setCurrentPage((prev)=> prev - 1);
     }
   }
+
 
   return (
     <>
@@ -62,19 +64,22 @@ export const MainContent = ({ products, loading, currentPage, setCurrentPage }) 
             )}
           </div>
         ) : (
-          <>
-            <div className={style.ContentCardNotFound}>
-              <ColorRing
-                visible={true}
-                height="180"
-                width="180"
-                ariaLabel="color-ring-loading"
-                wrapperStyle={{}}
-                wrapperClass="color-ring-wrapper"
-                colors={["#000000", "#ED780B", "#E43306", "#8e1c00", "#d6c400"]}
-              />
-            </div>
-          </>
+          [...new Array(4)].map((index) => (
+            <SkeletonCard key={index}/>
+          ))
+          // <>
+          //   <div className={style.ContentCardNotFound}>
+          //     <ColorRing
+          //       visible={true}
+          //       height="180"
+          //       width="180"
+          //       ariaLabel="color-ring-loading"
+          //       wrapperStyle={{}}
+          //       wrapperClass="color-ring-wrapper"
+          //       colors={["#000000", "#ED780B", "#E43306", "#8e1c00", "#d6c400"]}
+          //     />
+          //   </div>
+          // </>
         )}
       </div>
         <Pagination perPage={perPage} products={products} paginate={paginate} nextPage={nextPage} previousPage={previousPage}/>

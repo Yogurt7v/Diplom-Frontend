@@ -22,7 +22,7 @@ export const MainPage = () => {
     useState("");
   const [sorting, setSorting] = useState("");
   const [searchCategory, setSearchCategory] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
 
   const sortOption = SORT_OPTIONS;
@@ -83,7 +83,6 @@ export const MainPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    setLoading(true);
     getAllProducts(searchPhrase, searchCategory).then((products) => {
       const sortObJ = sortOption.find((option) => option.value === sorting);
       const filteredProducts = products.filter((product) =>
@@ -93,7 +92,6 @@ export const MainPage = () => {
       setCurrentPage(1);
       setLoading(false);
     });
-    setLoading(false);
   }, [searchPhrase, sorting, searchCategory, sortOption]);
 
   return (
