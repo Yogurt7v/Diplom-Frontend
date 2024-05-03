@@ -76,15 +76,16 @@ export const Busket = () => {
         onConform: () => {
           setDiscount(0);
           dispatch(CLOSE_MODAL);
+          dispatch(clearBusketData());
           navigate("/payment");
         },
         onCancel: () => {
           dispatch(CLOSE_MODAL);
+          dispatch(clearBusketData());
           navigate("/");
         },
       })
     );
-    dispatch(clearBusketData());
   };
 
   return (

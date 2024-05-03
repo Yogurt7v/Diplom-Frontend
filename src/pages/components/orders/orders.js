@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import style from "./orders.module.css";
 
 export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusketOrderUpdate, paidStatus, deliveryStatus,onBusketOrderDelete }) => {

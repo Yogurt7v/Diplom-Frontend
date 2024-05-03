@@ -10,7 +10,7 @@ import {
   BusketCard,
 } from "../components";
 import { SORT_OPTIONS, ROLE } from "../../constants";
-import { getAllProducts, sessions } from "../../fetchs";
+import { getAllProducts} from "../../fetchs";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -32,6 +32,13 @@ export const MainPage = () => {
   const onDelete = () => {
     setSearchPhrase("");
   };
+
+  document.addEventListener("keydown", (event) => {
+    if (event.keyCode === 27) {
+      setSearchPhraseFromSearchBar("");
+      onDelete();
+    }
+  });
 
   const [isActiveItem, setActiveItem] = useState("");
 

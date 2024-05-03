@@ -170,14 +170,14 @@ export const PrivateEditForm = ({
       <CustomInput
         value={imageUrlValue}
         placeholder="Путь к картинке"
-        type="text"
+        type="textarea"
         className="input"
         onChange={onImageChange}
       />
       <CustomInput
         value={descriptionValue}
         placeholder="Описание продукта"
-        type="text"
+        type="textarea"
         className="input"
         onChange={onDescriptionChange}
       />

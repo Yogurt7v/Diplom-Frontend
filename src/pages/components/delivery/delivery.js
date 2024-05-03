@@ -24,22 +24,20 @@ export const Delivery = ({ singleOrder }) => {
     setTimeout(() => {
       now();
       setOrderDelivered(true);
+      dispatch(
+          openModal({
+            text: "Спасибо за заказ! Надюсь вам все понравилось.",
+            onConform: () => {
+              dispatch(CLOSE_MODAL);
+              navigate("/");
+            },
+            onCancel: () =>{
+              dispatch(CLOSE_MODAL)
+              navigate("/");
+            },
+          })
+        );
     }, 21000);
-    // setTimeout(() => {
-    //     dispatch(
-    //         openModal({
-    //           text: "Спасибо за заказ! Надюсь вам все понравилось.",
-    //           onConform: () => {
-    //             dispatch(CLOSE_MODAL);
-    //             navigate("/");
-    //           },
-    //           onCancel: () =>{
-    //             dispatch(CLOSE_MODAL)
-    //             navigate("/");
-    //           },
-    //         })
-    //       );
-    // }, 25000)
   }, []);
 
   return (
