@@ -10,9 +10,16 @@ export const PaymentPage = () => {
   const user = useSelector((state) => state.user);
   const [orders, setOrders] = useState([]);
   const [delivery, setDelivery] = useState(false);
+  const [singleOrder, setSingleOrder] = useState(null);
+
+  const singleOrderFuction = (id) => {
+    return orders?.filter((order) => order._id === id);
+  }
+
 
   const getCheckedOrders = (id) => {
     setDelivery(!delivery);
+    setSingleOrder(singleOrderFuction(id));
     setBusketOrdersParams(id, true, false);
     setTimeout(() => {
       setBusketOrdersParams(id, true, true);
@@ -61,7 +68,7 @@ export const PaymentPage = () => {
             </>
           ))}
         <div className={style.delyveryWrapper}>
-          {delivery ? <Delivery /> : null}
+          {delivery ? <Delivery singleOrder={singleOrder} /> : null}
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     height: 60vh;
-    width: 60vw;
+    width: 30vw;
     margin: 20px auto;
     overflow: hidden;
     color: #9b1402;
@@ -23,4 +23,8 @@
     padding: 20px 20px;
     margin-bottom: 20px;
     background-color: #fa7d09f0;
+}
+
+.delyveryWrapper{
+    display: flex;  
 }
