@@ -11,7 +11,7 @@ import { ErrorPage } from "./pages/Error-page";
 import { AdminPanel } from "./pages/Admin-panel";
 import { Modal } from "./pages/components/modal";
 import { PaymentPage } from "./pages/Payment-page/Payment-Page";
-import { VideoBackground } from "./pages/components";
+import { VideoBackground, ProtectedRoute } from "./pages/components";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -23,7 +23,7 @@ root.render(
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/admin-panel" element={<AdminPanel />} />
-        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/payment" element={<ProtectedRoute><PaymentPage /></ProtectedRoute>} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/products/:id/edit" element={<ProductPage />} />
