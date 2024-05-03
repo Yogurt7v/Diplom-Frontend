@@ -83,7 +83,7 @@ export const MainPage = () => {
       setCurrentPage(1);
       setLoading(false);
     });
-  }, [searchPhrase, searchCategory]);
+  }, [searchPhrase, searchCategory, sorting, sortOption]);
 
   return (
     <>

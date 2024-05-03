@@ -13,7 +13,7 @@ export const BusketCard = () => {
   return (
     <>
       <div className={style.BusketCardWrapper}>
-        {totalItemsQuantity> 0 ? <div>
+        {totalItemsQuantity> 0 ? <div className={style.BusketCardTitleWrapper}>
           <div className={style.BusketCardTitleHeader}>Заказ</div>
           <div className={style.BusketCardSum}>
             <div className={style.BusketCardTitle}> кол-во {totalItemsQuantity}</div>

@@ -59,7 +59,6 @@ export const Busket = () => {
   }, []);
 
   useEffect(() => {
-    console.log("userOrders", userOrders);
       if (userOrders?.length === 0) {
         createNotification();
       }
@@ -70,13 +69,13 @@ export const Busket = () => {
   };
 
   const createOrder = ({ items }) => {
-    addProductToBusketOperationFetch(userOnPage, items);
+    addProductToBusketOperationFetch(items);
     dispatch(
       openModal({
         text: "Заказ создан! Перейти к оплате?",
         onConform: () => {
-          dispatch(CLOSE_MODAL);
           setDiscount(0);
+          dispatch(CLOSE_MODAL);
           navigate("/payment");
         },
         onCancel: () => {

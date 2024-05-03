@@ -3,11 +3,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-    width: 100%;
+    height: 60vh;
+    width: 60vw;
+    margin: 20px auto;
     overflow: hidden;
     color: #9b1402;
-    font-size: 24px;
-    text-decoration: underline;
-    text-align: center;
+    font-size: 20px;
+    background-color: #ef7809;
+    border-radius: 10px;
+    border: 3px solid black;
+    box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
+}
+
+.Order{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    margin-bottom: 20px;
+    background-color: #fa7d09f0;
 }

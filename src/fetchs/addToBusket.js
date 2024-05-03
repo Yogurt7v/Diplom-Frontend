@@ -11,7 +11,7 @@ const addProductToBusket = (dataBusket) =>{
     });
   }
   
-  export const addProductToBusketOperationFetch = async (hash, items) => {
+  export const addProductToBusketOperationFetch = async ( items) => {
     const [item] = items;
   
     let dataBusket = {

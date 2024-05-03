@@ -77,7 +77,7 @@ export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusk
                 onBusketOrderDelete(order._id)
               }
             >
-              удалить
+              Удалить
             </button>
           </div>
         ))}

@@ -7,6 +7,12 @@
     padding-right: 40px;
 }
 
+.BusketCardTitleWrapper{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+}
+
 .BusketCardTitleHeader{
     font-size: 20px;
     font-weight: 500;
@@ -37,7 +43,7 @@
 
 .BusketCardImage:hover{
     cursor: pointer;
-    transform: scale(1.5);
+    transform:scale(1.5)  translateY(5px);
     transition: 0.3s;
     filter: drop-shadow(0 0 0.5rem #ef7908);
 
