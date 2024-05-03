@@ -13,6 +13,7 @@ import {
   removeBusketData,
 } from "../../actions";
 import { addProductToBusketOperationFetch,getOrderByUserIdFetch, getPromocodeFetch, checkPromocodeFetch } from "../../fetchs";
+import { number } from "prop-types";
 
 export const Busket = () => {
   const dispatch = useDispatch();
@@ -125,13 +126,13 @@ export const Busket = () => {
                       Название: {item.productName}
                     </div>
                     <div>
-                      Цена: {item.price - (item.price * discount) / 100} $
+                      Цена: {(item.price - (item.price * discount) / 100).toFixed(2)} $
                     </div>
                     <div>Количество: {item.quantity}</div>
                     <div className={style.BusketItem}>
                       Итого:{" "}
-                      {(item.price - (item.price * discount) / 100) *
-                        item.quantity}{" "}
+                      {((item.price - (item.price * discount) / 100) *
+                        item.quantity).toFixed(2)}{" "}
                       $
                     </div>
                   </div>
