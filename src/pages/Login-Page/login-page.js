@@ -9,7 +9,7 @@ import { selectUserRole } from "../../selectors";
 import { useResetForm } from "../../hooks";
 import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
-import { VideoBackground, Header } from "../components";
+import {Header } from "../components";
 import { loginUser } from "../../fetchs";
 
 const authFormSchema = yup.object().shape({

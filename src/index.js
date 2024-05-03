@@ -14,8 +14,6 @@ import { PaymentPage } from "./pages/Payment-page/Payment-Page";
 import { VideoBackground } from "./pages/components";
 
 
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>

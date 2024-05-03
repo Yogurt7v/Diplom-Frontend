@@ -14,6 +14,7 @@ const SkeletonCard = (props) => (
 <rect x="0" y="2" rx="10" ry="10" width="300" height="358" /> 
     <rect x="10" y="370" rx="10" ry="10" width="275" height="110" /> 
     <rect x="35" y="488" rx="11" ry="11" width="225" height="47" />
+
 </ContentLoader>
 )
 

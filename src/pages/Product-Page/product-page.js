@@ -35,11 +35,9 @@ export const ProductPage = () => {
     getSingleProduct(params.id).then((productsData) => {
       setSinlgeProduct(productsData);
       setError(productsData?.error);
+      setIsLoading(false);
     });
-    setIsLoading(false);
   }, [params.id]);
-
-  console.log(isLoading);
 
   const AdminProductPage = isEditing ? (
     <>

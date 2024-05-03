@@ -7,7 +7,7 @@ import NavMenu from "./nav-menu/nav-menu";
 import { LeftHeader } from "./nav-menu/left-header/left-header";
 import { RightHeader } from "./nav-menu/right-header/right-header";
 
-export const Header = ({onCategoryChange, isActiveItem}) => {
+export const Header = ({onCategoryChange, isActiveItem, loading}) => {
   const loginName = useSelector((state) => state.user.login);
   const session = useSelector((state) => state.user.session);
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export const Header = ({onCategoryChange, isActiveItem}) => {
 
   return (
     <div className={style.HeaderWrapper}>
-      <LeftHeader />
+      <LeftHeader loading={loading}/>
       <div className={style.HeaderMenuWrapper}>
         {visible? <NavMenu onCategoryChange={onCategoryChange} isActiveItem={isActiveItem}/> : null}
       </div>

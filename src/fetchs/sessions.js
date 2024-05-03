@@ -27,6 +27,7 @@ export const getSessionFetch = async (hash) =>{
 }
 export const deleteSessionFetch = async (sessionId) => {
 
+
     fetch(`http://localhost:3005/sessions/${sessionId}`, {
       method: "DELETE",
     });
@@ -44,6 +45,7 @@ export const sessions = {
   },
 
   async remove(hash) {
+
     const session = await getSessionFetch(hash);
     if (!session) {
       return
