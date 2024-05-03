@@ -60,7 +60,6 @@ export const PrivateEditForm = ({
 
   const onSave = () => {
     if (id){
-      console.log("updatedProductFetch");
       updatedProductFetch({ 
         id,
         productName: productNameValue,
@@ -71,11 +70,10 @@ export const PrivateEditForm = ({
         calories: Number(caloriesValue),
         ingredients: ingredientsValue,
         price: Number(priceValue),
-      }).then(() => navigate(`/products/${id}`));
+      }).then(() => navigate(`/`));
 
 
     } else {
-      console.log("addProductFetch");
       addProductFetch({
         productName: productNameValue,
         image_url: imageUrlValue,
