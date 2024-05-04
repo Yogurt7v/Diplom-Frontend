@@ -47,7 +47,7 @@ export const UserRow = ({
           <div className={style.userRole}>
             <select defaultValue={selectedRoleId} onChange={onRoleChange} className={style.RoleSelect}>
               {roles.map(({ id: roleId, name: roleName }) => (
-                <option key={roleId} value={roleId}>
+                <option key={roleId} defaultValue={roleId}>
                   {roleName}
                 </option>
               ))}

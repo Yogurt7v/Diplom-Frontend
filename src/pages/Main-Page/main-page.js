@@ -90,7 +90,7 @@ export const MainPage = () => {
       setCurrentPage(1);
       setLoading(false);
     });
-  }, [searchPhrase, searchCategory, sorting, sortOption]);
+  }, [searchPhrase, searchCategory, sorting, sortOption   ]);
 
   return (
     <>

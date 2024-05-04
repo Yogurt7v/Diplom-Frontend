@@ -6,12 +6,8 @@ import { Busket, LoginPage, MainPage, ProductPage } from "./pages/index";
 import { Provider } from "react-redux";
 import { ERROR } from "./constants";
 import store from "./store";
-import { RegisterPage } from "./pages/index";
-import { ErrorPage } from "./pages/Error-page";
-import { AdminPanel } from "./pages/Admin-panel";
-import { Modal } from "./pages/components/modal";
-import { PaymentPage } from "./pages/Payment-page/Payment-Page";
-import { VideoBackground, ProtectedRoute } from "./pages/components";
+import { RegisterPage,ErrorPage, AdminPanel, PaymentPage, ReportPage} from "./pages/index";
+import { VideoBackground, ProtectedRoute, Modal } from "./pages/components";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -28,6 +24,7 @@ root.render(
         <Route path="/products/:id" element={<ProductPage />} />
         <Route path="/products/:id/edit" element={<ProductPage />} />
         <Route path="/busket" element={<Busket />} />
+        <Route path="/report" element={<ProtectedRoute><ReportPage /></ProtectedRoute>} />
         <Route path="*" element={<ErrorPage error={ERROR.PAGE_NOT_EXIST} />} />
       </Routes>
       <VideoBackground />

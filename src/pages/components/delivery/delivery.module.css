@@ -45,6 +45,7 @@ figure figcaption h2 {
 .orderTrackStep {
   display: flex;
   height: 7rem;
+  margin-bottom: 20px;
 }
 .orderTrackStep:last-child {
   overflow: hidden;

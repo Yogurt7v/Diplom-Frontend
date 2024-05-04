@@ -11,7 +11,7 @@ const addProductToBusket = (dataBusket) =>{
     });
   }
   
-  export const addProductToBusketOperationFetch = async ( items) => {
+  export const addProductToBusketOperationFetch = async ( items, discount) => {
     const [item] = items;
   
     let dataBusket = {
@@ -22,7 +22,7 @@ const addProductToBusket = (dataBusket) =>{
         productId: item.productId,
         productName: item.productName,
         quantity: item.quantity,
-        price: item.price,
+        price: (item.price - (item.price * discount) / 100).toFixed(2),
       }),
       ),
     };

@@ -10,6 +10,10 @@
 .LoginPageContent{
     font-size:  30px;
     margin: 30px 0;
+    color: #9b1402;
+    text-shadow: black 0px 0px 5px;
+    letter-spacing: 0.3rem;
+    font-weight: 700;
 }
 
 .LoginPageForm{
@@ -31,11 +35,11 @@
     background-color: #FA7D09;
 
 }
-input:focus{
+.LoginPageInput:focus{
     outline: 3px solid red;
 }
 
-input::placeholder{
+.LoginPageInput::placeholder{
     color: #9b1402;
 }
 

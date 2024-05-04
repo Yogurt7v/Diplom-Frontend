@@ -35,7 +35,7 @@ export const Delivery = ({ singleOrder }) => {
             },
             onCancel: () =>{
               dispatch(CLOSE_MODAL)
-              navigate("/");
+              navigate("/report");
             },
           })
         );

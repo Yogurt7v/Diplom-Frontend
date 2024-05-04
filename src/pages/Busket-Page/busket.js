@@ -13,7 +13,6 @@ import {
   removeBusketData,
 } from "../../actions";
 import { addProductToBusketOperationFetch,getOrderByUserIdFetch, getPromocodeFetch, checkPromocodeFetch } from "../../fetchs";
-import { number } from "prop-types";
 
 export const Busket = () => {
   const dispatch = useDispatch();
@@ -69,8 +68,8 @@ export const Busket = () => {
     dispatch(removeBusketData(randomId));
   };
 
-  const createOrder = ({ items }) => {
-    addProductToBusketOperationFetch(items);
+  const createOrder = ({ items } ) => {
+    addProductToBusketOperationFetch(items, discount);
     dispatch(
       openModal({
         text: "Заказ создан! Перейти к оплате?",
@@ -94,27 +93,6 @@ export const Busket = () => {
       <Header />
       <div className={style.BusketWrapper}>
         <h2 className={style.BusketTitle}>Заказ</h2>
-        {busket.items.length > 0 && (
-          <div className={style.PromoWrapper}>
-            <input
-              className={style.BusketPromoInput}
-              type="text"
-              autoComplete="off"
-              onChange={(e) => setPromocode(e.target.value)}
-              ref={ref}
-              placeholder="Промокод"
-            />
-            <button
-              onClick={() => checkPromocode(promocode)}
-              className={
-                promocode.length > 0 ? style.OrderButton : style.Innactive
-              }
-            >
-              {" "}
-              Применить{" "}
-            </button>
-          </div>
-        )}
 
         <div className={style.BusketCardSWrapper}>
           {busket.items.length > 0 ? (
@@ -171,6 +149,28 @@ export const Busket = () => {
               </Link>
             </div>
           ) : (
+            <div className={style.BusketButtonWrapper}>
+              {busket.items.length > 0 && (
+                <div className={style.PromoWrapper}>
+                  <input
+                    className={style.BusketPromoInput}
+                    type="text"
+                    autoComplete="off"
+                    onChange={(e) => setPromocode(e.target.value)}
+                    ref={ref}
+                    placeholder="Промокод"
+                  />
+                  <button
+                    onClick={() => checkPromocode(promocode)}
+                    className={
+                      promocode.length > 0 ? style.OrderButton : style.Innactive
+                    }
+                  >
+                    Применить
+                  </button>
+                </div>
+              )}
+
             <button
               className={
                 busket.items.length > 0 ? style.OrderButton : style.Innactive
@@ -179,13 +179,13 @@ export const Busket = () => {
             >
               Оформить
             </button>
+            </div>
           )}
-        </div>
-
         <div className={style.BackButton}>
           <button className={style.OrderButton} onClick={() => navigate("/")}>
             Назад
           </button>
+        </div>
         </div>
       </div>
       <VideoBackground />

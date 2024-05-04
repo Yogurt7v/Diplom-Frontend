@@ -191,7 +191,7 @@ export const RegisterPage = () => {
           ></input>
           <datalist id="address">
             {geoAddress?.items?.map((item) => (
-              <option key={item?.id} value={item?.full_name} />
+              <option key={item?.id} defaultValue={item?.full_name} />
             ))}
           </datalist>
           <input
