@@ -11,6 +11,7 @@ import { useLayoutEffect,useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Header, Orders } from "../components";
 import {getUsersFetch, getRolesFetch, getOrdersFetch, removeUserFetch, updateBusketOrdersFetch, deleteBusketOrderFetch} from "../../fetchs";
+import { CLOSE_MODAL, openModal } from "../../actions";
 
 export const AdminPanel = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,19 @@ export const AdminPanel = () => {
 
 
   const onBusketOrderDelete = (id) => {  
-    deleteBusketOrderFetch(id);
+    dispatch(
+      openModal({
+        text: "Удалить заказ? ",
+        onConform: () => {
+          dispatch(CLOSE_MODAL);
+          deleteBusketOrderFetch(id);
+        },
+        onCancel: () => {
+          dispatch(CLOSE_MODAL);
+        },
+      })
+    );
+
   };
 
   const onUserRemove = useCallback((userId) => {

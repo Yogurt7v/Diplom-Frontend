@@ -24,6 +24,8 @@ export const Delivery = ({ singleOrder }) => {
     setTimeout(() => {
       now();
       setOrderDelivered(true);
+    }, 21000);
+    setTimeout (() => {
       dispatch(
           openModal({
             text: "Спасибо за заказ! Надюсь вам все понравилось.",
@@ -37,7 +39,7 @@ export const Delivery = ({ singleOrder }) => {
             },
           })
         );
-    }, 21000);
+    }, 25000);
   }, []);
 
   return (
@@ -74,7 +76,7 @@ export const Delivery = ({ singleOrder }) => {
               <span className={style.orderTrackStatusLine}></span>
             </div>
             <div className={style.orderTrackText}>
-              <p className={style.orderTrackTextStat}>Заказ у курьеру</p>
+              <p className={style.orderTrackTextStat}>Заказ у курьера</p>
               <span className={style.orderTrackTextSub}>
                 Передан в заботливые руки
               </span>

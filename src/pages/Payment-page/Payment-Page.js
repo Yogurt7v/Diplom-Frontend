@@ -11,6 +11,7 @@ export const PaymentPage = () => {
   const [orders, setOrders] = useState([]);
   const [delivery, setDelivery] = useState(false);
   const [singleOrder, setSingleOrder] = useState(null);
+  let count = 1;
 
   const singleOrderFuction = (id) => {
     return orders?.filter((order) => order._id === id);
@@ -39,32 +40,31 @@ export const PaymentPage = () => {
           .map((order) => (
             <>
               <div className={style.Order}>
+                  <div>Ваш заказ № {count++}</div>
+                  <div>от {order.createdAt.split("T")[0]}{" "}{order.createdAt.split("T")[1].split(".")[0]}</div>
                 <div className={style.OrderDetails}>
                   {order.items?.map((item) => (
                     <>
                       <div>
-                        <div>{order.createdAt.split("T")[1].split(".")[0]}</div>
-                        <div>{order.createdAt.split("T")[0]}</div>
-                      </div>
-                      <div>
                         <div key={order.id}>
                           <label className={style.ItemDetails} f>
                             <div>{item.productName}</div>
-                            <div>{item.quantity}</div>
-                            {/* <div>{item.price}</div> */}
+                            <div>{item.quantity} шт.</div>
+                            <div>{item.price} $</div>
                           </label>
                         </div>
                       </div>
                     </>
                   ))}
                 </div>
-              </div>
               <button
                 className={style.OrderButton}
                 onClick={() => getCheckedOrders(order._id)}
               >
                 Оплатить
               </button>
+              <div>Представим, что здесь будет процесс оплаты.</div> 
+              </div>
             </>
           ))}
         <div className={style.delyveryWrapper}>

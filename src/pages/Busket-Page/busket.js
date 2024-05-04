@@ -153,12 +153,12 @@ export const Busket = () => {
         <div className={style.BusketSumWrapper}>
           <div className={style.BusketSum}>
             Итого:{" "}
-            {busket.items.reduce(
+            {(busket.items.reduce(
               (acc, item) =>
                 acc +
                 (item.price - (item.price * discount) / 100) * item.quantity,
               0
-            )}{" "}
+            )).toFixed(2)}{" "}
             $
           </div>
           {userOnPage === -1 ? (
