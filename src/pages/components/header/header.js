@@ -16,7 +16,7 @@ export const Header = ({onCategoryChange, isActiveItem, loading}) => {
 
   const onLogout = () => {
     dispatch(logout(session));
-    sessionStorage.removeItem("userData");
+    localStorage.removeItem("userData");
     dispatch(clearBusketData())
     let currentURL = window.location.pathname;
     if (currentURL === "/admin-panel") {

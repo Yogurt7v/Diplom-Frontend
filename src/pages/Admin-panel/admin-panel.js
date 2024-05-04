@@ -92,7 +92,7 @@ export const AdminPanel = () => {
     }, [users, shouldUpdateUserList, userRole]);
 
   useLayoutEffect(() => {
-    const currentUserDataJSON = sessionStorage.getItem("userData");
+    const currentUserDataJSON = localStorage.getItem("userData");
     if (!currentUserDataJSON) {
       return;
     }

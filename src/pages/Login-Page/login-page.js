@@ -54,7 +54,7 @@ export const LoginPage = () => {
         return;
       }
       dispatch(setUser(res));
-      sessionStorage.setItem("userData", JSON.stringify(res));
+      localStorage.setItem("userData", JSON.stringify(res));
       setServerError(null);
     });
   };

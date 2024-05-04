@@ -89,7 +89,7 @@ export const RegisterPage = () => {
           return;
         }
         dispatch(setUser(res));
-        sessionStorage.setItem("userData", JSON.stringify(res));
+        localStorage.setItem("userData", JSON.stringify(res));
         navigate("/");
       }
     );

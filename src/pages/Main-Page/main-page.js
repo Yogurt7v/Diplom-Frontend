@@ -60,7 +60,7 @@ export const MainPage = () => {
   };
 
   useLayoutEffect(() => {
-    const currentUserDataJSON = sessionStorage.getItem("userData");
+    const currentUserDataJSON = localStorage.getItem("userData");
     const random = Math.random().toFixed(50);
     if (!currentUserDataJSON) {
       dispatch(

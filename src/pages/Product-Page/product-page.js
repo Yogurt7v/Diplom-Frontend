@@ -20,7 +20,7 @@ export const ProductPage = () => {
   const isEditing = !!useMatch(`/products/:id/edit`);
 
   useLayoutEffect(() => {
-    const currentUserDataJSON = sessionStorage.getItem("userData");
+    const currentUserDataJSON = localStorage.getItem("userData");
     if (!currentUserDataJSON) {
       return;
     }
