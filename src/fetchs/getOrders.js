@@ -5,8 +5,5 @@ export const getOrdersFetch = async () => {
     .then((loadedOrder) => 
       loadedOrder)
 
-    return {
-      error: null,
-      res: orders, 
-    };
+    return orders
   }

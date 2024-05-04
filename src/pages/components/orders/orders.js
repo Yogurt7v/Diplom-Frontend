@@ -41,8 +41,8 @@ export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusk
                 defaultValue={order.paid}
                 onChange={(e) => setPaidStatus(e.target.value)}
               >
-                <option defaultValue={true}>Оплачено</option>
-                <option defaultValue={false}>Не оплачено</option>
+                <option value={true}>Оплачено</option>
+                <option value={false}>Не оплачено</option>
               </select>
             </div>
             <div>
@@ -52,8 +52,8 @@ export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusk
                 defaultValue={order.delivered}
                 onChange={(e) => setDeliveryStatus(e.target.value)}
               >
-                <option defaultValue={true}>Доставлено</option>
-                <option defaultValue={false}>Не доставлено</option>
+                <option value={true}>Доставлено</option>
+                <option value={false}>Не доставлено</option>
               </select>
             </div>
 

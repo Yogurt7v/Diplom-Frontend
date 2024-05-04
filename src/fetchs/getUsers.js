@@ -18,5 +18,5 @@ export const getUsersFetch = async () => {
     (loadedUsers) => loadedUsers.json()
   );
   const modifyUsers = users.map(transformUser);
-  return modifyUsers;
+  return  modifyUsers
 };

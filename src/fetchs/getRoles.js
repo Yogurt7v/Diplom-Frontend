@@ -4,8 +4,5 @@ export const getRolesFetch = async() => {
     (loadedRoles) => loadedRoles.json()
   );
 
-  return {
-    error: null,
-    res: roles, 
-  };
+  return roles
 }

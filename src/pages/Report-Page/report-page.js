@@ -22,15 +22,6 @@ export const ReportPage = () => {
             text: reporText
         }
         addReportFetch(report);
-        // fetch("http://localhost:3005/reports", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(report)
-            
-        // })
-        setReportText("");
         ref.current.value = "";
         navigate("/")
     }

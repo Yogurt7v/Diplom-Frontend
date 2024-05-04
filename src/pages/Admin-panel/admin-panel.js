@@ -9,8 +9,8 @@ import { PrivateEditForm } from "../Product-Page/private-edit-form.js";
 import { setUser } from "../../actions";
 import { useLayoutEffect,useEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
-import { Header, Orders } from "../components";
-import {getUsersFetch, getRolesFetch, getOrdersFetch, removeUserFetch, updateBusketOrdersFetch, deleteBusketOrderFetch} from "../../fetchs";
+import { Header, Orders, Reports } from "../components";
+import {getUsersFetch, getRolesFetch, getOrdersFetch, removeUserFetch, updateBusketOrdersFetch, deleteBusketOrderFetch, getReportsFetch, deleteReportFetch} from "../../fetchs";
 import { CLOSE_MODAL, openModal } from "../../actions";
 
 export const AdminPanel = () => {
@@ -35,6 +35,7 @@ export const AdminPanel = () => {
   const [orders, setOrders] = useState([]);
   const [paidStatus, setPaidStatus] = useState(false);
   const [deliveryStatus, setDeliveryStatus] = useState(false);
+  const [reports, setReports] = useState([]);
 
   
   const onBusketOrderUpdate = (objParams) => {
@@ -56,6 +57,21 @@ export const AdminPanel = () => {
       })
     );
 
+  };
+  const deleteReport = (id) => {
+    console.log("deleteReport", id);
+    dispatch(
+      openModal({
+        text: "Удалить жалобу? ",
+        onConform: () => {
+          dispatch(CLOSE_MODAL);
+          deleteReportFetch(id);
+        },
+        onCancel: () => {
+          dispatch(CLOSE_MODAL);
+        },
+      })
+    );
   };
 
   const onUserRemove = useCallback((userId) => {
@@ -97,15 +113,13 @@ export const AdminPanel = () => {
     Promise.all([
     getUsersFetch(),
     getRolesFetch(),
-    getOrdersFetch()
-  ]).then(([usersRes, rolesRes, ordersRes]) => {
-    if (usersRes.error || rolesRes.error|| ordersRes.error) {
-      setErrorMessage(usersRes.error || rolesRes.error || ordersRes.error);
-      return;
-    }
+    getOrdersFetch(),
+    getReportsFetch()
+  ]).then(([usersRes, rolesRes, ordersRes, reportsRes]) => {
       setUsers(usersRes);
-      setRole(rolesRes.res);
-      setOrders(ordersRes.res);
+      setRole(rolesRes);
+      setOrders(ordersRes);
+      setReports(reportsRes);
     });
   }, [dispatch, userRole, shouldUpdateUserList, paidStatus, deliveryStatus,onBusketOrderUpdate, onBusketOrderDelete]);
 
@@ -160,6 +174,15 @@ export const AdminPanel = () => {
               <Orders users={users} orders={orders} setPaidStatus={setPaidStatus} setDeliveryStatus={setDeliveryStatus} onBusketOrderUpdate={onBusketOrderUpdate} paidStatus={paidStatus} deliveryStatus={deliveryStatus} onBusketOrderDelete={onBusketOrderDelete}/>
             </div>
           </details>
+        ) : null}
+
+        {userRole === ROLE.ADMIN || userRole === ROLE.MODERATOR ? (
+            <details>
+            <summary className={style.AdminPanelSummary}>Жалобы</summary>
+            <div>
+               <Reports users={users} reports={reports} deleteReport={deleteReport}/>
+            </div>
+            </details>
         ) : null}
       </div>
     </>

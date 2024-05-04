@@ -67,19 +67,6 @@ export const MainContent = ({ products, loading, currentPage, setCurrentPage }) 
           [...new Array(4)].map((index) => (
             <SkeletonCard key={index}/>
           ))
-          // <>
-          //   <div className={style.ContentCardNotFound}>
-          //     <ColorRing
-          //       visible={true}
-          //       height="180"
-          //       width="180"
-          //       ariaLabel="color-ring-loading"
-          //       wrapperStyle={{}}
-          //       wrapperClass="color-ring-wrapper"
-          //       colors={["#000000", "#ED780B", "#E43306", "#8e1c00", "#d6c400"]}
-          //     />
-          //   </div>
-          // </>
         )}
       </div>
         <Pagination perPage={perPage} products={products} paginate={paginate} nextPage={nextPage} previousPage={previousPage}/>
@@ -89,5 +76,3 @@ export const MainContent = ({ products, loading, currentPage, setCurrentPage }) 
 
 export default MainContent;
 
-
-//здесь лежит пагинация и лоадер
