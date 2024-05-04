@@ -185,7 +185,7 @@ export const PrivateEditForm = ({
         className={styled.select}
       >
         {categoriesValue?.map((category) => (
-          <option key={category} defaultValue={category}>
+          <option key={category} value={category}>
             {category}
           </option>
         ))}

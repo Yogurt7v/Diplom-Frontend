@@ -10,7 +10,7 @@ import { selectUserRole } from "../../selectors";
 import { setUser } from "../../actions";
 import { ROLE } from "../../constants/role";
 import { useResetForm } from "../../hooks";
-import { Header, VideoBackground } from "../components";
+import { Header } from "../components";
 import Slider from "../components/slider/Slider";
 import { InputMask } from "@react-input/mask";
 import { registerFetch } from "../../fetchs";
@@ -191,7 +191,7 @@ export const RegisterPage = () => {
           ></input>
           <datalist id="address">
             {geoAddress?.items?.map((item) => (
-              <option key={item?.id} defaultValue={item?.full_name} />
+              <option key={item?.id} value={item?.full_name} />
             ))}
           </datalist>
           <input

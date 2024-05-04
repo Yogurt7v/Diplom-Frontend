@@ -2,7 +2,6 @@ import style from "./users-row.module.css";
 import save from "../../../icons/save.svg";
 import trash from "../../../icons//trash.svg";
 import { useState } from "react";
-import { useServerRequest } from "../../../hooks";
 import { updateUserRoleFetch } from "../../../fetchs/updateUserRole";
 
 export const UserRow = ({
@@ -12,14 +11,13 @@ export const UserRow = ({
   homeNumber,
   flatNumber,
   phone,
-  registed_at,
+  registeredAt,
   roles,
   roleId,
   onUserRemove,
 }) => {
   const [initialRoleId, setInitialRoleId] = useState(roleId);
   const [selectedRoleId, setSelectedRoleId] = useState(roleId);
-  const requestServer = useServerRequest();
 
   const onRoleChange = ({ target }) => {
     setSelectedRoleId(Number(target.value));
@@ -40,14 +38,15 @@ export const UserRow = ({
           <div className={style.userLogin}>Address: {address}</div>
           <div className={style.userLogin}>№: {homeNumber}</div>
           <div className={style.userLogin}>Flat: {flatNumber}</div>
-          <div className={style.userLogin}>Telephone: {phone}</div>
+          <div className={style.userPhone}>Telephone: <div className={style.userLogin}>{phone}</div></div>
           <div className={style.userRegisterDate}>
-            Date registration: {registed_at}
+            Date registration: 
+            <div className={style.userLogin}>{registeredAt.split("T")[0]}</div>
           </div>
           <div className={style.userRole}>
-            <select defaultValue={selectedRoleId} onChange={onRoleChange} className={style.RoleSelect}>
+            <select value={selectedRoleId} onChange={onRoleChange} className={style.RoleSelect}>
               {roles.map(({ id: roleId, name: roleName }) => (
-                <option key={roleId} defaultValue={roleId}>
+                <option key={roleId} value={roleId}>
                   {roleName}
                 </option>
               ))}

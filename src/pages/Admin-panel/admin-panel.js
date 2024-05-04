@@ -121,6 +121,8 @@ export const AdminPanel = () => {
       setOrders(ordersRes);
       setReports(reportsRes);
     });
+
+
   }, [dispatch, userRole, shouldUpdateUserList, paidStatus, deliveryStatus,onBusketOrderUpdate, onBusketOrderDelete]);
 
 
@@ -144,7 +146,7 @@ export const AdminPanel = () => {
             <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
               <div>
                 {users?.map(
-                  ({ id, login, address ,homeNumber,flatNumber, phone, registed_at, roleId }) => (
+                  ({ id, login, address ,homeNumber,flatNumber, phone, registeredAt, roleId }) => (
                     <UserRow
                       key={id}
                       id={id}
@@ -153,7 +155,7 @@ export const AdminPanel = () => {
                       homeNumber={homeNumber}
                       flatNumber={flatNumber}
                       phone={phone}
-                      registed_at={registed_at}
+                      registeredAt={registeredAt}
                       roleId={roleId}
                       roles={role.filter(
                         ({ id: role_id }) => role_id !== ROLE.GUEST
