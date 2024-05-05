@@ -9,4 +9,5 @@ export const addCommentFetch = (userId, productId, content) =>
       productsId: productId,
      content,
     }),
-  });
+    }).then((createdUser) => createdUser.json());
+

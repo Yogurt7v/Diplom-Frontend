@@ -11,17 +11,59 @@
 
 .usersWrapper{
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    gap: 10px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding-top: 10px;
     margin: 10px auto;
-    width: 100%;
+}
+
+.userInputWrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buttonsWrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.userRegisterDateWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.userInput{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #FF4301;
+    border: 1px solid black;
+    padding: 5px;
+}
+.userInputPhone{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #FF4301;
+    border: 1px solid black;
+    padding: 5px;
 }
 
 .saveButton{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
 }
 
@@ -32,21 +74,21 @@
 }
 
 .deleteButton{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
 }
 
 .userLogin{
+    display: flex;
+    flex-direction: column;
     font-size: 20px;
     font-weight: 400;
-    margin-bottom: 15px;
 }
 
 .userPhone{
     font-size: 20px;
     font-weight: 400;
-    margin-bottom: 15px;
     width: 300px;
 }
 

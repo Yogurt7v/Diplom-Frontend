@@ -58,7 +58,7 @@ export const AdminPanel = () => {
 
   };
   const deleteReport = (id) => {
-    console.log("deleteReport", id);
+
     dispatch(
       openModal({
         text: "Удалить жалобу? ",
@@ -89,7 +89,7 @@ export const AdminPanel = () => {
       removeUserFetch(userId).then(() => {
         setShouldUpdateUserList(!shouldUpdateUserList);
       });
-    }, [users, shouldUpdateUserList, userRole]);
+    }, []);
 
   useLayoutEffect(() => {
     const currentUserDataJSON = localStorage.getItem("userData");
@@ -117,9 +117,7 @@ export const AdminPanel = () => {
       setOrders(ordersRes);
       setReports(reportsRes);
     });
-  }, [dispatch, userRole, shouldUpdateUserList, paidStatus, deliveryStatus,onBusketOrderUpdate, onBusketOrderDelete]);
-
-
+  }, []);
 
   return (
     <>

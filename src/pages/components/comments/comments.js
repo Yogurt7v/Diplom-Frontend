@@ -6,7 +6,7 @@ import { SingleComment } from "./single-comment";
 import { selectUserId, selectUserRole } from "../../../selectors";
 import { useEffect } from "react";
 import { ROLE } from "../../../constants";
-import { getComments, getRolesFetch,addCommentFetch, deleteCommentFetch } from "../../../fetchs";
+import { getComments,addCommentFetch, deleteCommentFetch } from "../../../fetchs";
 import { useParams } from "react-router-dom";
 import {setProductData} from "../../../actions";
 import { openModal, CLOSE_MODAL } from "../../../actions";
@@ -14,32 +14,22 @@ import { openModal, CLOSE_MODAL } from "../../../actions";
 
 
 export const Comments = () => {
-  const [newComment, setNewComment] = useState("");
+  const [newComment, setNewComment] = useState(null);
   const userId = useSelector(selectUserId);
-  const dispatch = useDispatch();
   const userRole = useSelector(selectUserRole);
-  const productId = useParams();
+  const dispatch = useDispatch();
   const [comments, setComments] = useState([]);
-  const [roles, setRoles] = useState([]);
-
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const onNewCommentAdded = (userId, productId, content) => {
-
-    addCommentFetch (userId, productId.id, content).then(
-      (productData) => {
-        dispatch(setProductData(productData.res));
-      })
-    setNewComment("");
-    
-  };
-
+  const [errorMessage, setErrorMessage] = useState(null);
+  const productId = useParams();
+  
+  const isGuest = userRole === ROLE.GUEST;
   const onCommentRemove = (id) => {
     dispatch(
       openModal({
         text: "Удалить комментрарий?",
         onConform: () => {
           deleteCommentFetch(id);
+          setComments(comments.filter((comment) => comment._id !== id));
           dispatch(CLOSE_MODAL);
         },
         onCancel: () => dispatch(CLOSE_MODAL),
@@ -47,26 +37,30 @@ export const Comments = () => {
     );
   };
 
-  const isGuest = userRole === ROLE.GUEST;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const onNewCommentAdded = (userId, productId, content) => {
+    if (!content || content.trim() === "") {
+      setErrorMessage("Комментарий не может быть пустым");
+      return;
+    }
+    addCommentFetch (userId, productId, content).then(
+      (productData) => {
+        setComments([...comments, productData]);
+      })
+    setNewComment(null);
+  };
 
 
   useEffect(() => {
-    Promise.all([
-      getComments(productId.id),
-      getRolesFetch(setRoles),
-    ]).then(([comments, rolesRes]) => {
-      setComments(comments);
-      setRoles(rolesRes);
-    })
-    }, [productId.id, onNewCommentAdded, onCommentRemove])
-
-
+    getComments(productId.id).then((comments) => setComments(comments));
+    }, [productId.id, setComments]);
 
   return (
     <>
       <div className={style.commentsWrapper}>
         {!isGuest && (
           <>
+            <div className={style.errorMessage}>{errorMessage}</div>
             <div className={style.inputWrapper}>
               <textarea
                 className={style.Textaria}
@@ -87,15 +81,15 @@ export const Comments = () => {
           </>
         )}
         <div className={style.comments}>
+    
           <div className={style.commentTitle}>Комментарии</div>
-          {comments?.map(({ _id, author, content },) => (
+          {comments?.map(({ _id, authorId, productId, content },) => (
             <SingleComment
               key={_id}
               productId={productId}
               id={_id}
-              author={author}
+              author={authorId}
               content={content}
-              roles={roles}
               onCommentRemove={onCommentRemove}
             />
           ))}

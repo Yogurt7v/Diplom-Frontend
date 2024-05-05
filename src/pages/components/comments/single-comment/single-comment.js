@@ -1,14 +1,15 @@
 import style from "./single-comment.module.css";
 import userLogo from "../../../../icons/user.svg";
 import trash from "../../../../icons/trash.svg";
+import { ROLE } from "../../../../constants";
 import { useSelector } from "react-redux";
 import { selectUserRole } from "../../../../selectors";
 
-export const SingleComment = ({ id, author, content, roles, onCommentRemove }) => {
+export const SingleComment = ({ id, author, content, onCommentRemove }) => {
 
   const userRole = useSelector(selectUserRole);
 
-  const isAdminOrModerator = [roles[0].id, roles[1].id].includes(userRole);
+  const isAdminOrModerator = [ROLE.ADMIN, ROLE.MODERATOR].includes(userRole);
 
   return (
     <>
