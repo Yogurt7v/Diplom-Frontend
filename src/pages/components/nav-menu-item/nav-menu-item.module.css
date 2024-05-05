@@ -8,6 +8,10 @@
     font-size: 20px;
     line-height: 26px;
     color: #FA7D09;
+    @media screen and (max-width: 1235px) {
+      padding: 20px 5px;
+      
+    }
   }
   
   .NavMenuItem:hover {

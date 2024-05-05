@@ -8,6 +8,9 @@
   align-items: center;
   justify-content: center;
   padding: 10px 30px 10px 100px;
+  @media screen and (max-width: 1235px) {
+    display: none;
+  }
 }
 
 .HeaderLogo {

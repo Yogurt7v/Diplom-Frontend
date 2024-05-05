@@ -1,8 +1,9 @@
-.SortBarWrapper{
+.SortBarWrap{
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-left: 40px;
+  
 }
 
 .SortBarContent {
@@ -58,6 +59,10 @@
   outline: none;
   background-color: rgba(0, 0, 0, 0.45);
   cursor: pointer;
+  @media screen and (max-width: 1375px) {
+    width: 50px;
+    
+  }
 }
 
 .SortBarOption{
