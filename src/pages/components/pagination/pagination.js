@@ -1,4 +1,5 @@
 import style from "./pagination.module.css";
+import { useState } from "react";
 
 export const Pagination = ({
   perPage,
@@ -7,6 +8,9 @@ export const Pagination = ({
   nextPage,
   previousPage,
 }) => {
+
+
+
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(products.length / perPage); i++) {
@@ -14,7 +18,7 @@ export const Pagination = ({
   }
 
   return (
-    <div className={style.Pagination}>
+    <div className={style.PaginationWrapper}>
       <ul className={style.Pagination}>
         <button onClick={previousPage} className={style.normal}>
           Предыдущая

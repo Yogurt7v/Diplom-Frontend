@@ -6,6 +6,10 @@
     padding: 50px 150px 50px 150px;
     width: 100%;
 
+    @media screen and (max-width: 1300px) {
+        padding: 50px calc((100vw - 1000px) / 2);
+    }
+
 }
 
 .ProductInfo{
@@ -61,6 +65,12 @@
     gap: 30px;
     width: 100%;
     border-bottom: 1px solid black;
+
+    @media screen and (max-width: 1530px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 0;
+    }
 }
 
 .ProductDescriptionNumbers{
@@ -128,4 +138,8 @@
     position: absolute;
     top: 220px;
     right: 200px;
+
+    @media screen and (max-width: 1350px) {
+        display: none;
+    }
 }
