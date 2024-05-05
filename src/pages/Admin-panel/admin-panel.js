@@ -3,8 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectUserRole } from "../../selectors";
 import { checkAccess } from "../../utils";
-import { ROLE } from "../../constants/role";
-import { PrivateContent, UserRow } from "../components";
+import { UserRow } from "../components";
 import { PrivateEditForm } from "../Product-Page/private-edit-form.js";
 import { setUser } from "../../actions";
 import { useLayoutEffect,useEffect, useCallback } from "react";
@@ -74,8 +73,9 @@ export const AdminPanel = () => {
     );
   };
 
+
   const onUserRemove = useCallback((userId) => {
-    if (!checkAccess([ROLE.ADMIN], userRole)) {
+    if (!checkAccess([role[0]?.id], userRole)) {
       setErrorMessage("Доступ запрещен");
       return;
     }
@@ -106,23 +106,17 @@ export const AdminPanel = () => {
   }, [ dispatch ]);
 
   useEffect(() => {
-    if (!checkAccess([ROLE.ADMIN, ROLE.MODERATOR], userRole)) {
-      setErrorMessage("Доступ запрещен ");
-      return;
-    }
     Promise.all([
-    getUsersFetch(),
-    getRolesFetch(),
-    getOrdersFetch(),
-    getReportsFetch()
-  ]).then(([usersRes, rolesRes, ordersRes, reportsRes]) => {
+      getUsersFetch(),
+      getRolesFetch(),
+      getOrdersFetch(),
+      getReportsFetch()
+    ]).then(([usersRes, rolesRes, ordersRes, reportsRes]) => {
       setUsers(usersRes);
       setRole(rolesRes);
       setOrders(ordersRes);
       setReports(reportsRes);
     });
-
-
   }, [dispatch, userRole, shouldUpdateUserList, paidStatus, deliveryStatus,onBusketOrderUpdate, onBusketOrderDelete]);
 
 
@@ -131,7 +125,7 @@ export const AdminPanel = () => {
     <>
       <Header />
       <div className={style.AdminPanelWrapper}>
-        {userRole === ROLE.ADMIN || userRole === ROLE.MODERATOR ? (
+        {userRole === role[0]?.id|| userRole === role[0]?.id? (
           <details className={style.AdminPanelDetails}>
             <summary className={style.AdminPanelSummary}>
               Добавить новый продукт
@@ -139,11 +133,10 @@ export const AdminPanel = () => {
               <PrivateEditForm product={newProduct} />
           </details>
         ) : null}
-        {userRole === ROLE.ADMIN || userRole === ROLE.MODERATOR ? (
+        {userRole === role[0]?.id || userRole === role[1]?.id  ? (
           <details className={style.AdminPanelDetails}>
             <summary className={style.AdminPanelSummary}>Пользователи</summary>
             {errorMessage ? <div >{errorMessage}</div> : null}
-            <PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
               <div>
                 {users?.map(
                   ({ id, login, address ,homeNumber,flatNumber, phone, registeredAt, roleId }) => (
@@ -158,18 +151,17 @@ export const AdminPanel = () => {
                       registeredAt={registeredAt}
                       roleId={roleId}
                       roles={role.filter(
-                        ({ id: role_id }) => role_id !== ROLE.GUEST
+                        ({ id: role_id }) => role_id !== role[3]?.id
                       )}
                       onUserRemove={() => onUserRemove(id)}
                     />
                   )
                 )}
               </div>
-            </PrivateContent>
           </details>
         ) : null}
 
-        {userRole === ROLE.ADMIN || userRole === ROLE.MODERATOR ? (
+        {userRole === role[0]?.id || userRole === role[1]?.id ? (
           <details>
             <summary className={style.AdminPanelSummary}>Заказы</summary>
             <div className={style.OrdersWrapper}>
@@ -178,7 +170,7 @@ export const AdminPanel = () => {
           </details>
         ) : null}
 
-        {userRole === ROLE.ADMIN || userRole === ROLE.MODERATOR ? (
+        {userRole === role[0]?.id|| userRole === role[1]?.id ? (
             <details>
             <summary className={style.AdminPanelSummary}>Жалобы</summary>
             <div>

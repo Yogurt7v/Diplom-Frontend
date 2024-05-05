@@ -3,15 +3,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import edit from "../../../icons/edit.svg";
 import { SingleComment } from "./single-comment";
-import { useServerRequest } from "../../../hooks";
-import { addCommentAsync } from "../../../actions";
 import { selectUserId, selectUserRole } from "../../../selectors";
 import { useEffect } from "react";
 import { ROLE } from "../../../constants";
-import { getComments } from "../../../fetchs/getComments";
+import { getComments, getRolesFetch,addCommentFetch, deleteCommentFetch } from "../../../fetchs";
 import { useParams } from "react-router-dom";
-import {addCommentFetch} from "../../../fetchs/addComment";
 import {setProductData} from "../../../actions";
+import { openModal, CLOSE_MODAL } from "../../../actions";
 
 
 
@@ -19,33 +17,48 @@ export const Comments = () => {
   const [newComment, setNewComment] = useState("");
   const userId = useSelector(selectUserId);
   const dispatch = useDispatch();
-  const requestServer = useServerRequest();
   const userRole = useSelector(selectUserRole);
   const productId = useParams();
   const [comments, setComments] = useState([]);
+  const [roles, setRoles] = useState([]);
 
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const onNewCommentAdded = (userId, productId, content) => {
 
-    dispatch(addCommentAsync(requestServer, userId, productId, content));
     addCommentFetch (userId, productId.id, content).then(
       (productData) => {
         dispatch(setProductData(productData.res));
       })
     setNewComment("");
-    window.location.reload();
     
+  };
+
+  const onCommentRemove = (id) => {
+    dispatch(
+      openModal({
+        text: "Удалить комментрарий?",
+        onConform: () => {
+          deleteCommentFetch(id);
+          dispatch(CLOSE_MODAL);
+        },
+        onCancel: () => dispatch(CLOSE_MODAL),
+      })
+    );
   };
 
   const isGuest = userRole === ROLE.GUEST;
 
 
   useEffect(() => {
-    getComments(productId.id).then((com) => {
-      setComments(com);
+    Promise.all([
+      getComments(productId.id),
+      getRolesFetch(setRoles),
+    ]).then(([comments, rolesRes]) => {
+      setComments(comments);
+      setRoles(rolesRes);
     })
-    }, [productId.id])
+    }, [productId.id, onNewCommentAdded, onCommentRemove])
 
 
 
@@ -82,6 +95,8 @@ export const Comments = () => {
               id={_id}
               author={author}
               content={content}
+              roles={roles}
+              onCommentRemove={onCommentRemove}
             />
           ))}
         </div>

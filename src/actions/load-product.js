@@ -1,10 +1,10 @@
-import { setProductData } from "./set-product-data";
+// import { setProductData } from "./set-product-data";
 
-export const loadProduct = (requestServer, productId) => (dispatch) =>
-  requestServer("fetchProduct", productId).then((productData) => {
+// export const loadProduct = (requestServer, productId) => (dispatch) =>
+//   requestServer("fetchProduct", productId).then((productData) => {
 
-    if (productData.res) {
-      dispatch(setProductData(productData.res));
-    }
-    return productData;
-  });
+//     if (productData.res) {
+//       dispatch(setProductData(productData.res));
+//     }
+//     return productData;
+//   });

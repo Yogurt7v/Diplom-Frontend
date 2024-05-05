@@ -9,7 +9,7 @@ import {
   SearchBar,
   BusketCard,
 } from "../components";
-import { SORT_OPTIONS, ROLE } from "../../constants";
+import { SORT_OPTIONS} from "../../constants";
 import { getAllProducts} from "../../fetchs";
 
 export const MainPage = () => {
@@ -67,7 +67,7 @@ export const MainPage = () => {
         setUser({
           id: -1,
           login: "guest",
-          roleId: ROLE.GUEST,
+          roleId: 3,
           session: random,
         })
       );

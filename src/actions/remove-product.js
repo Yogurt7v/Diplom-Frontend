@@ -1,3 +1,3 @@
-export const removeProduct = (requestServer, id) => () => 
-  requestServer("removeProduct", id);
+// export const removeProduct = (requestServer, id) => () => 
+//   requestServer("removeProduct", id);
 

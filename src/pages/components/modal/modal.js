@@ -20,8 +20,8 @@ export const Modal =()=>{
         <div className={style.modalContent}>
             <h3>{text}</h3>
             <div className={style.modalButtons}>
-                <button onClick={onConform} className={style.modalButton}>Ок</button>
-                <button onClick={onCancel} className={style.modalButton}>Отмена</button>
+                <button onClick={onConform} className={style.modalButton}>Да</button>
+                <button onClick={onCancel} className={style.modalButton}>Нет</button>
             </div>
         </div>
     </div>

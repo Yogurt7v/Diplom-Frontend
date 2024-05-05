@@ -9,14 +9,18 @@ import { useSelector } from "react-redux";
 export const RightHeader =( {loginName, onLogout}) => {
 
   const userRoleId = useSelector((state) => state.user.roleId);
-  const isAdmin = userRoleId === 0 ? true : false;
+  const access = () =>{
+    if (userRoleId === 0 || userRoleId === 1) {
+      return true;
+    }
+  } 
 
     return (
         <>
         {loginName && loginName!=="guest"? (
             <div className={style.authWrapper}>
               <div className={style.HeaderAuth}> {loginName} </div>
-              {isAdmin && <NavLink to={"/admin-panel"} className={style.newProduct}>
+              {access && <NavLink to={"/admin-panel"} className={style.newProduct}>
                  <img src={admin} alt="Добавить продукт" className={style.HeaderAdd} />
                 </NavLink>}
               <button className={style.exitButton} onClick={onLogout}>

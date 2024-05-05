@@ -33,7 +33,7 @@ export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusk
               </p>
             ))}
 
-            <p> Сумма : {order.items?.reduce((accumulatedPrice, currentItem) => accumulatedPrice + currentItem.price * currentItem.quantity, 0)} $.</p>
+            <p> Сумма : {(order.items?.reduce((accumulatedPrice, currentItem) => accumulatedPrice + currentItem.price * currentItem.quantity, 0)).toFixed(2)} $.</p>
             <div>
               Cтатус оплаты :{" "}
               <select

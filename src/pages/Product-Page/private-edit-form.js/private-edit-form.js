@@ -2,13 +2,11 @@ import styled from "./private-edit-form.module.css";
 import { CustomInput } from "../../components";
 import { useLayoutEffect, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { RESET_PRODUCT_DATA, saveProductAsync } from "../../../actions";
+import { RESET_PRODUCT_DATA } from "../../../actions";
 import { useNavigate } from "react-router-dom";
-import { useServerRequest } from "../../../hooks";
 import { addProductFetch } from "../../../fetchs/addProduct";
 import { getAllProducts } from "../../../fetchs/getAllProducts";
 import {updatedProductFetch} from "../../../fetchs/updateProduct";
-import { getSingleProduct } from "../../../fetchs/getSinlgeProduct";
 
 export const PrivateEditForm = ({
   product: {

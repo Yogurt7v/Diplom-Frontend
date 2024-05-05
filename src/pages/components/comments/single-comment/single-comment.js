@@ -1,33 +1,14 @@
 import style from "./single-comment.module.css";
 import userLogo from "../../../../icons/user.svg";
 import trash from "../../../../icons/trash.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { openModal, CLOSE_MODAL } from "../../../../actions";
+import { useSelector } from "react-redux";
 import { selectUserRole } from "../../../../selectors";
-import { ROLE } from "../../../../constants";
-import { deleteCommentFetch } from "../../../../fetchs/deleteComment";
 
-export const SingleComment = ({ id, author, productId, content }) => {
+export const SingleComment = ({ id, author, content, roles, onCommentRemove }) => {
 
-  const dispatch = useDispatch();
   const userRole = useSelector(selectUserRole);
 
-  const onCommentRemove = (id) => {
-    dispatch(
-      openModal({
-        text: "Удалить комментрарий?",
-        onConform: () => {
-          deleteCommentFetch(id);
-          dispatch(CLOSE_MODAL);
-          window.location.reload();
-        },
-        onCancel: () => dispatch(CLOSE_MODAL),
-      })
-    );
-
-  };
-
-  const isAdminOrModerator = [ROLE.ADMIN, ROLE.MODERATOR].includes(userRole);
+  const isAdminOrModerator = [roles[0].id, roles[1].id].includes(userRole);
 
   return (
     <>
