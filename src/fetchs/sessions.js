@@ -6,6 +6,8 @@ export const transformSession = (dbSession) => ({
 
 
 export const addSessionFetch = (hash, user) => {
+
+  console.log("addSessionFetch", hash, user);
     fetch("http://localhost:3005/sessions", {
       method: "POST",
       headers: {
@@ -13,7 +15,7 @@ export const addSessionFetch = (hash, user) => {
       },
       body: JSON.stringify({
         hash,
-        user: user.user,
+        user: user.res,
       }),
     });
   };

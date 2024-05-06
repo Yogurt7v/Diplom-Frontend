@@ -7,6 +7,8 @@ export const loginUser = async (authLogin, authPassword) => {
     body: JSON.stringify({ login:authLogin, password:authPassword }),
   }).then((res) => res.json());
 
+  console.log("loginUser", user);
+
   if (user.error) {
     return {
       error: user.error,
@@ -17,9 +19,9 @@ export const loginUser = async (authLogin, authPassword) => {
   return {
     error: null,
     res: {
-      id: user.user._id,
-      login: user.user.login,
-      roleId: user.user.role_id,
+      id: user.res.id,
+      login: user.res.login,
+      roleId: user.res.role_id,
       session: sessions.create(user),
     },
   };

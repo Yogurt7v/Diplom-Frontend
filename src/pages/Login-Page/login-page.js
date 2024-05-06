@@ -48,7 +48,9 @@ export const LoginPage = () => {
   useResetForm(reset);
 
   const onSubmit = ({ login, password }) => {
-    loginUser(login, password).then(({ error, res }) => {
+    loginUser(login, password)
+    .then(({ error, res }) => {
+      console.log("res", res);
       if (error) {
         setServerError(`${error}`);
         return;

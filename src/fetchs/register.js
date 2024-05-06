@@ -21,24 +21,5 @@ export const registerFetch = async (
       phone: phone,
     }),
   }).then((createdUser) => createdUser.json());
-
-  if (user.error) {
-    return {
-      error: user.error,
-    };
-  } else {
-    return {
-      error: null,
-      res: {
-        login: regLogin,
-        address: address,
-        homeNumber: homeNumber,
-        flatNumber: flatNumber,
-        phone: phone,
-        roleId: 2,
-        session: sessions.create(user),
-        card: null,
-      },
-    };
-  }
+  return user;
 };
