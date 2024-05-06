@@ -54,7 +54,6 @@ input[type="number"] {
 
 body {
   background-color: black;
-  /* overflow: hidden; */
 }
 
 a {
@@ -69,12 +68,6 @@ a {
 
 /* фф (свойство больше не работает, других способов тоже нет)*/
 .element { overflow: -moz-scrollbars-none; }
-
-/* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
-/** {
-  scrollbar-width: thin;
-  scrollbar-color: #D41C15 #302E27;
-}*/
 
 /* Chrome, Edge and Safari */
 *::-webkit-scrollbar {
