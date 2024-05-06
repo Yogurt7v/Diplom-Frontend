@@ -61,7 +61,8 @@ a {
 }
 
 /*scroll*/
-.element::-webkit-scrollbar { width: 0; }
+.element::-webkit-scrollbar {
+  width: 0; }
 
 /* ie 10+ */
 .element { -ms-overflow-style: none; }
