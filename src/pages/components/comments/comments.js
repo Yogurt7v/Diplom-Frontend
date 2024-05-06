@@ -58,7 +58,7 @@ export const Comments = () => {
   useEffect(() => {
     getUsersFetch().then((users) => {
       const user = users.find((user) => user.id === userId);
-      setAuthor(user.login);
+      setAuthor(user?.login);
     }) 
     getComments(productId.id).then((comments) => setComments(comments));
     }, [productId.id, setComments, userId]);

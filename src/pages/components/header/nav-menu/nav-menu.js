@@ -1,8 +1,6 @@
 import style from "./nav-menu.module.css";
 import {NavMenuItem} from "../../../components/nav-menu-item/nav-menu-item";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getAllProducts } from "../../../../fetchs/getAllProducts";
 
 export const NavMenu = ({ onCategoryChange, isActiveItem}) => {
@@ -22,7 +20,6 @@ export const NavMenu = ({ onCategoryChange, isActiveItem}) => {
   return (
     <>
       <nav className={style.NavMenuWrapper}>
-
         {allCategorys.map((category) => (
           <NavMenuItem
             isActiveItem={isActiveItem}
@@ -31,37 +28,6 @@ export const NavMenu = ({ onCategoryChange, isActiveItem}) => {
             onCategoryChange={onCategoryChange}
           />
         ))}
-        
-        {/* <div
-          className={
-            isActive ? style.NavMenuItemSelected : style.NavMenuItem
-          }
-          onClick={onCategoryChange}
-          id="burger"
-        >
-          Burgers
-        </div>
-        <div
-          className={style.NavMenuItem}
-          onClick={onCategoryChange}
-          id="salat"
-        >
-          Salats
-        </div>
-        <div
-          className={style.NavMenuItem}
-          onClick={onCategoryChange}
-          id="snack"
-        >
-          Snacks
-        </div>
-        <div
-          className={style.NavMenuItem}
-          onClick={onCategoryChange}
-          id="drink"
-        >
-          Drinks
-        </div> */}
       </nav>
     </>
   );
