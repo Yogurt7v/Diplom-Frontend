@@ -21,7 +21,7 @@ export const SingleComment = ({ id, author, content, onCommentRemove }) => {
           <div className={style.authorName}>{author}</div>
         </div>
       </div>
-      { isAdminOrModerator && <div  onClick={() => onCommentRemove(id)}>
+      { isAdminOrModerator && <div  onClick={() => onCommentRemove(id)} className={style.commentDeleteWrapper}>
         <img src={trash} alt="delete" className={style.deleteComment} />
         </div>}
       </div>

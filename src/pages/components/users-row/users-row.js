@@ -71,10 +71,10 @@ export const UserRow = ({
               />
             </div>
             <div className={style.userLogin}>
-              №:{" "}
+              Home №:{" "}
               <input
                 className={style.userInput}
-                type="number"
+                type="text"
                 defaultValue={homeNumber}
                 onChange={(e) => setNewHomeNumber(e.target.value)}
               />

@@ -1,5 +1,4 @@
 const addProductToBusket = (dataBusket) =>{
-    console.log("addProductToBusket", dataBusket);
     fetch("http://localhost:3005/buskets", {
       method: "POST",
       headers: {

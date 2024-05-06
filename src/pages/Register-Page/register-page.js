@@ -82,7 +82,8 @@ export const RegisterPage = () => {
     flatNumber,
     phone,
   }) => {
-    registerFetch(login, password, address, homeNumber, flatNumber, phone).then(
+    registerFetch(login, password, address, homeNumber, flatNumber, phone)
+    .then(
       ({ error, res }) => {
         if (error) {
           setServerError(`${error}`);

@@ -15,8 +15,6 @@ export const register = async (regLogin, regPassword, address,homeNumber, flatNu
       phone: phone,
     }),
   }).then((createdUser) => createdUser.json());
-
-    console.log("lets fetch");
   
     return {
       error: null,

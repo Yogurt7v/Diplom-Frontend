@@ -41,7 +41,6 @@ export const Comments = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const onNewCommentAdded = (author, userId, productId, content) => {
-    console.log(author, userId, productId.id, content);
     if (!content || content.trim() === "") {
       setErrorMessage("Комментарий не может быть пустым");
       return;
@@ -68,6 +67,20 @@ export const Comments = () => {
   return (
     <>
       <div className={style.commentsWrapper}>
+        <div className={style.comments}>
+    
+          <div className={style.commentTitle}>Комментарии</div>
+          {comments?.map(({ _id, author, productId, content },) => (
+            <SingleComment
+              key={_id}
+              productId={productId}
+              id={_id}
+              author={author}
+              content={content}
+              onCommentRemove={onCommentRemove}
+            />
+          ))}
+        </div>
         {!isGuest && (
           <>
             <div className={style.errorMessage}>{errorMessage}</div>
@@ -91,20 +104,6 @@ export const Comments = () => {
             </div>
           </>
         )}
-        <div className={style.comments}>
-    
-          <div className={style.commentTitle}>Комментарии</div>
-          {comments?.map(({ _id, author, productId, content },) => (
-            <SingleComment
-              key={_id}
-              productId={productId}
-              id={_id}
-              author={author}
-              content={content}
-              onCommentRemove={onCommentRemove}
-            />
-          ))}
-        </div>
       </div>
     </>
   );

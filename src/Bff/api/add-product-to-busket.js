@@ -1,6 +1,5 @@
 import { generateDate } from "../utils/generated-date";
-export const addProductToBusket = (dataBusket) =>{
-  console.log("addProductToBusket", dataBusket);
+export const addProductToBusket = (dataBusket) =>
   fetch("http://localhost:3004/busket", {
     method: "POST",
     headers: {
@@ -11,4 +10,3 @@ export const addProductToBusket = (dataBusket) =>{
       publishedAt: generateDate(),
     }),
   });
-}

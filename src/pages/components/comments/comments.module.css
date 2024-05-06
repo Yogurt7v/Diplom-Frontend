@@ -57,3 +57,12 @@
     background-color: #FF4301;
     border-radius: 10px;
 }
+
+.comments{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+    border-radius: 10px;
+}

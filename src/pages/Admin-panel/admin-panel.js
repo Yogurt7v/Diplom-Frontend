@@ -99,7 +99,9 @@ export const AdminPanel = () => {
     }
       setErrorMessage(null);
       removeUserFetch(userId).then(() => {
+        setUsers(users.filter((user) => user.id !== userId));
         setShouldUpdateUserList(!shouldUpdateUserList);
+
       });
     }, [role, shouldUpdateUserList,userRole, users]);
 
@@ -183,8 +185,8 @@ export const AdminPanel = () => {
 
         {reports.length > 0  && (userRole === role[0]?.id|| userRole === role[1]?.id) ? (
             <details>
-            <summary className={style.AdminPanelSummary}>Жалобы</summary>
             <div className={style.userMessage}>{reportDeleteMessage}</div>
+            <summary className={style.AdminPanelSummary}>Жалобы</summary>
                <Reports users={users} reports={reports} deleteReport={deleteReport}/>
             </details>
         ) : null}
