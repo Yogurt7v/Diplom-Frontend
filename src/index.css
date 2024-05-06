@@ -1,18 +1,12 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --main-color: #2F2519;
+  --main-color: #2f2519;
   --secondary-color: #4a3f35;
-  --accent-color: #FA7D09;
-  --button-color: #FF4301;
+  --accent-color: #fa7d09;
+  --button-color: #ff4301;
   margin: 0;
   padding: 0;
-
-
-
 }
 ::selection {
   background-color: rgb(158, 25, 7);
@@ -23,33 +17,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', serif;
+  font-family: "Montserrat", serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
+  
 }
 
 input[type="number"]::-webkit-inner-spin-button,
-
-
 input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 
-
--webkit-appearance: none;
-
-
-margin: 0;
-
-
+  margin: 0;
 }
 
-
 input[type="number"] {
-
-
--moz-appearance: textfield;
-
-
+  -moz-appearance: textfield;
 }
 
 body {
@@ -62,13 +45,18 @@ a {
 
 /*scroll*/
 .element::-webkit-scrollbar {
-  width: 0; }
+  width: 0;
+}
 
 /* ie 10+ */
-.element { -ms-overflow-style: none; }
+.element {
+  -ms-overflow-style: none;
+}
 
 /* фф (свойство больше не работает, других способов тоже нет)*/
-.element { overflow: -moz-scrollbars-none; }
+.element {
+  overflow: -moz-scrollbars-none;
+}
 
 /* Chrome, Edge and Safari */
 *::-webkit-scrollbar {
@@ -77,27 +65,26 @@ a {
 }
 *::-webkit-scrollbar-track {
   border-radius: 4px;
-  background-color: #302E27;
+  background-color: #302e27;
 }
 
 *::-webkit-scrollbar-track:hover {
-  background-color: #302E27;
+  background-color: #302e27;
 }
 
 *::-webkit-scrollbar-track:active {
-  background-color: #302E27;
+  background-color: #302e27;
 }
 
 *::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: #D41C15;
+  background-color: #d41c15;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #D41C15;
+  background-color: #d41c15;
 }
 
 *::-webkit-scrollbar-thumb:active {
-  background-color: #D41C15;
+  background-color: #d41c15;
 }
-

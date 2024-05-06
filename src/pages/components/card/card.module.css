@@ -13,12 +13,6 @@
   -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
 
-  @media screen and (max-width: 1000px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 440px;
-  }
 }
 
 .CardLogo {
@@ -109,6 +103,7 @@ button {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   display: -webkit-box;
+
 }
 
 

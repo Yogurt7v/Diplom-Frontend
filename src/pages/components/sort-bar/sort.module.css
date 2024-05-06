@@ -1,8 +1,18 @@
 .SortBarWrap{
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-left: 40px;
+  /* padding-left: 40px; */
+  padding-left: 5%;
+
+  @media screen and (max-width:  1000px) {
+      span {
+        display: none;
+      }
+      select {
+        width: 100%;
+        background-color: #fa7d0979;
+      }
+  }
   
 }
 
@@ -51,6 +61,7 @@
 
 .SortBarSelect{
   height: 40px;
+  width: 20%;
   font-size: 20px;
   font-weight: 500;
   color: #ff4301;
@@ -59,10 +70,6 @@
   outline: none;
   background-color: rgba(0, 0, 0, 0.45);
   cursor: pointer;
-  @media screen and (max-width: 1375px) {
-    width: 50px;
-    
-  }
 }
 
 .SortBarOption{

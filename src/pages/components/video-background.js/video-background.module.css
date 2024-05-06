@@ -11,4 +11,8 @@
   opacity: 0.5;
   cursor: none;
   pointer-events: none;
+
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 }
