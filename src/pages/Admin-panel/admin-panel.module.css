@@ -36,3 +36,11 @@
     text-decoration: underline;
 }
 
+.userMessage{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    text-shadow: red 0px 0px 5px;
+}
+

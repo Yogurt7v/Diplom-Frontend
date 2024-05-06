@@ -35,6 +35,8 @@ export const AdminPanel = () => {
   const [paidStatus, setPaidStatus] = useState(false);
   const [deliveryStatus, setDeliveryStatus] = useState(false);
   const [reports, setReports] = useState([]);
+  const [reportDeleteMessage , setReportDeleteMessage] = useState(null);
+  const [ordersDeleteMessage , setOrdersDeleteMessage] = useState(null);
 
   
   const onBusketOrderUpdate = (objParams) => {
@@ -49,6 +51,11 @@ export const AdminPanel = () => {
         onConform: () => {
           dispatch(CLOSE_MODAL);
           deleteBusketOrderFetch(id);
+          setOrders(orders.filter((order) => order._id !== id));
+          setOrdersDeleteMessage("Заказ удален");
+          setTimeout(() => {
+            setOrdersDeleteMessage(null);
+          }, 3000)
         },
         onCancel: () => {
           dispatch(CLOSE_MODAL);
@@ -64,7 +71,12 @@ export const AdminPanel = () => {
         text: "Удалить жалобу? ",
         onConform: () => {
           dispatch(CLOSE_MODAL);
+          setReportDeleteMessage("Жалоба удалена");
+          setReports(reports.filter((report) => report._id !== id));
           deleteReportFetch(id);
+          setTimeout(() => {
+            setReportDeleteMessage(null);
+          }, 3000)
         },
         onCancel: () => {
           dispatch(CLOSE_MODAL);
@@ -89,7 +101,7 @@ export const AdminPanel = () => {
       removeUserFetch(userId).then(() => {
         setShouldUpdateUserList(!shouldUpdateUserList);
       });
-    }, []);
+    }, [role, shouldUpdateUserList,userRole, users]);
 
   useLayoutEffect(() => {
     const currentUserDataJSON = localStorage.getItem("userData");
@@ -159,21 +171,21 @@ export const AdminPanel = () => {
           </details>
         ) : null}
 
-        {userRole === role[0]?.id || userRole === role[1]?.id ? (
+        {orders.length > 0 && (userRole === role[0]?.id || userRole === role[1]?.id) ? (
           <details>
             <summary className={style.AdminPanelSummary}>Заказы</summary>
+            <div className={style.userMessage}>{ordersDeleteMessage}</div>
             <div className={style.OrdersWrapper}>
               <Orders users={users} orders={orders} setPaidStatus={setPaidStatus} setDeliveryStatus={setDeliveryStatus} onBusketOrderUpdate={onBusketOrderUpdate} paidStatus={paidStatus} deliveryStatus={deliveryStatus} onBusketOrderDelete={onBusketOrderDelete}/>
             </div>
           </details>
         ) : null}
 
-        {userRole === role[0]?.id|| userRole === role[1]?.id ? (
+        {reports.length > 0  && (userRole === role[0]?.id|| userRole === role[1]?.id) ? (
             <details>
             <summary className={style.AdminPanelSummary}>Жалобы</summary>
-            <div>
+            <div className={style.userMessage}>{reportDeleteMessage}</div>
                <Reports users={users} reports={reports} deleteReport={deleteReport}/>
-            </div>
             </details>
         ) : null}
       </div>

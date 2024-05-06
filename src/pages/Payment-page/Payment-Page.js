@@ -27,9 +27,10 @@ export const PaymentPage = () => {
       setDelivery(!delivery);
     }, 21000);
   };
+
   useEffect(() => {
     getOrderByUserIdFetch(user.id).then((data) => setOrders(data));
-  }, [getCheckedOrders]);
+  }, [user.id]);
 
   return (
     <>
@@ -39,7 +40,7 @@ export const PaymentPage = () => {
           ?.filter((order) => order.paid === false)
           .map((order) => (
             <>
-              <div className={style.Order}>
+            {!delivery && (<div className={style.Order}>
                   <div>Ваш заказ № {count++}</div>
                   <div>от {order.createdAt.split("T")[0]}{" "}{order.createdAt.split("T")[1].split(".")[0]}</div>
                 <div className={style.OrderDetails}>
@@ -64,7 +65,7 @@ export const PaymentPage = () => {
                 Оплатить
               </button>
               <div>Представим, что здесь будет процесс оплаты.</div> 
-              </div>
+              </div>)}
             </>
           ))}
         <div className={style.delyveryWrapper}>

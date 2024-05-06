@@ -1,5 +1,5 @@
 import style from "./comments.module.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import edit from "../../../icons/edit.svg";
 import { SingleComment } from "./single-comment";
@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import { ROLE } from "../../../constants";
 import { getComments,addCommentFetch, deleteCommentFetch, getUsersFetch } from "../../../fetchs";
 import { useParams } from "react-router-dom";
-import {setProductData} from "../../../actions";
 import { openModal, CLOSE_MODAL } from "../../../actions";
 
 
@@ -22,6 +21,7 @@ export const Comments = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [author, setAuthor] = useState(null);
   const productId = useParams();
+  const ref = useRef(null);
 
   
   const isGuest = userRole === ROLE.GUEST;
@@ -51,6 +51,7 @@ export const Comments = () => {
       (productData) => {
         setComments([...comments, productData]);
       })
+      ref.current.value = null;
     setNewComment(null);
   };
 
@@ -61,7 +62,7 @@ export const Comments = () => {
       setAuthor(user.login);
     }) 
     getComments(productId.id).then((comments) => setComments(comments));
-    }, [productId.id, setComments]);
+    }, [productId.id, setComments, userId]);
 
 
   return (
@@ -73,6 +74,7 @@ export const Comments = () => {
             <div className={style.inputWrapper}>
               <textarea
                 className={style.Textaria}
+                ref={ref}
                 name="comment"
                 value={newComment}
                 placeholder="Ваш комментарий..."

@@ -38,6 +38,13 @@
     gap: 10px;
 }
 
+.userMessage{
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    text-shadow: red 0px 0px 5px;
+}
+
 .userInput{
     font-size: 20px;
     font-weight: 400;

@@ -18,7 +18,7 @@ export const UserRow = ({
 }) => {
   const [initialRoleId, setInitialRoleId] = useState(roleId);
   const [selectedRoleId, setSelectedRoleId] = useState(roleId);
-
+  const [message, setMessage] = useState("");
   const [newAddress, setNewAddress] = useState(address);
   const [newHomeNumber, setNewHomeNumber] = useState(homeNumber);
   const [newFlatNumber, setNewFlatNumber] = useState(flatNumber);
@@ -36,6 +36,7 @@ export const UserRow = ({
     newFlatNumber,
     newPhone
   ) => {
+    setMessage(`${login} был обновлен`);
     updateUserUpdateFetch(
       userId,
       newUserRoleId,
@@ -46,6 +47,9 @@ export const UserRow = ({
     ).then(() => {
       setInitialRoleId(newUserRoleId);
     });
+    setTimeout(() => {
+      setMessage("");
+    }, 5000);
   };
 
   const isSaveButtonDisabled = selectedRoleId === initialRoleId;
@@ -53,7 +57,9 @@ export const UserRow = ({
     <>
       <div className={style.userRow}>
         <div className={style.usersWrapper}>
-          <div className={style.userLogin}>Login: {login}</div>
+          <div className={style.userLogin}>
+            Login: {login} <span className={style.userMessage}>{message}</span>
+          </div>
           <div className={style.userInputWrapper}>
             <div className={style.userLogin}>
               Address:{" "}
