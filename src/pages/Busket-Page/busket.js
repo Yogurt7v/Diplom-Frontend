@@ -25,11 +25,6 @@ export const Busket = () => {
   const [userOrders, setUserOrders] = useState(null);
   const ref = useRef();
 
-  // const fetchUserOrders = async () => {
-  //   const orders = await getOrderByUserIdFetch(user);
-  //   setUserOrders(orders);
-  // };
-
   const fetchUserOrders = useCallback(async () => {
     const orders = await getOrderByUserIdFetch(user);
     setUserOrders(orders);
@@ -78,7 +73,6 @@ export const Busket = () => {
   };
 
   const createOrder = ({ items } ) => {
-    addProductToBusketOperationFetch(items, discount);
     dispatch(
       openModal({
         text: "Заказ создан! Перейти к оплате?",
@@ -86,6 +80,7 @@ export const Busket = () => {
           setDiscount(0);
           dispatch(CLOSE_MODAL);
           dispatch(clearBusketData());
+          addProductToBusketOperationFetch(items, discount);
           navigate("/payment");
         },
         onCancel: () => {

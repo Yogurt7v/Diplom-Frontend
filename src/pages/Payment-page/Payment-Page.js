@@ -27,7 +27,8 @@ export const PaymentPage = () => {
 
   useEffect(() => {
     getOrderByUserIdFetch(user.id).then((data) => setOrders(data));
-  }, [user.id]);
+  }, []);
+
 
   return (
     <>

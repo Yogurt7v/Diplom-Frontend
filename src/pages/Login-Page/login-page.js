@@ -49,7 +49,6 @@ export const LoginPage = () => {
 
   const onSubmit = ({ login, password }) => {
     loginUser(login, password).then(({ error, res }) => {
-      console.log("res", res);
       if (error) {
         setServerError(`${error}`);
         return;
