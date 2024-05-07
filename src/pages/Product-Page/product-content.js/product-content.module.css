@@ -53,7 +53,7 @@
 }
 
 .ProductTitle {
-  padding: 0;
+  /* padding: 0;
   margin: 0;
   margin-bottom: 20px;
   font-size: 40px;
@@ -61,8 +61,19 @@
   font-weight: bold;
   text-align: center;
   color: black;
-  text-shadow: 4px 4px 4px #e43306;
+  text-shadow: 4px 4px 4px #e43306; */
+  font-size: 50px;
+  text-transform: uppercase;
+  font-family: 'Gambetta', serif;
+  letter-spacing: 3px;
+  transition: 700ms ease;
+  font-variation-settings: "wght" 311;
+  margin-bottom: 0.8rem;
+color : black;
+  outline: none;
+  text-align: center;
 }
+
 
 .ProductNutrition {
   margin-top: 30px;

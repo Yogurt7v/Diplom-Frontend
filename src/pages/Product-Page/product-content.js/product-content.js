@@ -23,6 +23,12 @@ export const ProductContent = ({
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      navigate("/");
+    }
+  });
+
   const addProductToBusket = (
     userId,
     productId,

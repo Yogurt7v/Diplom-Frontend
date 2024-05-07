@@ -27,6 +27,7 @@ export const PaymentPage = () => {
 
   useEffect(() => {
     getOrderByUserIdFetch(user.id).then((data) => setOrders(data));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 

@@ -1,9 +1,7 @@
-// import style from "./product-page.module.css";
 import { useLayoutEffect, useEffect, useState } from "react";
 import { useParams, useMatch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../actions";
-// import { RESET_PRODUCT_DATA } from "../../actions";
 import { ROLE } from "../../constants/role.js";
 import { ProductContent, PrivateProductContent, PrivateEditForm } from "./index.js";
 import { getSingleProduct } from "../../fetchs";
@@ -27,7 +25,6 @@ export const ProductPage = () => {
     dispatch(
       setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
     );
-    // dispatch(RESET_PRODUCT_DATA);
   }, [dispatch]);
 
   useEffect(() => {
