@@ -1,16 +1,11 @@
 import style from "./admin-panel.module.css";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useLayoutEffect,useEffect, useCallback, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { selectUserRole } from "../../selectors";
+import { CLOSE_MODAL, openModal, setUser } from "../../actions";
 import { checkAccess } from "../../utils";
-import { UserRow } from "../components";
-import { PrivateEditForm } from "../Product-Page/private-edit-form.js";
-import { setUser } from "../../actions";
-import { useLayoutEffect,useEffect, useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { Header, Orders, Reports } from "../components";
+import { Header, Orders, Reports, UserRow, PrivateEditForm } from "../components";
 import {getUsersFetch, getRolesFetch, getOrdersFetch, removeUserFetch, updateBusketOrdersFetch, deleteBusketOrderFetch, getReportsFetch, deleteReportFetch} from "../../fetchs";
-import { CLOSE_MODAL, openModal } from "../../actions";
 
 export const AdminPanel = () => {
   const dispatch = useDispatch();

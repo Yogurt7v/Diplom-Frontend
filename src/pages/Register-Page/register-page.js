@@ -1,8 +1,8 @@
 import style from "./register-page.module.css";
 import eye from "../../icons/eye.svg";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -82,9 +82,8 @@ export const RegisterPage = () => {
     flatNumber,
     phone,
   }) => {
-    registerFetch(login, password, address, homeNumber, flatNumber, phone)
-    .then(
-      ( {error, res}) => {
+    registerFetch(login, password, address, homeNumber, flatNumber, phone).then(
+      ({ error, res }) => {
         if (error) {
           setServerError(`${error}`);
           return;
@@ -176,7 +175,8 @@ export const RegisterPage = () => {
               className={style.eye}
               alt="eye"
               onMouseDown={() => setCheckPassword(!checkPassword)}
-              onMouseUp={() => setCheckPassword(!checkPassword)}sa
+              onMouseUp={() => setCheckPassword(!checkPassword)}
+              sa
             ></img>
           </div>
           <input

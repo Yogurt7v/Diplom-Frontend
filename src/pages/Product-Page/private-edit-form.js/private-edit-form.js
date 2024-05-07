@@ -1,12 +1,14 @@
 import styled from "./private-edit-form.module.css";
-import { CustomInput } from "../../components";
 import { useLayoutEffect, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { RESET_PRODUCT_DATA } from "../../../actions";
 import { useNavigate } from "react-router-dom";
-import { addProductFetch } from "../../../fetchs/addProduct";
-import { getAllProducts } from "../../../fetchs/getAllProducts";
-import {updatedProductFetch} from "../../../fetchs/updateProduct";
+import { CustomInput } from "../../components";
+import {
+  addProductFetch,
+  getAllProducts,
+  updatedProductFetch,
+} from "../../../fetchs";
+// import { RESET_PRODUCT_DATA } from "../../../actions";
 
 export const PrivateEditForm = ({
   product: {
@@ -24,7 +26,7 @@ export const PrivateEditForm = ({
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
-  
+
   const [productNameValue, setProductNameValue] = useState(productName);
   const [imageUrlValue, setImageUrlValue] = useState(image_url);
   const [descriptionValue, setDescriptionValue] = useState(description);
@@ -35,7 +37,6 @@ export const PrivateEditForm = ({
   const [priceValue, setPriceValue] = useState(price);
   const [categoriesValue, setCategoriesValue] = useState([]);
 
-
   useLayoutEffect(() => {
     setImageUrlValue(image_url);
     setDescriptionValue(description);
@@ -44,7 +45,7 @@ export const PrivateEditForm = ({
     setCaloriesValue(calories);
     setIngredientsValue(ingredients);
     setPriceValue(price);
-    dispatch(RESET_PRODUCT_DATA);
+    // dispatch(RESET_PRODUCT_DATA);
   }, [
     image_url,
     description,
@@ -53,12 +54,12 @@ export const PrivateEditForm = ({
     calories,
     ingredients,
     price,
-    dispatch
+    dispatch,
   ]);
 
   const onSave = () => {
-    if (id){
-      updatedProductFetch({ 
+    if (id) {
+      updatedProductFetch({
         id,
         productName: productNameValue,
         image_url: imageUrlValue,
@@ -69,8 +70,6 @@ export const PrivateEditForm = ({
         ingredients: ingredientsValue,
         price: Number(priceValue),
       }).then(() => navigate(`/`));
-
-
     } else {
       addProductFetch({
         productName: productNameValue,
@@ -84,9 +83,9 @@ export const PrivateEditForm = ({
       }).then(() => navigate(`/`));
     }
   };
-  
+
   useEffect(() => {
-    getAllProducts().then((products)=> {
+    getAllProducts().then((products) => {
       let categories = [];
       for (let i = 0; i < products.length; i++) {
         categories.push(products[i].category);
@@ -95,7 +94,7 @@ export const PrivateEditForm = ({
         return self.indexOf(value) === index;
       });
       setCategoriesValue(uniqueСategories);
-    })
+    });
   }, []);
 
   const onProductNameChange = ({ target }) => {
@@ -123,36 +122,42 @@ export const PrivateEditForm = ({
     setPriceValue(target.value);
   };
 
-
   useEffect(() => {
-    const errorArray = []
-    if(!productNameValue) {
+    const errorArray = [];
+    if (!productNameValue) {
       errorArray.push("Название продукта не может быть пустым");
     }
-    if(!imageUrlValue) {
+    if (!imageUrlValue) {
       errorArray.push("Путь к картинке не может быть пустым");
     }
-    if(!descriptionValue) {
+    if (!descriptionValue) {
       errorArray.push("Описание продукта не может быть пустым");
     }
-    if(weightValue < 0) {
+    if (weightValue < 0) {
       errorArray.push("Вес не может меньше нуля");
     }
-    if(caloriesValue <= 0 || caloriesValue > 10000) {
+    if (caloriesValue <= 0 || caloriesValue > 10000) {
       errorArray.push("Калории не могут быть меньше нуля и больше 10000");
     }
-    if(!ingredientsValue) {
+    if (!ingredientsValue) {
       errorArray.push("Ингредиенты не может быть пустым");
     }
     if (priceValue <= 0) {
       errorArray.push("Цена не может быть меньше или равна нулю");
     }
-    const errorMessage = errorArray.length > 1 ? errorArray.join(", ") : errorArray[0];
-    
-    setError(errorMessage);  
-  }, [priceValue, productNameValue,imageUrlValue, descriptionValue, weightValue, caloriesValue, ingredientsValue]);
+    const errorMessage =
+      errorArray.length > 1 ? errorArray.join(", ") : errorArray[0];
 
-
+    setError(errorMessage);
+  }, [
+    priceValue,
+    productNameValue,
+    imageUrlValue,
+    descriptionValue,
+    weightValue,
+    caloriesValue,
+    ingredientsValue,
+  ]);
 
   return (
     <div className={styled.EditFormWrapper}>
@@ -222,9 +227,9 @@ export const PrivateEditForm = ({
           Назад
         </button>
 
-        <button 
-          onClick={onSave} 
-          className={styled.EditButtons} 
+        <button
+          onClick={onSave}
+          className={styled.EditButtons}
           disabled={error}
         >
           Сохранить

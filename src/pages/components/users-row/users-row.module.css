@@ -1,127 +1,118 @@
-.userRow{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 50px;
-    font-size: 20px;
-    margin: 0 auto;
-    width: 90%;
+.userRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+  font-size: 20px;
+  margin: 0 auto;
+  width: 90%;
 }
 
-
-.usersWrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding-top: 10px;
-    margin: 10px auto;
+.usersWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding-top: 10px;
+  margin: 10px auto;
 }
 
-.userInputWrapper{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.userInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.buttonsWrapper{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.userRegisterDateWrapper{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+.userRegisterDateWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.userMessage{
-    font-size: 20px;
-    font-weight: 700;
-    color: black;
-    text-shadow: red 0px 0px 5px;
+.userMessage {
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+  text-shadow: red 0px 0px 5px;
 }
 
-.userInput{
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 15px;
-    width: 150px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: #FF4301;
-    border: 1px solid black;
-    padding: 5px;
+.userInput {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #ff4301;
+  border: 1px solid black;
+  padding: 5px;
 }
-.userInputPhone{
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 15px;
-    width: 200px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: #FF4301;
-    border: 1px solid black;
-    padding: 5px;
-}
-
-.saveButton{
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+.userInputPhone {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #ff4301;
+  border: 1px solid black;
+  padding: 5px;
 }
 
-.deleteButtonWrapper{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.saveButton {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
-.deleteButton{
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+.deleteButtonWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.userLogin{
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    font-weight: 400;
+.deleteButton {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }
 
-.userPhone{
-    font-size: 20px;
-    font-weight: 400;
-    width: 300px;
+.userLogin {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 400;
 }
 
-.userRegisterDate{
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 15px;
+.userRegisterDate {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
 }
 
-.userRole{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
+.userRole {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.RoleSelect{
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 15px;
-    width: 150px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: #FF4301;
-    border: 1px solid black;
-    padding: 5px;
-    cursor: pointer;
-
+.RoleSelect {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #ff4301;
+  border: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
 }

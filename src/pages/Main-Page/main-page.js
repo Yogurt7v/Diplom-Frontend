@@ -9,8 +9,8 @@ import {
   SearchBar,
   BusketCard,
 } from "../components";
-import { SORT_OPTIONS} from "../../constants";
-import { getAllProducts} from "../../fetchs";
+import { SORT_OPTIONS } from "../../constants";
+import { getAllProducts } from "../../fetchs";
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -44,11 +44,10 @@ export const MainPage = () => {
 
   const onCategoryChange = (event) => {
     const category = event.target.id;
-        if (category === "All") {
-          setSearchCategory(null);
-          setActiveItem("");
-
-    }else {
+    if (category === "All") {
+      setSearchCategory(null);
+      setActiveItem("");
+    } else {
       setActiveItem(category);
       setSearchCategory(category);
       setCurrentPage(1);
@@ -78,8 +77,8 @@ export const MainPage = () => {
         setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
       );
     }
-  }, []);
-  
+  }, [dispatch]);
+
   useEffect(() => {
     getAllProducts(searchPhrase, searchCategory).then((products) => {
       const sortObJ = sortOption.find((option) => option.value === sorting);
@@ -90,11 +89,15 @@ export const MainPage = () => {
       setCurrentPage(1);
       setLoading(false);
     });
-  }, [searchPhrase, searchCategory, sorting, sortOption   ]);
+  }, [searchPhrase, searchCategory, sorting, sortOption]);
 
   return (
     <>
-      <Header onCategoryChange={onCategoryChange} isActiveItem={isActiveItem} loading={loading} />
+      <Header
+        onCategoryChange={onCategoryChange}
+        isActiveItem={isActiveItem}
+        loading={loading}
+      />
       <div className={style.AppWrapper}>
         <div className={style.SortBarWrapper}>
           <SortBar options={sortOption} onSort={handleSort} />

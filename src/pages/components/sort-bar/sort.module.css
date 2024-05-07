@@ -1,65 +1,27 @@
-.SortBarWrap{
+.SortBarWrap {
   display: flex;
   align-items: center;
-  /* padding-left: 40px; */
   padding-left: 5%;
 
-  @media screen and (max-width:  1000px) {
-      span {
-        display: none;
-      }
-      select {
-        width: 100%;
-        background-color: #fa7d0979;
-      }
+  @media screen and (max-width: 1000px) {
+    span {
+      display: none;
+    }
+    select {
+      width: 100%;
+      background-color: #fa7d0979;
+    }
   }
-  
 }
 
-.SortBarContent {
-  display: flex;
-  justify-content: space-around;
-  width: 20%;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
-.SortBarSpan {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #ff4301;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.SortBarSpan:hover {
-  cursor: pointer;
-  background-color: #fa7d09;  
-  transition: 0.3s ease-in-out all;
-  -webkit-box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
-  -moz-box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
-  box-shadow: 12px 23px 32px 10px rgba(255, 67, 1, 0.2);
-
-}
-
-.SortBarIcon {
-  width: 50px;
-  height: 50px;
-}
-
-.SortBarTitle{
+.SortBarTitle {
   margin-right: 20px;
   font-size: 20px;
   font-weight: 500;
   color: #ff4301;
 }
 
-.SortBarSelect{
+.SortBarSelect {
   height: 40px;
   width: 45%;
   font-size: 20px;
@@ -72,10 +34,9 @@
   cursor: pointer;
 }
 
-.SortBarOption{
+.SortBarOption {
   font-size: 20px;
   font-weight: 500;
   color: black;
-  background-color: #E97608;
+  background-color: #e97608;
 }
-

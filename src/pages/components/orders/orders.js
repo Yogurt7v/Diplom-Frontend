@@ -1,6 +1,15 @@
 import style from "./orders.module.css";
 
-export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusketOrderUpdate, paidStatus, deliveryStatus,onBusketOrderDelete }) => {
+export const Orders = ({
+  users,
+  orders,
+  setPaidStatus,
+  setDeliveryStatus,
+  onBusketOrderUpdate,
+  paidStatus,
+  deliveryStatus,
+  onBusketOrderDelete,
+}) => {
   return (
     <>
       {users &&
@@ -12,15 +21,9 @@ export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusk
             </p>
             <p>
               Адрес доставки :{" "}
-              {users.find((user) => user.id === order.userId)?.address}
-              ,
-              {
-                users.find((user) => user.id === order.userId)?.homeNumber
-              }
-              ,
-              {
-                users.find((user) => user.id === order.userId)?.flatNumber
-              }
+              {users.find((user) => user.id === order.userId)?.address},
+              {users.find((user) => user.id === order.userId)?.homeNumber},
+              {users.find((user) => user.id === order.userId)?.flatNumber}
             </p>
 
             <p>
@@ -33,7 +36,18 @@ export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusk
               </p>
             ))}
 
-            <p> Сумма : {(order.items?.reduce((accumulatedPrice, currentItem) => accumulatedPrice + currentItem.price * currentItem.quantity, 0)).toFixed(2)} $.</p>
+            <p>
+              {" "}
+              Сумма :{" "}
+              {order.items
+                ?.reduce(
+                  (accumulatedPrice, currentItem) =>
+                    accumulatedPrice + currentItem.price * currentItem.quantity,
+                  0
+                )
+                .toFixed(2)}{" "}
+              $.
+            </p>
             <div>
               Cтатус оплаты :{" "}
               <select
@@ -57,7 +71,6 @@ export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusk
               </select>
             </div>
 
-
             <button
               className={style.SaveButton}
               onClick={() =>
@@ -70,11 +83,9 @@ export const Orders = ({ users, orders, setPaidStatus, setDeliveryStatus, onBusk
             >
               Сохранить
             </button>
-                        <button
+            <button
               className={style.SaveButton}
-              onClick={() =>
-                onBusketOrderDelete(order._id)
-              }
+              onClick={() => onBusketOrderDelete(order._id)}
             >
               Удалить
             </button>

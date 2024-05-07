@@ -1,17 +1,17 @@
 import style from "./busket.module.css";
-import Header from "../components/header/header";
-import trash from "../../icons/trash.svg";
-import { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { selectBusket, selectUserId } from "../../selectors";
-import { VideoBackground } from "../components";
 import {
   openModal,
   CLOSE_MODAL,
   clearBusketData,
   removeBusketData,
 } from "../../actions";
+import Header from "../components/header/header";
+import { VideoBackground } from "../components";
+import trash from "../../icons/trash.svg";
 import { addProductToBusketOperationFetch,getOrderByUserIdFetch, getPromocodeFetch, checkPromocodeFetch } from "../../fetchs";
 
 export const Busket = () => {
@@ -25,10 +25,19 @@ export const Busket = () => {
   const [userOrders, setUserOrders] = useState(null);
   const ref = useRef();
 
-  const fetchUserOrders = async () => {
+  // const fetchUserOrders = async () => {
+  //   const orders = await getOrderByUserIdFetch(user);
+  //   setUserOrders(orders);
+  // };
+
+  const fetchUserOrders = useCallback(async () => {
     const orders = await getOrderByUserIdFetch(user);
     setUserOrders(orders);
-  };
+  }, [user]);
+  
+  useEffect(() => {
+    fetchUserOrders();
+  }, [fetchUserOrders]);
 
   const checkPromocode = (code) => {
     checkPromocodeFetch(code).then((data) => setDiscount(data));
@@ -56,13 +65,13 @@ export const Busket = () => {
   useEffect(() => {
     fetchUserOrders();
     setDiscount(0);
-  }, []);
+  }, [fetchUserOrders]);
 
   useEffect(() => {
       if (userOrders?.length === 0) {
         createNotification();
       }
-  }, [fetchUserOrders]);
+  }, [fetchUserOrders, userOrders]);
 
   const deleteItem = (randomId) => {
     dispatch(removeBusketData(randomId));
@@ -128,7 +137,7 @@ export const Busket = () => {
             <div className={style.BusketEmpty}>Корзина пуста</div>
           )}
         </div>
-        <div className={style.BusketSumWrapper}>
+        <div className={style.BusketSum}>
           <div className={style.BusketSum}>
             Итого:{" "}
             {(busket.items.reduce(

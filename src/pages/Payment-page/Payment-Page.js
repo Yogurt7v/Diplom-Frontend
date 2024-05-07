@@ -1,10 +1,8 @@
 import style from "./payment-page.module.css";
-import { Header } from "../components";
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getOrderByUserIdFetch } from "../../fetchs";
-import { setBusketOrdersParams } from "../../fetchs/setBusketOrdersParams";
-import { Delivery } from "../components";
+import { useSelector } from "react-redux";
+import { Header, Delivery } from "../components";
+import { getOrderByUserIdFetch, setBusketOrdersParams } from "../../fetchs";
 
 export const PaymentPage = () => {
   const user = useSelector((state) => state.user);
@@ -15,8 +13,7 @@ export const PaymentPage = () => {
 
   const singleOrderFuction = (id) => {
     return orders?.filter((order) => order._id === id);
-  }
-
+  };
 
   const getCheckedOrders = (id) => {
     setDelivery(!delivery);
@@ -40,32 +37,37 @@ export const PaymentPage = () => {
           ?.filter((order) => order.paid === false)
           .map((order) => (
             <>
-            {!delivery && (<div className={style.Order}>
+              {!delivery && (
+                <div className={style.Order}>
                   <div>Ваш заказ № {count++}</div>
-                  <div>от {order.createdAt.split("T")[0]}{" "}{order.createdAt.split("T")[1].split(".")[0]}</div>
-                <div className={style.OrderDetails}>
-                  {order.items?.map((item) => (
-                    <>
-                      <div>
-                        <div key={order.id}>
-                          <label className={style.ItemDetails} f>
-                            <div>{item.productName}</div>
-                            <div>{item.quantity} шт.</div>
-                            <div>{item.price} $</div>
-                          </label>
+                  <div>
+                    от {order.createdAt.split("T")[0]}{" "}
+                    {order.createdAt.split("T")[1].split(".")[0]}
+                  </div>
+                  <div className={style.OrderDetails}>
+                    {order.items?.map((item) => (
+                      <>
+                        <div>
+                          <div key={order.id}>
+                            <label className={style.ItemDetails} f>
+                              <div>{item.productName}</div>
+                              <div>{item.quantity} шт.</div>
+                              <div>{item.price} $</div>
+                            </label>
+                          </div>
                         </div>
-                      </div>
-                    </>
-                  ))}
+                      </>
+                    ))}
+                  </div>
+                  <button
+                    className={style.OrderButton}
+                    onClick={() => getCheckedOrders(order._id)}
+                  >
+                    Оплатить
+                  </button>
+                  <div>Представим, что здесь будет процесс оплаты.</div>
                 </div>
-              <button
-                className={style.OrderButton}
-                onClick={() => getCheckedOrders(order._id)}
-              >
-                Оплатить
-              </button>
-              <div>Представим, что здесь будет процесс оплаты.</div> 
-              </div>)}
+              )}
             </>
           ))}
         <div className={style.delyveryWrapper}>

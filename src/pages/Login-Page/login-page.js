@@ -6,10 +6,10 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { selectUserRole } from "../../selectors";
-import { useResetForm } from "../../hooks";
 import { setUser } from "../../actions";
+import { useResetForm } from "../../hooks";
 import { ROLE } from "../../constants/role";
-import {Header } from "../components";
+import { Header } from "../components";
 import { loginUser } from "../../fetchs";
 
 const authFormSchema = yup.object().shape({
@@ -48,8 +48,7 @@ export const LoginPage = () => {
   useResetForm(reset);
 
   const onSubmit = ({ login, password }) => {
-    loginUser(login, password)
-    .then(({ error, res }) => {
+    loginUser(login, password).then(({ error, res }) => {
       console.log("res", res);
       if (error) {
         setServerError(`${error}`);

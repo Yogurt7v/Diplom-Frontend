@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
 import style from "./delivery.module.css";
+import deliveryIcon from "../../../icons/delivery.svg";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { openModal, CLOSE_MODAL } from "../../../actions";
-import deliveryIcon from "../../../icons/delivery.svg";
 
 export const Delivery = ({ singleOrder }) => {
   const [getOrder, setOrder] = useState(false);
@@ -25,25 +25,24 @@ export const Delivery = ({ singleOrder }) => {
       now();
       setOrderDelivered(true);
     }, 21000);
-    setTimeout (() => {
+    setTimeout(() => {
       dispatch(
-          openModal({
-            text: "Спасибо за заказ! Надюсь вам все понравилось.",
-            onConform: () => {
-              dispatch(CLOSE_MODAL);
-              navigate("/");
-            },
-            onCancel: () =>{
-              dispatch(CLOSE_MODAL)
-              navigate("/report");
-            },
-          })
-        );
+        openModal({
+          text: "Спасибо за заказ! Надюсь вам все понравилось.",
+          onConform: () => {
+            dispatch(CLOSE_MODAL);
+            navigate("/");
+          },
+          onCancel: () => {
+            dispatch(CLOSE_MODAL);
+            navigate("/report");
+          },
+        })
+      );
     }, 25000);
-  }, []);
+  }, [dispatch, navigate]);
 
   return (
-
     <section>
       <figure>
         <img src={deliveryIcon} alt="" />
@@ -65,7 +64,9 @@ export const Delivery = ({ singleOrder }) => {
             </div>
             <div className={style.orderTrackText}>
               <p className={style.orderTrackTextStat}>Заказ передан на кухню</p>
-              <span className={style.orderTrackTextSub}>Мы стараемся ради Вас</span>
+              <span className={style.orderTrackTextSub}>
+                Мы стараемся ради Вас
+              </span>
             </div>
           </div>
         ) : null}

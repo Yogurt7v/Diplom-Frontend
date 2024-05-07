@@ -9,11 +9,10 @@
   border: 2px solid black;
   border-radius: 10px;
   color: black;
-  box-shadow: 0px 13px 42px 37px rgba(0,0,0,0.1);
+  box-shadow: 0px 13px 42px 37px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   width: 350px;
-
 }
 
 .CardLogo {
@@ -27,7 +26,7 @@
   width: 250px;
   height: 250px;
   border-radius: 10px;
-  border:2px solid black;
+  border: 2px solid black;
   -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
@@ -64,14 +63,6 @@ button {
   padding: 0;
 }
 
-.CardButtonWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-top: 15px;
-  padding-bottom: 10px;
-}
-
 .CardButton {
   margin: 15px 0 15px 0;
   display: flex;
@@ -96,18 +87,15 @@ button {
   transition: 0.5s;
 }
 
-.CardDescription{
+.CardDescription {
   min-height: 72px;
   max-height: 90px;
-  overflow:hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   display: -webkit-box;
-
 }
-
-
 
 .CardQuantity {
   display: flex;
@@ -117,14 +105,14 @@ button {
   font-size: 20px;
 }
 
-.Increment{
+.Increment {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
 
-.quantityNumber{
+.quantityNumber {
   font-size: 20px;
   font-weight: 700;
 }
@@ -136,18 +124,17 @@ button {
   border-radius: 20px;
 }
 
-.Cover{
-  display: flex;
-  width: 35px;
-  height: 35px;
-}
-
 .normal:hover {
   border-radius: 20px;
   color: white;
   box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4301,
     0 0 70px #ff4301, 0 0 80px #ff4301, 0 0 100px #ff4301, 0 0 150px #ff4301;
   transition: 0.5s;
+}
+.Cover {
+  display: flex;
+  width: 35px;
+  height: 35px;
 }
 
 .disabled {

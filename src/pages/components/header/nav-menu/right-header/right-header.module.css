@@ -3,7 +3,6 @@
   align-items: center;
   gap: 10px;
   margin-right: 20px;
-
 }
 
 .HeaderAuth {
@@ -79,12 +78,12 @@
   width: 50px;
   height: 50px;
   background-color: #fa7d09;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .HeaderAdd {
   display: flex;
   width: 40px;
   height: 40px;
-  color:#000000;
+  color: #000000;
 }

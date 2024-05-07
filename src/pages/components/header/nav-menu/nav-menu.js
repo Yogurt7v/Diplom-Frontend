@@ -1,21 +1,18 @@
 import style from "./nav-menu.module.css";
-import {NavMenuItem} from "../../../components/nav-menu-item/nav-menu-item";
+import { NavMenuItem } from "../../../components";
 import { useEffect, useState } from "react";
-import { getAllProducts } from "../../../../fetchs/getAllProducts";
+import { getAllProducts } from "../../../../fetchs";
 
-export const NavMenu = ({ onCategoryChange, isActiveItem}) => {
+export const NavMenu = ({ onCategoryChange, isActiveItem }) => {
+  const [allCategorys, setAllCategorys] = useState([]);
 
-  const [allCategorys, setAllCategorys] = useState([])
-  
   useEffect(() => {
-    getAllProducts().then(res =>{
+    getAllProducts().then((res) => {
       const uniqueCategorys = [...new Set(res.map(({ category }) => category))];
       uniqueCategorys.unshift("All");
       setAllCategorys(uniqueCategorys);
-      })
-  },[])
-  
-
+    });
+  }, []);
 
   return (
     <>

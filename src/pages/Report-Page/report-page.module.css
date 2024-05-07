@@ -1,69 +1,68 @@
 .ReportPageWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 15px;
-    border : 3px solid black;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #ED780A;
-    box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
-    -webkit-box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
-    -moz-box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
-    font-size: 30px;
-    font-weight: 700;
-    text-align: center;
-    height: 60vh;
-    width: 50vw;
-    overflow-y: auto;
-    overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px solid black;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #ed780a;
+  box-shadow: 10px 10px 62px 13px rgba(0, 0, 0, 0.49);
+  -webkit-box-shadow: 10px 10px 62px 13px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: 10px 10px 62px 13px rgba(0, 0, 0, 0.49);
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  height: 60vh;
+  width: 50vw;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-.ReportText{
-    font-size: 40px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 30px;
-    text-shadow: black 0px 0px 5px;
-    letter-spacing: 0.3rem;
+.ReportText {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: black 0px 0px 5px;
+  letter-spacing: 0.3rem;
 }
 
-.ReportTextUser{
-    font-size: 30px;
-    margin: 0 30px 0px 30px;
-    font-weight: 700;
-    text-align: center;
+.ReportTextUser {
+  font-size: 30px;
+  margin: 0 30px 0px 30px;
+  font-weight: 700;
+  text-align: center;
 }
 
-.ReportTextarea{
-    width: 80%;
-    height: 300px;
-    margin: 20px 0;
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 10px;
-    border : 3px solid black;
-    padding: 0 10px;
-    background-color: white;
-    box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
-    -webkit-box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
-    -moz-box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
+.ReportTextarea {
+  width: 80%;
+  height: 300px;
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 3px solid black;
+  padding: 0 10px;
+  background-color: white;
+  box-shadow: 10px 10px 62px 13px rgba(0, 0, 0, 0.49);
+  -webkit-box-shadow: 10px 10px 62px 13px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: 10px 10px 62px 13px rgba(0, 0, 0, 0.49);
 }
 
-.ReportButton{
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 10px;
-    border : 3px solid black;
-    padding: 5px 30px;
-    background-color: white;
-    box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
-    -webkit-box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
-    -moz-box-shadow: 10px 10px 62px 13px rgba(0,0,0,0.49);
-    margin: 30px 50px;
-    cursor: pointer;
-
+.ReportButton {
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 3px solid black;
+  padding: 5px 30px;
+  background-color: white;
+  box-shadow: 10px 10px 62px 13px rgba(0, 0, 0, 0.49);
+  -webkit-box-shadow: 10px 10px 62px 13px rgba(0, 0, 0, 0.49);
+  -moz-box-shadow: 10px 10px 62px 13px rgba(0, 0, 0, 0.49);
+  margin: 30px 50px;
+  cursor: pointer;
 }

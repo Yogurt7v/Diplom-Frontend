@@ -1,51 +1,50 @@
-.BusketCardWrapper{
-    display: flex;
-    width: 300px;
-    gap: 20px;
-    align-items: center;
-    justify-content: right;
-    color: #ef7908;
-    padding-right: 40px;
+.BusketCardWrapper {
+  display: flex;
+  width: 300px;
+  gap: 20px;
+  align-items: center;
+  justify-content: right;
+  color: #ef7908;
+  padding-right: 40px;
 }
 
-.BusketCardTitleWrapper{
-    display: flex;
-    flex-direction: column;
-    height: 50px;
+.BusketCardTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
 }
 
-.BusketCardTitleHeader{
-    font-size: 20px;
-    font-weight: 500;
-    color: #ef7908;
+.BusketCardTitleHeader {
+  font-size: 20px;
+  font-weight: 500;
+  color: #ef7908;
 }
 
-.BusketCardTitle{
-    font-size: 14px;
-    font-weight: 500;
-    color: #ef7908;
+.BusketCardTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #ef7908;
 }
 
-.BusketCardSum{
-    display: flex;
-    flex-direction: column;
+.BusketCardSum {
+  display: flex;
+  flex-direction: column;
 }
 
-.BusketCardImageWrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.BusketCardImageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.BusketCardImage{
-    width: 40px;
-    height: 40px;
+.BusketCardImage {
+  width: 40px;
+  height: 40px;
 }
 
-.BusketCardImage:hover{
-    cursor: pointer;
-    transform:scale(1.5)  translateY(5px);
-    transition: 0.3s;
-    filter: drop-shadow(0 0 0.5rem #ef7908);
-
+.BusketCardImage:hover {
+  cursor: pointer;
+  transform: scale(1.5) translateY(5px);
+  transition: 0.3s;
+  filter: drop-shadow(0 0 0.5rem #ef7908);
 }

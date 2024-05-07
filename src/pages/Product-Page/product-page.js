@@ -1,14 +1,13 @@
-import style from "./product-page.module.css";
-import { useDispatch } from "react-redux";
-import { useParams, useMatch } from "react-router-dom";
+// import style from "./product-page.module.css";
 import { useLayoutEffect, useEffect, useState } from "react";
-import { RESET_PRODUCT_DATA, setUser } from "../../actions";
+import { useParams, useMatch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../actions";
+// import { RESET_PRODUCT_DATA } from "../../actions";
 import { ROLE } from "../../constants/role.js";
-import { ProductContent } from "./product-content.js";
-import { PrivateProductContent } from "./private-product-content";
-import { PrivateEditForm } from "./private-edit-form.js";
-import { Header } from "../components";
+import { ProductContent, PrivateProductContent, PrivateEditForm } from "./index.js";
 import { getSingleProduct } from "../../fetchs";
+import { Header } from "../components";
 import SkeletonProductCard  from "../components/skeleton/SkeletonProductCard";
 
 export const ProductPage = () => {
@@ -28,7 +27,7 @@ export const ProductPage = () => {
     dispatch(
       setUser({ ...currentUserData, roleId: Number(currentUserData.roleId) })
     );
-    dispatch(RESET_PRODUCT_DATA);
+    // dispatch(RESET_PRODUCT_DATA);
   }, [dispatch]);
 
   useEffect(() => {
@@ -56,9 +55,7 @@ export const ProductPage = () => {
       {isLoading ? (
         <SkeletonProductCard />
       ) : (
-        <div className={style.ProductAndCommentsWrapper}>
           <ProductContent product={sinlgeProduct} />
-        </div>
       )}
     </>
   );
@@ -66,7 +63,7 @@ export const ProductPage = () => {
   return error ? (
     <>
       <Header />
-      <div className={style.error}>{error}</div>
+      <div>{error}</div>
     </>
   ) : (
     AdminProductPage

@@ -1,13 +1,11 @@
 import style from "./product-content.module.css";
-import { useNavigate } from "react-router-dom";
-import { SpecialPanel } from "../special-panel/special-panel";
 import editButton from "../../../icons/editButon.svg";
 import close from "../../../icons/close.svg";
-import { VideoBackground } from "../../components/video-background.js/video-background";
-import { Comments } from "../../components/comments";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { addBusketData } from "../../../actions/add-busket-data";
+import { useNavigate } from "react-router-dom";
+import { SpecialPanel } from "../index";
+import { VideoBackground, Comments } from "../../components";
+import { useSelector, useDispatch } from "react-redux";
+import { addBusketData } from "../../../actions";
 
 export const ProductContent = ({
   product: {
@@ -25,9 +23,24 @@ export const ProductContent = ({
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  const addProductToBusket = (userId,  productId, productName, quantity = 1, price) => {
-    const randomId = (Math.random()* 1000000).toFixed(0);
-    dispatch(addBusketData({randomId, userId,  productId, productName, quantity, price }));
+  const addProductToBusket = (
+    userId,
+    productId,
+    productName,
+    quantity = 1,
+    price
+  ) => {
+    const randomId = (Math.random() * 1000000).toFixed(0);
+    dispatch(
+      addBusketData({
+        randomId,
+        userId,
+        productId,
+        productName,
+        quantity,
+        price,
+      })
+    );
   };
 
   return (
@@ -63,7 +76,14 @@ export const ProductContent = ({
                   Калории: {calories} ккал.
                 </div>
                 <div className={style.ProductPrice}> {price} $</div>{" "}
-                <button className={style.BuyButton} onClick={()=> addProductToBusket(user.id, id, productName, 1, price)}>Купить</button>
+                <button
+                  className={style.BuyButton}
+                  onClick={() =>
+                    addProductToBusket(user.id, id, productName, 1, price)
+                  }
+                >
+                  Купить
+                </button>
               </div>
             </div>
           </div>
@@ -71,8 +91,13 @@ export const ProductContent = ({
           <div className={style.ProductIngredients}>
             Ингриденты: {ingredients}
           </div>
-          <img src={close} alt="close" className={style.CloseButton} onClick={() => navigate("/")}/>
-          <Comments/>
+          <img
+            src={close}
+            alt="close"
+            className={style.CloseButton}
+            onClick={() => navigate("/")}
+          />
+          <Comments />
         </div>
       </div>
       <VideoBackground />

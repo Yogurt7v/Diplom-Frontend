@@ -19,7 +19,7 @@ export const loginUser = async (authLogin, authPassword) => {
   return {
     error: null,
     res: {
-      id: user.res.id,
+      id: user.res._id,
       login: user.res.login,
       roleId: user.res.role_id,
       session: sessions.create(user),

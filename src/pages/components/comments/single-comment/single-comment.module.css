@@ -1,51 +1,48 @@
-.commentWrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.commentWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    width: 100%;
-    gap: 10px;
-
+  width: 100%;
+  gap: 10px;
 }
-.comment{
-    display: flex;
-    min-width: 500px;
-    gap: 30px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    border-bottom: 1px solid black;
-    color: black;
+.comment {
+  display: flex;
+  min-width: 500px;
+  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid black;
+  color: black;
 }
-.content{
-    font-size: 20px;
-    font-weight: 500;
-
+.content {
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.author{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.userLogo{
-    
-    width: 20px;
-    height: 20px;
+.userLogo {
+  width: 20px;
+  height: 20px;
 }
 
-.commentDeleteWrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
+.commentDeleteWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.deleteComment{
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+.deleteComment {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }

@@ -3,11 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { logout, clearBusketData } from "../../../actions";
-import NavMenu from "./nav-menu/nav-menu";
-import { LeftHeader } from "./nav-menu/left-header/left-header";
-import { RightHeader } from "./nav-menu/right-header/right-header";
+import { NavMenu, LeftHeader, RightHeader } from "./nav-menu";
 
-export const Header = ({onCategoryChange, isActiveItem, loading}) => {
+export const Header = ({ onCategoryChange, isActiveItem, loading }) => {
   const loginName = useSelector((state) => state.user.login);
   const session = useSelector((state) => state.user.session);
   const dispatch = useDispatch();
@@ -17,7 +15,7 @@ export const Header = ({onCategoryChange, isActiveItem, loading}) => {
   const onLogout = () => {
     dispatch(logout(session));
     localStorage.removeItem("userData");
-    dispatch(clearBusketData())
+    dispatch(clearBusketData());
     let currentURL = window.location.pathname;
     if (currentURL === "/admin-panel") {
       navigate("/");
@@ -33,9 +31,14 @@ export const Header = ({onCategoryChange, isActiveItem, loading}) => {
 
   return (
     <div className={style.HeaderWrapper}>
-      <LeftHeader loading={loading}/>
+      <LeftHeader loading={loading} />
       <div className={style.HeaderMenuWrapper}>
-        {visible? <NavMenu onCategoryChange={onCategoryChange} isActiveItem={isActiveItem}/> : null}
+        {visible ? (
+          <NavMenu
+            onCategoryChange={onCategoryChange}
+            isActiveItem={isActiveItem}
+          />
+        ) : null}
       </div>
       <RightHeader loginName={loginName} onLogout={onLogout} />
     </div>
