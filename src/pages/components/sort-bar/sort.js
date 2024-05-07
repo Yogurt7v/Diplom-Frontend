@@ -5,10 +5,12 @@ export const SortBar = ({ onSort, options }) => {
     <div className={style.SortBarWrap}>
       <span className={style.SortBarTitle}>Сортировка</span>
       <select onChange={onSort} className={style.SortBarSelect}>
-        <option value="" className={style.SortBarOption}>
-        </option>
         {options.map((option) => (
-          <option value={option.value} key={option.value} className={style.SortBarOption}>
+          <option
+            value={option.value}
+            key={option.value}
+            className={style.SortBarOption}
+          >
             {option.label}
           </option>
         ))}

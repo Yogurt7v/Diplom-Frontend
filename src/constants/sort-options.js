@@ -2,7 +2,7 @@ import _ from "lodash";
 
 export const SORT_OPTIONS = [
   {
-    value: "no sorting",
+    value: "",
     label: "без сортировки",
     sort: (data) => data,
   },
