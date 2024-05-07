@@ -7,8 +7,6 @@ export const loginUser = async (authLogin, authPassword) => {
     body: JSON.stringify({ login:authLogin, password:authPassword }),
   }).then((res) => res.json());
 
-  console.log("loginUser", user);
-
   if (user.error) {
     return {
       error: user.error,
