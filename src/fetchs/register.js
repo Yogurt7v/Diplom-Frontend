@@ -1,4 +1,4 @@
-import { sessions } from "../fetchs/sessions";
+// import { sessions } from "../fetchs/sessions";
 export const registerFetch = async (
   regLogin,
   regPassword,

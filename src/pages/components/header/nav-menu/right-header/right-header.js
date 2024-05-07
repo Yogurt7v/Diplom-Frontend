@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 export const RightHeader = ({ loginName, onLogout }) => {
+
   const userRoleId = useSelector((state) => state.user.roleId);
   const access = () => {
     if (userRoleId === 0 || userRoleId === 1) {

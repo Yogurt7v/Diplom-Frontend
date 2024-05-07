@@ -13,6 +13,8 @@ export const Header = ({ onCategoryChange, isActiveItem, loading }) => {
   const [visible, setVisible] = useState(true);
 
   const onLogout = () => {
+
+    console.log("Logout");
     dispatch(logout(session));
     localStorage.removeItem("userData");
     dispatch(clearBusketData());

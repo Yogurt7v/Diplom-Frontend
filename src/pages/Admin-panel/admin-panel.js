@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectUserRole } from "../../selectors";
 import { CLOSE_MODAL, openModal, setUser } from "../../actions";
 import { checkAccess } from "../../utils";
-import { Header, Orders, Reports, UserRow, PrivateEditForm } from "../components";
+import { Header, Orders, Reports, UserRow } from "../components";
+import {PrivateEditForm }   from "../Product-Page/private-edit-form.js";
 import {getUsersFetch, getRolesFetch, getOrdersFetch, removeUserFetch, updateBusketOrdersFetch, deleteBusketOrderFetch, getReportsFetch, deleteReportFetch} from "../../fetchs";
 
 export const AdminPanel = () => {
