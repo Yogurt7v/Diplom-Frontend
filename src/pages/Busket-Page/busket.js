@@ -85,7 +85,6 @@ export const Busket = () => {
         },
         onCancel: () => {
           dispatch(CLOSE_MODAL);
-          dispatch(clearBusketData());
           navigate("/");
         },
       })
