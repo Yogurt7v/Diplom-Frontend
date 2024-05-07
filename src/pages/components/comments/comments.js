@@ -66,8 +66,8 @@ export const Comments = () => {
   return (
     <>
       <div className={style.commentsWrapper}>
-        <div className={style.comments}>
           <div className={style.commentTitle}>Комментарии</div>
+        <div className={style.comments}>
           {comments?.map(({ _id, author, productId, content }) => (
             <SingleComment
               key={_id}

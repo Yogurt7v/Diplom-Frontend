@@ -35,6 +35,7 @@ export const ProductPage = () => {
     });
   }, [params.id]);
 
+
   const AdminProductPage = isEditing ? (
     <>
       <Header />

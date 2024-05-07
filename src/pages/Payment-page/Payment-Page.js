@@ -1,14 +1,16 @@
 import style from "./payment-page.module.css";
-import { useEffect, useState } from "react";
+import {  useState, useLayoutEffect, useEffect,  } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Header, Delivery } from "../components";
-import { getOrderByUserIdFetch, setBusketOrdersParams } from "../../fetchs";
+import { getOrderByUserIdFetch, setBusketOrdersParams, deleteBusketOrderFetch } from "../../fetchs";
 
 export const PaymentPage = () => {
   const user = useSelector((state) => state.user);
   const [orders, setOrders] = useState([]);
   const [delivery, setDelivery] = useState(false);
   const [singleOrder, setSingleOrder] = useState(null);
+  const navigate = useNavigate();
   let count = 1;
 
   const singleOrderFuction = (id) => {
@@ -25,16 +27,26 @@ export const PaymentPage = () => {
     }, 21000);
   };
 
-  useEffect(() => {
-    getOrderByUserIdFetch(user.id).then((data) => setOrders(data));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const deleteOrder = (id) => {
+    deleteBusketOrderFetch(id);
+    setOrders(orders.filter((order) => order._id !== id));
+  };
+  
+  useLayoutEffect(() => {
+    getOrderByUserIdFetch(user.id).then((data) => {
+      setOrders(data)});
+    }, [ user.id] );  
 
 
   return (
     <>
       <Header />
       <div className={style.PaymentPage}>
+        {orders.length > 0 ? (
+          null
+        ): (
+          <button className={style.DeleteButton} onClick={() => navigate("/")}>Вы отказались от всех заказов. Выберете что-нибудь другое</button>
+        )}
         {orders
           ?.filter((order) => order.paid === false)
           .map((order) => (
@@ -66,6 +78,12 @@ export const PaymentPage = () => {
                     onClick={() => getCheckedOrders(order._id)}
                   >
                     Оплатить
+                  </button>
+                  <button
+                    className={style.DeleteButton}
+                    onClick={() => deleteOrder(order._id)}
+                  >
+                    Удалить
                   </button>
                   <div>Представим, что здесь будет процесс оплаты.</div>
                 </div>

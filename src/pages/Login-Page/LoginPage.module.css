@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   margin: auto;
-  padding: 200px 100px 200px 100px;
+  padding: 100px 100px 0 100px;
+  margin: 50px auto;
 }
 
 .LoginPageContent {
@@ -65,7 +66,11 @@ button:hover {
   font-size: 20px;
   text-align: center;
   margin-top: 50px;
-  font-weight: 400;
+  font-weight: 600;
+  background-color: #fa7d097b ;
+  padding: 20px;
+  border-radius: 25px;
+  border: 1px solid black;
 }
 
 .register {
