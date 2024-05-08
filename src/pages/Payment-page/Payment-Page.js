@@ -1,13 +1,17 @@
 import style from "./payment-page.module.css";
-import {  useState, useLayoutEffect, useEffect,  } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Header, Delivery } from "../components";
-import { getOrderByUserIdFetch, setBusketOrdersParams, deleteBusketOrderFetch } from "../../fetchs";
+import {
+  getOrderByUserIdFetch,
+  setBusketOrdersParams,
+  deleteBusketOrderFetch,
+} from "../../fetchs";
 
 export const PaymentPage = () => {
   const user = useSelector((state) => state.user);
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState(null);
   const [delivery, setDelivery] = useState(false);
   const [singleOrder, setSingleOrder] = useState(null);
   const navigate = useNavigate();
@@ -31,22 +35,24 @@ export const PaymentPage = () => {
     deleteBusketOrderFetch(id);
     setOrders(orders.filter((order) => order._id !== id));
   };
-  
-  useLayoutEffect(() => {
-    getOrderByUserIdFetch(user.id).then((data) => {
-      setOrders(data)});
-    }, [ user.id] );  
+
+useEffect(() => {
+    getOrderByUserIdFetch(user.id).then((newData) => {
+        setOrders(newData);
+    });
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
 
   return (
     <>
       <Header />
       <div className={style.PaymentPage}>
-        {orders.length > 0 ? (
-          null
-        ): (
-          <button className={style.DeleteButton} onClick={() => navigate("/")}>Вы отказались от всех заказов. Выберете что-нибудь другое</button>
-        )}
+        {orders?.length === 0 ? (
+          <button className={style.DeleteButton} onClick={() => navigate("/")}>
+            Вы отказались от всех заказов. Выберете что-нибудь другое.
+          </button>
+        ) : null}
         {orders
           ?.filter((order) => order.paid === false)
           .map((order) => (

@@ -17,14 +17,14 @@ export const Delivery = ({ singleOrder }) => {
   useEffect(() => {
     setTimeout(() => {
       setOrder(true);
-    }, 7000);
+    }, 5000);
     setTimeout(() => {
       setOrderInTransfer(true);
-    }, 14000);
+    }, 10000);
     setTimeout(() => {
       now();
       setOrderDelivered(true);
-    }, 21000);
+    }, 15000);
     setTimeout(() => {
       dispatch(
         openModal({
@@ -39,7 +39,7 @@ export const Delivery = ({ singleOrder }) => {
           },
         })
       );
-    }, 25000);
+    }, 20000);
   }, [dispatch, navigate]);
 
   return (

@@ -4,7 +4,7 @@ export const Reports = ({ users, reports, deleteReport }) => {
   return (
     <>
       {reports?.map((report) => (
-        <div className={style.AdminReportsWrapper}>
+        <div className={style.AdminReportsWrapper} key={report._id}>
           <div className={style.ReportWrapper}>
             <div className={style.ReportTitle}>
               Login: {users.find(({ id }) => id === report.userId).login}
