@@ -1,0 +1,88 @@
+figure {
+  display: flex;
+}
+figure img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 10%;
+  border: 2px solid #000000;
+  margin-right: 1.5rem;
+  padding: 1rem;
+  /* color: #021d38; */
+}
+figure figcaption {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.DeliveryText {
+  font-size: 30px;
+  font-weight: 500;
+  color: #000;
+}
+figure figcaption h6 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #000;
+}
+figure figcaption h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #000;
+}
+
+.orderTrack {
+  margin-top: 2rem;
+  padding: 0 1rem;
+  border-top: 1px dashed #000000;
+  padding-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.orderTrackStep {
+  display: flex;
+  height: 7rem;
+  margin-bottom: 20px;
+}
+.orderTrackStep:last-child {
+  overflow: hidden;
+  height: 4rem;
+}
+.orderTrackStep:last-child .orderTrackStatus span:last-of-type {
+  display: none;
+}
+.orderTrackStatus {
+  margin-right: 1.5rem;
+  position: relative;
+}
+.orderTrackStatusDot {
+  display: block;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: #000000;
+}
+.orderTrackStatusLine {
+  display: block;
+  margin: 0 auto;
+  width: 2px;
+  height: 7rem;
+  background: #000000;
+}
+.orderTrackTextStat {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 3px;
+  color: #000000;
+}
+.orderTrackTextSub {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #000000;
+}
+
+.orderTrack {
+  transition: all 0.3s height 0.3s;
+  transform-origin: top center;
+}

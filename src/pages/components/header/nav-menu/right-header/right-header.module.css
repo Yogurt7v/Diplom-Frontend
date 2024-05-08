@@ -1,0 +1,89 @@
+.authWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.HeaderAuth {
+  display: flex;
+  align-items: center;
+  padding-right: 90px;
+  gap: 30px;
+  width: auto;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+  font-size: 20px;
+  color: #ff0000;
+}
+
+.exitButton {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.HeaderExit {
+  display: flex;
+  width: 40px;
+  height: 40px;
+}
+
+.HeaderLogin {
+  border: 3px solid transparent;
+  border-radius: 14px;
+  width: 50px;
+  height: 50px;
+}
+
+.HeaderLogin:hover {
+  cursor: pointer;
+  border: 2px solid #fa7d09;
+  border-radius: 14px;
+  padding: 3px;
+  transform: scale(1.4);
+  transition: 1s;
+}
+
+.HeaderRegistration {
+  border: 3px solid transparent;
+  border-radius: 14px;
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.HeaderRegistration:hover {
+  cursor: pointer;
+  border: 2px solid #fa7d09;
+  border-radius: 14px;
+  margin-right: 20px;
+  padding: 3px;
+  transform: scale(1.4);
+  transition: 1s;
+}
+
+.newProduct {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid transparent;
+  border-radius: 14px;
+  width: 50px;
+  height: 50px;
+  background-color: #fa7d09;
+  text-decoration: none;
+}
+
+.HeaderAdd {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  color: #000000;
+}

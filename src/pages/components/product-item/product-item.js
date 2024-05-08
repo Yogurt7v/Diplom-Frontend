@@ -3,9 +3,7 @@ import style from "./product-item.module.css";
 export const ProductItem = () => {
   return (
     <div className={style.ProductItemWrapper}>
-      <div className={style.ProductImage}>
-        {/* <img src="" alt="" className={style.ProductImageItem}/> */}
-      </div>
+      <div className={style.ProductImage}></div>
       <div className={style.ProductDescription}>
         <div className={style.ProductDescriptionWrapper}>
           <h3 className={style.ProductTitle}>Title</h3>

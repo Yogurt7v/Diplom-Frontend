@@ -1,0 +1,28 @@
+.PaginationWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+  @media screen and (max-width: 2560) {
+    bottom: 100px;
+  }
+}
+
+.Pagination {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 90vw;
+  gap: 20px;
+}
+
+.normal {
+  width: 150px;
+  height: 30px;
+  background-color: #fa7d09;
+  border: 1px solid #fa7d09;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
+}

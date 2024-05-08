@@ -7,6 +7,7 @@ import img4 from "./Image/4.jpg"
 import img5 from "./Image/5.jpg"
 import img6 from "./Image/6.jpg"
 import img7 from "./Image/7.webp"
+import adress from "./Image/adress.png"
 
 // Import Swiper styles
 import "swiper/css";
@@ -30,9 +31,11 @@ export default function Slider() {
       >
         <SwiperSlide><img src={img1} alt=""/></SwiperSlide>
         <SwiperSlide><img src={img2} alt=""/></SwiperSlide>
+        <SwiperSlide><img src={adress} alt=""/></SwiperSlide>
         <SwiperSlide><img src={img3} alt=""/></SwiperSlide>
         <SwiperSlide><img src={img4} alt=""/></SwiperSlide>
         <SwiperSlide><img src={img5} alt=""/></SwiperSlide>
+        <SwiperSlide><img src={adress} alt=""/></SwiperSlide>
         <SwiperSlide><img src={img6} alt=""/></SwiperSlide>
         <SwiperSlide><img src={img7} alt=""/></SwiperSlide>
       </Swiper>

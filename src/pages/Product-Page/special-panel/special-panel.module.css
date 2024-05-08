@@ -1,0 +1,14 @@
+.SpecialPanelButtons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.TrashIcon {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  color: #000000;
+  margin-right: 30px;
+}

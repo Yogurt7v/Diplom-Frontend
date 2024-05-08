@@ -1,63 +1,60 @@
-.ProductItemWrapper{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 50px;
-    width: 100%;
+.ProductItemWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 50px;
+  width: 100%;
 }
 
-.ProductImage{
-    padding: 20px 20px;
-    width: 200px;
-    height: 200px;
+.ProductImage {
+  padding: 20px 20px;
+  width: 200px;
+  height: 200px;
 }
 
-
-.ProductDescription{
-    display: flex;
-    width: 100%;
-    height: 200px;
-    padding: 20px 20px;
+.ProductDescription {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  padding: 20px 20px;
 }
 
-.ProductDescriptionWrapper{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
+.ProductDescriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-.ProductTitle{
-    font-size: 30px;
-    margin-bottom: 20px;
+.ProductTitle {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 
-.ProductQuantity{
-    font-size: 20px;
-    margin-bottom: 20px;
+.ProductQuantity {
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
-.ProductPrice{
-    font-size: 20px;
-    margin-bottom: 20px;
+.ProductPrice {
+  font-size: 20px;
+  margin-bottom: 20px;
 }
 
-.ProductButton{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: space-between;
-    width: 300px;
+.ProductButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 300px;
 }
 
-.ProductButtonBuy{
-    margin: auto;
-    width: 100%;
-    height: 50px;
-    font-size: 20px;
+.ProductButtonBuy {
+  margin: auto;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
 }
 
-.ProductId{
-    font-size: 12px;
+.ProductId {
+  font-size: 12px;
 }
-

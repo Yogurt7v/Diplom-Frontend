@@ -1,63 +1,47 @@
 import style from "./header.module.css";
-import React from "react";
-import exit from "../../../icons/exit.svg"
-import NavMenu from "./nav-menu/NavMenu";
-import Logo from "./image/Logo2.png";
-import login from "./image/login.svg";
-import registration from "./image/registration.svg";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../../actions";
+import { useNavigate } from "react-router-dom";
+import { logout, clearBusketData } from "../../../actions";
+import { NavMenu, LeftHeader, RightHeader } from "./nav-menu";
 
-export const Header = () => {
+export const Header = ({ onCategoryChange, isActiveItem, loading }) => {
   const loginName = useSelector((state) => state.user.login);
   const session = useSelector((state) => state.user.session);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
+  const [visible, setVisible] = useState(true);
 
   const onLogout = () => {
+
     dispatch(logout(session));
-    sessionStorage.removeItem("userData");
+    localStorage.removeItem("userData");
+    dispatch(clearBusketData());
+    let currentURL = window.location.pathname;
+    if (currentURL === "/admin-panel") {
+      navigate("/");
+    }
   };
+
+  useEffect(() => {
+    let currentURL = window.location.pathname;
+    if (currentURL !== "/") {
+      setVisible(false);
+    }
+  }, []);
 
   return (
     <div className={style.HeaderWrapper}>
-      <div className={style.LogoAndName}>
-        <div className={style.HeaderLogoWrapper}>
-          <NavLink to={"/"}>
-            <img src={Logo} alt="logo" className={style.HeaderLogo} />
-          </NavLink>
-        </div>
-        <div className={style.HeaderTitleWrapper}>
-          <NavLink to={"/"}>
-            <h1 className={style.HeaderTitle}>
-              FastBurger <br></br> Fast & Delicious
-            </h1>
-          </NavLink>
-        </div>
-      </div>
+      <LeftHeader loading={loading} />
       <div className={style.HeaderMenuWrapper}>
-        <NavMenu />
-      </div>
-      {loginName ? (
-        <div className={style.authWrapper}>
-          <div className={style.HeaderAuth}> {loginName} </div>
-          <button className={style.exitButton} onClick={onLogout}>
-          <img src={exit}  className={style.HeaderExit} alt="exit button" />
-          </button>
-        </div>
-      ) : (
-        <div className={style.HeaderAuth}>
-          <NavLink to={"/login"}>
-            <img src={login} alt="Вход" className={style.HeaderLogin} />
-          </NavLink>
-          <img
-            src={registration}
-            alt="Регистрация"
-            className={style.HeaderRegistration}
+        {visible ? (
+          <NavMenu
+            onCategoryChange={onCategoryChange}
+            isActiveItem={isActiveItem}
           />
-        </div>
-      )}
+        ) : null}
+      </div>
+      <RightHeader loginName={loginName} onLogout={onLogout} />
     </div>
   );
 };

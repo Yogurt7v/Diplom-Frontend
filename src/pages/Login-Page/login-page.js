@@ -1,15 +1,16 @@
 import style from "./loginPage.module.css";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { server } from "../../Bff/";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {selectUserRole} from "../../selectors"
-import { useResetForm } from "../../hooks";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { selectUserRole } from "../../selectors";
 import { setUser } from "../../actions";
+import { useResetForm } from "../../hooks";
 import { ROLE } from "../../constants/role";
+import { Header } from "../components";
+import { loginUser } from "../../fetchs";
 
 const authFormSchema = yup.object().shape({
   login: yup
@@ -47,13 +48,13 @@ export const LoginPage = () => {
   useResetForm(reset);
 
   const onSubmit = ({ login, password }) => {
-    server.authorize(login, password).then(({ error, res }) => {
+    loginUser(login, password).then(({ error, res }) => {
       if (error) {
-        setServerError(`Ошибка запроса ${error}`);
+        setServerError(`${error}`);
         return;
       }
       dispatch(setUser(res));
-      sessionStorage.setItem("userData", JSON.stringify(res));
+      localStorage.setItem("userData", JSON.stringify(res));
       setServerError(null);
     });
   };
@@ -67,10 +68,12 @@ export const LoginPage = () => {
 
   return (
     <>
+      <Header />
       <div className={style.LoginPageWrapper}>
         <div className={style.LoginPageContent}>Login Page</div>
         <form onSubmit={handleSubmit(onSubmit)} className={style.LoginPageForm}>
           <input
+            className={style.LoginPageInput}
             type="text"
             placeholder="Login"
             {...register("login", {
@@ -78,6 +81,7 @@ export const LoginPage = () => {
             })}
           ></input>
           <input
+            className={style.LoginPageInput}
             type="password"
             placeholder="Password"
             autoComplete="on"
@@ -86,12 +90,17 @@ export const LoginPage = () => {
             })}
           ></input>
           <button
+            className={style.LoginPageButton}
             type="submit"
             disabled={!!formError}
             children={"Авторизоваться"}
           ></button>
-          {errorMessage && <div className={style.errorMessage}>{errorMessage}</div>}
-          <Link to="/register" className={style.register}>Регистрация</Link>
+          {errorMessage && (
+            <div className={style.errorMessage}>{errorMessage}</div>
+          )}
+          <Link to="/register" className={style.register}>
+            Регистрация
+          </Link>
         </form>
       </div>
     </>

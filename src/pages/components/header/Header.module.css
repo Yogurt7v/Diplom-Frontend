@@ -14,136 +14,29 @@
   -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
 
-}
 
-.LogoAndName {
-  display: flex;
-  height: 100%;
-}
+  @media screen and (max-width: 480px) {
 
-.HeaderLogoWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 30px 10px 100px
-}
-
-.HeaderLogo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-}
-
-
-.HeaderTitleWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px 40px;
-  cursor: pointer;
-}
-
-.HeaderTitle {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 35px;
-  color: var(--button-color);
-  text-shadow: 
-  -0   -1px 3px #000000,
-   0   -1px 3px #000000,
-  -0    1px 3px #000000,
-   0    1px 3px #000000,
-  -1px -0   3px #000000,
-   1px -0   3px #000000,
-  -1px  0   3px #000000,
-   1px  0   3px #000000,
-  -1px -1px 3px #000000,
-   1px -1px 3px #000000,
-  -1px  1px 3px #000000,
-   1px  1px 3px #000000,
-  -1px -1px 3px #000000,
-   1px -1px 3px #000000,
-  -1px  1px 3px #000000,
-   1px  1px 3px #000000;
-  /* line-height: 50px; */
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+  }
 }
 
 .HeaderMenuWrapper {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   width:600px;
   height: 100%;
 }
 
-.HeaderAuth {
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  margin-right: 90px;
-  gap: 20px;
-  width: 200px;
-  height: 100px;
-}
 
-.HeaderLogin {
-  border: 3px solid transparent;
-  border-radius: 14px;
-  width: 50px;
-  height: 50px;
-}
 
-.HeaderLogin:hover {
-  cursor: pointer;
-  border: 2px solid #FA7D09;
-  border-radius: 14px;
-  padding: 3px;
-  transform: scale(1.4);
-  transition: 1.0s;
 
-}
 
-.HeaderRegistration {
-  border: 3px solid transparent;
-  border-radius: 14px;
-  width: 50px;
-  height: 50px;
-}
 
-.HeaderRegistration:hover {
-  cursor: pointer;
-  border: 2px solid #FA7D09;
-  border-radius: 14px;
-  padding: 3px;
-  transform: scale(1.4);
-  transition: 1.0s;
-}
 
-.authWrapper{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-right: 20px;
-}
-
-.HeaderAuth{
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  font-size: 20px;
-  color: #ff0000;
-}
-
-.HeaderExit{
-  width: 40px;
-  height: 40px;
-}
-
-.exitButton{
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-}

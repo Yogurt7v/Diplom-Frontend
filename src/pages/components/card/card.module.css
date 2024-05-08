@@ -1,29 +1,32 @@
 .CardWrapper {
   display: flex;
-  width: 100%;
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  background-color: #fa7d09;
+  flex-direction: column;
+  align-items: center;
+  height: 580px;
+  min-height: 370px;
+  padding: 20px 20px;
+  background-color: #fa7d09f0;
+  border: 2px solid black;
   border-radius: 10px;
   color: black;
+  box-shadow: 0px 13px 42px 37px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
-  box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
+  width: 350px;
 }
 
 .CardLogo {
-  margin: auto;
-  width: 100px;
-  height: 100px;
+  margin: 10px 0;
+  width: 250px;
+  height: 250px;
   border-radius: 10px;
-  background-color: rgb(50, 7, 50);
-  margin-right: 10px;
 }
 
 .CardImage {
-  width: 100px;
-  height: 100px;
+  width: 250px;
+  height: 250px;
   border-radius: 10px;
+  border: 2px solid black;
   -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
   box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
@@ -31,6 +34,8 @@
 
 .CardInfo {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 100%;
 }
@@ -39,43 +44,31 @@
   display: flex;
   justify-content: flex-end;
   font-weight: 800;
-  font-size: 24px;
-  padding-right: 30px;
+  font-size: 40px;
 }
 
 .CardTitle {
-  padding: 15px 0 0 30px ;
+  margin: 0;
+  padding: 10px 0 10px 0;
   display: flex;
   font-size: 24px;
   font-weight: 700;
 }
 
-h3{
+h3 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
-.CardDescription {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding-left: 20px;
-}
-
-.CardButtonWrapper {
-  display: flex;
-  align-items: center ;
-  justify-content: flex-end;
-  padding-top: 15px;
-  padding-bottom: 10px;
+button {
+  padding: 0;
 }
 
 .CardButton {
-  margin-right: 30px;
+  margin: 15px 0 15px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 120px;
+  width: 180px;
   height: 40px;
   border: none;
   border-radius: 8px;
@@ -86,10 +79,67 @@ h3{
 }
 
 .CardButton:hover {
-border: 4px solid white;
-color: white;
-box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4301, 0 0 70px #ff4301, 0 0 80px #ff4301, 0 0 100px #ff4301, 0 0 150px #ff4301;
-transform: scale(1.2);
+  border: 4px solid white;
+  color: white;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4301,
+    0 0 70px #ff4301, 0 0 80px #ff4301, 0 0 100px #ff4301, 0 0 150px #ff4301;
+  transform: scale(1.1);
   transition: 0.5s;
+}
 
+.CardDescription {
+  min-height: 72px;
+  max-height: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.CardQuantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 20px;
+}
+
+.Increment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.quantityNumber {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.normal {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+}
+
+.normal:hover {
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4301,
+    0 0 70px #ff4301, 0 0 80px #ff4301, 0 0 100px #ff4301, 0 0 150px #ff4301;
+  transition: 0.5s;
+}
+.Cover {
+  display: flex;
+  width: 35px;
+  height: 35px;
+}
+
+.disabled {
+  opacity: 0.1;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
 }

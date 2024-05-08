@@ -1,0 +1,46 @@
+.AdminPanelWrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 70%;
+    padding: 50px;
+    border-radius: 15px;
+    border : 3px solid black;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 50px;
+    background-color: #ED780A;
+    
+}
+
+.AdminPanelDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+}
+
+.AdminPanelSummary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+}
+
+.AdminPanelSummary:hover{
+    text-decoration: underline;
+}
+
+.userMessage{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    text-shadow: red 0px 0px 5px;
+}
+
