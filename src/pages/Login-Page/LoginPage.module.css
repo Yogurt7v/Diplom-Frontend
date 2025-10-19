@@ -3,9 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  padding: 100px 100px 0 100px;
-  margin: 50px auto;
+  min-height: 100vh;
+  padding: 40px 20px;
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
 }
 
 .LoginPageContent {
@@ -25,39 +27,70 @@
 }
 
 .LoginPageInput {
-  width: 30%;
-  height: 30px;
+  width: 100%;
+  height: 48px;
   margin-bottom: 20px;
-  border-radius: 25px;
-  box-shadow: 5px 5px 34px 4px #872400;
-  border: none;
-  font-size: 20px;
-  padding-left: 20px;
-  background-color: #fa7d09;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-medium);
+  border: 2px solid transparent;
+  font-size: 16px;
+  padding: 0 20px;
+  background: linear-gradient(135deg, #fa7d09 0%, #ff8a08 100%);
+  color: #000;
+  transition: all 0.3s ease;
 }
+
 .LoginPageInput:focus {
-  outline: 3px solid red;
+  outline: none;
+  border-color: #ff4301;
+  box-shadow: 0 0 0 3px rgba(255, 67, 1, 0.2);
+  transform: translateY(-2px);
 }
 
 .LoginPageInput::placeholder {
   color: #9b1402;
+  font-weight: 500;
 }
 
 .LoginPageButton {
-  width: 30%;
-  height: 60px;
-  border-radius: 25px;
-  box-shadow: 5px 5px 34px 4px #872400;
+  width: 100%;
+  height: 52px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-medium);
   border: none;
-  font-size: 20px;
-  padding-left: 20px;
-  background-color: #fa7d09;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #e43306 0%, #ff4301 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-button:hover {
-  background-color: #9b1402;
-  transition: 0.5s ease-in-out;
-  cursor: pointer;
+.LoginPageButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.LoginPageButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(228, 51, 6, 0.4);
+  background: linear-gradient(135deg, #ff4301 0%, #e43306 100%);
+}
+
+.LoginPageButton:hover::before {
+  left: 100%;
+}
+
+.LoginPageButton:active {
+  transform: translateY(0);
 }
 
 .errorMessage {
@@ -88,4 +121,46 @@ button:hover {
   color: #9b1402;
   font-size: 24px;
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .LoginPageWrapper {
+    padding: 20px 15px;
+  }
+  
+  .LoginPageContent {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+  .LoginPageInput {
+    height: 44px;
+    font-size: 16px;
+  }
+  
+  .LoginPageButton {
+    height: 48px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .LoginPageWrapper {
+    padding: 15px 10px;
+  }
+  
+  .LoginPageContent {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+  
+  .LoginPageInput {
+    height: 40px;
+    font-size: 14px;
+  }
+  
+  .LoginPageButton {
+    height: 44px;
+    font-size: 14px;
+  }
 }

@@ -21,16 +21,16 @@ export const MainContent = ({
   const [perPage, setPerPage] = useState(4);
 
   useEffect(() => {
-    if (windowWidth > 1350) {
+    if (windowWidth > 1400) {
       setPerPage(4);
     }
-    if (windowWidth <= 1350) {
+    if (windowWidth <= 1400 && windowWidth > 1000) {
       setPerPage(3);
     }
-    if (windowWidth <= 1030) {
+    if (windowWidth <= 1000 && windowWidth > 768) {
       setPerPage(2);
     }
-    if (windowWidth <= 970) {
+    if (windowWidth <= 768) {
       setPerPage(1);
     }
   }, [windowWidth, setWindowWidth]);
@@ -88,7 +88,9 @@ export const MainContent = ({
             )}
           </div>
         ) : (
-          [...new Array(4)].map((index) => <SkeletonCard key={index} />)
+          <div className={style.ContentCardList}>
+            {[...new Array(4)].map((_, index) => <SkeletonCard key={index} />)}
+          </div>
         )}
       </div>
       <Pagination

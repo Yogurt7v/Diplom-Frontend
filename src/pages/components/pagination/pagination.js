@@ -17,7 +17,7 @@ export const Pagination = ({
     <div className={style.PaginationWrapper}>
       <ul className={style.Pagination}>
         <button onClick={previousPage} className={style.normal}>
-          Предыдущая
+          {"<"}
         </button>
         {pageNumbers.map((number) => (
           <button
@@ -29,7 +29,7 @@ export const Pagination = ({
           </button>
         ))}
         <button onClick={nextPage} className={style.normal}>
-          Следующая
+          {">"}
         </button>
       </ul>
     </div>

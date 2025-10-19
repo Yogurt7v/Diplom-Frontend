@@ -2,27 +2,82 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
-
-  @media screen and (max-width: 2560) {
-    bottom: 100px;
-  }
+  padding: 0 20px;
 }
 
 .Pagination {
   display: flex;
   justify-content: center;
-  text-align: center;
-  width: 90vw;
-  gap: 20px;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .normal {
-  width: 150px;
-  height: 30px;
-  background-color: #fa7d09;
-  border: 1px solid #fa7d09;
+  min-width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #fa7d09 0%, #ff8a08 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #000;
   cursor: pointer;
-  font-weight: bold;
-  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-light);
+}
+
+.normal:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  background: linear-gradient(135deg, #ff8a08 0%, #fa7d09 100%);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.normal:active {
+  transform: translateY(0);
+}
+
+.normal:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .PaginationWrapper {
+    margin: 30px 0;
+    padding: 0 15px;
+  }
+  
+  .Pagination {
+    gap: 6px;
+  }
+  
+  .normal {
+    min-width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .PaginationWrapper {
+    margin: 20px 0;
+    padding: 0 10px;
+  }
+  
+  .Pagination {
+    gap: 4px;
+  }
+  
+  .normal {
+    min-width: 32px;
+    height: 32px;
+    font-size: 11px;
+  }
 }
