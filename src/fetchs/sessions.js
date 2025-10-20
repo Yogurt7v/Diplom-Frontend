@@ -1,8 +1,13 @@
-export const transformSession = (dbSession) => ({
-    id: dbSession._id,
-    hash: dbSession.hash,
-    user: dbSession.user
-});
+export const transformSession = (dbSession) => {
+    if (!dbSession) {
+        return null;
+    }
+    return {
+        id: dbSession._id,
+        hash: dbSession.hash,
+        user: dbSession.user
+    };
+};
 
 
 export const addSessionFetch = (hash, user) => {
@@ -18,12 +23,24 @@ export const addSessionFetch = (hash, user) => {
     });
   };
   
-export const getSessionFetch = async (hash) =>{
-
-  const result = await fetch(`http://localhost:3005/sessions/${hash}`)
-  .then((loadedSession) =>loadedSession.json()).then((session) => transformSession(session))
-  return result
-
+export const getSessionFetch = async (hash) => {
+  try {
+    const response = await fetch(`http://localhost:3005/sessions/${hash}`);
+    
+    if (response.status === 404) {
+      return null;
+    }
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const session = await response.json();
+    return transformSession(session);
+  } catch (error) {
+    console.error('Error fetching session:', error);
+    return null;
+  }
 }
 export const deleteSessionFetch = async (sessionId) => {
 
@@ -45,12 +62,16 @@ export const sessions = {
   },
 
   async remove(hash) {
-
-    const session = await getSessionFetch(hash);
-    if (!session) {
-      return
+    try {
+      const session = await getSessionFetch(hash);
+      if (!session) {
+        console.log('Session not found for removal');
+        return;
+      }
+      await deleteSessionFetch(session.id);
+    } catch (error) {
+      console.error('Error removing session:', error);
     }
-    deleteSessionFetch(session.id);
   },
   
   async access (hash, accessRoles) {

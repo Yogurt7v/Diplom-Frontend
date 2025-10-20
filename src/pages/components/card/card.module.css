@@ -4,15 +4,37 @@
   align-items: center;
   height: 580px;
   min-height: 370px;
-  padding: 20px 20px;
-  background-color: #fa7d09f0;
-  border: 2px solid black;
-  border-radius: 10px;
-  color: black;
-  box-shadow: 0px 13px 42px 37px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
+  padding: 24px;
+  background: linear-gradient(135deg, #fa7d09 0%, #ff8a08 50%, #ffc100 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius);
+  color: #000;
+  box-shadow: var(--shadow-heavy);
   width: 350px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.CardWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.CardWrapper:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(250, 125, 9, 0.4);
+}
+
+.CardWrapper:hover::before {
+  transform: translateX(100%);
 }
 
 .CardLogo {
@@ -25,11 +47,15 @@
 .CardImage {
   width: 250px;
   height: 250px;
-  border-radius: 10px;
-  border: 2px solid black;
-  -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
-  -moz-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
-  box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
+  border-radius: var(--border-radius);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-medium);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.CardWrapper:hover .CardImage {
+  transform: scale(1.05);
 }
 
 .CardInfo {
@@ -64,27 +90,48 @@ button {
 }
 
 .CardButton {
-  margin: 15px 0 15px 0;
+  margin: 15px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 180px;
-  height: 40px;
+  height: 44px;
   border: none;
-  border-radius: 8px;
-  background-color: #e43306;
-  font-size: 20px;
+  border-radius: var(--border-radius);
+  background: linear-gradient(135deg, #e43306 0%, #ff4301 100%);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
-  -webkit-box-shadow: 5px 5px 34px 4px rgba(0, 0, 0, 0.6);
+  box-shadow: var(--shadow-medium);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.CardButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
 }
 
 .CardButton:hover {
-  border: 4px solid white;
-  color: white;
-  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff4301,
-    0 0 70px #ff4301, 0 0 80px #ff4301, 0 0 100px #ff4301, 0 0 150px #ff4301;
-  transform: scale(1.1);
-  transition: 0.5s;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(228, 51, 6, 0.4);
+  background: linear-gradient(135deg, #ff4301 0%, #e43306 100%);
+}
+
+.CardButton:hover::before {
+  left: 100%;
+}
+
+.CardButton:active {
+  transform: translateY(0);
 }
 
 .CardDescription {
